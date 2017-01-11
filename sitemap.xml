@@ -222,12 +222,6 @@
     </url>
         
     <url>
-     <loc>/Reference/High Availability & Clustering/</loc>
-     <lastmod>2017-01-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>/Reference/Linking/</loc>
      <lastmod>2017-01-11</lastmod>
      <changefreq>daily</changefreq>
@@ -253,6 +247,12 @@
         
     <url>
      <loc>/Reference/health/</loc>
+     <lastmod>2017-01-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/Reference/high-availability/</loc>
      <lastmod>2017-01-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
