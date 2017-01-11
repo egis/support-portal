@@ -309,21 +309,62 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#high-availability">High Availability</a></li>
-            <li><a href="#replication-master-master">Replication (Master – Master)</a></li>
-            <li><a href="#replicated-installation">Replicated installation.</a></li>
+            <li><a href="#master-node">Master Node</a></li>
+            <li><a href="#file-replication">File Replication</a></li>
+            <li><a href="#index-replication">Index Replication</a></li>
+            <li><a href="#replication">Replication</a></li>
             <li><a href="#clustering">Clustering</a></li>
+            <li><a href="#cold-standby">Cold Standby</a></li>
+            <li><a href="#warm-standby">Warm Standby</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h1 id="high-availability">High Availability</h1>
-<h2 id="replication-master-master">Replication (Master – Master)</h2>
+<p>PaperTrail support 4 distinct modes of HA operation:</p>
 <ol>
-<li>Use the <strong>New Replication Installation</strong> option in the wizard on both the master and slave.  </li>
-<li>Check <strong>Master</strong> on the primary node.  </li>
-<li>The master node is responsible for <strong>triggering timeouts</strong>, running <strong>scheduled rules</strong> etc.  </li>
+<li>Replication</li>
+<li>Clustering</li>
+<li>Cold/Warm Standby</li>
 </ol>
-<h2 id="replicated-installation">Replicated installation.</h2>
+<h3 id="master-node">Master Node</h3>
+<p>Whether using replication or clustering, which node is configured as master will matter is it is responsible for running a number of background jobs including:</p>
+<ul>
+<li>workflow and allocation timeouts</li>
+<li>scheduled rules</li>
+<li>out of office start/end</li>
+<li>diarize start</li>
+<li>reminders</li>
+</ul>
+<p>Should the master fail, a new master needs to be configured.</p>
+<p><strong>Email</strong> and <strong>Folder</strong> watches are configured per server/node so that load can be manually balanced, should a node fail, then the watches that were configured for it will need to be manually moved.</p>
+<h3 id="file-replication">File Replication</h3>
+<p>PaperTrail has a builtin file replication engine that supports both <strong>master-master</strong> and <strong>master-slave</strong> it is configued by specifying:
+ <code>file.replication.upstream=http://slave:8080</code></p>
+<p>In the background this configures 2 File/Blob stores:</p>
+<ol>
+<li>A sync local filesystem store (only a single sync store is supported and is considered the primary)</li>
+<li>An async persistent sencondary store   </li>
+</ol>
+<blockquote>
+<p><strong>Async</strong> stores fully support intermittent WAN connections and will retry all operations. All operations are queued under the <code>{store name}.write</code> and  <code>{store name}.delete</code> message queues</p>
+</blockquote>
+<p>Their are 2 alternatives to full replication of files:</p>
+<ol>
+<li>configure the slave or secondary members to read/write files from the master using a <strong>HTTP</strong> store as the primary sync store. It is recommended to enable <strong>WORM</strong> (Write once read many) on secondary nodes </li>
+<li>Use an object storage platform like Amazon S3 and have all members use it as the primary </li>
+</ol>
+<blockquote>
+<p>PaperTrail needs low latency access to the primary sync file store so if you are using Amazon S3 ensure that PaperTrail is hosted in the same AWS region as the  S3 bucket.</p>
+</blockquote>
+<h3 id="index-replication">Index Replication</h3>
+<p>Specifing a slave server for <code>index.upstream</code> will only work for 2 node clusters, for 2+ nodes switch to messaging based replication using:</p>
+<pre><code>index.upstream=topic
+</code></pre>
+
+<p>It is recommended in both scenarios to setup a scheduled <code>index_repair</code> task.</p>
+<h2 id="replication">Replication</h2>
+<p><img alt="replication" src="../../images/ha-replication.png" /></p>
 <p>To convert a standalone installation to a replicated installation, follow these steps:  </p>
 <ul>
 <li>Stop PaperTrail and create a <strong>database backup</strong>.  </li>
@@ -342,8 +383,8 @@ db.identity.override=true # for sql server replication only
 <li>Configure these properties on the slave:  </li>
 </ul>
 <pre><code class="javascript">index.upstream=http://master:8080  
-replication.upstream=http:// master:8080
-file.replication.upstream=http:// master:8080  
+replication.upstream=http://master:8080
+file.replication.upstream=http://master:8080  
 replication.master=false  
 replication.increment=2  
 replication.offset=2  
@@ -355,25 +396,29 @@ db.identity.override=true # for sql server replication only
 <li>Wait a few minutes and start up the slave</li>
 </ul>
 <h2 id="clustering">Clustering</h2>
-<ul>
-<li>Select the <strong>New Clustering</strong> installation from the wizard:  </li>
-</ul>
-<p>OR</p>
-<ul>
-<li>Add these properties to the <strong>papertrail.properties</strong>  </li>
-</ul>
-<pre><code class="javascript">index.upstream=http://slave:8080   
-cluster.enable=true   
-storage.upstream=http://slave:8080  
-</code></pre>
-
-<ul>
-<li>Restart PaperTrail.</li>
-</ul>
+<p><img alt="replication" src="../../images/ha-clustering.png" /></p>
 <blockquote>
 <p>Note: Clustering requires a low latency (&lt;1ms), reliable (preferably dual path redundant network) network connection to function correctly.  Replication can be used in WAN environments.</p>
 </blockquote>
-<p>Ensure that port <code>5701</code> is open for inbound traffic from all cluster members to all cluster members. See <a href="http://docs.hazelcast.org/docs/3.3/manual/html/ports.html">Hazelcast Ports</a></p></div>
+<ol>
+<li>Ensure that port <code>5701</code> is open for inbound traffic from all cluster members to all cluster members. See <a href="http://docs.hazelcast.org/docs/3.3/manual/html/ports.html">Hazelcast Ports</a></li>
+<li>Add these properties to the <strong>papertrail.properties</strong>  </li>
+</ol>
+<pre><code>index.upstream=http://slave:8080
+cluster.enable=true
+file.replication.upstream=http://slave:8080  
+</code></pre>
+
+<ol>
+<li>Restart PaperTrail.</li>
+</ol>
+<h3 id="shared-db-vs-replication-db">Shared DB vs Replication DB</h3>
+<h2 id="cold-standby">Cold Standby</h2>
+<p><img alt="replication" src="../../images/ha-cold.png" /></p>
+<p>Indexes are not replicated and PaperTrail is only started in file store replication receive mode. Failover requires re-configuration of PaperTrail for full operation + rebuilding indexes.</p>
+<h2 id="warm-standby">Warm Standby</h2>
+<p><img alt="replication" src="../../images/ha-standby.png" /></p>
+<p>Everything is replicated in near realtime, and PaperTrail is started in read only mode. Failover requires restarting PaperTrail in read/write mode. </p></div>
         </div>
 
         <footer class="col-md-12">
