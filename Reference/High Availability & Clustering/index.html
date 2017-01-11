@@ -372,7 +372,8 @@ storage.upstream=http://slave:8080
 </ul>
 <blockquote>
 <p>Note: Clustering requires a low latency (&lt;1ms), reliable (preferably dual path redundant network) network connection to function correctly.  Replication can be used in WAN environments.</p>
-</blockquote></div>
+</blockquote>
+<p>Ensure that port <code>5701</code> is open for inbound traffic from all cluster members to all cluster members. See <a href="http://docs.hazelcast.org/docs/3.3/manual/html/ports.html">Hazelcast Ports</a></p></div>
         </div>
 
         <footer class="col-md-12">
