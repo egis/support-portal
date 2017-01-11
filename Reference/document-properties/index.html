@@ -311,9 +311,6 @@
         <li class="main active"><a href="#document-properties">Document Properties</a></li>
             <li><a href="#writable-properties">Writable Properties</a></li>
             <li><a href="#special-properties">Special properties</a></li>
-            <li><a href="#arithmetic-operations">Arithmetic Operations</a></li>
-            <li><a href="#rounding">Rounding</a></li>
-            <li><a href="#method-reference">Method Reference</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -486,17 +483,7 @@
 <td>Changes the visibility of the document</td>
 </tr>
 </tbody>
-</table>
-<h2 id="arithmetic-operations">Arithmetic Operations</h2>
-<p>Most properties and all custom index values are in String format. In order to use arithmetic in filters etc, you need to first convert them to a Number type. e.g.<br />
-<code>customNumberIndex.asInt() &gt; 10000</code>  </p>
-<p>See <a href="http://docs.groovy-lang.org/latest/html/groovy-jdk/java/lang/String.html#asType(java.lang.Class)">Groovy GDK String.asType()</a></p>
-<h2 id="rounding">Rounding</h2>
-<p><code>IndexName=${(Double.valueOf(IndexName) * 1.14).round(2)}</code></p>
-<h2 id="method-reference">Method Reference</h2>
-<p><a href="http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html">String</a><br />
-<a href="http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/util/Date.html">Date</a> and <a href="http://download.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html.">SimpleDateFormat</a><br />
-<a href="http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/Number.html">Number</a>  </p></div>
+</table></div>
         </div>
 
         <footer class="col-md-12">

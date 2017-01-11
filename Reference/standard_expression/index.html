@@ -310,6 +310,7 @@
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#standard-expressions">Standard Expressions</a></li>
             <li><a href="#custom-scripts">Custom Scripts</a></li>
+            <li><a href="#method-reference">Method Reference</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -317,9 +318,14 @@
 <h1 id="standard-expressions">Standard Expressions</h1>
 <p>Expressions allow for values to be substituted at runtime. As an example of how expression values are substituted, if you are given a document with the following index values:</p>
 <pre><code class="javascript">createdDate = 2009-03-15  
-filename = test.doc  
+filename = Test.doc  
 title = sample title  
 docid = 123  
+index1 = value1
+index2 = hello123 world
+index3 = 500
+index4 = 100.15
+
 </code></pre>
 
 <p>If the basic syntax is <code>${lookup?defaultValue:format}</code> then this is how you would read the expression results using the values in the table in Document properties / indexes on page :</p>
@@ -345,20 +351,82 @@ docid = 123
 </tr>
 <tr>
 <td>${filename} - ${title} ($docid})</td>
-<td>test.doc - sample (123)</td>
+<td>Test.doc - sample (123)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="custom-scripts">Custom Scripts</h3>
-<p>Custom Groovy code can also be used e.g. to return the first 3 chars of a filename</p>
-<pre><code class="groovy">${filename.toLowerCase()[0..3]}
-</code></pre>
-
-<p>See <a href="http://docs.groovy-lang.org/docs/latest/html/groovy-jdk">Groovy JDK</a></p>
 <blockquote>
 <p>Note that due to the <code>?</code> and <code>:</code> being used to format values they cannot be used in code e.g. </p>
 </blockquote>
 <p>e.g. <code>'${index1 == 'val' ? 'yes' : 'no }</code> will not work, use <code>${ if (index1 == 'val') then 'yes' else 'no' }</code></p>
+<h3 id="custom-scripts">Custom Scripts</h3>
+<p>Custom Groovy code can also be used e.g. to</p>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Description</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filename.toLowerCase()</code></td>
+<td>test.doc</td>
+<td></td>
+</tr>
+<tr>
+<td><code>filename.toUpperCase()</code></td>
+<td>TEST.doc</td>
+<td></td>
+</tr>
+<tr>
+<td><code>index1.replaceAll(' ', '_')</code></td>
+<td>hello123_world</td>
+<td></td>
+</tr>
+<tr>
+<td><code>index1.find('\d+')</code></td>
+<td>123</td>
+<td></td>
+</tr>
+<tr>
+<td><code>index1.find('^\d+')</code></td>
+<td>hello world</td>
+<td></td>
+</tr>
+<tr>
+<td><code>filename[0..3]</code></td>
+<td>return the first 3 chars of a filename</td>
+<td><em>tes</em></td>
+</tr>
+<tr>
+<td><code>index1.length() == 6</code></td>
+<td></td>
+<td><em>true</em></td>
+</tr>
+<tr>
+<td><code>Double.valueOf('7.55') * 1.14).round(2)</code></td>
+<td><em>8.61</em></td>
+<td></td>
+</tr>
+<tr>
+<td><code>index3.asInt() &lt; 10000</code></td>
+<td>Most properties and all custom index values are in String format. In order to use arithmetic in filters etc, you need to first convert them to a Number type</td>
+<td><em>true</em></td>
+</tr>
+<tr>
+<td><code>index3 &lt; 10000</code></td>
+<td><em>false</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="method-reference">Method Reference</h2>
+<p><a href="http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html">String</a><br />
+<a href="http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/util/Date.html">Date</a> and <a href="http://download.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html.">SimpleDateFormat</a><br />
+<a href="http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/Number.html">Number</a>  </p>
+<p>See <a href="http://docs.groovy-lang.org/docs/latest/html/groovy-jdk">Groovy JDK</a></p>
 <p>See <a href="../document-properties">Document Properties</a> for a full list of fields available.</p></div>
         </div>
 
