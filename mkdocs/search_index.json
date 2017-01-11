@@ -526,31 +526,6 @@
             "title": "Troubleshooting"
         }, 
         {
-            "location": "/Installation/Replication/", 
-            "text": "Replication\n\n\nClean Install\n\n\n\n\nInstall PaperTrail on master.\n\n\nStartup master.\n\n\nShutdown master and create db dump.\n\n\n\n\n    db.replication.enable=true db.replication.external.id=master db.replication.group.id=master file.replication.upstream=http://slave:8080\n\n\n\n\n\n\nEnable replication on the master and start PaperTrail.\n\n\nRestore master dump on slave and copy over repository.\n\n\nEnable replication on slave and start PaperTrail.\n\n\n\n\ndb.replication.enable=true db.replication.external.id=slave db.replication.group.id=slave db.replication.master=replication1 file.replication.upstream=http://master:8080\n\n\n\n\nUpgrade\n\n\n\n\nShutdown PaperTrail on master and slave.\n\n\nUpgrade PaperTrail on master and startup.\n\n\nUpgrade PaperTrail on slave and startup.\n\n\n\n\nFilestore Replication\n\n\nWhen setting up file store replication to a secondary PaperTrail installation, follow the below points:\n\n\n\n\nWhen entering the URL to the secondary PT, include \"/store\" at the end of the PT URL e.g. http://\n:\n/store\n\n\nAlways tick the \"Async\" option. Not only is this option helpful for slow connections, but it also manages imports if the secondary PT is not available.", 
-            "title": "Replication"
-        }, 
-        {
-            "location": "/Installation/Replication/#replication", 
-            "text": "", 
-            "title": "Replication"
-        }, 
-        {
-            "location": "/Installation/Replication/#clean-install", 
-            "text": "Install PaperTrail on master.  Startup master.  Shutdown master and create db dump.       db.replication.enable=true db.replication.external.id=master db.replication.group.id=master file.replication.upstream=http://slave:8080   Enable replication on the master and start PaperTrail.  Restore master dump on slave and copy over repository.  Enable replication on slave and start PaperTrail.   db.replication.enable=true db.replication.external.id=slave db.replication.group.id=slave db.replication.master=replication1 file.replication.upstream=http://master:8080", 
-            "title": "Clean Install"
-        }, 
-        {
-            "location": "/Installation/Replication/#upgrade", 
-            "text": "Shutdown PaperTrail on master and slave.  Upgrade PaperTrail on master and startup.  Upgrade PaperTrail on slave and startup.", 
-            "title": "Upgrade"
-        }, 
-        {
-            "location": "/Installation/Replication/#filestore-replication", 
-            "text": "When setting up file store replication to a secondary PaperTrail installation, follow the below points:   When entering the URL to the secondary PT, include \"/store\" at the end of the PT URL e.g. http:// : /store  Always tick the \"Async\" option. Not only is this option helpful for slow connections, but it also manages imports if the secondary PT is not available.", 
-            "title": "Filestore Replication"
-        }, 
-        {
             "location": "/Installation/Sizing/", 
             "text": "PaperTrail Server Requirements\n\n\n\n\n2 - 4GB RAM\n\n\n2 Modern CPU Cores\n\n\n20GB + free disk space\n\n\n\n\nDatabase\n\n\n\n\nThe database should be kept entirely in RAM on fast disks (SSD, RAID 1\nwith cache etc). A rough guideline is to use 1GB of RAM per 1 million docs.  \n\n\nA centralized database can be used, however\u00a0it can introduce latency.  \n\n\n\n\nIndex Directory\n\n\n\n\nThe index directory is where Lucene stores all indexes for searching. As\na rule of thumb is it's around 1 - 2 GB per million docs, more if full\ntext searching is enabled.  \n\n\nThe index directory needs to be on fast disks (RAID 0, SSD) and does\nnot need to backed up as it can be easily and quickly (with full text\ndisabled) rebuilt.  \n\n\n\n\nFile Repository\n\n\n\n\nThe file repository has lots of small file based IO where each file is stored\nby name as checksum. So once a file is written, it is never updated - only\ndeleted.\n\n\nIt can safely be backed up and then archived.\n\n\nRAID 6+ is sufficient.\n\n\nFiles can also be stored on a object storage platform like Amazon S3,\nCaringo CAStore reducing the need for backups.\n\n\nReplication can also be configured between 2 PaperTrail instances using\nfile stores.", 
             "title": "Sizing"
