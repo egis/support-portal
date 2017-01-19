@@ -306,6 +306,7 @@
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#configuring-service-settings">Configuring service settings</a></li>
         <li class="main "><a href="#configuration-options">Configuration Options</a></li>
+        <li class="main "><a href="#system-properties">System Properties</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -322,6 +323,10 @@
 <tr>
 <td>Linux</td>
 <td>/opt/Papertrail/run.sh</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>service.vmoptions</td>
 </tr>
 </tbody>
 </table>
@@ -344,6 +349,79 @@
 <td>-Xms</td>
 <td>Min memory</td>
 <td>-Xms2048M</td>
+</tr>
+<tr>
+<td>-Xss</td>
+<td>Thread Stack Size</td>
+<td>-Xss1m</td>
+</tr>
+<tr>
+<td>-D<em>systemProperty</em></td>
+<td>-Dhttp.proxyPort=8800</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="system-properties">System Properties</h3>
+<p>System properties can either be set as startup configuration option using <code>-DsystemProperty=value</code>, or in the <code>conf/papertrail.properties</code> file:</p>
+<table>
+<thead>
+<tr>
+<th>System Property</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>java.net.useSystemProxies</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>http.proxyHost</td>
+<td>HTTP Proxy Host</td>
+<td>squid</td>
+</tr>
+<tr>
+<td>http.proxyPort</td>
+<td>HTTP Proxy Port</td>
+<td>8800</td>
+</tr>
+<tr>
+<td>http.proxyUser</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>http.proxyPassword</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>http.nonProxyHosts</td>
+<td><code>"localhost|127.0.0.1|10.*.*.*|*.foo.co|etc"</code></td>
+<td></td>
+</tr>
+<tr>
+<td>socksProxyHost</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>socksProxyPort</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>java.net.socks.username</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>java.net.socks.password</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table></div>

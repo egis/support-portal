@@ -672,18 +672,23 @@
         }, 
         {
             "location": "/Installation/service/", 
-            "text": "Configuring service settings\n\n\n\n\n\n\n\n\nOS\n\n\nConfiguration Applied in\n\n\n\n\n\n\n\n\n\n\nLinux\n\n\n/opt/Papertrail/run.sh\n\n\n\n\n\n\n\n\nConfiguration Options\n\n\n\n\n\n\n\n\nOption\n\n\nDescription\n\n\nExample\n\n\n\n\n\n\n\n\n\n\n-Xmx\n\n\nMax memory\n\n\n-Xmx2048M\n\n\n\n\n\n\n-Xms\n\n\nMin memory\n\n\n-Xms2048M", 
+            "text": "Configuring service settings\n\n\n\n\n\n\n\n\nOS\n\n\nConfiguration Applied in\n\n\n\n\n\n\n\n\n\n\nLinux\n\n\n/opt/Papertrail/run.sh\n\n\n\n\n\n\nWindows\n\n\nservice.vmoptions\n\n\n\n\n\n\n\n\nConfiguration Options\n\n\n\n\n\n\n\n\nOption\n\n\nDescription\n\n\nExample\n\n\n\n\n\n\n\n\n\n\n-Xmx\n\n\nMax memory\n\n\n-Xmx2048M\n\n\n\n\n\n\n-Xms\n\n\nMin memory\n\n\n-Xms2048M\n\n\n\n\n\n\n-Xss\n\n\nThread Stack Size\n\n\n-Xss1m\n\n\n\n\n\n\n-D\nsystemProperty\n\n\n-Dhttp.proxyPort=8800\n\n\n\n\n\n\n\n\n\n\nSystem Properties\n\n\nSystem properties can either be set as startup configuration option using \n-DsystemProperty=value\n, or in the \nconf/papertrail.properties\n file:\n\n\n\n\n\n\n\n\nSystem Property\n\n\nDescription\n\n\nExample\n\n\n\n\n\n\n\n\n\n\njava.net.useSystemProxies\n\n\ntrue\n\n\n\n\n\n\n\n\nhttp.proxyHost\n\n\nHTTP Proxy Host\n\n\nsquid\n\n\n\n\n\n\nhttp.proxyPort\n\n\nHTTP Proxy Port\n\n\n8800\n\n\n\n\n\n\nhttp.proxyUser\n\n\n\n\n\n\n\n\n\n\nhttp.proxyPassword\n\n\n\n\n\n\n\n\n\n\nhttp.nonProxyHosts\n\n\n\"localhost|127.0.0.1|10.*.*.*|*.foo.co|etc\"\n\n\n\n\n\n\n\n\nsocksProxyHost\n\n\n\n\n\n\n\n\n\n\nsocksProxyPort\n\n\n\n\n\n\n\n\n\n\njava.net.socks.username\n\n\n\n\n\n\n\n\n\n\njava.net.socks.password", 
             "title": "Service"
         }, 
         {
             "location": "/Installation/service/#configuring-service-settings", 
-            "text": "OS  Configuration Applied in      Linux  /opt/Papertrail/run.sh", 
+            "text": "OS  Configuration Applied in      Linux  /opt/Papertrail/run.sh    Windows  service.vmoptions", 
             "title": "Configuring service settings"
         }, 
         {
             "location": "/Installation/service/#configuration-options", 
-            "text": "Option  Description  Example      -Xmx  Max memory  -Xmx2048M    -Xms  Min memory  -Xms2048M", 
+            "text": "Option  Description  Example      -Xmx  Max memory  -Xmx2048M    -Xms  Min memory  -Xms2048M    -Xss  Thread Stack Size  -Xss1m    -D systemProperty  -Dhttp.proxyPort=8800", 
             "title": "Configuration Options"
+        }, 
+        {
+            "location": "/Installation/service/#system-properties", 
+            "text": "System properties can either be set as startup configuration option using  -DsystemProperty=value , or in the  conf/papertrail.properties  file:     System Property  Description  Example      java.net.useSystemProxies  true     http.proxyHost  HTTP Proxy Host  squid    http.proxyPort  HTTP Proxy Port  8800    http.proxyUser      http.proxyPassword      http.nonProxyHosts  \"localhost|127.0.0.1|10.*.*.*|*.foo.co|etc\"     socksProxyHost      socksProxyPort      java.net.socks.username      java.net.socks.password", 
+            "title": "System Properties"
         }, 
         {
             "location": "/Installation/solution/", 
