@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Document properties - Support Portal</title>
+        <title>User export import - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -110,56 +110,56 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../../Installation/CLI/">CLI</a>
+    <a href="../CLI/">CLI</a>
 </li>
                             
 <li >
-    <a href="../../Installation/Desktop Agent/">Desktop Agent</a>
+    <a href="../Desktop Agent/">Desktop Agent</a>
 </li>
                             
 <li >
-    <a href="../../Installation/MS Office Add-in/">MS Office Add in</a>
+    <a href="../MS Office Add-in/">MS Office Add in</a>
 </li>
                             
 <li >
-    <a href="../../Installation/Sizing/">Sizing</a>
+    <a href="../Sizing/">Sizing</a>
 </li>
                             
 <li >
-    <a href="../../Installation/Ubuntu-Linux/">Ubuntu Linux</a>
+    <a href="../Ubuntu-Linux/">Ubuntu Linux</a>
 </li>
                             
 <li >
-    <a href="../../Installation/Windows/">Windows</a>
+    <a href="../Windows/">Windows</a>
 </li>
                             
 <li >
-    <a href="../../Installation/end-user-installation/">End user installation</a>
+    <a href="../end-user-installation/">End user installation</a>
 </li>
                             
 <li >
-    <a href="../../Installation/macosx/">Macosx</a>
+    <a href="../macosx/">Macosx</a>
 </li>
                             
 <li >
-    <a href="../../Installation/server-installation/">Server installation</a>
+    <a href="../server-installation/">Server installation</a>
 </li>
                             
 <li >
-    <a href="../../Installation/service/">Service</a>
+    <a href="../service/">Service</a>
 </li>
                             
 <li >
-    <a href="../../Installation/solution/">Solution</a>
+    <a href="../solution/">Solution</a>
 </li>
                             
-<li >
-    <a href="../../Installation/user-export-import/">User export import</a>
+<li class="active">
+    <a href="./">User export import</a>
 </li>
                         </ul>
                     </li>
@@ -196,64 +196,64 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Cold Standby Failover Procedure/">Cold Standby Failover Procedure</a>
+    <a href="../../Reference/Cold Standby Failover Procedure/">Cold Standby Failover Procedure</a>
 </li>
                             
 <li >
-    <a href="../Encryption/">Encryption</a>
+    <a href="../../Reference/Encryption/">Encryption</a>
 </li>
                             
 <li >
-    <a href="../Linking/">Linking</a>
+    <a href="../../Reference/Linking/">Linking</a>
 </li>
                             
 <li >
-    <a href="../Logging/">Logging</a>
+    <a href="../../Reference/Logging/">Logging</a>
 </li>
                             
 <li >
-    <a href="../System-Nodes/">System Nodes</a>
-</li>
-                            
-<li class="active">
-    <a href="./">Document properties</a>
+    <a href="../../Reference/System-Nodes/">System Nodes</a>
 </li>
                             
 <li >
-    <a href="../health/">Health</a>
+    <a href="../../Reference/document-properties/">Document properties</a>
 </li>
                             
 <li >
-    <a href="../high-availability/">High availability</a>
+    <a href="../../Reference/health/">Health</a>
 </li>
                             
 <li >
-    <a href="../licensing/">Licensing</a>
+    <a href="../../Reference/high-availability/">High availability</a>
 </li>
                             
 <li >
-    <a href="../linking_syntax/">Linking syntax</a>
+    <a href="../../Reference/licensing/">Licensing</a>
 </li>
                             
 <li >
-    <a href="../maintenance/">Maintenance</a>
+    <a href="../../Reference/linking_syntax/">Linking syntax</a>
 </li>
                             
 <li >
-    <a href="../pql/">Pql</a>
+    <a href="../../Reference/maintenance/">Maintenance</a>
 </li>
                             
 <li >
-    <a href="../regex/">Regex</a>
+    <a href="../../Reference/pql/">Pql</a>
 </li>
                             
 <li >
-    <a href="../standard_expression/">Standard expression</a>
+    <a href="../../Reference/regex/">Regex</a>
+</li>
+                            
+<li >
+    <a href="../../Reference/standard_expression/">Standard expression</a>
 </li>
                         </ul>
                     </li>
@@ -295,12 +295,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../System-Nodes/">
+                        <a rel="next" href="../solution/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../health/">
+                        <a rel="prev" href="../../Integration/Database/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -312,182 +312,102 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#document-properties">Document Properties</a></li>
-            <li><a href="#writable-properties">Writable Properties</a></li>
-            <li><a href="#special-properties">Special properties</a></li>
+        <li class="main active"><a href="#user-export-and-import-via-the-pt-cli-command">User export and import via the pt CLI command</a></li>
+            <li><a href="#requirements">Requirements</a></li>
+            <li><a href="#export-current-user-database">Export current user database</a></li>
+            <li><a href="#capture-new-user-information">Capture new user information</a></li>
+            <li><a href="#import-new-user-database">Import new user database</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="document-properties">Document Properties</h1>
-<p>Document properties are available to use in:</p>
+<h1 id="user-export-and-import-via-the-pt-cli-command">User export and import via the pt CLI command</h1>
+<h3 id="requirements">Requirements</h3>
 <ul>
-<li>Node rule filters</li>
-<li>Workflow filters</li>
-<li>Standard Expressions e.g. the body field in a sendEmail rule</li>
+<li>Ensure that the <code>pt</code> utility is installed on a Linux host. See guide [here] (http://support.papertrail.co.za/Installation/CLI/)</li>
+</ul>
+<h3 id="export-current-user-database">Export current user database</h3>
+<ul>
+<li>From the Linux host, execute<br>
+<code>pt --host 192.168.1.10:8080 -- username admin --password 'mypassword' export User &gt; users.yml</code></li>
+<li>Evaluate the contents of users.yml to identify the required fields; example below:<br>
+<code>--- !&lt;User&gt;</code><br>
+<code>active: true</code><br>
+<code>email: egis1@testserver.com</code><br>
+<code>login: egis1</code><br>
+<code>name: Egis1</code><br>
+<code>properties: {otp: 'false'}</code><br>
+<code>userType: FULL</code></li>
+</ul>
+<h3 id="capture-new-user-information">Capture new user information</h3>
+<ul>
+<li>Create a csv file with details of the new user accounts to be imported; example cell structure below (remember to convert this to csv):</li>
 </ul>
 <table>
 <thead>
 <tr>
-<th>Document Property</th>
-<th>Groovy Description</th>
-<th>Description</th>
+<th>active</th>
+<th>email</th>
+<th>login</th>
+<th>name</th>
+<th>properties</th>
+<th>userType</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>docId</td>
-<td>String</td>
-<td>The document unique identifier. Formatted as a PaperTrail document ID.</td>
+<td>true</td>
+<td>gillb@testserver.com</td>
+<td>gillb</td>
+<td>Gill Bates</td>
+<td>{otp: 'false'}</td>
+<td>FULL</td>
 </tr>
 <tr>
-<td>createdDate</td>
-<td>Date</td>
-<td>The date that the document was created.</td>
-</tr>
-<tr>
-<td>filename</td>
-<td>String</td>
-<td>The filename of the document including the extension.</td>
-</tr>
-<tr>
-<td>lastModified</td>
-<td>Date</td>
-<td>The date that the document was last modified. Can be empty.</td>
-</tr>
-<tr>
-<td>createdBy</td>
-<td>String</td>
-<td>The name of the user who created the document.</td>
-</tr>
-<tr>
-<td>dispatchedBy</td>
-<td>String</td>
-<td>For asynchronous rules, the user whose action triggered the event. Refer also to sessionUser.</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>String</td>
-<td>A document extension suffix supported by PaperTrail. Does not contain the leading dot.</td>
-</tr>
-<tr>
-<td>ip</td>
-<td>String</td>
-<td>The IP address of the user who performed the action that triggered the event.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>The filename of the document excluding the extension.</td>
-</tr>
-<tr>
-<td>size</td>
-<td>Long</td>
-<td>The size in bytes. Use this for a numeric comparison, for example: size &gt; 100000.</td>
-</tr>
-<tr>
-<td>sessionUser</td>
-<td>String</td>
-<td>For synchronous rules, the current user. For asynchronous rules, System. Refer also to dispatchedBy.</td>
-</tr>
-<tr>
-<td>status</td>
-<td>String</td>
-<td>The status of the document. Possible values are Filed, Current, Diarized, and Out.</td>
-</tr>
-<tr>
-<td>sizeFormatted</td>
-<td>String</td>
-<td>Formatted as bytes. For example, 1 KB, 5 MB, 1 GB￼instead of an integer such as 14328490234..</td>
-</tr>
-<tr>
-<td>visibility</td>
-<td>String</td>
-<td>Sets who is permitted to see the document. Valid values are Public, Private and Confidential..</td>
-</tr>
-<tr>
-<td>title</td>
-<td>String</td>
-<td>Title.</td>
-</tr>
-<tr>
-<td>subject</td>
-<td>String</td>
-<td>Subject.</td>
-</tr>
-<tr>
-<td>version</td>
-<td>String</td>
-<td>A document version number, for example, 2.1. Can be empty.</td>
-</tr>
-<tr>
-<td>???</td>
-<td>String</td>
-<td>An index that is added under Node Management &gt; Node &gt; Index.</td>
+<td>true</td>
+<td>joes@testserver.com</td>
+<td>joes</td>
+<td>Joe Soap</td>
+<td>{otp: 'false'}</td>
+<td>FULL</td>
 </tr>
 </tbody>
 </table>
-<h2 id="writable-properties">Writable Properties</h2>
-<p>Some document properties are also editable, but most are read only.</p>
 <ul>
-<li>filename</li>
-<li>visibility</li>
-<li>title</li>
-<li>subject</li>
-<li>{custom_index}</li>
+<li>
+<p>Convert the csv data to YAML. There is a decent online converter [here] (http://www.becsv.com/csv-yaml.php)</p>
+</li>
+<li>
+<p>Your YAML output should look like the below:<br>
+<code>---</code><br>
+<code>-</code><br>
+<code>active: true</code><br>
+<code>email: gillb@testserver.com</code><br>
+<code>login: gillb</code><br>
+<code>name: Gill Bates</code><br>
+<code>properties: {otp: 'false'}</code><br>
+<code>userType: FULL</code><br>
+<code>-</code><br>
+<code>active: true</code><br>
+<code>email: joes@testserver.com</code><br>
+<code>login: joes</code><br>
+<code>name: Joe Soap</code><br>
+<code>properties: {otp: 'false'}</code><br>
+<code>userType: FULL</code><br></p>
+</li>
+<li>
+<p>Remove the first line <code>---</code></p>
+</li>
+<li>Perform a simple find-and-replace to substitute <code>-</code> with <code>--- !&lt;User&gt;</code> and your YAML file should now resemble the output from the earlier user database export</li>
+<li>Ensure that there are no duplicate login values and no illegal characters in any of the fields</li>
 </ul>
-<p>to set a writeable property you can use a script:  </p>
-<p><code>doc.metadata().set("title", "a new title")</code></p>
-<p>Or a updateIndex rule  </p>
-<p><code>title=new title</code>  </p>
-<p>or using the HTTP API:  </p>
-<p><code>curl -x POST http://host/public/indexes/&lt;docId&gt;/?title= a new title</code>  </p>
-<p>Document properties can also be updated via other mechanism for updating indexes including:</p>
+<h3 id="import-new-user-database">Import new user database</h3>
 <ul>
-<li>Import and Sync</li>
-<li>.TXT files</li>
-<li>.XML indexes</li>
-</ul>
-<h2 id="special-properties">Special properties</h2>
-<p>Due to the large number of places, indexes/properties can be updated. It being the single most common point of integration between systems, there are a few special properties that trigger actions. They are prefixed with <code>_</code> and not to be confused with normal properties that relate to metadata only.  </p>
-<table>
-<thead>
-<tr>
-<th>Document Property</th>
-<th>Groovy Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>_audit</td>
-<td>Creates a new audit history event on the document</td>
-</tr>
-<tr>
-<td>_status</td>
-<td>_status=Filed will remove all current users of a document _status=Archive will archive the document</td>
-</tr>
-<tr>
-<td>_event</td>
-<td>Dispatches a new Document event</td>
-</tr>
-<tr>
-<td>user</td>
-<td>Allocates an user to the document</td>
-</tr>
-<tr>
-<td>owner</td>
-<td>Assigns ownership to the user</td>
-</tr>
-<tr>
-<td>node</td>
-<td>Moves the document to the specified node</td>
-</tr>
-<tr>
-<td>visibility</td>
-<td>Changes the visibility of the document</td>
-</tr>
-</tbody>
-</table></div>
+<li>Copy your YAML file over to the Linux host (using WinSCP as an option)</li>
+<li>On the Linux host, execute<br>
+<code>pt --host 192.168.1.10:8080 -- username admin --password 'mypassword' import newusers.yml</code></li>
+<li>If you encounter any error messages, check the server logs to identify the offending statement (put <code>com.egis.kernel.messaging</code> on DEBUG/TRACE if additional logging is required)</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
