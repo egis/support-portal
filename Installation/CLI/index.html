@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Cpu usage - Support Portal</title>
+        <title>CLI - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -110,52 +110,52 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
-<li >
-    <a href="../../Installation/CLI/">CLI</a>
+<li class="active">
+    <a href="./">CLI</a>
 </li>
                             
 <li >
-    <a href="../../Installation/Desktop Agent/">Desktop Agent</a>
+    <a href="../Desktop Agent/">Desktop Agent</a>
 </li>
                             
 <li >
-    <a href="../../Installation/MS Office Add-in/">MS Office Add in</a>
+    <a href="../MS Office Add-in/">MS Office Add in</a>
 </li>
                             
 <li >
-    <a href="../../Installation/Sizing/">Sizing</a>
+    <a href="../Sizing/">Sizing</a>
 </li>
                             
 <li >
-    <a href="../../Installation/Ubuntu-Linux/">Ubuntu Linux</a>
+    <a href="../Ubuntu-Linux/">Ubuntu Linux</a>
 </li>
                             
 <li >
-    <a href="../../Installation/Windows/">Windows</a>
+    <a href="../Windows/">Windows</a>
 </li>
                             
 <li >
-    <a href="../../Installation/end-user-installation/">End user installation</a>
+    <a href="../end-user-installation/">End user installation</a>
 </li>
                             
 <li >
-    <a href="../../Installation/macosx/">Macosx</a>
+    <a href="../macosx/">Macosx</a>
 </li>
                             
 <li >
-    <a href="../../Installation/server-installation/">Server installation</a>
+    <a href="../server-installation/">Server installation</a>
 </li>
                             
 <li >
-    <a href="../../Installation/service/">Service</a>
+    <a href="../service/">Service</a>
 </li>
                             
 <li >
-    <a href="../../Installation/solution/">Solution</a>
+    <a href="../solution/">Solution</a>
 </li>
                         </ul>
                     </li>
@@ -253,32 +253,32 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Troubleshooting <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Performance/">Performance</a>
+    <a href="../../Troubleshooting/Performance/">Performance</a>
 </li>
                             
 <li >
-    <a href="../Troubleshooting Client/">Troubleshooting Client</a>
+    <a href="../../Troubleshooting/Troubleshooting Client/">Troubleshooting Client</a>
 </li>
                             
 <li >
-    <a href="../Troubleshooting Server/">Troubleshooting Server</a>
-</li>
-                            
-<li class="active">
-    <a href="./">Cpu usage</a>
+    <a href="../../Troubleshooting/Troubleshooting Server/">Troubleshooting Server</a>
 </li>
                             
 <li >
-    <a href="../db-tuning/">Db tuning</a>
+    <a href="../../Troubleshooting/cpu-usage/">Cpu usage</a>
 </li>
                             
 <li >
-    <a href="../exceptions/">Exceptions</a>
+    <a href="../../Troubleshooting/db-tuning/">Db tuning</a>
+</li>
+                            
+<li >
+    <a href="../../Troubleshooting/exceptions/">Exceptions</a>
 </li>
                         </ul>
                     </li>
@@ -291,12 +291,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../Troubleshooting Server/">
+                        <a rel="next" href="../../Configuration/ssl/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../db-tuning/">
+                        <a rel="prev" href="../Desktop Agent/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -308,44 +308,49 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#troubleshooting-high-cpu-usage">Troubleshooting High CPU usage</a></li>
-            <li><a href="#before-doing-anything-else">Before doing anything else</a></li>
-            <li><a href="#common-causes-of-high-cpu-usage">Common Causes of high CPU usage</a></li>
-            <li><a href="#analyzing-a-thread-dump">Analyzing a Thread Dump</a></li>
+        <li class="main active"><a href="#papertrail-linux-cli-command-pt">Papertrail Linux CLI command: pt</a></li>
+            <li><a href="#requirements">Requirements:</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#usage">Usage</a></li>
+            <li><a href="#reference">Reference</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="troubleshooting-high-cpu-usage">Troubleshooting High CPU usage</h1>
-<h2 id="before-doing-anything-else">Before doing anything else</h2>
-<p>Before restarting PaperTrail always try and get a snapshot:</p>
-<p><code>http://localhost:8080/snapshot</code>  </p>
-<p>and/or a thread dump  </p>
-<p><code>http://localhost:8080/snapshot/threads</code></p>
-<p>If the web interface is unresponsive, use the command line to retrieve a
-thread dump.</p>
-<p>On Linux: <code>/etc/init.d/papertrail heap</code><br />
-On Windows: In <Java Bin Directory>,  Run <code>jps</code> to get the PID of the service and then <code>jstack -dump:format=b,file=C:\heap.bin  &lt;PID&gt;</code></p>
-<h2 id="common-causes-of-high-cpu-usage">Common Causes of high CPU usage</h2>
-<p>If a single CPU core is at 100%, the culprit would normally be single thread that reoccurs in every single thread dump.</p>
-<p>If all CPU cores are at 100% or near 100%, the cause is either:</p>
-<p>a) memory exhaustion - very little free memory,  <code>jstat</code>  would return
-very high garbage collection times (GC)<br />
-b) an endless loop<br />
-c) too many worker threads and/or too few cores
-  </p>
-<h2 id="analyzing-a-thread-dump">Analyzing a Thread Dump</h2>
-<p>Analyzing a thread dump involves looking through all the threads on the
-running system to identify a pattern.</p>
+<h1 id="papertrail-linux-cli-command-pt">Papertrail Linux CLI command: pt</h1>
+<p>A command line interface to perform functions not found in the administrative GUI is available. It can also be used as part of a scripting process, e.g. bulk export/upload etc. This utility can be installed on Linux via pip (package management system to install Python software packages).</p>
+<h3 id="requirements">Requirements:</h3>
+<p>It is not necessary for this program to be installed on the Papertrail server that you intend on connecting to. However, the following packages need to be installed on the Linux host where you intend on using the <code>pt</code> CLI command:
+<em> Python
+</em> Pip
+* Git<br></p>
+<p>The installation of these packages may vary depending on the flavour of Linux running (e.g. <em>yum</em>, <em>rpm</em>, <em>apt-get</em>)</p>
+<h3 id="installation">Installation</h3>
+<p>Choose only one of the below options:</p>
+<h4 id="option-1">Option 1</h4>
 <ul>
-<li>
-<p>Any thread in a <code>TIMED_WAITING</code> or <code>WAITING</code> state can be safely ignored
-as these threads are sleeping waiting for something else to occur.</p>
-</li>
-<li>
-<p>Jetty threads in the <code>java.net.SocketInputStream.socketRead RUNNING</code>state can also be ignored as they are waiting for a client to make a TCP/IP connection
-  </p>
-</li>
+<li><code>sudo pip install git+ssh://git@github.com/egis/papertrail-python-cli.git</code></li>
+</ul>
+<h4 id="installation-option-2-should-you-receive-an-access-denied-message-when-following-option-1">Installation Option 2 (should you receive an access denied message when following Option 1)</h4>
+<ul>
+<li>Download the contents of <code>https://github.com/egis/papertrail-python-cli</code> (include sub-folders)</li>
+<li>Transfer this to the Linux host (using WinSCP as an option)</li>
+<li>Execute <code>sudo python setup.py install</code></li>
+</ul>
+<h3 id="usage">Usage</h3>
+<ul>
+<li>Once installed, executing <code>pt --help</code> will bring up the available options and commands. Use <code>pt {command} --help</code> for more details on the specific command itself; e.g. <code>pt import --help</code></li>
+<li>To connect to a Papertrail host server:<br>
+    <code>pt --host 192.168.1.10:8080 -- username admin --password 'mypassword'</code> (which will not execute an actual command)</li>
+<li>Add onto the above for the specific function you wish to achieve, e.g.<br>
+    <code>pt --host 192.168.1.10:8080 -- username admin --password 'mypassword' export User &gt; users.yml</code></li>
+<li>Another example:<br>
+    <code>pt --host 192.168.1.10:8080 -- username admin --password 'mypassword' import newusers.yml</code></li>
+</ul>
+<h3 id="reference">Reference</h3>
+<ul>
+<li>The above 2 examples export and import users respectively based on the YAML format. See more [here] (http://support.papertrail.co.za/Configuration/Yaml%20Config/?#yaml-import-and-export)</li>
+<li>Further details specific to the user import and export process can be found [here] (http://support.papertrail.co.za/Configuration/user-export-import)</li>
 </ul></div>
         </div>
 
