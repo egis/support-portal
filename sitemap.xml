@@ -95,6 +95,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/Configuration/user-export-and-import/</loc>
+     <lastmod>2017-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
@@ -161,12 +167,6 @@
         
     <url>
      <loc>/Installation/solution/</loc>
-     <lastmod>2017-01-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/Installation/user-export-import/</loc>
      <lastmod>2017-01-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
