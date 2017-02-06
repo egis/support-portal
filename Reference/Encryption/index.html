@@ -315,6 +315,8 @@
         <li class="main active"><a href="#encryption">Encryption</a></li>
             <li><a href="#encrypting-files-at-rest-aes">Encrypting files at rest (AES)</a></li>
             <li><a href="#encrypting-files-in-transit-ssl">Encrypting files in transit (SSL)</a></li>
+            <li><a href="#encrypting-outbound-email-smime">Encrypting Outbound Email (SMIME)</a></li>
+            <li><a href="#decrypting-inbound-email-smime">Decrypting Inbound Email (SMIME)</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
@@ -343,7 +345,26 @@
 <li>Optional: Check <strong>Force SSL</strong> to ensure all traffic from HTTP is redirected to HTTPS.  </li>
 <li>Click <strong>Save</strong>.  </li>
 <li>Restart <strong>PaperTrail</strong>.  </li>
-</ul></div>
+</ul>
+<h2 id="encrypting-outbound-email-smime">Encrypting Outbound Email (SMIME)</h2>
+<p>In <code>papertrail.properties</code> add the following property:
+e.g.</p>
+<pre><code>email.smime.out.&lt;email address&gt;=&lt;path to X509 public certificate&gt;
+</code></pre>
+
+<p>e.g.</p>
+<pre><code>email.sime.out.confidential@example.com=C:\public.cert
+</code></pre>
+
+<p>To test: Email anything from PaperTrail to that email and it should automatically be encrypted.</p>
+<blockquote>
+<p>Tip: The <a href="http://keystore-explorer.sourceforge.net/index.php">KeyStore Explorer</a> application can be used to create and import certificates into most formats.</p>
+</blockquote>
+<h2 id="decrypting-inbound-email-smime">Decrypting Inbound Email (SMIME)</h2>
+<p>Under <code>Services -&gt; Properties -&gt; Imports</code> configure.</p>
+<p><strong>Email Decryption Cert Path</strong>: A path to a JCEKS Key Store that contains one or more keys to decrypt incoming email. The file should have an <code>jceks</code> extension. Each entry in the keystore should have the same password as the keystore it self.  </p>
+<p><strong>Email Decryption Password</strong>: The password to the keystore.  </p>
+<p>To test try and view any encrypted mail in preview - The body and attachments should be available - if it does not work then a smime.p7m attachment will only be visible.</p></div>
         </div>
 
         <footer class="col-md-12">
