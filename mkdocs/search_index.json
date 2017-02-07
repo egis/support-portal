@@ -432,13 +432,13 @@
         }, 
         {
             "location": "/Configuration/security/", 
-            "text": "Security Settings\n\n\nPaperTrail can be run in 4 distinct\u00a0security modes:\n\n\nLow (Default)\n\n\nSuitable for intra-net based deployments without confidential data\u00a0\n\n\nMedium\n\n\nAccess to the various API's used for replication and clustering is\nrestricted based on Trusted Server entries, some of the endpoints\nrestricted include:\n \u00a0\n\n\n\n\nconversion\n\n\nsignature/upload\n\n\nindex/replication\n\n\nstore\n\n\nreplicate\n\n\n\n\nHigh\n\n\nIncludes all the restrictions of Medium and:\n \u00a0\n\n\n\n\ndisables the /script/console endpoint (used by\n    /web/admin/console.html and pt script\u00a0CLI)\n\n\nprevents updates to the following properties via the web UI, they\n    need to be set via papertrail.properties file:\n\n\n\n\n    ldap.host  \n    waffle.enable  \n    spnego.enable  \n    spnego.kdc  \n    smtp.debug  \n    email.spool  \n    smtp.host  \n    sms.url  \n    web.login.sms.otp  \n    index.store  \n    http.ssl  \n    disabled.audits  \n    disabled.entity.audits  \n    openoffice.path  \n    tiff2pdf.process  \n    pdf2swf.process  \n    security.level  \n\n\n\n\nVery High\n\n\nIncludes all the restrictions of High and further restricts:\n\n\n\n\nLoading jar files via System/jars folder\n\n\nLoading scripts via System/scripts folder\n\n\nLoading UI plugins via System/plugins folder\n\n\nScripted data sources\n\n\nrunScript, dbLookup and commandLineProcess rules\n\n\nCustom options in Meta Model Fields\n\n\nPQL Expressions", 
+            "text": "Security Mode\n\n\nPaperTrail can be run in 4 distinct\u00a0security modes under \nProperties -\n Security -\n Security Mode\n\n\nLow (Default)\n\n\nSuitable for intra-net based deployments without confidential data\u00a0\n\n\nMedium\n\n\nAccess to the various API's used for replication and clustering is\nrestricted based on Trusted Server entries, some of the endpoints\nrestricted include:\n \u00a0\n\n\n\n\nconversion\n\n\nsignature/upload\n\n\nindex/replication\n\n\nstore\n\n\nreplicate\n\n\n\n\nHigh\n\n\nIncludes all the restrictions of Medium and:\n \u00a0\n\n\n\n\ndisables the /script/console endpoint (used by\n    /web/admin/console.html and pt script\u00a0CLI)\n\n\nprevents updates to the following properties via the web UI, they\n    need to be set via papertrail.properties file:\n\n\n\n\n    ldap.host  \n    waffle.enable  \n    spnego.enable  \n    spnego.kdc  \n    smtp.debug  \n    email.spool  \n    smtp.host  \n    sms.url  \n    web.login.sms.otp  \n    index.store  \n    http.ssl  \n    disabled.audits  \n    disabled.entity.audits  \n    openoffice.path  \n    tiff2pdf.process  \n    pdf2swf.process  \n    security.level  \n\n\n\n\nVery High\n\n\nIncludes all the restrictions of High and further restricts:\n\n\n\n\nLoading jar files via System/jars folder\n\n\nLoading scripts via System/scripts folder\n\n\nLoading UI plugins via System/plugins folder\n\n\nScripted data sources\n\n\nrunScript, dbLookup and commandLineProcess rules\n\n\nCustom options in Meta Model Fields\n\n\nPQL Expressions\n\n\n\n\nBrute Force Login protection\n\n\nThere are 2 options under Properties -\n Authentication that can be enabled\n\n\nCaptcha on password reset\n - Force a captcha to be passed before allowing a password reset email to be sent  \n\n\n\n\nTip: password resets can also be disabled by unchecking \nenable self service password reset\n\n\nCaptcha on login attempts\n - Force a captcha to be passed before X number of failed login attempts\n\n\n\n\nBrute Force Request Protection\n\n\nCheck \nEnable brute force protection\n under \nServices -\n Security\n  \n\n\nSecure Cookie Handling\n\n\nCheck the options under \nServices -\n Security -\n Cookies", 
             "title": "Security"
         }, 
         {
-            "location": "/Configuration/security/#security-settings", 
-            "text": "PaperTrail can be run in 4 distinct\u00a0security modes:", 
-            "title": "Security Settings"
+            "location": "/Configuration/security/#security-mode", 
+            "text": "PaperTrail can be run in 4 distinct\u00a0security modes under  Properties -  Security -  Security Mode", 
+            "title": "Security Mode"
         }, 
         {
             "location": "/Configuration/security/#low-default", 
@@ -459,6 +459,21 @@
             "location": "/Configuration/security/#very-high", 
             "text": "Includes all the restrictions of High and further restricts:   Loading jar files via System/jars folder  Loading scripts via System/scripts folder  Loading UI plugins via System/plugins folder  Scripted data sources  runScript, dbLookup and commandLineProcess rules  Custom options in Meta Model Fields  PQL Expressions", 
             "title": "Very High"
+        }, 
+        {
+            "location": "/Configuration/security/#brute-force-login-protection", 
+            "text": "There are 2 options under Properties -  Authentication that can be enabled  Captcha on password reset  - Force a captcha to be passed before allowing a password reset email to be sent     Tip: password resets can also be disabled by unchecking  enable self service password reset  Captcha on login attempts  - Force a captcha to be passed before X number of failed login attempts", 
+            "title": "Brute Force Login protection"
+        }, 
+        {
+            "location": "/Configuration/security/#brute-force-request-protection", 
+            "text": "Check  Enable brute force protection  under  Services -  Security", 
+            "title": "Brute Force Request Protection"
+        }, 
+        {
+            "location": "/Configuration/security/#secure-cookie-handling", 
+            "text": "Check the options under  Services -  Security -  Cookies", 
+            "title": "Secure Cookie Handling"
         }, 
         {
             "location": "/Configuration/ssl/", 
