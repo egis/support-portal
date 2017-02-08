@@ -337,10 +337,12 @@
 </ul>
 <h2 id="encrypting-files-in-transit-ssl">Encrypting files in transit (SSL)</h2>
 <ul>
-<li>Create a <strong>Java keystore (JKS)</strong> <blockquote>
+<li>Create a <strong>Java keystore (JKS)</strong> </li>
+</ul>
+<blockquote>
 <p>If you have a pfx or certificate in another format it will need to be converted to JKS using tool like  <a href="http://keystore-explorer.sourceforge.net/index.php">KeyStore Explorer</a> or <a href="https://www.digicert.com/ssl-support/jks-import-export-java.htm">OpenSSL</a></p>
 </blockquote>
-</li>
+<ul>
 <li>Copy the keystore to <strong>conf/keystore</strong>.</li>
 <li>Under <strong>Services -&gt; Properties -&gt; Front End (SSL)</strong>.</li>
 <li>Check <strong>Enable</strong>.</li>
