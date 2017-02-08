@@ -337,7 +337,10 @@
 </ul>
 <h2 id="encrypting-files-in-transit-ssl">Encrypting files in transit (SSL)</h2>
 <ul>
-<li>Create a <strong>Java keystore</strong>.  </li>
+<li>Create a <strong>Java keystore (JKS)</strong> <blockquote>
+<p>If you have a pfx or certificate in another format it will need to be converted to JKS using tool like  <a href="http://keystore-explorer.sourceforge.net/index.php">KeyStore Explorer</a> or <a href="https://www.digicert.com/ssl-support/jks-import-export-java.htm">OpenSSL</a></p>
+</blockquote>
+</li>
 <li>Copy the keystore to <strong>conf/keystore</strong>.</li>
 <li>Under <strong>Services -&gt; Properties -&gt; Front End (SSL)</strong>.</li>
 <li>Check <strong>Enable</strong>.</li>
@@ -357,12 +360,9 @@ e.g.</p>
 </code></pre>
 
 <p>To test: Email anything from PaperTrail to that email and it should automatically be encrypted.</p>
-<blockquote>
-<p>Tip: The <a href="http://keystore-explorer.sourceforge.net/index.php">KeyStore Explorer</a> application can be used to create and import certificates into most formats.</p>
-</blockquote>
 <h2 id="decrypting-inbound-email-smime">Decrypting Inbound Email (SMIME)</h2>
 <p>Under <code>Services -&gt; Properties -&gt; Imports</code> configure.</p>
-<p><strong>Email Decryption Cert Path</strong>: A path to a JCEKS Key Store that contains one or more keys to decrypt incoming email. The file should have an <code>jceks</code> extension. Each entry in the keystore should have the same password as the keystore it self.  </p>
+<p><strong>Email Decryption Cert Path</strong>: A path to a JCEKS Key Store  (Note: JCEKS not JKS) that contains one or more keys to decrypt incoming email. The file should have an <code>jceks</code> extension. Each entry in the keystore should have the same password as the keystore it self.  </p>
 <p><strong>Email Decryption Password</strong>: The password to the keystore.  </p>
 <p>To test try and view any encrypted mail in preview - The body and attachments should be available - if it does not work then a smime.p7m attachment will only be visible.</p></div>
         </div>
