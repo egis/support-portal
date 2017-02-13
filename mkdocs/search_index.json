@@ -1526,6 +1526,11 @@
             "title": "Method Reference"
         }, 
         {
+            "location": "/Troubleshooting/Dripstat Configuration/", 
+            "text": "Dripstat monitoring can be installed and configured on PaperTrail instances to monitor performance and enable more detailed information relating to server/web service performance issues.\n\n\nThe following will need to be set up:\n\n\n\n\nDownload the Dripstat JAR file from https://s3.amazonaws.com/papertrail/libs/dripstat.jar \n\n\nCopy the JAR to PaperTrail installation path/dripstat\n\n\nCopy the dripstat.properties file (only generated once a license has been purchased) to PaperTrail installation path/dripstat\n\n\nAdd the following line to the service.vmoptions OR service_x64.vmoptions:\n\n\n   -javaagent:dripstat/dripstat.jar\n\n\nRestart PaperTrail and confirm that dripstat has started correctly via the PaperTrail log files. The server/application performance details will be available via the Dripstat monitoring website once PaperTrail has started with Dripstat configured.", 
+            "title": "Dripstat Configuration"
+        }, 
+        {
             "location": "/Troubleshooting/Performance/", 
             "text": "Performance\n\n\nCheck underlying system\n\n\n\n\nIs there enough memory? \u00a0There should always be at least 1 - 2GB\n    free memory in production to avoid using swap space\n\n\nIs CPU Usage high? Then check the\u00a0\nCPU Usage guide\n\n\nCheck network performance via ICMP ping and Browser developer tools\n    network tab - Response times of \n 250ms are good and \n 1s are\n    acceptable.\n\n\nCheck the following resources for identifying lower level\n    bottlenecks.\n\n        -   \nhttp://www.brendangregg.com/usemethod.html\n\n        -   \nhttp://www.brendangregg.com/linuxperf.html\n\n        -   \nhttp://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html", 
             "title": "Performance"

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Yaml Config - Support Portal</title>
+        <title>Dripstat Configuration - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -49,68 +49,68 @@
                     <li >
                         <a href="../..">Home</a>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
 <li >
-    <a href="../Advanced Login/">Advanced Login</a>
+    <a href="../../Configuration/Advanced Login/">Advanced Login</a>
 </li>
                             
 <li >
-    <a href="../Advanced Permissions/">Advanced Permissions</a>
+    <a href="../../Configuration/Advanced Permissions/">Advanced Permissions</a>
 </li>
                             
 <li >
-    <a href="../Backups/">Backups</a>
+    <a href="../../Configuration/Backups/">Backups</a>
 </li>
                             
 <li >
-    <a href="../Barcode/">Barcode</a>
+    <a href="../../Configuration/Barcode/">Barcode</a>
 </li>
                             
 <li >
-    <a href="../Branding/">Branding</a>
+    <a href="../../Configuration/Branding/">Branding</a>
 </li>
                             
 <li >
-    <a href="../Logging/">Logging</a>
+    <a href="../../Configuration/Logging/">Logging</a>
 </li>
                             
 <li >
-    <a href="../SSO/">SSO</a>
+    <a href="../../Configuration/SSO/">SSO</a>
 </li>
                             
 <li >
-    <a href="../Template Extraction/">Template Extraction</a>
+    <a href="../../Configuration/Template Extraction/">Template Extraction</a>
 </li>
                             
 <li >
-    <a href="../User Management/">User Management</a>
+    <a href="../../Configuration/User Management/">User Management</a>
 </li>
                             
 <li >
-    <a href="../WebScan/">WebScan</a>
-</li>
-                            
-<li class="active">
-    <a href="./">Yaml Config</a>
+    <a href="../../Configuration/WebScan/">WebScan</a>
 </li>
                             
 <li >
-    <a href="../indexes/">Indexes</a>
+    <a href="../../Configuration/Yaml Config/">Yaml Config</a>
 </li>
                             
 <li >
-    <a href="../security/">Security</a>
+    <a href="../../Configuration/indexes/">Indexes</a>
 </li>
                             
 <li >
-    <a href="../ssl/">Ssl</a>
+    <a href="../../Configuration/security/">Security</a>
 </li>
                             
 <li >
-    <a href="../user-export-and-import/">User export and import</a>
+    <a href="../../Configuration/ssl/">Ssl</a>
+</li>
+                            
+<li >
+    <a href="../../Configuration/user-export-and-import/">User export and import</a>
 </li>
                         </ul>
                     </li>
@@ -257,36 +257,36 @@
 </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Troubleshooting <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
-<li >
-    <a href="../../Troubleshooting/Dripstat Configuration/">Dripstat Configuration</a>
+<li class="active">
+    <a href="./">Dripstat Configuration</a>
 </li>
                             
 <li >
-    <a href="../../Troubleshooting/Performance/">Performance</a>
+    <a href="../Performance/">Performance</a>
 </li>
                             
 <li >
-    <a href="../../Troubleshooting/Troubleshooting Client/">Troubleshooting Client</a>
+    <a href="../Troubleshooting Client/">Troubleshooting Client</a>
 </li>
                             
 <li >
-    <a href="../../Troubleshooting/Troubleshooting Server/">Troubleshooting Server</a>
+    <a href="../Troubleshooting Server/">Troubleshooting Server</a>
 </li>
                             
 <li >
-    <a href="../../Troubleshooting/cpu-usage/">Cpu usage</a>
+    <a href="../cpu-usage/">Cpu usage</a>
 </li>
                             
 <li >
-    <a href="../../Troubleshooting/db-tuning/">Db tuning</a>
+    <a href="../db-tuning/">Db tuning</a>
 </li>
                             
 <li >
-    <a href="../../Troubleshooting/exceptions/">Exceptions</a>
+    <a href="../exceptions/">Exceptions</a>
 </li>
                         </ul>
                     </li>
@@ -299,12 +299,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../WebScan/">
+                        <a rel="next" href="../../Reference/standard_expression/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../indexes/">
+                        <a rel="prev" href="../Performance/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -316,43 +316,21 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#yaml-import-and-export">YAML Import and Export</a></li>
-            <li><a href="#examples">Examples</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="yaml-import-and-export">YAML Import and Export</h1>
-<p>In addition to the various CSV and XML based exports available, a generic export/import interface is available via:
-[via?]
-Imports can be imported multiple times without creating duplicates, this can be used for updating configuration.</p>
-<h2 id="examples">Examples</h2>
-<p>To import one or more entities:</p>
-<pre><code class="javascript">POST: / dao /import/yml
-</code></pre>
-
-<p>To export all instances of an entity: </p>
-<pre><code class="javascript">/dao/export/yml/{Entity}
-</code></pre>
-
-<p>To export a specific entity:</p>
-<pre><code class="javascript">/dao/export/yml/{Entity}?id={name}
-</code></pre>
-
-<p>Where {Entity} is one of:  </p>
-<ul>
-<li>User - All permissions and group memberships will be retained.  </li>
-<li>Node - All child nodes, indexes, permissions and rules will be retained.  </li>
-<li>ListIndex - All values will be retained.  </li>
-<li>DataSource  </li>
-<li>RuleApplication  </li>
-<li>Form  </li>
-<li>Template  </li>
-<li>All entities will export something - but the output may or may not import back in.  </li>
-</ul>
-<p>Using <a href="https://github.com/jkbrzt/httpie">httpie</a>:  </p>
-<pre><code class="javascript">http --auth admin:test POST &quot;http://localhost:8080/dao/import/yml&quot; &quot;Accept:*&quot; &lt; ~/test.yml
-</code></pre></div>
+<p>Dripstat monitoring can be installed and configured on PaperTrail instances to monitor performance and enable more detailed information relating to server/web service performance issues.</p>
+<p>The following will need to be set up:</p>
+<ol>
+<li>Download the Dripstat JAR file from https://s3.amazonaws.com/papertrail/libs/dripstat.jar </li>
+<li>Copy the JAR to PaperTrail installation path/dripstat</li>
+<li>Copy the dripstat.properties file (only generated once a license has been purchased) to PaperTrail installation path/dripstat</li>
+<li>Add the following line to the service.vmoptions OR service_x64.vmoptions:
+<br>
+   -javaagent:dripstat/dripstat.jar</li>
+<li>Restart PaperTrail and confirm that dripstat has started correctly via the PaperTrail log files. The server/application performance details will be available via the Dripstat monitoring website once PaperTrail has started with Dripstat configured.</li>
+</ol></div>
         </div>
 
         <footer class="col-md-12">
