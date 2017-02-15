@@ -337,7 +337,7 @@
 <h3 id="export-current-user-database">Export current user database</h3>
 <ul>
 <li>From the Linux host, execute<br>
-<code>pt --host 192.168.1.10:8080 -- username admin --password 'mypassword' export User &gt; users.yml</code></li>
+<code>pt --host 192.168.1.10:8080 --username admin --password 'mypassword' export User &gt; users.yml</code></li>
 <li>Evaluate the contents of users.yml to identify the required fields; example below:<br>
 <code>--- !&lt;User&gt;</code><br>
 <code>active: true</code><br>
@@ -413,7 +413,7 @@
 <ul>
 <li>Copy your YAML file over to the Linux host (using WinSCP as an option)</li>
 <li>On the Linux host, execute<br>
-<code>pt --host 192.168.1.10:8080 -- username admin --password 'mypassword' import newusers.yml</code></li>
+<code>pt --host 192.168.1.10:8080 --username admin --password 'mypassword' import newusers.yml</code></li>
 <li>If you encounter any error messages, check the server logs to identify the offending statement (put <code>com.egis.kernel.messaging</code> on DEBUG/TRACE if additional logging is required)</li>
 </ul></div>
         </div>
