@@ -343,6 +343,11 @@
 <h2 id="windows-based-sso-ntlm">Windows Based SSO (NTLM)</h2>
 <p>NTLM SSO allows for users to be logged in automatically if they are already logged onto their domain account on their PC.   </p>
 <p>Check <strong>Services -&gt; Properties -&gt; SSO</strong> (Windows Kerberos/NTLM)</p>
+<h3 id="windows-based-sso-ntlm-automatic-logon-settings">Windows Based SSO (NTLM): Automatic Logon settings</h3>
+<p>If SSO is not functioning as expected (e.g. the browser displays a Windows Security authentication window prompting for credentials), check the settings in Internet Explorer around Automatic Logon:
+<em> Ensure that the Custom-level Security Setting for User Authentication is set to <code>Automatic log-on only in Intranet zone</code>
+</em> Add the hostname and IP address of the PaperTrail server to the <code>Local intranet zone</code></p>
+<p><strong>Note:</strong> The Google Chrome browser uses the security settings around SSO from those defined in Internet Explorer.</p>
 <h2 id="linux-based-sso-kerberos">Linux Based SSO (Kerberos)</h2>
 <p>Sometimes PaperTrail is installed on Linux server but needs to login in users automatically via Active Directory – This is only possible by using native Kerberos</p>
 <ul>
