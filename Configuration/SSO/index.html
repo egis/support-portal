@@ -339,14 +339,16 @@
 <li><strong>Identity Provider URL:</strong> The URL of the identity provider endpoint.  </li>
 <li><strong>Login Mapping:</strong> The element in the SAML token that maps to the login name in PaperTrail. Usually, the element is NameID.  </li>
 </ul>
-<p>To make all authentication use SAML, change the <strong>Services&gt;Properties&gt;Front End&gt;Main Page property</strong> to <em>/saml</em>.  </p>
+<p>To make all authentication use SAML, change the <strong>Services→Properties→Front End→Main Page property</strong> to <em>/saml</em>.  </p>
 <h2 id="windows-based-sso-ntlm">Windows Based SSO (NTLM)</h2>
 <p>NTLM SSO allows for users to be logged in automatically if they are already logged onto their domain account on their PC.   </p>
-<p>Check <strong>Services -&gt; Properties -&gt; SSO</strong> (Windows Kerberos/NTLM)</p>
+<p>Check <strong>Services → Properties → SSO</strong> (Windows Kerberos/NTLM)</p>
 <h3 id="windows-based-sso-ntlm-automatic-logon-settings">Windows Based SSO (NTLM): Automatic Logon settings</h3>
-<p>If SSO is not functioning as expected (e.g. the browser displays a Windows Security authentication window prompting for credentials), check the settings in Internet Explorer around Automatic Logon:
-<em> Ensure that the Custom-level Security Setting for User Authentication is set to <code>Automatic log-on only in Intranet zone</code>
-</em> Add the hostname and IP address of the PaperTrail server to the <code>Local intranet zone</code></p>
+<p>If SSO is not functioning as expected (e.g. the browser displays a Windows Security authentication window prompting for credentials), check the settings in Internet Explorer around Automatic Logon:</p>
+<ul>
+<li>Ensure that the Custom-level Security Setting for User Authentication is set to <code>Automatic log-on only in Intranet zone</code></li>
+<li>Add the hostname and IP address of the PaperTrail server to the <code>Local intranet zone</code></li>
+</ul>
 <p><strong>Note:</strong> The Google Chrome browser uses the security settings around SSO from those defined in Internet Explorer.</p>
 <h2 id="linux-based-sso-kerberos">Linux Based SSO (Kerberos)</h2>
 <p>Sometimes PaperTrail is installed on Linux server but needs to login in users automatically via Active Directory – This is only possible by using native Kerberos</p>
@@ -365,7 +367,7 @@ setspn.exe -A HTTP/papertrail-srv.ad.local:8080 papertrail-acc
 </code></pre>
 
 <ul>
-<li>Enable SSO on PaperTrail by editing the <strong>Services -&gt; Properties -&gt; SSO (Kerberos)</strong> properties.</li>
+<li>Enable SSO on PaperTrail by editing the <strong>Services → Properties → SSO (Kerberos)</strong> properties.</li>
 </ul>
 <pre><code class="javascript">Enable: ticked
 Domain: ad.local
@@ -376,7 +378,7 @@ Password: {password for papertrail-acc}
 </code></pre>
 
 <ul>
-<li>Update the <strong>Front End -&gt; Index Page</strong> to: <strong>/web/webapps/main.html</strong>.</li>
+<li>Update the <strong>Front End → Index Page</strong> to: <strong>/web/webapps/main.html</strong>.</li>
 <li>Users need to be <strong>logged onto the domain</strong> (ad.local) and access <strong>PaperTrail via the FQDN</strong> (e.g., papertrail-srv.ad.local)</li>
 </ul></div>
         </div>
