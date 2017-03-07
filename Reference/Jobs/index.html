@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Regex - Support Portal</title>
+        <title>Jobs - Support Portal</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -212,8 +212,8 @@
     <a href="../Encryption/">Encryption</a>
 </li>
                             
-<li >
-    <a href="../Jobs/">Jobs</a>
+<li class="active">
+    <a href="./">Jobs</a>
 </li>
                             
 <li >
@@ -256,8 +256,8 @@
     <a href="../pql/">Pql</a>
 </li>
                             
-<li class="active">
-    <a href="./">Regex</a>
+<li >
+    <a href="../regex/">Regex</a>
 </li>
                             
 <li >
@@ -307,12 +307,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../pql/">
+                        <a rel="next" href="../Encryption/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../standard_expression/">
+                        <a rel="prev" href="../Linking/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -324,61 +324,95 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#regular-expressions">Regular Expressions</a></li>
-            <li><a href="#examples-of-regular-expression">Examples of Regular Expression</a></li>
-            <li><a href="#simple-email-validation">Simple email validation</a></li>
-            <li><a href="#advanced-email-validation">Advanced Email Validation</a></li>
-            <li><a href="#phone-number-style-1">Phone number, style 1</a></li>
-            <li><a href="#phone-number-style-2">Phone number, style 2</a></li>
-            <li><a href="#south-african-id">South African ID</a></li>
+        <li class="main active"><a href="#jobs">Jobs</a></li>
+            <li><a href="#schedule">Schedule</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="regular-expressions">Regular Expressions</h1>
-<p>A regular expression is an expression (character string) that is used to match patterns in text.</p>
-<p>You can use a regular expression to do these things:<br />
-1. Extract indexes from the body of a document.<br />
-2. Extract indexes from the filename of a document.<br />
-3. Make sure that node indexes are correct. For example, make sure that an e-mail address or a phone number has the correct structure.  </p>
-<p>You can use all the regular expressions <a href="http://download.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html">here</a>. </p>
-<p>Additionally, you can use a named capturing group.</p>
-<p>For information about regular expressions, refer to <a href="http://regexlib.com">RegexLib</a>.</p>
-<h2 id="examples-of-regular-expression">Examples of Regular Expression</h2>
-<h2 id="simple-email-validation">Simple email validation</h2>
-<pre><code class="javascript">[\w-]+@([\w-]+\.)+[\w-]+
-</code></pre>
-
-<p>Matches: test@example.com<br />
-Matches: test@example.c<br />
-Does not match: test@exa$mple.com  </p>
-<h2 id="advanced-email-validation">Advanced Email Validation</h2>
-<pre><code class="javascript">^[A-Za-z0-9._%+-]+@([A-Za-z0-9-_]+\.)+[A-Za-z]{2,6}$
-</code></pre>
-
-<p>Matches: test@example.com (and the e-mail address must be at the start of a line)<br />
-Does not match: test@example.c<br />
-Does not match: test@exa$mple.com  </p>
-<h2 id="phone-number-style-1">Phone number, style 1</h2>
-<pre><code class="javascript">[0]\d{2}-\d{7}
-</code></pre>
-
-<p>Matches: 011-8804411<br />
-Does not match: 011-880 4411  </p>
-<h2 id="phone-number-style-2">Phone number, style 2</h2>
-<pre><code class="javascript">^\([0]\d{2}\)\d{7}
-</code></pre>
-
-<p>Matches: (011)8804411 (and the phone number must be at the start of a line)<br />
-Does not match: (011) 880 4411<br />
-Does not match: (0118)804411  </p>
-<h2 id="south-african-id">South African ID</h2>
-<pre><code class="javascript">(((\d{2}((0[13578]|1[02])(0[1-9]|[12]\d|3[01])|(0[13456789]|1[012])(0[1-9]|[12]\d|30)|02(0[1-9]|1\d|2[0-8])))|([02468][048]|[13579][26])0229))(( |-)(\d{4})( |-)(\d{3})|(\d{7}))
-</code></pre>
-
-<p>Matches: 8001015009087<br />
-Does not match: d001015009087  </p>
-<p>Refer <a href="http://en.wikipedia.org/wiki/National_identification_number#South_Africa">National Identification Number</a>.</p></div>
+<h2 id="jobs">Jobs</h2>
+<h3 id="schedule">Schedule</h3>
+<ul>
+<li><strong>&nbsp;0 0 * <em> </em>&nbsp;</strong> cron schedule: See <a href="https://crontab.guru/">crontab.guru</a></li>
+<li><strong>60</strong> period in seconds</li>
+<li><strong>0</strong> disables a job.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Description</th>
+<th>Default Schedule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tenant.storage.report</td>
+<td>Updates the tenant table with storage in MB</td>
+<td>0 3 * * *</td>
+</tr>
+<tr>
+<td>tenant.users.report</td>
+<td>Updates the tenant table with userCount</td>
+<td>0 2 * * *</td>
+</tr>
+<tr>
+<td>storage.garbage.collector.interval</td>
+<td>Deletes files from the filesystem that are marked for deletion</td>
+<td>0 3 * * *</td>
+</tr>
+<tr>
+<td>db.backup.schedule</td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>file.cleanup.schedule</td>
+<td>Cleanup temp file directory</td>
+<td>0 * <em> * </em></td>
+</tr>
+<tr>
+<td>health.report.schedule</td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>group.sync.interval</td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>scheduled.notification.interval</td>
+<td>Trigger diarize,</td>
+<td>1800</td>
+</tr>
+<tr>
+<td>sync.interval</td>
+<td>Import and sync, sync from table to pt</td>
+<td><em>/5 * </em> * *</td>
+</tr>
+<tr>
+<td>message.retry.check.interval</td>
+<td>Retry period for failed messages</td>
+<td>60</td>
+</tr>
+<tr>
+<td>workflow.timeout.check.interval</td>
+<td>Period to check for workflow tasks that have timed out</td>
+<td>900</td>
+</tr>
+<tr>
+<td>index.backup.schedule</td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>out.of.office.job</td>
+<td></td>
+<td>600</td>
+</tr>
+</tbody>
+</table></div>
         </div>
 
         <footer class="col-md-12">

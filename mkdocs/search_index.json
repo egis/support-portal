@@ -1136,6 +1136,21 @@
             "title": "Decrypting Inbound Email (SMIME)"
         }, 
         {
+            "location": "/Reference/Jobs/", 
+            "text": "Jobs\n\n\nSchedule\n\n\n\n\n0 0 * \n \n cron schedule: See \ncrontab.guru\n\n\n60\n period in seconds\n\n\n0\n disables a job.\n\n\n\n\n\n\n\n\n\n\nJob\n\n\nDescription\n\n\nDefault Schedule\n\n\n\n\n\n\n\n\n\n\ntenant.storage.report\n\n\nUpdates the tenant table with storage in MB\n\n\n0 3 * * *\n\n\n\n\n\n\ntenant.users.report\n\n\nUpdates the tenant table with userCount\n\n\n0 2 * * *\n\n\n\n\n\n\nstorage.garbage.collector.interval\n\n\nDeletes files from the filesystem that are marked for deletion\n\n\n0 3 * * *\n\n\n\n\n\n\ndb.backup.schedule\n\n\n\n\n0\n\n\n\n\n\n\nfile.cleanup.schedule\n\n\nCleanup temp file directory\n\n\n0 * \n * \n\n\n\n\n\n\nhealth.report.schedule\n\n\n\n\n0\n\n\n\n\n\n\ngroup.sync.interval\n\n\n\n\n0\n\n\n\n\n\n\nscheduled.notification.interval\n\n\nTrigger diarize,\n\n\n1800\n\n\n\n\n\n\nsync.interval\n\n\nImport and sync, sync from table to pt\n\n\n/5 * \n * *\n\n\n\n\n\n\nmessage.retry.check.interval\n\n\nRetry period for failed messages\n\n\n60\n\n\n\n\n\n\nworkflow.timeout.check.interval\n\n\nPeriod to check for workflow tasks that have timed out\n\n\n900\n\n\n\n\n\n\nindex.backup.schedule\n\n\n\n\n0\n\n\n\n\n\n\nout.of.office.job\n\n\n\n\n600", 
+            "title": "Jobs"
+        }, 
+        {
+            "location": "/Reference/Jobs/#jobs", 
+            "text": "", 
+            "title": "Jobs"
+        }, 
+        {
+            "location": "/Reference/Jobs/#schedule", 
+            "text": "0 0 *     cron schedule: See  crontab.guru  60  period in seconds  0  disables a job.      Job  Description  Default Schedule      tenant.storage.report  Updates the tenant table with storage in MB  0 3 * * *    tenant.users.report  Updates the tenant table with userCount  0 2 * * *    storage.garbage.collector.interval  Deletes files from the filesystem that are marked for deletion  0 3 * * *    db.backup.schedule   0    file.cleanup.schedule  Cleanup temp file directory  0 *   *     health.report.schedule   0    group.sync.interval   0    scheduled.notification.interval  Trigger diarize,  1800    sync.interval  Import and sync, sync from table to pt  /5 *   * *    message.retry.check.interval  Retry period for failed messages  60    workflow.timeout.check.interval  Period to check for workflow tasks that have timed out  900    index.backup.schedule   0    out.of.office.job   600", 
+            "title": "Schedule"
+        }, 
+        {
             "location": "/Reference/Linking/", 
             "text": "Manipulating the linking critera\n\n\nLinking Documents On Numbers Only\n\n\nSpecific node links can be added to only search the digit portion of the index value using IF ELSE logic, i.e.\n\n\nDestination Node\n/recursive=true\nDestination Index\n=${if (\nSource Index\n == null) \n else \nSource Index\n.find(\n\\\\d+\n)}\n\n\n\n\nwhere \n\n\n\n\nDestination Node: \nRoot node/child node/\n\n\nrecursive=true: when searching over multiple child nodes\n\n\nDestination Index: Index field you want to link to\n\n\nSource Index: Index field on node you're linking from\n\n\n${if (\n == null): If source index has no Value\n\n\n\"\" else \n.find(\"\\d+\")}: Find matching Numeric Value\n\n\n\n\nLinking on Numeric with custom field Order_No\n\n\neg. Order_No = 12345\n\n\nDestination Node\n/recursive=true\nOrder_No=${if (Order_No == null) \"\" else Order_No.find(\"\\\\d+\")}\n\n\nLinking on Alphanumeric with custom field Order_No\n\n\neg. Order_No = PO12345\n\n\n\"\" else Order_No.find(\"\\\\w+\")\n\n\nLinking on Alphanumeric, Space, Numeric with custom field Order_No\n\n\neg. Order_No = PO 12345\n\n\nRegex Examples eg.\n\n\n1)  \n\\w+\n    : All alphanumeric values\n\n\n2)  \n\\W\n     : A non-word character: [^\\w]\n\n\n3)  \n\\d+\n    : All numeric values\n\n\n4)  \n\\D\n     : A non-digit: [^0-9]\n\n\n5)  \n\\s\n     : A whitespace character", 
             "title": "Linking"
