@@ -231,6 +231,21 @@
             "title": "egis.png (75x25)"
         }, 
         {
+            "location": "/Configuration/Bulk-Capture/", 
+            "text": "Bulk Capture\n\n\n\n\nCreate a new Queue in \nAdmin -\n User Management -\n Queue\n with a query used to populate the queue\n\n\nGive users and groups permissions on the Queue\n\n\nBulk Capture is available under Tools -\n\n\n\n\nCustomize indexes per queue\n\n\n\n\nTo customise the indexes used in Bulk Capture create a new Meta MOdel with the queue name", 
+            "title": "Bulk Capture"
+        }, 
+        {
+            "location": "/Configuration/Bulk-Capture/#bulk-capture", 
+            "text": "Create a new Queue in  Admin -  User Management -  Queue  with a query used to populate the queue  Give users and groups permissions on the Queue  Bulk Capture is available under Tools -", 
+            "title": "Bulk Capture"
+        }, 
+        {
+            "location": "/Configuration/Bulk-Capture/#customize-indexes-per-queue", 
+            "text": "To customise the indexes used in Bulk Capture create a new Meta MOdel with the queue name", 
+            "title": "Customize indexes per queue"
+        }, 
+        {
             "location": "/Configuration/Logging/", 
             "text": "Logging\n\n\nUpdating the log settings\n\n\n\n\nAll log settings are stored in the \nconf/logback.groovy\n file\u00a0\n\n\nThe \nAdmin -> Services -> Logging\n \u00a0page will make changes to this file\nif the After Restart \u00a0option is selected\n\n\n\n\nLog file Retention\n\n\n\n\nTo configure the number of days to keep Papertrail logs, locate and\n    edit the following document:\u00a0\nPaperTrail/conf/logback.groovy\n\ne.g. keeps the logs for a period of 14 days:\n\n\n\n\nappender(\nFILE\n, RollingFileAppender) {         \u00a0\u00a0\u00a0\u00a0\n    file\u00a0=\u00a0\nlogs/server.log\n         \u00a0\u00a0\u00a0\u00a0\n    append\u00a0=\u00a0true         \u00a0\u00a0\u00a0\u00a0\n    rollingPolicy(TimeBasedRollingPolicy) {         \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\n        maxHistory\u00a0=\u00a014         \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 \n        FileNamePattern\u00a0=\u00a0\nlogs/server-%d{yyyy-MM-dd}.log\n         \u00a0\u00a0\u00a0 \n    }         \n}\n\n\n\n\n\n\nLocate the section\u00a0\nmaxHistory = 14\n\u00a0 modify the 14 with\n    the amount of days to keep logs.\n\n\nRestart PaperTrail for the settings to take effect.\n\n\n\n\nLogging to Syslog Host\n\n\n``java\nimport com.egis.utils.apm.\n; \nimport org.productivity.java.syslog4j.impl.net.tcp.\n; \n\n\nappender(\"SYSLOG\", SyslogAppender) { \u00a0\n  \u00a0 layout(LogglyLayout) { \u00a0\u00a0 \u00a0apiToken = \"XXXXX\" \u00a0 \u00a0 } \u00a0 \u00a0\n  \u00a0 syslogConfig(TCPNetSyslogConfig) { \u00a0 \u00a0 \n  \u00a0     host = \u00a0\"logs-01.loggly.com\"\n        port = 514\n        ident = \"papertrail\"\n  \u00a0\u00a0} \n}\n\n\n\n## Logging to a GELF Host \n\nReplace //gelf in the logback.groovy with:\n\n```groovy\nappender(\nGELF\n, GelfAppender) { \u00a0 \u00a0 \n    host = \n${gelfHost}\n \u00a0 \u00a0\n    filter(ThresholdFilter) { \u00a0 \u00a0 \u00a0 \n \u00a0      level = ${gelfLevel} \u00a0 \n \u00a0 } \u00a0 \u00a0\n \u00a0 port = 12201 \u00a0\n \u00a0 additionalFields = \u00a0'{\nthreadName\n: \nthreadName\n, \nexception\n: \nexception\n, \nloggerName\n: \nloggerName\n, \nip\n:\nip\n,\nuser\n:\nuser\n,\ndoc\n:\ndoc\n}' \n}\n\n\n\n\nThe following properties will automate this\nsetup:\u00a0\ngelf.host\n\u00a0and\u00a0\ngelf.level\n\n\nLogging to individual files per logger\n\n\ne.g. to append file access logs to a standalone \nstorage.log\n file:\n\n\nappender(\nSTORAGE\n, RollingFileAppender) {\n    file = \nlogs/storage.log\n\n    append = true\n    rollingPolicy(TimeBasedRollingPolicy) {\n        maxHistory = 14\n        FileNamePattern = \nlogs/storahe-%d{yyyy-MM-dd}.log\n\n    }\n    encoder(PatternLayoutEncoder) {\n        pattern = \n%d{HH:mm:ss.SSS} %level %logger{0} [%X{user}%X{doc}:%X{ip}] %msg%n\n\n    }\n}\n\n\nlogger('com.egis.storage', INFO)\nlogger(\ncom.egis.storage\n, DEBUG, ['STORAGE'], false)", 
             "title": "Logging"
