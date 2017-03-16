@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,8 +1021,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="encryption">Encryption</h1>
-<h2 id="encrypting-files-at-rest-aes">Encrypting files at rest (AES)</h2>
+                                <h1 id="Encryption"><a name="encryption" class="plugin-anchor" href="#encryption"><i class="fa fa-link" aria-hidden="true"></i></a>Encryption</h1>
+<h2 id="Encrypting_files_at_rest_(AES)">1. Encrypting files at rest (AES)</h2>
 <ul>
 <li>Add the following to the <strong>papertrail.properties</strong> file before starting PaperTrail for the first time<br><code>storage.encrypt=true</code></li>
 </ul>
@@ -1022,7 +1034,7 @@
 <li>Enter the <strong>unique key name</strong> for this store.  </li>
 <li>The <strong>encryption key will be automatically generated</strong> on restart and stored obfuscated in the database.  </li>
 </ul>
-<h2 id="encrypting-files-in-transit-ssl">Encrypting files in transit (SSL)</h2>
+<h2 id="Encrypting_files_in_transit_(SSL)">2. Encrypting files in transit (SSL)</h2>
 <ul>
 <li>Create a <strong>Java keystore (JKS)</strong> </li>
 </ul>
@@ -1038,19 +1050,19 @@
 <li>Click <strong>Save</strong>.  </li>
 <li>Restart <strong>PaperTrail</strong>.  </li>
 </ul>
-<h2 id="encrypting-outbound-email-smime">Encrypting Outbound Email (SMIME)</h2>
+<h2 id="Encrypting_Outbound_Email_(SMIME)">3. Encrypting Outbound Email (SMIME)</h2>
 <p>In <code>papertrail.properties</code> add the following property:
 e.g.</p>
 <pre><code>email.smime.out.&lt;email address&gt;=&lt;path to X509 public certificate&gt;
 </code></pre><p>e.g.</p>
 <pre><code>email.sime.out.confidential@example.com=C:\public.cert
 </code></pre><p>To test: Email anything from PaperTrail to that email and it should automatically be encrypted.</p>
-<h2 id="decrypting-inbound-email-smime">Decrypting Inbound Email (SMIME)</h2>
+<h2 id="Decrypting_Inbound_Email_(SMIME)">4. Decrypting Inbound Email (SMIME)</h2>
 <p>Under <code>Services -&gt; Properties -&gt; Imports</code> configure.</p>
 <p><strong>Email Decryption Cert Path</strong>: A path to a JCEKS Key Store  (Note: JCEKS not JKS) that contains one or more keys to decrypt incoming email. The file should have an <code>jceks</code> extension. Each entry in the keystore should have the same password as the keystore it self.  </p>
 <p><strong>Email Decryption Password</strong>: The password to the keystore.  </p>
 <p>To test try and view any encrypted mail in preview - The body and attachments should be available - if it does not work then a smime.p7m attachment will only be visible.</p>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Encryption">Encryption</a></p><li><a href="#Encrypting_files_at_rest_(AES)">1. Encrypting files at rest (AES)</a></li><li><a href="#Encrypting_files_in_transit_(SSL)">2. Encrypting files in transit (SSL)</a></li><li><a href="#Encrypting_Outbound_Email_(SMIME)">3. Encrypting Outbound Email (SMIME)</a></li><li><a href="#Decrypting_Inbound_Email_(SMIME)">4. Decrypting Inbound Email (SMIME)</a></li></ul></div><a href="#Encrypting_files_at_rest_(AES)" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1093,7 +1105,7 @@ e.g.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Encryption","level":"1.6.2","depth":2,"next":{"title":"Linking","level":"1.6.3","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},"previous":{"title":"Cold Standby Failover Procedure","level":"1.6.1","depth":2,"path":"reference/cold-standby-failover-procedure-text.md","ref":"reference/cold-standby-failover-procedure-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/encryption-text.md","mtime":"2017-03-16T17:24:18.540Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Encryption","level":"1.6.2","depth":2,"next":{"title":"Linking","level":"1.6.3","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},"previous":{"title":"Cold Standby Failover Procedure","level":"1.6.1","depth":2,"path":"reference/cold-standby-failover-procedure-text.md","ref":"reference/cold-standby-failover-procedure-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/encryption-text.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1101,6 +1113,14 @@ e.g.</p>
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

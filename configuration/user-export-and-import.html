@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1007,12 +1019,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="user-export-and-import-via-the-pt-cli-command">User export and import via the pt CLI command</h1>
-<h3 id="requirements">Requirements</h3>
+                                <h1 id="User_export_and_import_via_the_pt_CLI_command"><a name="user-export-and-import-via-the-pt-cli-command" class="plugin-anchor" href="#user-export-and-import-via-the-pt-cli-command"><i class="fa fa-link" aria-hidden="true"></i></a>User export and import via the pt CLI command</h1>
+<h3 id="Requirements">0.1. Requirements</h3>
 <ul>
 <li>Ensure that the <code>pt</code> utility is installed on a Linux host. See guide <a href="../installation/cli-article.html">here</a></li>
 </ul>
-<h3 id="export-current-user-database">Export current user database</h3>
+<h3 id="Export_current_user_database">0.2. Export current user database</h3>
 <ul>
 <li>From the Linux host, execute<br>
 <code>pt --host 192.168.1.10:8080 --username admin --password &apos;mypassword&apos; export User &gt; users.yml</code></li>
@@ -1025,7 +1037,7 @@
 <code>properties: {otp: &apos;false&apos;}</code><br>
 <code>userType: FULL</code></li>
 </ul>
-<h3 id="capture-new-user-information">Capture new user information</h3>
+<h3 id="Capture_new_user_information">0.3. Capture new user information</h3>
 <ul>
 <li>Create a csv file with details of the new user accounts to be imported; example cell structure below (remember to convert this to csv):</li>
 </ul>
@@ -1084,14 +1096,14 @@
 <li>Perform a simple find-and-replace to substitute <code>-</code> with <code>--- !&lt;User&gt;</code> and your YAML file should now resemble the output from the earlier user database export</li>
 <li>Ensure that there are no duplicate login values and no illegal characters in any of the fields</li>
 </ul>
-<h3 id="import-new-user-database">Import new user database</h3>
+<h3 id="Import_new_user_database">0.4. Import new user database</h3>
 <ul>
 <li>Copy your YAML file over to the Linux host (using WinSCP as an option)</li>
 <li>On the Linux host, execute<br>
 <code>pt --host 192.168.1.10:8080 --username admin --password &apos;mypassword&apos; import newusers.yml</code></li>
 <li>If you encounter any error messages, check the server logs to identify the offending statement (put <code>com.egis.kernel.messaging</code> on DEBUG/TRACE if additional logging is required)</li>
 </ul>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#User_export_and_import_via_the_pt_CLI_command">User export and import via the pt CLI command</a></p><li><a href="#">none</a></li><ul><li><a href="#Requirements">0.1. Requirements</a></li><li><a href="#Export_current_user_database">0.2. Export current user database</a></li><li><a href="#Capture_new_user_information">0.3. Capture new user information</a></li><li><a href="#Import_new_user_database">0.4. Import new user database</a></li></ul></ul></div><a href="#" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1130,7 +1142,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"User Export and Import","level":"1.3.17","depth":2,"next":{"title":"Installation","level":"1.4","depth":1,"ref":"","articles":[{"title":"CLI","level":"1.4.1","depth":2,"path":"installation/cli-article.md","ref":"installation/cli-article.md","articles":[]},{"title":"Desktop Agent","level":"1.4.2","depth":2,"path":"installation/desktop-agent.md","ref":"installation/desktop-agent.md","articles":[]},{"title":"MS Office Add In","level":"1.4.3","depth":2,"path":"installation/ms-office-add-in.md","ref":"installation/ms-office-add-in.md","articles":[]},{"title":"End User Installation","level":"1.4.4","depth":2,"path":"installation/end-user-installation.md","ref":"installation/end-user-installation.md","articles":[]},{"title":"Sizing","level":"1.4.5","depth":2,"path":"installation/sizing-text.md","ref":"installation/sizing-text.md","articles":[]},{"title":"Server Installation","level":"1.4.6","depth":2,"path":"installation/server-installation.md","ref":"installation/server-installation.md","articles":[]},{"title":"Mac OS X","level":"1.4.7","depth":2,"path":"installation/macosx.md","ref":"installation/macosx.md","articles":[]},{"title":"Ubuntu Linux","level":"1.4.8","depth":2,"path":"installation/ubuntu-linux-text.md","ref":"installation/ubuntu-linux-text.md","articles":[]},{"title":"Windows","level":"1.4.9","depth":2,"path":"installation/Windows.md","ref":"installation/Windows.md","articles":[]},{"title":"Service","level":"1.4.10","depth":2,"path":"installation/service.md","ref":"installation/service.md","articles":[]},{"title":"Solution","level":"1.4.11","depth":2,"path":"installation/solution.md","ref":"installation/solution.md","articles":[]}]},"previous":{"title":"SSL","level":"1.3.16","depth":2,"path":"configuration/ssl.md","ref":"configuration/ssl.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/user-export-and-import.md","mtime":"2017-03-16T17:24:18.532Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"User Export and Import","level":"1.3.17","depth":2,"next":{"title":"Installation","level":"1.4","depth":1,"ref":"","articles":[{"title":"CLI","level":"1.4.1","depth":2,"path":"installation/cli-article.md","ref":"installation/cli-article.md","articles":[]},{"title":"Desktop Agent","level":"1.4.2","depth":2,"path":"installation/desktop-agent.md","ref":"installation/desktop-agent.md","articles":[]},{"title":"MS Office Add In","level":"1.4.3","depth":2,"path":"installation/ms-office-add-in.md","ref":"installation/ms-office-add-in.md","articles":[]},{"title":"End User Installation","level":"1.4.4","depth":2,"path":"installation/end-user-installation.md","ref":"installation/end-user-installation.md","articles":[]},{"title":"Sizing","level":"1.4.5","depth":2,"path":"installation/sizing-text.md","ref":"installation/sizing-text.md","articles":[]},{"title":"Server Installation","level":"1.4.6","depth":2,"path":"installation/server-installation.md","ref":"installation/server-installation.md","articles":[]},{"title":"Mac OS X","level":"1.4.7","depth":2,"path":"installation/macosx.md","ref":"installation/macosx.md","articles":[]},{"title":"Ubuntu Linux","level":"1.4.8","depth":2,"path":"installation/ubuntu-linux-text.md","ref":"installation/ubuntu-linux-text.md","articles":[]},{"title":"Windows","level":"1.4.9","depth":2,"path":"installation/Windows.md","ref":"installation/Windows.md","articles":[]},{"title":"Service","level":"1.4.10","depth":2,"path":"installation/service.md","ref":"installation/service.md","articles":[]},{"title":"Solution","level":"1.4.11","depth":2,"path":"installation/solution.md","ref":"installation/solution.md","articles":[]}]},"previous":{"title":"SSL","level":"1.3.16","depth":2,"path":"configuration/ssl.md","ref":"configuration/ssl.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/user-export-and-import.md","mtime":"2017-03-16T17:58:34.504Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1138,6 +1150,14 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

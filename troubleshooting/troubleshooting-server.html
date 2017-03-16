@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,10 +1021,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="troubleshooting-server">Troubleshooting Server</h1>
-<h2 id="isolate-the-problem">Isolate the Problem</h2>
+                                <h1 id="Troubleshooting_Server"><a name="troubleshooting-server" class="plugin-anchor" href="#troubleshooting-server"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting Server</h1>
+<h2 id="Isolate_the_Problem">1. Isolate the Problem</h2>
 <p><img src="../images/server-troubleshoot.png" alt="Layouts Flow"></p>
-<h2 id="solve-the-problem">Solve the Problem</h2>
+<h2 id="Solve_the_Problem">2. Solve the Problem</h2>
 <ul>
 <li>Start with the client and release.  </li>
 <li>Ensure that all the steps are followed.  </li>
@@ -1022,7 +1034,7 @@
 <li>Ask for help in the Support Room only.  </li>
 <li>Add knowledge base article.  </li>
 </ul>
-<h2 id="log-levels">Log Levels</h2>
+<h2 id="Log_Levels">3. Log Levels</h2>
 <p>To increase the log levels, navigate to  <strong>Services -&gt; Logging</strong> in PT Admin UI.  </p>
 <ul>
 <li>Select the <strong>appropriate log level</strong> and click <strong>Update</strong>.  </li>
@@ -1030,13 +1042,13 @@
 <li>Select whether the increased logging level should remain after restart. It is recommended to not keep DEBUG and TRACE levels for extended period.  </li>
 <li>Click <strong>Update</strong>. </li>
 </ul>
-<h2 id="rebuilding-indexes">Rebuilding Indexes</h2>
+<h2 id="Rebuilding_Indexes">4. Rebuilding Indexes</h2>
 <p>To rebuild all indexes, Navigate to <strong>Services -&gt; Tasks -&gt; Indexing</strong>  </p>
 <ul>
 <li>Run a <strong>Repair all indexes</strong> when the indexes are mostly complete and there is only some out of date data.  </li>
 <li>Run a <strong>Rebuild all indexes</strong>, when there is no index data.  </li>
 </ul>
-<h2 id="debug-mode">Debug Mode</h2>
+<h2 id="Debug_Mode">5. Debug Mode</h2>
 <p>To start PaperTrail in Debug Mode in Windows:   </p>
 <ul>
 <li>Start the <strong>console_debug.exe</strong> command line app.  </li>
@@ -1049,7 +1061,7 @@
 -Xrunjdwp:transport=dt_socket,address=<span class="hljs-number">8787</span>,server=y,suspend=n  
 <span class="hljs-comment">// Ex : java -Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n -Xms512m -Xmx512m -XX:MaxPermSize=196m -classpath $(echo ../build/*.jar ../libs/*.jar . | sed &apos;s/ /:/g&apos;):conf com.egis.Startup</span>
 </code></pre>
-<h2 id="running-jobs">Running Jobs</h2>
+<h2 id="Running_Jobs">6. Running Jobs</h2>
 <p>Any long running job will be listed under <strong>Services -&gt; Jobs</strong>. These include:  </p>
 <ul>
 <li>Scheduled Rules.  </li>
@@ -1057,7 +1069,7 @@
 <li>File Store Repairs.  </li>
 <li>Database Backups / Restores.  </li>
 </ul>
-<h2 id="failure-to-start">Failure to Start</h2>
+<h2 id="Failure_to_Start">7. Failure to Start</h2>
 <p>If PaperTrail fails to start, follow these steps :  </p>
 <ul>
 <li>Check that <strong>Java is installed</strong> and no other service is listening on the default port.  </li>
@@ -1065,7 +1077,7 @@
 <li>Verify that user, service run as user <strong>has appropriate permissions to read and write to all directories</strong> in the installation directory.  </li>
 <li>Review the log files under logs - specifically <strong>error.log, output.log, server.log</strong>.  </li>
 </ul>
-<h2 id="low-performance">Low Performance</h2>
+<h2 id="Low_Performance">8. Low Performance</h2>
 <ul>
 <li>Check the <strong>memory usage</strong>. Take a snapshot and review the vminfo.txt file, the total GC time should be <strong>below 1% of uptime</strong>. If the total GC time is higher, it indicates that the <strong>heap space should be increased</strong>.  </li>
 <li>If running on a <strong>virtualization platform</strong>, ensure the host has enough resources.  </li>
@@ -1076,17 +1088,17 @@
 <li>Review thread dump at <a href="http://host:8080/snapshot/threads" target="_blank">http://host:8080/snapshot/threads</a> for threads with high CPU usage.  </li>
 <li>Verify best practices.  </li>
 </ul>
-<h2 id="checking-log-files">Checking log files</h2>
+<h2 id="Checking_log_files">9. Checking log files</h2>
 <ul>
 <li>Go to <a href="http://host:8080/web/admin/log.html" target="_blank">http://host:8080/web/admin/log.html</a>.  </li>
 <li>Take a snapshot <a href="http://host/snapshot" target="_blank">http://host/snapshot</a>.  </li>
 </ul>
-<h2 id="rules-debugging">Rules debugging</h2>
+<h2 id="Rules_debugging">10. Rules debugging</h2>
 <p>If you expect some rule to be applied to created/updated/deleted document and it doesn&apos;t it&apos;s probably because that 
 document doesn&apos;t get covered by rule&apos;s source conditions. </p>
 <p>To see if that&apos;s the case, set <code>com.egis.index.query</code> to DEBUG - see how in <a href="#log-levels">Log Levels</a> section. 
 Then you&apos;ll see the SQL queries and their result set counts in log console.</p>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Troubleshooting_Server">Troubleshooting Server</a></p><li><a href="#Isolate_the_Problem">1. Isolate the Problem</a></li><li><a href="#Solve_the_Problem">2. Solve the Problem</a></li><li><a href="#Log_Levels">3. Log Levels</a></li><li><a href="#Rebuilding_Indexes">4. Rebuilding Indexes</a></li><li><a href="#Debug_Mode">5. Debug Mode</a></li><li><a href="#Running_Jobs">6. Running Jobs</a></li><li><a href="#Failure_to_Start">7. Failure to Start</a></li><li><a href="#Low_Performance">8. Low Performance</a></li><li><a href="#Checking_log_files">9. Checking log files</a></li><li><a href="#Rules_debugging">10. Rules debugging</a></li></ul></div><a href="#Isolate_the_Problem" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1129,7 +1141,7 @@ Then you&apos;ll see the SQL queries and their result set counts in log console.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Troubleshooting Server","level":"1.7.4","depth":2,"next":{"title":"Messaging","level":"1.7.5","depth":2,"path":"troubleshooting/messaging.md","ref":"troubleshooting/messaging.md","articles":[]},"previous":{"title":"Troubleshooting Client","level":"1.7.3","depth":2,"path":"troubleshooting/troubleshooting-client-text.md","ref":"troubleshooting/troubleshooting-client-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/troubleshooting-server.md","mtime":"2017-03-16T17:24:18.544Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Troubleshooting Server","level":"1.7.4","depth":2,"next":{"title":"Messaging","level":"1.7.5","depth":2,"path":"troubleshooting/messaging.md","ref":"troubleshooting/messaging.md","articles":[]},"previous":{"title":"Troubleshooting Client","level":"1.7.3","depth":2,"path":"troubleshooting/troubleshooting-client-text.md","ref":"troubleshooting/troubleshooting-client-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/troubleshooting-server.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1137,6 +1149,14 @@ Then you&apos;ll see the SQL queries and their result set counts in log console.
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

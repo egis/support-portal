@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,8 +1021,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="manipulating-the-linking-critera">Manipulating the linking critera</h2>
-<h3 id="linking-documents-on-numbers-only">Linking Documents On Numbers Only</h3>
+                                <h2 id="Manipulating_the_linking_critera">1. Manipulating the linking critera</h2>
+<h3 id="Linking_Documents_On_Numbers_Only">1.1. Linking Documents On Numbers Only</h3>
 <p>Specific node links can be added to only search the digit portion of the index value using IF ELSE logic, i.e.</p>
 <pre><code class="lang-javascript">&lt;Destination Node&gt;/recursive=true&amp;&lt;Destination Index&gt;=${if (&lt;Source Index&gt; == null) &quot;&quot; else &lt;Source Index&gt;.find(&quot;\\d+&quot;)}
 </code></pre>
@@ -1023,21 +1035,21 @@
 <li>${if (<source index=""> == null): If source index has no Value</li>
 <li>&quot;&quot; else <source index="">.find(&quot;\d+&quot;)}: Find matching Numeric Value</li>
 </ul>
-<h3 id="linking-on-numeric-with-custom-field-orderno">Linking on Numeric with custom field Order_No</h3>
+<h3 id="Linking_on_Numeric_with_custom_field_Order_No">1.2. Linking on Numeric with custom field Order_No</h3>
 <p>eg. Order_No = 12345</p>
 <p><code>&lt;Destination Node&gt;/recursive=true&amp;Order_No=${if (Order_No == null) &quot;&quot; else Order_No.find(&quot;\\d+&quot;)}</code></p>
-<h3 id="linking-on-alphanumeric-with-custom-field-orderno">Linking on Alphanumeric with custom field Order_No</h3>
+<h3 id="Linking_on_Alphanumeric_with_custom_field_Order_No">1.3. Linking on Alphanumeric with custom field Order_No</h3>
 <p>eg. Order_No = PO12345</p>
 <p><code>&quot;&quot; else Order_No.find(&quot;\\w+&quot;)</code></p>
-<h3 id="linking-on-alphanumeric-space-numeric-with-custom-field-orderno">Linking on Alphanumeric, Space, Numeric with custom field Order_No</h3>
+<h3 id="Linking_on_Alphanumeric__Space__Numeric_with_custom_field_Order_No">1.4. Linking on Alphanumeric, Space, Numeric with custom field Order_No</h3>
 <p>eg. Order_No = PO 12345</p>
-<h3 id="regex-examples-eg">Regex Examples eg.</h3>
+<h3 id="Regex_Examples_eg_">1.5. Regex Examples eg.</h3>
 <p>1)  <strong>\w+</strong>    : All alphanumeric values</p>
 <p>2)  <strong>\W</strong>     : A non-word character: <sup><a href="#fn_%5Cw" id="reffn_\w">\w</a></sup></p>
 <p>3)  <strong>\d+</strong>    : All numeric values</p>
 <p>4)  <strong>\D</strong>     : A non-digit: <sup><a href="#fn_0-9" id="reffn_0-9">0-9</a></sup></p>
 <p>5)  <strong>\s</strong>     : A whitespace character</p>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#Manipulating_the_linking_critera">1. Manipulating the linking critera</a></li><ul><li><a href="#Linking_Documents_On_Numbers_Only">1.1. Linking Documents On Numbers Only</a></li><li><a href="#Linking_on_Numeric_with_custom_field_Order_No">1.2. Linking on Numeric with custom field Order_No</a></li><li><a href="#Linking_on_Alphanumeric_with_custom_field_Order_No">1.3. Linking on Alphanumeric with custom field Order_No</a></li><li><a href="#Linking_on_Alphanumeric__Space__Numeric_with_custom_field_Order_No">1.4. Linking on Alphanumeric, Space, Numeric with custom field Order_No</a></li><li><a href="#Regex_Examples_eg_">1.5. Regex Examples eg.</a></li></ul></ul></div><a href="#Manipulating_the_linking_critera" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1080,7 +1092,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Linking","level":"1.6.3","depth":2,"next":{"title":"Logging","level":"1.6.4","depth":2,"path":"reference/logging-text.md","ref":"reference/logging-text.md","articles":[]},"previous":{"title":"Encryption","level":"1.6.2","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/linking-text.md","mtime":"2017-03-16T17:24:18.540Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Linking","level":"1.6.3","depth":2,"next":{"title":"Logging","level":"1.6.4","depth":2,"path":"reference/logging-text.md","ref":"reference/logging-text.md","articles":[]},"previous":{"title":"Encryption","level":"1.6.2","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/linking-text.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1088,6 +1100,14 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

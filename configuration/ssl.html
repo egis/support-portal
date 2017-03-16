@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,7 +1021,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="configuring-https-server-side-only">Configuring HTTPS (Server Side Only)</h1>
+                                <h1 id="Configuring_HTTPS_(Server_Side_Only)"><a name="configuring-https-server-side-only" class="plugin-anchor" href="#configuring-https-server-side-only"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring HTTPS (Server Side Only)</h1>
 <p>To configure PaperTrail to use HTTPS:</p>
 <ol>
 <li>Create a Java key store (JKS) with a name of <code>keystore</code> and place it in the <code>conf</code> directory</li>
@@ -1018,13 +1030,13 @@
 <li>Set the HTTPS port (<code>http.ssl.port</code>) to 443 or 8443</li>
 <li>Check Force SSL (<code>http.ssl.force</code>) to always redirect from HTTP to HTTPS</li>
 </ol>
-<h2 id="converting-pkcs7-to-pkcs12">Converting PKCS#7 to PKCS#12</h2>
+<h2 id="Converting_PKCS#7_to_PKCS#12">1. Converting PKCS#7 to PKCS#12</h2>
 <p><code>openssl pkcs12 -export -in server.crt -inkey server.key   -out keystore.p12 -name www</code></p>
-<h2 id="converting-pkcs12-to-jks">Converting PKCS#12 to JKS</h2>
+<h2 id="Converting_PKCS#12_to_JKS">2. Converting PKCS#12 to JKS</h2>
 <p><code>keytool -importkeystore -destkeystore keystore -srckeystore keystore.p12 -srcstoretype PKCS12</code>               </p>
-<h3 id="import-root-and-intermediate-cas">Import Root and Intermediate CA&apos;s</h3>
+<h3 id="Import_Root_and_Intermediate_CA&apos;s">2.1. Import Root and Intermediate CA&apos;s</h3>
 <p><code>keytool -import -trustcacerts -alias root -file root.crt -keystore keystore</code></p>
-<h3 id="verifying">Verifying</h3>
+<h3 id="Verifying">2.2. Verifying</h3>
 <p>To verify that the keystore is configured correctly:</p>
 <p><code>keytool -list -keystore keystore</code> </p>
 <p>Which should produce something like:</p>
@@ -1036,7 +1048,7 @@ Keystore provider: SUN</p>
 </blockquote>
 <p>The last line has a syntax of <code>{CN} {Expiry} {Key Type}</code>  </p>
 <p><code>{CN}</code> should match the URL you would be accessing PaperTrail by<br><code>{Key Type}</code> must be PrivateKeyEntry  </p>
-<h1 id="configuring-client-authentication-mutual-ssl">Configuring Client Authentication (Mutual SSL)</h1>
+<h1 id="Configuring_Client_Authentication_(Mutual_SSL)"><a name="configuring-client-authentication-mutual-ssl" class="plugin-anchor" href="#configuring-client-authentication-mutual-ssl"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring Client Authentication (Mutual SSL)</h1>
 <ol>
 <li>Configure server side SSL as above</li>
 <li>Create a new a JKS file called <code>truststore</code> containing the trusted CA&apos;s</li>
@@ -1044,7 +1056,7 @@ Keystore provider: SUN</p>
 </ol>
 <p>Configuring client certificates requires that <strong>all</strong> clients supply a trusted certificate.</p>
 <p>The Common Name (<code>CN</code>) of the certificate will be used to map the a certificate to a user via the login field.</p>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Configuring_Client_Authentication_(Mutual_SSL)">Configuring Client Authentication (Mutual SSL)</a></p><li><a href="#Converting_PKCS#7_to_PKCS#12">1. Converting PKCS#7 to PKCS#12</a></li><li><a href="#Converting_PKCS#12_to_JKS">2. Converting PKCS#12 to JKS</a></li><ul><li><a href="#Import_Root_and_Intermediate_CA" s'="">2.1. Import Root and Intermediate CA&apos;s</a></li><li><a href="#Verifying">2.2. Verifying</a></li></ul></ul></div><a href="#Converting_PKCS#7_to_PKCS#12" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1087,7 +1099,7 @@ Keystore provider: SUN</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SSL","level":"1.3.16","depth":2,"next":{"title":"User Export and Import","level":"1.3.17","depth":2,"path":"configuration/user-export-and-import.md","ref":"configuration/user-export-and-import.md","articles":[]},"previous":{"title":"Security","level":"1.3.15","depth":2,"path":"configuration/security.md","ref":"configuration/security.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/ssl.md","mtime":"2017-03-16T17:24:18.532Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SSL","level":"1.3.16","depth":2,"next":{"title":"User Export and Import","level":"1.3.17","depth":2,"path":"configuration/user-export-and-import.md","ref":"configuration/user-export-and-import.md","articles":[]},"previous":{"title":"Security","level":"1.3.15","depth":2,"path":"configuration/security.md","ref":"configuration/security.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/ssl.md","mtime":"2017-03-16T17:58:34.504Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1095,6 +1107,14 @@ Keystore provider: SUN</p>
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

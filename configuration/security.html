@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,11 +1021,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="security-mode">Security Mode</h2>
+                                <h2 id="Security_Mode">1. Security Mode</h2>
 <p>PaperTrail can be run in 4 distinct security modes under <strong>Properties -&gt; Security -&gt; Security Mode</strong></p>
-<h3 id="low-default">Low (Default)</h3>
+<h3 id="Low_(Default)">1.1. Low (Default)</h3>
 <p>Suitable for intra-net based deployments without confidential data </p>
-<h3 id="medium">Medium</h3>
+<h3 id="Medium">1.2. Medium</h3>
 <p>Access to the various API&apos;s used for replication and clustering is
 restricted based on Trusted Server entries, some of the endpoints
 restricted include:</p>
@@ -1024,7 +1036,7 @@ restricted include:</p>
 <li>store</li>
 <li>replicate</li>
 </ul>
-<h3 id="high">High</h3>
+<h3 id="High">1.3. High</h3>
 <p>Includes all the restrictions of Medium and:</p>
 <ul>
 <li>disables the /script/console endpoint (used by
@@ -1050,7 +1062,7 @@ need to be set via papertrail.properties file:</li>
     pdf2swf.process  
     security.level
 </code></pre>
-<h3 id="very-high">Very High</h3>
+<h3 id="Very_High">1.4. Very High</h3>
 <p> Includes all the restrictions of High and further restricts:</p>
 <ul>
 <li>Loading jar files via System/jars folder</li>
@@ -1061,18 +1073,18 @@ need to be set via papertrail.properties file:</li>
 <li>Custom options in Meta Model Fields</li>
 <li>PQL Expressions</li>
 </ul>
-<h2 id="brute-force-login-protection">Brute Force Login protection</h2>
+<h2 id="Brute_Force_Login_protection">2. Brute Force Login protection</h2>
 <p>There are 2 options under Properties -&gt; Authentication that can be enabled</p>
 <p><code>Captcha on password reset</code> - Force a captcha to be passed before allowing a password reset email to be sent  </p>
 <blockquote>
 <p>Tip: password resets can also be disabled by unchecking <code>enable self service password reset</code>
 <code>Captcha on login attempts</code> - Force a captcha to be passed before X number of failed login attempts</p>
 </blockquote>
-<h2 id="brute-force-request-protection">Brute Force Request Protection</h2>
+<h2 id="Brute_Force_Request_Protection">3. Brute Force Request Protection</h2>
 <p>Check <code>Enable brute force protection</code> under <code>Services -&gt; Security</code>  </p>
-<h2 id="secure-cookie-handling">Secure Cookie Handling</h2>
+<h2 id="Secure_Cookie_Handling">4. Secure Cookie Handling</h2>
 <p>Check the options under <code>Services -&gt; Security -&gt; Cookies</code></p>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#Security_Mode">1. Security Mode</a></li><ul><li><a href="#Low_(Default)">1.1. Low (Default)</a></li><li><a href="#Medium">1.2. Medium</a></li><li><a href="#High">1.3. High</a></li><li><a href="#Very_High">1.4. Very High</a></li></ul><li><a href="#Brute_Force_Login_protection">2. Brute Force Login protection</a></li><li><a href="#Brute_Force_Request_Protection">3. Brute Force Request Protection</a></li><li><a href="#Secure_Cookie_Handling">4. Secure Cookie Handling</a></li></ul></div><a href="#Security_Mode" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1115,7 +1127,7 @@ need to be set via papertrail.properties file:</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Security","level":"1.3.15","depth":2,"next":{"title":"SSL","level":"1.3.16","depth":2,"path":"configuration/ssl.md","ref":"configuration/ssl.md","articles":[]},"previous":{"title":"Indexes / Meta Models","level":"1.3.14","depth":2,"path":"configuration/indexes.md","ref":"configuration/indexes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/security.md","mtime":"2017-03-16T17:24:18.532Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Security","level":"1.3.15","depth":2,"next":{"title":"SSL","level":"1.3.16","depth":2,"path":"configuration/ssl.md","ref":"configuration/ssl.md","articles":[]},"previous":{"title":"Indexes / Meta Models","level":"1.3.14","depth":2,"path":"configuration/indexes.md","ref":"configuration/indexes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/security.md","mtime":"2017-03-16T17:58:34.504Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1123,6 +1135,14 @@ need to be set via papertrail.properties file:</li>
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

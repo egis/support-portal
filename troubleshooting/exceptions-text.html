@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1007,13 +1019,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="exceptions">Exceptions</h1>
-<h2 id="system-cannot-find-the-file-specified">System cannot find the file specified</h2>
+                                <h1 id="Exceptions"><a name="exceptions" class="plugin-anchor" href="#exceptions"><i class="fa fa-link" aria-hidden="true"></i></a>Exceptions</h1>
+<h2 id="System_cannot_find_the_file_specified">1. System cannot find the file specified</h2>
 <p><code>java.io.IOException: Cannot run program &quot;pg\_dump&quot;: CreateProcess
 error=2</code><br>Reason : The system cannot find the file specified<br>Solution : Add the Postgresql/bin directory to the System PATH environment variable</p>
-<h2 id="system-cannot-find-the-file-specified">System cannot find the file specified</h2>
+<h2 id="System_cannot_find_the_file_specified">2. System cannot find the file specified</h2>
 <p><code>java.io.IOException: Cannot run program &quot;mysql\_dump&quot;</code><br>Reason : The system cannot find the file specified<br>Solution : Add the MySQL/bin directory to the System PATH environment variable</p>
-<h2 id="database-connection-pool-exhausted">Database connection Pool exhausted</h2>
+<h2 id="Database_connection_Pool_exhausted">3. Database connection Pool exhausted</h2>
 <p><code>JDBCExceptionReporter [:] Cannot get a connection, pool error Timeout
 waiting for idle object Database connection pool is exhausted,</code>  </p>
 <p>Solution :   </p>
@@ -1022,11 +1034,11 @@ waiting for idle object Database connection pool is exhausted,</code>  </p>
 beforehand  </li>
 <li>Check database lookup configurations  </li>
 </ul>
-<h2 id="permission-denied">Permission denied</h2>
+<h2 id="Permission_denied">4. Permission denied</h2>
 <p><code>failed &lt;SocketConnector@0.0.0.0&gt;:80:
 [java.net](http://java.net/).BindException: Permission denied</code></p>
 <p>Solution : To run PaperTrail on port 80 you need to be root, change http.port=8080</p>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Exceptions">Exceptions</a></p><li><a href="#System_cannot_find_the_file_specified">1. System cannot find the file specified</a></li><li><a href="#System_cannot_find_the_file_specified">2. System cannot find the file specified</a></li><li><a href="#Database_connection_Pool_exhausted">3. Database connection Pool exhausted</a></li><li><a href="#Permission_denied">4. Permission denied</a></li></ul></div><a href="#System_cannot_find_the_file_specified" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1065,7 +1077,7 @@ beforehand  </li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Exceptions","level":"1.7.8","depth":2,"previous":{"title":"DB Tuning","level":"1.7.7","depth":2,"path":"troubleshooting/db-tuning-text.md","ref":"troubleshooting/db-tuning-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/exceptions-text.md","mtime":"2017-03-16T17:24:18.544Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Exceptions","level":"1.7.8","depth":2,"previous":{"title":"DB Tuning","level":"1.7.7","depth":2,"path":"troubleshooting/db-tuning-text.md","ref":"troubleshooting/db-tuning-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/exceptions-text.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1073,6 +1085,14 @@ beforehand  </li>
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

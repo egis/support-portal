@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1007,7 +1019,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="data-sources">Data Sources</h2>
+                                <h2 id="Data_Sources">1. Data Sources</h2>
 <p>A DataSource is a generic abstraction over access and querying databases, it can be linked directly to List, and called via the front-end using <code>/data/{datasource name}/</code>. </p>
 <p>The type of datasource can also be switched (provided the name is retained) to allow different implementations during production / staging etc..</p>
 <ul>
@@ -1026,7 +1038,7 @@ to surround the name in order to concatenate the name.</li>
 <pre><code class="lang-sql"> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Invoices <span class="hljs-keyword">WHERE</span> Invoice_No = <span class="hljs-string">&apos;${invoice_no}
 </span></code></pre>
 <p>Using <code>UPDATE</code>, <code>DELETE</code>, <code>EXEC</code> or <code>INSERT</code> SQL keywords will use <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html#executeUpdate(" target="_blank">PreparedStatement.executeUpdate()</a>) while all other Keywords will use <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html#executeQuery(" target="_blank">PreparedStatement.executeQuery</a>)</p>
-<h2 id="direct-access">Direct Access</h2>
+<h2 id="Direct_Access">2. Direct Access</h2>
 <p>You can also use direct JDBC or the SQLUtils library to access external databases via a runScript rule - Ensure that you follow the pattern below</p>
 <pre><code class="lang-groovy"><span class="hljs-keyword">import</span> com.egis.datasource.JdbcDataSourceCache
 <span class="hljs-keyword">import</span> com.egis.kernel.Kernel
@@ -1043,7 +1055,7 @@ SQLUtils.executeStatement(ds, <span class="hljs-string">&quot;EXEC sp.StoreProc(
 <blockquote>
 <p>Note that a <code>Connection</code> or <code>DataSource</code> is not created directly but delegated to <code>JdbcDataSourceCache</code> so that connection pooling can occur</p>
 </blockquote>
-<h1 id="database-jdbc-configs">Database JDBC Configs</h1>
+<h1 id="Database_JDBC_Configs"><a name="database-jdbc-configs" class="plugin-anchor" href="#database-jdbc-configs"><i class="fa fa-link" aria-hidden="true"></i></a>Database JDBC Configs</h1>
 <table>
 <thead>
 <tr>
@@ -1066,7 +1078,7 @@ SQLUtils.executeStatement(ds, <span class="hljs-string">&quot;EXEC sp.StoreProc(
 </tr>
 </tbody>
 </table>
-<h2 id="sql">SQL</h2>
+<h2 id="SQL">3. SQL</h2>
 <p>SELECT Statement : To Fetch records from an external database to PaperTrail records.  </p>
 <p>Format : </p>
 <pre><code class="lang-javascript">   **SELECT \&lt;COLUMNS\&gt; FROM \&lt;TABLENAME\&gt; WHERE
@@ -1092,7 +1104,7 @@ INDEX\&gt;}**
 SET Index1 = <span class="hljs-string">&apos;asdf&apos;</span> 
 WHERE Invoice_Number = ${Invoice_Number}
 </code></pre>
-<h2 id="rules-for-sql-statements">Rules for SQL statements</h2>
+<h2 id="Rules_for_SQL_statements">4. Rules for SQL statements</h2>
 <ul>
 <li>Column headers and index values must match index values in
 PaperTrail, otherwise give columns aliases by using the &#x201C;AS&#x201D;
@@ -1102,9 +1114,9 @@ function.</li>
 <li>If column names contain spaces, double quotes (&#x201C; &#x201C;) should be used
 to surround the name in order to concatenate the name.</li>
 </ul>
-<h2 id="event">Event</h2>
+<h2 id="Event">5. Event</h2>
 <p>When to run the SQL Lookup or Update.</p>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Database_JDBC_Configs">Database JDBC Configs</a></p><li><a href="#Data_Sources">1. Data Sources</a></li><li><a href="#Direct_Access">2. Direct Access</a></li><li><a href="#SQL">3. SQL</a></li><li><a href="#Rules_for_SQL_statements">4. Rules for SQL statements</a></li><li><a href="#Event">5. Event</a></li></ul></div><a href="#Data_Sources" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1143,7 +1155,7 @@ to surround the name in order to concatenate the name.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Database","level":"1.5.1","depth":2,"next":{"title":"Easy PDF","level":"1.5.2","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"previous":{"title":"Integration","level":"1.5","depth":1,"ref":"","articles":[{"title":"Database","level":"1.5.1","depth":2,"path":"integration/database-text.md","ref":"integration/database-text.md","articles":[]},{"title":"Easy PDF","level":"1.5.2","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},{"title":"Folder Export","level":"1.5.3","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},{"title":"Data Sources","level":"1.5.4","depth":2,"path":"integration/data-sources-text.md","ref":"integration/data-sources-text.md","articles":[]},{"title":"Email Watch","level":"1.5.5","depth":2,"path":"integration/email-watch-text.md","ref":"integration/email-watch-text.md","articles":[]},{"title":"Folder Watch","level":"1.5.6","depth":2,"path":"integration/folder-watch-text.md","ref":"integration/folder-watch-text.md","articles":[]},{"title":"LDAP / Active Directory","level":"1.5.7","depth":2,"path":"integration/ldap-ad-text.md","ref":"integration/ldap-ad-text.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/database-text.md","mtime":"2017-03-16T17:24:18.540Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Database","level":"1.5.1","depth":2,"next":{"title":"Easy PDF","level":"1.5.2","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"previous":{"title":"Integration","level":"1.5","depth":1,"ref":"","articles":[{"title":"Database","level":"1.5.1","depth":2,"path":"integration/database-text.md","ref":"integration/database-text.md","articles":[]},{"title":"Easy PDF","level":"1.5.2","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},{"title":"Folder Export","level":"1.5.3","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},{"title":"Data Sources","level":"1.5.4","depth":2,"path":"integration/data-sources-text.md","ref":"integration/data-sources-text.md","articles":[]},{"title":"Email Watch","level":"1.5.5","depth":2,"path":"integration/email-watch-text.md","ref":"integration/email-watch-text.md","articles":[]},{"title":"Folder Watch","level":"1.5.6","depth":2,"path":"integration/folder-watch-text.md","ref":"integration/folder-watch-text.md","articles":[]},{"title":"LDAP / Active Directory","level":"1.5.7","depth":2,"path":"integration/ldap-ad-text.md","ref":"integration/ldap-ad-text.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/database-text.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1151,6 +1163,14 @@ to surround the name in order to concatenate the name.</li>
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

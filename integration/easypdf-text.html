@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,8 +1021,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="easypdf-deployment-and-configuration">EasyPDF deployment and configuration</h1>
-<h2 id="software-requirements">Software Requirements</h2>
+                                <h1 id="EasyPDF_deployment_and_configuration"><a name="easypdf-deployment-and-configuration" class="plugin-anchor" href="#easypdf-deployment-and-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>EasyPDF deployment and configuration</h1>
+<h2 id="Software_Requirements">1. Software Requirements</h2>
 <p>The following software will have to be installed on the EasyPDF server :   </p>
 <ol>
 <li>Windows Server 2008 32/64 bit.  </li>
@@ -1024,7 +1036,7 @@ PDF by EasyPDF (i.e. AutoCAD).  </li>
 </ol>
 <p><strong>Note : UAC should be disabled on the machine before any software is
 installed.</strong></p>
-<h2 id="local-installation">Local Installation</h2>
+<h2 id="Local_Installation">2. Local Installation</h2>
 <p>(Both PaperTrail and EasyPDF running on same host) :</p>
 <ul>
 <li>Install EasyPDF application.</li>
@@ -1042,7 +1054,7 @@ PaperTrail thereafter :</li>
 <ul>
 <li>Import test documents to confirm that all is set up correctly.</li>
 </ul>
-<h2 id="remote-installation">Remote Installation</h2>
+<h2 id="Remote_Installation">3. Remote Installation</h2>
 <p>(Both PaperTrail and EasyPDF running on separate hosts) :</p>
 <p><strong>EasyPDF server</strong></p>
 <p>Same as <a href="#local-installation">Local Installation</a></p>
@@ -1057,7 +1069,7 @@ conversion.remote.host=http://host1:8080
 <li>Import test documents on application server to confirm that all
 is set up correctly.</li>
 </ol>
-<h2 id="troubleshooting">Troubleshooting</h2>
+<h2 id="Troubleshooting">4. Troubleshooting</h2>
 <p>If any conversion issue are being experienced, create a .vbs
 file which can be run to test conversions outside of PaperTrail. The
 paths in the properties are input and output files, and should be
@@ -1072,7 +1084,7 @@ oPrintJob.PrintOut <span class="hljs-string">&quot;C:\\test.txt&quot;</span>, <s
 EasyPDFPrinterTest.exe. This will allow you to select an input document
 to convert and specify the output path of the PDF.</p>
 <p>For any more information, the user manual can be accessed <a href="http://www.pdfonline.com/easypdf/sdk/usermanual/" target="_blank">here</a></p>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#EasyPDF_deployment_and_configuration">EasyPDF deployment and configuration</a></p><li><a href="#Software_Requirements">1. Software Requirements</a></li><li><a href="#Local_Installation">2. Local Installation</a></li><li><a href="#Remote_Installation">3. Remote Installation</a></li><li><a href="#Troubleshooting">4. Troubleshooting</a></li></ul></div><a href="#Software_Requirements" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1115,7 +1127,7 @@ to convert and specify the output path of the PDF.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Easy PDF","level":"1.5.2","depth":2,"next":{"title":"Folder Export","level":"1.5.3","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Database","level":"1.5.1","depth":2,"path":"integration/database-text.md","ref":"integration/database-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/easypdf-text.md","mtime":"2017-03-16T17:24:18.540Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Easy PDF","level":"1.5.2","depth":2,"next":{"title":"Folder Export","level":"1.5.3","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Database","level":"1.5.1","depth":2,"path":"integration/database-text.md","ref":"integration/database-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/easypdf-text.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1123,6 +1135,14 @@ to convert and specify the output path of the PDF.</p>
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

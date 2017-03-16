@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,21 +1021,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="document-export">Document Export</h1>
-<h2 id="command-line-process">Command Line Process</h2>
+                                <h1 id="Document_Export"><a name="document-export" class="plugin-anchor" href="#document-export"><i class="fa fa-link" aria-hidden="true"></i></a>Document Export</h1>
+<h2 id="Command_Line_Process">1. Command Line Process</h2>
 <p>Execute a command line process on a document. To do this, separate the command (script) and the file with: ||.   </p>
 <p>If the path is not specified in the PATH environment variable, then specify the path. 
 Examples:  </p>
 <pre><code class="lang-javascript">autoPrint.vbs||${file}
 C:\autoPrint.vbs||${file}
 </code></pre>
-<h2 id="node-replication">Node Replication</h2>
+<h2 id="Node_Replication">2. Node Replication</h2>
 <p>HTTP Path: The path to the PaperTrail server that will contain the replicated node.  </p>
 <p>By default, a server can replicate to any other server. To prevent this behavior, refer to Trusted Servers, page.  </p>
 <p>To see information about replication, to replicate documents again, and to clear replication queues, use the Rule.replicate message queue in <strong>Services&gt;Messages</strong>.  </p>
-<h2 id="auto-export">Auto Export</h2>
+<h2 id="Auto_Export">3. Auto Export</h2>
 <p>The autoExport rule can export documents via 3 different mechanisms:</p>
-<h3 id="folder">Folder</h3>
+<h3 id="Folder">3.1. Folder</h3>
 <p>Folder supports multiple folder types:</p>
 <table>
 <thead>
@@ -1055,7 +1067,7 @@ C:\autoPrint.vbs||${file}
 </tr>
 </tbody>
 </table>
-<h3 id="email">Email</h3>
+<h3 id="Email">3.2. Email</h3>
 <p>Uploads the document via HTTP post to the specified host. If the URL does not contain a path then the following default is used:  </p>
 <p><code>/public/file/${_httpNodePath}/${_httpFilename}</code></p>
 <ul>
@@ -1071,12 +1083,12 @@ C:\autoPrint.vbs||${file}
 <li>And to append all indexes:
 <code>/public/file/${_httpNodePath}/${_httpFilename}?${_httpIndexes}</code>  </li>
 </ul>
-<h3 id="papertrail-server">PaperTrail Server</h3>
+<h3 id="PaperTrail_Server">3.3. PaperTrail Server</h3>
 <ul>
 <li>HTTP Path: The URL of the PaperTrail server to which the documents will be exported. Example: <a href="http://headoffice:8080" target="_blank">http://headoffice:8080</a>  </li>
 <li>Include: We recommend Document Archive or Source.  </li>
 </ul>
-<h2 id="export-format">Export Format</h2>
+<h2 id="Export_Format">4. Export Format</h2>
 <ul>
 <li>Source - The original document  </li>
 <li>PDF - The PDF rendition or the original document  </li>
@@ -1085,7 +1097,7 @@ C:\autoPrint.vbs||${file}
 <li>XML - An XML file including all metadata  </li>
 <li>Scripted - Allows the use of script to create FileObject from the a DocumentModel</li>
 </ul>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Document_Export">Document Export</a></p><li><a href="#Command_Line_Process">1. Command Line Process</a></li><li><a href="#Node_Replication">2. Node Replication</a></li><li><a href="#Auto_Export">3. Auto Export</a></li><ul><li><a href="#Folder">3.1. Folder</a></li><li><a href="#Email">3.2. Email</a></li><li><a href="#PaperTrail_Server">3.3. PaperTrail Server</a></li></ul><li><a href="#Export_Format">4. Export Format</a></li></ul></div><a href="#Command_Line_Process" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1128,7 +1140,7 @@ C:\autoPrint.vbs||${file}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Folder Export","level":"1.5.3","depth":2,"next":{"title":"Data Sources","level":"1.5.4","depth":2,"path":"integration/data-sources-text.md","ref":"integration/data-sources-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.2","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/folder-export-text.md","mtime":"2017-03-16T17:24:18.540Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Folder Export","level":"1.5.3","depth":2,"next":{"title":"Data Sources","level":"1.5.4","depth":2,"path":"integration/data-sources-text.md","ref":"integration/data-sources-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.2","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/folder-export-text.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1136,6 +1148,14 @@ C:\autoPrint.vbs||${file}
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

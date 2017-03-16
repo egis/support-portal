@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,27 +1021,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="papertrail-document-linking-syntax">PaperTrail Document Linking Syntax</h1>
-<h2 id="retrieving-a-document-by-docid">Retrieving a document by docId</h2>
+                                <h1 id="PaperTrail_Document_Linking_Syntax"><a name="papertrail-document-linking-syntax" class="plugin-anchor" href="#papertrail-document-linking-syntax"><i class="fa fa-link" aria-hidden="true"></i></a>PaperTrail Document Linking Syntax</h1>
+<h2 id="Retrieving_a_document_by_docId">1. Retrieving a document by docId</h2>
 <p><code>GET: /public/file/100/test.doc</code>{.sql}</p>
 <p>e.x : <a href="http://host:8080/public/file/100/test.doc" target="_blank">http://host:8080/public/file/100/test.doc</a></p>
-<h2 id="retrieving-a-document-by-path">Retrieving a document by path</h2>
+<h2 id="Retrieving_a_document_by_path">2. Retrieving a document by path</h2>
 <p><code>GET: /public/file/Division/cabinet/test.doc/dummy.doc</code>{.sql}</p>
 <p>e.x : <a href="http://host:8080/public/file/Division/cabinet/test.doc" target="_blank">http://host:8080/public/file/Division/cabinet/test.doc</a>.</p>
 <p>Note : A dummy filename must be appended to the path e.g. dummy.doc</p>
-<h2 id="retrieving-an-attachment">Retrieving an attachment</h2>
+<h2 id="Retrieving_an_attachment">3. Retrieving an attachment</h2>
 <p><code>GET: /public/file/100/test.doc?path=attachments/att01.doc</code>{.sql}</p>
 <p>e.x : <a href="http://host:8080/public/file/Division/cabinet/test.doc?path=attachments/att01.doc" target="_blank">http://host:8080/public/file/Division/cabinet/test.doc?path=attachments/att01.doc</a></p>
-<h2 id="retrieving-a-pdf-for-a-document">Retrieving a PDF for a document</h2>
+<h2 id="Retrieving_a_PDF_for_a_document">4. Retrieving a PDF for a document</h2>
 <p><code>GET: /public/file/100/test.pdf?path=pdf</code>{.sql}</p>
 <p>e.x : <a href="http://host:8080/public/file/100/test.pdf?path=pdf" target="_blank">http://host:8080/public/file/100/test.pdf?path=pdf</a></p>
-<h2 id="retrieving-a-version-of-a-document">Retrieving a version of a document</h2>
+<h2 id="Retrieving_a_version_of_a_document">5. Retrieving a version of a document</h2>
 <p><code>GET: /public/file/100/test.doc?path=versions/0.2/source</code>{.sql}</p>
 <p>e.x : <a href="http://host:8080/public/file/Division/cabinet/test.doc?path=versions/0.2/source" target="_blank">http://host:8080/public/file/Division/cabinet/test.doc?path=versions/0.2/source</a></p>
-<h2 id="retrieving-a-document-via-a-query">Retrieving a document via a query</h2>
+<h2 id="Retrieving_a_document_via_a_query">6. Retrieving a document via a query</h2>
 <p><code>GET: /public/file/invoiceNo=AB123/test.doc</code>{.sql}</p>
 <p>e.x : <a href="http://host:8080/public/file/Division/cabinet/test.doc?path=versions/0.2/source" target="_blank">http://host:8080/public/file/Division/cabinet/test.doc?path=versions/0.2/source</a></p>
-<h2 id="query-syntax">Query Syntax</h2>
+<h2 id="Query_Syntax">7. Query Syntax</h2>
 <table>
 <thead>
 <tr>
@@ -1075,7 +1087,7 @@
 <p>Note : index1=value2 : Returns all documents where index1=value1 in all nodes and folders Equals. </p>
 <pre><code class="lang-javascript">Equals = Not Equals != Contains *=* Starts With *= Ends With =* Between &lt;=&gt; Bigger Than (<span class="hljs-built_in">Number</span>) &gt;= Smaller Than (<span class="hljs-built_in">Number</span>) &lt;= After (<span class="hljs-built_in">Date</span>) &gt;&gt;= Before (<span class="hljs-built_in">Date</span>) &lt;&lt;= Is Empty !=!
 </code></pre>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#PaperTrail_Document_Linking_Syntax">PaperTrail Document Linking Syntax</a></p><li><a href="#Retrieving_a_document_by_docId">1. Retrieving a document by docId</a></li><li><a href="#Retrieving_a_document_by_path">2. Retrieving a document by path</a></li><li><a href="#Retrieving_an_attachment">3. Retrieving an attachment</a></li><li><a href="#Retrieving_a_PDF_for_a_document">4. Retrieving a PDF for a document</a></li><li><a href="#Retrieving_a_version_of_a_document">5. Retrieving a version of a document</a></li><li><a href="#Retrieving_a_document_via_a_query">6. Retrieving a document via a query</a></li><li><a href="#Query_Syntax">7. Query Syntax</a></li></ul></div><a href="#Retrieving_a_document_by_docId" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1118,7 +1130,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Linking Syntax","level":"1.6.11","depth":2,"next":{"title":"Maintenance","level":"1.6.12","depth":2,"path":"reference/maintenance-text.md","ref":"reference/maintenance-text.md","articles":[]},"previous":{"title":"Licensing","level":"1.6.10","depth":2,"path":"reference/licensing-text.md","ref":"reference/licensing-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/linking-syntax-text.md","mtime":"2017-03-16T17:24:18.540Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Linking Syntax","level":"1.6.11","depth":2,"next":{"title":"Maintenance","level":"1.6.12","depth":2,"path":"reference/maintenance-text.md","ref":"reference/maintenance-text.md","articles":[]},"previous":{"title":"Licensing","level":"1.6.10","depth":2,"path":"reference/licensing-text.md","ref":"reference/licensing-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/linking-syntax-text.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1126,6 +1138,14 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

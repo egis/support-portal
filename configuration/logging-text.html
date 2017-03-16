@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,14 +1021,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="logging">Logging</h1>
-<h2 id="updating-the-log-settings">Updating the log settings</h2>
+                                <h1 id="Logging"><a name="logging" class="plugin-anchor" href="#logging"><i class="fa fa-link" aria-hidden="true"></i></a>Logging</h1>
+<h2 id="Updating_the_log_settings">1. Updating the log settings</h2>
 <ul>
 <li>All log settings are stored in the <code>conf/logback.groovy</code> file </li>
 <li>The <em>Admin -&gt; Services -&gt; Logging</em>  page will make changes to this file
 if the After Restart  option is selected</li>
 </ul>
-<h2 id="log-file-retention">Log file Retention</h2>
+<h2 id="Log_file_Retention">2. Log file Retention</h2>
 <ul>
 <li><p>To configure the number of days to keep Papertrail logs, locate and
  edit the following document: <code>PaperTrail/conf/logback.groovy</code>
@@ -1036,7 +1048,7 @@ e.g. keeps the logs for a period of 14 days:</p>
 </li>
 <li>Restart PaperTrail for the settings to take effect.</li>
 </ul>
-<h2 id="logging-to-syslog-host">Logging to Syslog Host</h2>
+<h2 id="Logging_to_Syslog_Host">3. Logging to Syslog Host</h2>
 <p>``java
 import com.egis.utils.apm.<em>; 
 import org.productivity.java.syslog4j.impl.net.tcp.</em>; </p>
@@ -1061,7 +1073,7 @@ appender(&quot;GELF&quot;, GelfAppender) {
 }
 </code></pre><p>The following properties will automate this
 setup: <code>gelf.host</code> and <code>gelf.level</code></p>
-<h2 id="logging-to-individual-files-per-logger">Logging to individual files per logger</h2>
+<h2 id="Logging_to_individual_files_per_logger">4. Logging to individual files per logger</h2>
 <p> e.g. to append file access logs to a standalone <code>storage.log</code> file:</p>
 <pre><code class="lang-groovy">appender(<span class="hljs-string">&quot;STORAGE&quot;</span>, RollingFileAppender) {
     file = <span class="hljs-string">&quot;logs/storage.log&quot;</span>
@@ -1079,7 +1091,7 @@ setup: <code>gelf.host</code> and <code>gelf.level</code></p>
 logger(<span class="hljs-string">&apos;com.egis.storage&apos;</span>, INFO)
 logger(<span class="hljs-string">&quot;com.egis.storage&quot;</span>, DEBUG, [<span class="hljs-string">&apos;STORAGE&apos;</span>], <span class="hljs-literal">false</span>)
 </code></pre>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Logging">Logging</a></p><li><a href="#Updating_the_log_settings">1. Updating the log settings</a></li><li><a href="#Log_file_Retention">2. Log file Retention</a></li><li><a href="#Logging_to_Syslog_Host">3. Logging to Syslog Host</a></li><li><a href="#Logging_to_individual_files_per_logger">4. Logging to individual files per logger</a></li></ul></div><a href="#Updating_the_log_settings" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1122,7 +1134,7 @@ logger(<span class="hljs-string">&quot;com.egis.storage&quot;</span>, DEBUG, [<s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Logging","level":"1.3.7","depth":2,"next":{"title":"SSO","level":"1.3.8","depth":2,"path":"configuration/sso-text.md","ref":"configuration/sso-text.md","articles":[]},"previous":{"title":"Bulk Capture","level":"1.3.6","depth":2,"path":"configuration/bulk-capture-text.md","ref":"configuration/bulk-capture-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/logging-text.md","mtime":"2017-03-16T17:24:18.532Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Logging","level":"1.3.7","depth":2,"next":{"title":"SSO","level":"1.3.8","depth":2,"path":"configuration/sso-text.md","ref":"configuration/sso-text.md","articles":[]},"previous":{"title":"Bulk Capture","level":"1.3.6","depth":2,"path":"configuration/bulk-capture-text.md","ref":"configuration/bulk-capture-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/logging-text.md","mtime":"2017-03-16T17:58:34.504Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1130,6 +1142,14 @@ logger(<span class="hljs-string">&quot;com.egis.storage&quot;</span>, DEBUG, [<s
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

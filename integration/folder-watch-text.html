@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,9 +1021,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="normal">Normal</h2>
+                                <h2 id="Normal">1. Normal</h2>
 <p>Any file dropped into the Watched Folder will be imported into the specified node. </p>
-<h2 id="csv">CSV</h2>
+<h2 id="CSV">2. CSV</h2>
 <p>PaperTrail will scan the watched folder for any CSV file. The CSV will then be processed and matching files will be imported with their indexes.  </p>
 <pre><code class="lang-javascript">Filename : Sample.csv   
     filename,index1,index2  
@@ -1025,7 +1037,7 @@ Just some content <span class="hljs-keyword">in</span> Sample <span class="hljs-
 Just some content <span class="hljs-keyword">in</span> Sample <span class="hljs-number">2</span>
 </code></pre>
 <p>In this example <code>Sample1.txt</code> and <code>Sample2.txt</code> would get imported with the index values (value1,value1) and (value3,value4) respectively </p>
-<h2 id="import-and-sync">Import and Sync</h2>
+<h2 id="Import_and_Sync">3. Import and Sync</h2>
 <p>Import and sync works by creating a temporary staging table to contain meta data coming from external systems - This meta data is dropped off in a XML or CSV file. A mapping file is used to map and reformat the data in these files, the mapping file takes the format of a CSV file imported into PaperTrail with the following columns:  </p>
 <table>
 <thead>
@@ -1085,22 +1097,22 @@ Just some content <span class="hljs-keyword">in</span> Sample <span class="hljs-
         <span class="hljs-tag">&lt;<span class="hljs-name">date3</span>&gt;</span>01/01/2015<span class="hljs-tag">&lt;/<span class="hljs-name">date3</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">Data</span>&gt;</span>
 </span></code></pre>
-<h2 id="structured">Structured</h2>
+<h2 id="Structured">4. Structured</h2>
 <ul>
 <li>Structured imports import raw textual data and overlay it onto a PDF Template.   </li>
 <li>A Datamap file is used to map blocks of text to fields in the PDF.   </li>
 <li>The raw data can optionally be processed through an executable (.exe) or a groovy script to format it, so that the datamap can extract the content correctly. </li>
 </ul>
-<h2 id="update">Update</h2>
+<h2 id="Update">5. Update</h2>
 <p>Deprecated in favour of Import and Sync CSV or XML</p>
-<h2 id="attach-to-form">Attach To Form</h2>
+<h2 id="Attach_To_Form">6. Attach To Form</h2>
 <p>This will spawn the specified form and attach the document dropped in the watched folder to the form. </p>
-<h2 id="document-archive">Document Archive</h2>
+<h2 id="Document_Archive">7. Document Archive</h2>
 <ul>
 <li>This will import a complete document with all versions, indexes, notes, etc.  </li>
 <li>Document Archives are created using Bulk Export or an Auto Export rule.</li>
 </ul>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#Normal">1. Normal</a></li><li><a href="#CSV">2. CSV</a></li><li><a href="#Import_and_Sync">3. Import and Sync</a></li><li><a href="#Structured">4. Structured</a></li><li><a href="#Update">5. Update</a></li><li><a href="#Attach_To_Form">6. Attach To Form</a></li><li><a href="#Document_Archive">7. Document Archive</a></li></ul></div><a href="#Normal" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1143,7 +1155,7 @@ Just some content <span class="hljs-keyword">in</span> Sample <span class="hljs-
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Folder Watch","level":"1.5.6","depth":2,"next":{"title":"LDAP / Active Directory","level":"1.5.7","depth":2,"path":"integration/ldap-ad-text.md","ref":"integration/ldap-ad-text.md","articles":[]},"previous":{"title":"Email Watch","level":"1.5.5","depth":2,"path":"integration/email-watch-text.md","ref":"integration/email-watch-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/folder-watch-text.md","mtime":"2017-03-16T17:24:18.540Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Folder Watch","level":"1.5.6","depth":2,"next":{"title":"LDAP / Active Directory","level":"1.5.7","depth":2,"path":"integration/ldap-ad-text.md","ref":"integration/ldap-ad-text.md","articles":[]},"previous":{"title":"Email Watch","level":"1.5.5","depth":2,"path":"integration/email-watch-text.md","ref":"integration/email-watch-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/folder-watch-text.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1151,6 +1163,14 @@ Just some content <span class="hljs-keyword">in</span> Sample <span class="hljs-
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

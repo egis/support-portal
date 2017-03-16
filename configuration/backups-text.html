@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,8 +1021,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="backups">Backups</h1>
-<h2 id="what-needs-to-be-backed-up">What needs to be backed up?</h2>
+                                <h1 id="Backups"><a name="backups" class="plugin-anchor" href="#backups"><i class="fa fa-link" aria-hidden="true"></i></a>Backups</h1>
+<h2 id="What_needs_to_be_backed_up?">1. What needs to be backed up?</h2>
 <ul>
 <li>Database and transaction logs</li>
 <li>File Repository (Everything under PT_Repo)</li>
@@ -1020,7 +1032,7 @@ configured</li>
 <li>Indexes : Only for very large installations where an index rebuild
 is too time-consuming</li>
 </ul>
-<h2 id="how-to-backup">How to backup?</h2>
+<h2 id="How_to_backup?">2. How to backup?</h2>
 <p>To backup in PostgreSQL </p>
 <pre><code class="lang-java">cd <span class="hljs-string">&quot;C:\Program Files&quot;</span>
 cd PostgreSQL\<span class="hljs-number">9.2</span>\bin
@@ -1032,14 +1044,14 @@ psql -U postgres -h localhost {pt8} &gt; C:\{location}\{location}{backupname}.re
 C:\ProgramFiles\MySQL\MySQL Server <span class="hljs-number">5.1</span>\bin&gt;mysql -u {username} -p {password} {MYSQL db} &lt; <span class="hljs-string">&quot;e:\database.sql&quot;</span>
 </code></pre>
 <p>Backups in MSSQL can be done from the management console.</p>
-<h2 id="schedule-database-backups-using-papertrail">Schedule Database Backups using PaperTrail</h2>
+<h2 id="Schedule_Database_Backups_using_PaperTrail">3. Schedule Database Backups using PaperTrail</h2>
 <p> Papertrail can automatically backup databases on schedule configured
 under Services  &#x2192; Properties  &#x2192; Backup &#x2192; DB Schedule
 (db.backup.schedule).</p>
 <p> PaperTrail will run the pgdump, mysql_dump or SQL Server Backup
 Database command  and store the result in the file repository. </p>
 <p>Note: Backups can only be made of local database</p>
-<h2 id="configuring-cloud-backups"> Configuring cloud backups</h2>
+<h2 id="_Configuring_cloud_backups">4.  Configuring cloud backups</h2>
 <p>Cloud backups lets you back up the PaperTrail file repository (and optionally the PaperTrail database) in near real time to the <a href="http://aws.amazon.com/s3/" target="_blank">Amazon S3 cloud</a>.</p>
 <p> If you set up the Amazon S3 account, use the information from that
 account to configure cloud backups. For Egis managed backups, Egis will
@@ -1053,13 +1065,13 @@ acme.papertrail\</li>
 the bucket.\</li>
 <li><strong>Secret key</strong></li>
 </ol>
-<h2 id="configuring-periodic-windows-file-share-backups">Configuring periodic Windows file share backups</h2>
+<h2 id="Configuring_periodic_Windows_file_share_backups">5. Configuring periodic Windows file share backups</h2>
 <p>PaperTrail creates an incremental backup ZIP file and copies the ZIP
 file to the specified shared folder.  </p>
 <p>Specify these options under the Backup Settings page of the
 installation wizard or after installation via Services &#x2192;  Tasks &#x2192; 
 Wizards  &#x2192; </p>
-<h2 id="configure-windows-share-backups">Configure Windows Share backups</h2>
+<h2 id="Configure_Windows_Share_backups">6. Configure Windows Share backups</h2>
 <ol>
 <li>Host &#x2013; the hostname of the Windows or SMB/CIFS based fileserver\</li>
 <li>Backup Dir &#x2013; The share and path location (e.g.,
@@ -1067,7 +1079,7 @@ Backups/Papertrail Relative to the file share, not relative the root
 director)</li>
 <li>Username and Password if applicable</li>
 </ol>
-<h2 id="ad-hoc-backup">Ad-Hoc Backup</h2>
+<h2 id="Ad-Hoc_Backup">7. Ad-Hoc Backup</h2>
 <p>Typically, do an ad-hoc backup before you upgrade PaperTrail or before
 you migrate to a different server.<br> An ad-hoc backup will export all the files in the repository to a local
 or windows file share location. Multiple ZIP files will be created; a
@@ -1084,10 +1096,10 @@ logs files will be read and only new files added will be backed up.  </p>
 reaches this limit (it may not be exact depending on the size of
 individual files) a new backup file will start.</li>
 </ol>
-<h2 id="restoring-from-backup">Restoring from backup</h2>
+<h2 id="Restoring_from_backup">8. Restoring from backup</h2>
 <p>Select Restore from Windows File Share or Cloud from the installation
 wizard.</p>
-<h2 id="3rd-party-backup">3rd Party backup</h2>
+<h2 id="3rd_Party_backup">9. 3rd Party backup</h2>
 <ol>
 <li>Backup the database and applicable transaction logs.</li>
 <li>Backup the PT_Repo directory (defaults to C:\Data\PT_Repo).</li>
@@ -1101,13 +1113,13 @@ backed up a file does not need to backed-up again.</p>
 decrease restore times<br>Under Services  &#x2192; Properties  &#x2192; Backup  Specify an Index Backup
 Schedule &amp; Directory</li>
 </ol>
-<h2 id="native-restore-from-backup">Native restore from backup</h2>
+<h2 id="Native_restore_from_backup">10. Native restore from backup</h2>
 <ol>
 <li>Restore database and file repository to original locations</li>
 <li>Install PaperTrail</li>
 <li>Check new installation and enter existing database details</li>
 </ol>
-<h2 id="migrate-papertrail-to-another-host">Migrate PaperTrail to another host</h2>
+<h2 id="Migrate_PaperTrail_to_another_host">11. Migrate PaperTrail to another host</h2>
 <ol>
 <li>On the current server, perform a dump of the DB. Refer to <a href="http://support.papertrail.co.za/Configuration/Backups/#how-to-backup" target="_blank">how to backup</a></li>
 <li>On the new server, install the pre-requisites (Java 8 SDK, LibreOffice, DB application) and create the DB. DO NOT install PaperTrail as yet</li>
@@ -1128,7 +1140,7 @@ Schedule &amp; Directory</li>
 </ul>
 </li>
 </ol>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Backups">Backups</a></p><li><a href="#What_needs_to_be_backed_up?">1. What needs to be backed up?</a></li><li><a href="#How_to_backup?">2. How to backup?</a></li><li><a href="#Schedule_Database_Backups_using_PaperTrail">3. Schedule Database Backups using PaperTrail</a></li><li><a href="#_Configuring_cloud_backups">4.  Configuring cloud backups</a></li><li><a href="#Configuring_periodic_Windows_file_share_backups">5. Configuring periodic Windows file share backups</a></li><li><a href="#Configure_Windows_Share_backups">6. Configure Windows Share backups</a></li><li><a href="#Ad-Hoc_Backup">7. Ad-Hoc Backup</a></li><li><a href="#Restoring_from_backup">8. Restoring from backup</a></li><li><a href="#3rd_Party_backup">9. 3rd Party backup</a></li><li><a href="#Native_restore_from_backup">10. Native restore from backup</a></li><li><a href="#Migrate_PaperTrail_to_another_host">11. Migrate PaperTrail to another host</a></li></ul></div><a href="#What_needs_to_be_backed_up?" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1171,7 +1183,7 @@ Schedule &amp; Directory</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Backups","level":"1.3.3","depth":2,"next":{"title":"Barcode","level":"1.3.4","depth":2,"path":"configuration/barcode-text.md","ref":"configuration/barcode-text.md","articles":[]},"previous":{"title":"Advanced Permissions","level":"1.3.2","depth":2,"path":"configuration/advanced-permissions.md","ref":"configuration/advanced-permissions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/backups-text.md","mtime":"2017-03-16T17:24:18.532Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Backups","level":"1.3.3","depth":2,"next":{"title":"Barcode","level":"1.3.4","depth":2,"path":"configuration/barcode-text.md","ref":"configuration/barcode-text.md","articles":[]},"previous":{"title":"Advanced Permissions","level":"1.3.2","depth":2,"path":"configuration/advanced-permissions.md","ref":"configuration/advanced-permissions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/backups-text.md","mtime":"2017-03-16T17:58:34.500Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1179,6 +1191,14 @@ Schedule &amp; Directory</li>
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

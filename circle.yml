@@ -12,7 +12,7 @@ test:
   override:
     - echo ok
   post:
-    - gitbook build
+    - gitbook install && gitbook build
 
 deployment:
   production:

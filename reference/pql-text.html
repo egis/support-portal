@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,7 +1021,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pql">PQL</h1>
+                                <h1 id="PQL"><a name="pql" class="plugin-anchor" href="#pql"><i class="fa fa-link" aria-hidden="true"></i></a>PQL</h1>
 <p>PQL is an SQL-like language that can be used for querying and filtering data in PaperTrail. It can be used in the following places:  </p>
 <ul>
 <li><p>Anywhere where a query expression is used e.g. Advanced Search Reports, Queues, Scheduled Rules, Document linking etc.</p>
@@ -1024,7 +1036,7 @@ Use:</p>
 </ul>
 <p>PQL filters are fully case-insensitive and null safe so instead of: <code>index1 != null &amp;&amp; index1.toLowerCase() == &apos;abc&apos;</code><br>Use:
 <code>WHERE index1 = &apos;abc&apos;</code></p>
-<h2 id="syntax">Syntax</h2>
+<h2 id="Syntax">1. Syntax</h2>
 <p>The <code>SELECT</code> clause MUST contain exactly one of the following:</p>
 <ul>
 <li>A comma-separated list of one or more column names (node or document index names).  <ul>
@@ -1041,7 +1053,7 @@ Use:</p>
 </ul>
 </li>
 </ul>
-<h2 id="column-expressions">Column Expressions</h2>
+<h2 id="Column_Expressions">2. Column Expressions</h2>
 <p>Groovy expressions can be used to format data returned e.g. </p>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-string">&apos;${name[0]}&apos;</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">Initial</span> <span class="hljs-keyword">FROM</span> Clients
 </code></pre>
@@ -1051,19 +1063,19 @@ Use:</p>
 <p>As well as arithmetic on Number and Double indexes:</p>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-string">&apos;${total + vat}&apos;</span> <span class="hljs-keyword">as</span> GrandTotal <span class="hljs-keyword">FROM</span> <span class="hljs-string">&apos;Sales&apos;</span>
 </code></pre>
-<h2 id="wildcards">Wildcards</h2>
+<h2 id="Wildcards">3. Wildcards</h2>
 <p>Plain SQL wildcard works as expected - e.g. <code>SELECT * FROM &apos;Sun/Clients&apos;</code> selects all the standard and custom indexes 
 from Sun/Clients node. There&apos;s also doublewildcard syntax:</p>
 <pre><code>SELECT ** FROM &apos;Sun/Clients&apos;
 </code></pre><ul>
 <li>this selects only custom indexes. </li>
 </ul>
-<h2 id="from-clause">FROM Clause</h2>
+<h2 id="FROM_Clause">4. FROM Clause</h2>
 <p>The FROM clause identifies which Virtual Table (Node) the query will be run against, as described in the previous section.</p>
 <p>The FROM clause MUST contain the full path of a node, and MUST be single quoted if there are any spaces .e.g</p>
 <p><code>FROM parent/division</code>
 <code>FROM &apos;parent/sub folder/folder&apos;</code></p>
-<h2 id="where">WHERE</h2>
+<h2 id="WHERE">5. WHERE</h2>
 <p>This clause identifies the constraints that rows MUST satisfy to be considered a result for the query.</p>
 <p>All column names MUST be valid &#x201C;queryName&#x201D; or their aliased values for properties that are defined as &#x201C;queryable&#x201D; in the Object-Type(s) whose Virtual Tables are listed in the FROM clause.</p>
 <p>Properties are defined to not support a &#x201C;null&#x201D; value, therefore the <null predicate=""> MUST be interpreted as testing the not set or set state of the specified property.</null></p>
@@ -1105,25 +1117,25 @@ WHERE not all_empty (invoice_no,total,date,approved)</p>
 </ul>
 <pre><code class="lang-sql">WHERE createdDate BEFORE &apos;2015-01-01&apos;
 </code></pre>
-<h3 id="where-expressions">WHERE Expressions</h3>
+<h3 id="WHERE_Expressions">5.1. WHERE Expressions</h3>
 <p>Expressions can also be on both the left and and right side of WHERE clauses. e.g.</p>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">FROM</span> Customers <span class="hljs-keyword">WHERE</span> <span class="hljs-string">&apos;${name[0]}&apos;</span> = <span class="hljs-string">&apos;A&apos;</span>
 </code></pre>
 <p>OR</p>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> number1 <span class="hljs-keyword">FROM</span> queryTests2 <span class="hljs-keyword">WHERE</span> <span class="hljs-number">99</span> &gt; ${number1 + pqldouble1}
 </code></pre>
-<h2 id="order-by">ORDER BY</h2>
+<h2 id="ORDER_BY">6. ORDER BY</h2>
 <ul>
 <li>This clause MUST use a single column to order by.</li>
 <li>All column names referenced in this clause MUST be valid &#x201C;queryName&#x201D; or alias (either for an aggregate function result or a column).</li>
 <li>Only columns in the SELECT clause MAY be in the ORDER BY clause.</li>
 <li><code>ORDER BY docId DESC</code> doesn&apos;t currently work - use <code>ORDER BY createdDate DESC</code> instead </li>
 </ul>
-<h2 id="limit-n">LIMIT N</h2>
+<h2 id="LIMIT_N">7. LIMIT N</h2>
 <p>LIMIT N construct is supported - e.g. </p>
 <pre><code>SELECT * FROM &apos;MyBank/KYC&apos; WHERE loan_id=5 ORDER BY createdDate DESC LIMIT 1
 </code></pre><p>will select last doc from MyBank/KYC node with given filter.</p>
-<h2 id="group-by">GROUP BY</h2>
+<h2 id="GROUP_BY">8. GROUP BY</h2>
 <p>This clause specifies one or many columns to group by.</p>
 <p>Supported functions:</p>
 <ul>
@@ -1135,14 +1147,14 @@ WHERE not all_empty (invoice_no,total,date,approved)</p>
 <p>Column references can also include groovy expressions e.g. </p>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">sum</span>(${<span class="hljs-keyword">time</span>/<span class="hljs-number">60</span>}) <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Time</span>  <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> createdBy
 </code></pre>
-<h2 id="having">HAVING</h2>
+<h2 id="HAVING">9. HAVING</h2>
 <p>Having is used to filter on values that have been grouped e.g.</p>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> text1, <span class="hljs-keyword">SUM</span>(number1) <span class="hljs-keyword">FROM</span> queryTests2 <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> text1 <span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">SUM</span>(number1) &gt; <span class="hljs-number">10</span>
 </code></pre>
 <p>OR</p>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> text1, <span class="hljs-keyword">SUM</span>(\${number1 * <span class="hljs-number">10</span>}) <span class="hljs-keyword">AS</span> totals <span class="hljs-keyword">FROM</span> queryTests2 <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> text1 <span class="hljs-keyword">HAVING</span> totals &gt; <span class="hljs-number">1000</span>
 </code></pre>
-<h2 id="escaping">Escaping</h2>
+<h2 id="Escaping">10. Escaping</h2>
 <p>Repositories MUST support the escaping of characters using a backslash <code>\</code> in the query statement.  The backslash character <code>\</code> will be used to escape characters within quoted strings in the query as follows:</p>
 <ul>
 <li>\&#x2019; will represent a single-quote(&#x2018;) character</li>
@@ -1150,9 +1162,9 @@ WHERE not all_empty (invoice_no,total,date,approved)</p>
 <li>Within a LIKE string, <code>\%</code> and <code>\_</code> will represent the literal characters % and _, respectively.</li>
 <li>All other instances of a \ are errors.</li>
 </ul>
-<h2 id="virtual-data-sources">Virtual Data Sources</h2>
+<h2 id="Virtual_Data_Sources">11. Virtual Data Sources</h2>
 <p><code>FROM &apos;@{VirtualDataSource}</code></p>
-<h2 id="workflowhistory">@WorkflowHistory</h2>
+<h2 id="@WorkflowHistory">12. @WorkflowHistory</h2>
 <p>The workflow history virtual data source will return details about the unassigned and human tasks of a one or more documents e.g. </p>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-string">&apos;@WorkflowHistory&apos;</span> <span class="hljs-keyword">WHERE</span> docId = <span class="hljs-number">1</span>
 </code></pre>
@@ -1201,7 +1213,7 @@ WHERE not all_empty (invoice_no,total,date,approved)</p>
 </table>
 <p>Any standard and custom indexes can also be merged into the results by adding them into the column list.
 Any standard search criteria can also be used</p>
-<h2 id="activity">@Activity</h2>
+<h2 id="@Activity">13. @Activity</h2>
 <p>Returns: </p>
 <ul>
 <li>Document creations </li>
@@ -1216,8 +1228,8 @@ Any standard search criteria can also be used</p>
 <p><code>date</code> is used for searching on the activity date (not the date of the document)</p>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> @Activity <span class="hljs-keyword">WHERE</span> <span class="hljs-built_in">date</span> = <span class="hljs-string">&apos;-7d&apos;</span>
 </code></pre>
-<h2 id="queuehistory">@QueueHistory</h2>
-
+<h2 id="@QueueHistory">14. @QueueHistory</h2>
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#PQL">PQL</a></p><li><a href="#Syntax">1. Syntax</a></li><li><a href="#Column_Expressions">2. Column Expressions</a></li><li><a href="#Wildcards">3. Wildcards</a></li><li><a href="#FROM_Clause">4. FROM Clause</a></li><li><a href="#WHERE">5. WHERE</a></li><ul><li><a href="#WHERE_Expressions">5.1. WHERE Expressions</a></li></ul><li><a href="#ORDER_BY">6. ORDER BY</a></li><li><a href="#LIMIT_N">7. LIMIT N</a></li><li><a href="#GROUP_BY">8. GROUP BY</a></li><li><a href="#HAVING">9. HAVING</a></li><li><a href="#Escaping">10. Escaping</a></li><li><a href="#Virtual_Data_Sources">11. Virtual Data Sources</a></li><li><a href="#@WorkflowHistory">12. @WorkflowHistory</a></li><li><a href="#@Activity">13. @Activity</a></li><li><a href="#@QueueHistory">14. @QueueHistory</a></li></ul></div><a href="#Syntax" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1260,7 +1272,7 @@ Any standard search criteria can also be used</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"PQL","level":"1.6.13","depth":2,"next":{"title":"Regex","level":"1.6.14","depth":2,"path":"reference/regex-text.md","ref":"reference/regex-text.md","articles":[]},"previous":{"title":"Maintenance","level":"1.6.12","depth":2,"path":"reference/maintenance-text.md","ref":"reference/maintenance-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/pql-text.md","mtime":"2017-03-16T17:24:18.540Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"PQL","level":"1.6.13","depth":2,"next":{"title":"Regex","level":"1.6.14","depth":2,"path":"reference/regex-text.md","ref":"reference/regex-text.md","articles":[]},"previous":{"title":"Maintenance","level":"1.6.12","depth":2,"path":"reference/maintenance-text.md","ref":"reference/maintenance-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/pql-text.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1268,6 +1280,14 @@ Any standard search criteria can also be used</p>
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1007,11 +1019,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="ldap-configuration">LDAP Configuration</h2>
-<h3 id="openldap">OpenLDAP</h3>
+                                <h2 id="LDAP_Configuration">1. LDAP Configuration</h2>
+<h3 id="OpenLDAP">1.1. OpenLDAP</h3>
 <p>Configure User format = uid=${user},o=Directory</p>
 <p>Note: Active directory will return less results and attributes when using port 3268 vs 389</p>
-<h3 id="multiple-ldap-servers">Multiple LDAP Servers</h3>
+<h3 id="Multiple_LDAP_Servers">1.2. Multiple LDAP Servers</h3>
 <p>Configured by addition a set of properties per domain:</p>
 <pre><code class="lang-javascript">ldap.extra.**_domain1-corp.local_**.host=  
 ldap.extra.domain1-corp.local.user=  
@@ -1020,14 +1032,14 @@ ldap.extra._**domain2-corp.local**_.host=
 ldap.extra.domain2-corp.local.user=  
 ldap.extra.domain2-corp.local.pass=
 </code></pre>
-<h2 id="synchronizing-with-ldap--active-directory">Synchronizing With LDAP / Active Directory</h2>
+<h2 id="Synchronizing_With_LDAP___Active_Directory">2. Synchronizing With LDAP / Active Directory</h2>
 <ul>
 <li>Check LDAP -&gt; Auto Create users  to create new users from LDAP when they login  </li>
 <li>Check LDAP -&gt; Auto Sync Groups  to synchronize group membership, this will sync on user create and on the interval specified under Authentication -&gt; Group Sync Interval</li>
 </ul>
 <p>You can also specify a datasource under <strong>Authentication -&gt; Group Sync Provider</strong> e.g. ds:groups </p>
 <p><code>SELECT memberOf as groups FROM &apos;@ldap/objectClass=user&amp;SAMAccountName=${filter}</code></p>
-<h2 id="troubleshooting">Troubleshooting</h2>
+<h2 id="Troubleshooting">3. Troubleshooting</h2>
 <ul>
 <li><p>Get the LDAP queries that PaperTrail is executing by increasing the log level:  <code>com.egis.utils.ldap</code> in &lt; 8.8.4 or <code>com.egis.security.ldap</code> in 8.8.4+</p>
 </li>
@@ -1044,7 +1056,7 @@ ldap.extra.domain2-corp.local.pass=
 <ul>
 <li>Adjust the LDAP query string in <em>Services -&gt; Properties -&gt; LDAP</em> as appropriate</li>
 </ul>
-
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#LDAP_Configuration">1. LDAP Configuration</a></li><ul><li><a href="#OpenLDAP">1.1. OpenLDAP</a></li><li><a href="#Multiple_LDAP_Servers">1.2. Multiple LDAP Servers</a></li></ul><li><a href="#Synchronizing_With_LDAP___Active_Directory">2. Synchronizing With LDAP / Active Directory</a></li><li><a href="#Troubleshooting">3. Troubleshooting</a></li></ul></div><a href="#LDAP_Configuration" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1083,7 +1095,7 @@ ldap.extra.domain2-corp.local.pass=
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LDAP / Active Directory","level":"1.5.7","depth":2,"next":{"title":"Reference","level":"1.6","depth":1,"ref":"","articles":[{"title":"Cold Standby Failover Procedure","level":"1.6.1","depth":2,"path":"reference/cold-standby-failover-procedure-text.md","ref":"reference/cold-standby-failover-procedure-text.md","articles":[]},{"title":"Encryption","level":"1.6.2","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},{"title":"Linking","level":"1.6.3","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},{"title":"Logging","level":"1.6.4","depth":2,"path":"reference/logging-text.md","ref":"reference/logging-text.md","articles":[]},{"title":"Jobs","level":"1.6.5","depth":2,"path":"reference/jobs-text.md","ref":"reference/jobs-text.md","articles":[]},{"title":"System Nodes","level":"1.6.6","depth":2,"path":"reference/system-nodes-text.md","ref":"reference/system-nodes-text.md","articles":[]},{"title":"Document Properties","level":"1.6.7","depth":2,"path":"reference/document-properties-text.md","ref":"reference/document-properties-text.md","articles":[]},{"title":"Health","level":"1.6.8","depth":2,"path":"reference/health-text.md","ref":"reference/health-text.md","articles":[]},{"title":"High Availability","level":"1.6.9","depth":2,"path":"reference/high-availability-text.md","ref":"reference/high-availability-text.md","articles":[]},{"title":"Licensing","level":"1.6.10","depth":2,"path":"reference/licensing-text.md","ref":"reference/licensing-text.md","articles":[]},{"title":"Linking Syntax","level":"1.6.11","depth":2,"path":"reference/linking-syntax-text.md","ref":"reference/linking-syntax-text.md","articles":[]},{"title":"Maintenance","level":"1.6.12","depth":2,"path":"reference/maintenance-text.md","ref":"reference/maintenance-text.md","articles":[]},{"title":"PQL","level":"1.6.13","depth":2,"path":"reference/pql-text.md","ref":"reference/pql-text.md","articles":[]},{"title":"Regex","level":"1.6.14","depth":2,"path":"reference/regex-text.md","ref":"reference/regex-text.md","articles":[]},{"title":"Standard Expression","level":"1.6.15","depth":2,"path":"reference/standard-expression-text.md","ref":"reference/standard-expression-text.md","articles":[]}]},"previous":{"title":"Folder Watch","level":"1.5.6","depth":2,"path":"integration/folder-watch-text.md","ref":"integration/folder-watch-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/ldap-ad-text.md","mtime":"2017-03-16T17:24:18.540Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LDAP / Active Directory","level":"1.5.7","depth":2,"next":{"title":"Reference","level":"1.6","depth":1,"ref":"","articles":[{"title":"Cold Standby Failover Procedure","level":"1.6.1","depth":2,"path":"reference/cold-standby-failover-procedure-text.md","ref":"reference/cold-standby-failover-procedure-text.md","articles":[]},{"title":"Encryption","level":"1.6.2","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},{"title":"Linking","level":"1.6.3","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},{"title":"Logging","level":"1.6.4","depth":2,"path":"reference/logging-text.md","ref":"reference/logging-text.md","articles":[]},{"title":"Jobs","level":"1.6.5","depth":2,"path":"reference/jobs-text.md","ref":"reference/jobs-text.md","articles":[]},{"title":"System Nodes","level":"1.6.6","depth":2,"path":"reference/system-nodes-text.md","ref":"reference/system-nodes-text.md","articles":[]},{"title":"Document Properties","level":"1.6.7","depth":2,"path":"reference/document-properties-text.md","ref":"reference/document-properties-text.md","articles":[]},{"title":"Health","level":"1.6.8","depth":2,"path":"reference/health-text.md","ref":"reference/health-text.md","articles":[]},{"title":"High Availability","level":"1.6.9","depth":2,"path":"reference/high-availability-text.md","ref":"reference/high-availability-text.md","articles":[]},{"title":"Licensing","level":"1.6.10","depth":2,"path":"reference/licensing-text.md","ref":"reference/licensing-text.md","articles":[]},{"title":"Linking Syntax","level":"1.6.11","depth":2,"path":"reference/linking-syntax-text.md","ref":"reference/linking-syntax-text.md","articles":[]},{"title":"Maintenance","level":"1.6.12","depth":2,"path":"reference/maintenance-text.md","ref":"reference/maintenance-text.md","articles":[]},{"title":"PQL","level":"1.6.13","depth":2,"path":"reference/pql-text.md","ref":"reference/pql-text.md","articles":[]},{"title":"Regex","level":"1.6.14","depth":2,"path":"reference/regex-text.md","ref":"reference/regex-text.md","articles":[]},{"title":"Standard Expression","level":"1.6.15","depth":2,"path":"reference/standard-expression-text.md","ref":"reference/standard-expression-text.md","articles":[]}]},"previous":{"title":"Folder Watch","level":"1.5.6","depth":2,"path":"integration/folder-watch-text.md","ref":"integration/folder-watch-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/ldap-ad-text.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1091,6 +1103,14 @@ ldap.extra.domain2-corp.local.pass=
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

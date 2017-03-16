@@ -17,6 +17,18 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -1009,13 +1021,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="database-performance-tuning">Database Performance Tuning</h1>
+                                <h1 id="Database_Performance_Tuning"><a name="database-performance-tuning" class="plugin-anchor" href="#database-performance-tuning"><i class="fa fa-link" aria-hidden="true"></i></a>Database Performance Tuning</h1>
 <ul>
 <li>Use READ COMMITTED default tx isolation level.</li>
 <li>Use a transaction logging mode that allows point in time recovery
 (PITR) if possible</li>
 </ul>
-<h3 id="recommended-postgresql-settings">Recommended PostgreSQL Settings</h3>
+<h3 id="Recommended_PostgreSQL_Settings">0.1. Recommended PostgreSQL Settings</h3>
 <pre><code>max_connections = 300 shared_buffers = 1GB                # increase based on db and RAM size 
 temp_buffers = 1GB  # increase based on db and RAM size 
 max_prepared_transactions = 0 
@@ -1025,7 +1037,7 @@ effective_io_concurrency = 4
 wal_level = archive    # allows PITR and restore 
 fsync = on   # setting it to off can boost performance at the risk of full db corruption
 synchronous_commit = on  # can be safely set to off full_page_writes = on
-</code></pre><h3 id="recommended-mysql-settings">Recommended MySQL Settings</h3>
+</code></pre><h3 id="Recommended_MySQL_Settings">0.2. Recommended MySQL Settings</h3>
 <pre><code>character-set-server=utf8
 default-character-set=utf8
 default-storage-engine=INNODB
@@ -1048,7 +1060,7 @@ innodb_thread_concurrency=10 # make buffer pool instances roughly equal the size
 query_cache_size=0 
 query_cache_type=0 
 thread_cache_size=10
-</code></pre>
+</code></pre><div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Database_Performance_Tuning">Database Performance Tuning</a></p><li><a href="#">none</a></li><ul><li><a href="#Recommended_PostgreSQL_Settings">0.1. Recommended PostgreSQL Settings</a></li><li><a href="#Recommended_MySQL_Settings">0.2. Recommended MySQL Settings</a></li></ul></ul></div><a href="#" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1091,7 +1103,7 @@ thread_cache_size=10
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"DB Tuning","level":"1.7.7","depth":2,"next":{"title":"Exceptions","level":"1.7.8","depth":2,"path":"troubleshooting/exceptions-text.md","ref":"troubleshooting/exceptions-text.md","articles":[]},"previous":{"title":"CPU Usage","level":"1.7.6","depth":2,"path":"troubleshooting/cpu-usage-text.md","ref":"troubleshooting/cpu-usage-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/db-tuning-text.md","mtime":"2017-03-16T17:24:18.544Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T17:25:58.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"DB Tuning","level":"1.7.7","depth":2,"next":{"title":"Exceptions","level":"1.7.8","depth":2,"path":"troubleshooting/exceptions-text.md","ref":"troubleshooting/exceptions-text.md","articles":[]},"previous":{"title":"CPU Usage","level":"1.7.6","depth":2,"path":"troubleshooting/cpu-usage-text.md","ref":"troubleshooting/cpu-usage-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/db-tuning-text.md","mtime":"2017-03-16T17:58:34.512Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1099,6 +1111,14 @@ thread_cache_size=10
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
