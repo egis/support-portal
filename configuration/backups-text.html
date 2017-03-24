@@ -1121,7 +1121,7 @@ Schedule &amp; Directory</li>
 </ol>
 <h2 id="Migrate_PaperTrail_to_another_host">11. Migrate PaperTrail to another host</h2>
 <ol>
-<li>On the current server, perform a dump of the DB. Refer to <a href="http://support.papertrail.co.za/Configuration/Backups/#how-to-backup" target="_blank">how to backup</a></li>
+<li>On the current server, perform a dump of the DB. Refer to <a href="backups-text.html#how-to-backup">how to backup</a></li>
 <li>On the new server, install the pre-requisites (Java 8 SDK, LibreOffice, DB application) and create the DB. DO NOT install PaperTrail as yet</li>
 <li>Import the DB dump onto the new server. Example Postgres command:<ul>
 <li><code>psql -U postgres papertrail &lt; C:\PTBackup\20170302.sql</code></li>
@@ -1132,7 +1132,7 @@ Schedule &amp; Directory</li>
 </ul>
 </li>
 <li>Copy over the PT_Repo and PT_Index directories to the new server</li>
-<li>Complete the <a href="http://support.papertrail.co.za/Installation/server-installation/#installation" target="_blank">install of PaperTrail</a> on the new server</li>
+<li>Complete the <a href="../installation/server-installation.html">install of PaperTrail</a> on the new server</li>
 <li>Copy the following files from the OLD PaperTrail server to the NEW PaperTrail server:<ul>
 <li>services_x64.vmoptions</li>
 <li>any customer .jar files in the deploy directory</li>
@@ -1183,7 +1183,7 @@ Schedule &amp; Directory</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Backups","level":"1.3.3","depth":2,"next":{"title":"Barcode","level":"1.3.4","depth":2,"path":"configuration/barcode-text.md","ref":"configuration/barcode-text.md","articles":[]},"previous":{"title":"Advanced Permissions","level":"1.3.2","depth":2,"path":"configuration/advanced-permissions.md","ref":"configuration/advanced-permissions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/backups-text.md","mtime":"2017-03-16T17:58:34.500Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-16T18:00:26.357Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Backups","level":"1.3.3","depth":2,"next":{"title":"Barcode","level":"1.3.4","depth":2,"path":"configuration/barcode-text.md","ref":"configuration/barcode-text.md","articles":[]},"previous":{"title":"Advanced Permissions","level":"1.3.2","depth":2,"path":"configuration/advanced-permissions.md","ref":"configuration/advanced-permissions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/backups-text.md","mtime":"2017-03-24T06:39:17.554Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-24T06:41:01.515Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
