@@ -1009,17 +1009,16 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="Messaging"><a name="messaging" class="plugin-anchor" href="#messaging"><i class="fa fa-link" aria-hidden="true"></i></a>Messaging</h1>
-<p><img src="http://i.imgur.com/x9IVpdW.png" alt="">  </p>
-<h2 id="Managing_Message_Queues">1. Managing Message Queues</h2>
-<p>To clear / restart message queues:  </p>
+<p>PaperTrail implements a message bus for both sync and async message passing. Messaging provide multiple benefits:</p>
 <ul>
-<li>Navigate to <strong>Services-&gt;Messaging</strong>. Select the <strong>message queue</strong> and</li>
-<li>Click <strong>Reprocess Failed/Dead</strong> to reprocess messages.  </li>
-<li>Click <strong>Clear All</strong> to clear any messages out of the queue.  </li>
+<li>de-couples modules to reduce complexity</li>
+<li>cater for unreliable services to improve stability and reliability </li>
+<li>provides plugin points to improve configurability</li>
+<li>improves visibility of what the system is doing at any point by logging messages</li>
 </ul>
-<blockquote>
-<p>WARNING: this may produce unexpected results e.g. partial email delivery, failed conversions not being retried etc.</p>
-</blockquote>
+<p>See <a href="https://msdn.microsoft.com/en-us/library/ms978583.aspx" target="_blank">Message Bus</a>  and <a href="https://en.wikipedia.org/wiki/Message_queue" target="_blank">Message Queue</a> </p>
+<p><img src="http://i.imgur.com/x9IVpdW.png" alt="">  </p>
+<h2 id="Common_Message_Queues">1. Common Message Queues</h2>
 <table>
 <thead>
 <tr>
@@ -1058,7 +1057,92 @@
 </tr>
 </tbody>
 </table>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Messaging">Messaging</a></p><li><a href="#Managing_Message_Queues">1. Managing Message Queues</a></li></ul></div><a href="#Managing_Message_Queues" id="goTop"><i class="fa fa-arrow-up"></i></a>
+<h2 id="Properties">2. Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message.retry.check.interval</td>
+<td>60</td>
+<td>How often to check for messages eligble for retry (ms)</td>
+</tr>
+<tr>
+<td>message.retry.max</td>
+<td>5</td>
+<td>Max number of message retries</td>
+</tr>
+<tr>
+<td>message.retry.max.<strong>queueId</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>message.retry.intervals</td>
+<td>60,3600,14400,86400,86400</td>
+<td>Message retry backoff schedule (ms)</td>
+</tr>
+<tr>
+<td>message.retry.intervals.<strong>queueId</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>message.retry.min.interval</td>
+<td>10000</td>
+<td>Minimum period between message retries</td>
+</tr>
+<tr>
+<td>message.queue.size</td>
+<td>500</td>
+<td>Size of the in memory queue</td>
+</tr>
+<tr>
+<td>message.queue.size.<strong>queueId</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>message.failover.<strong>queueId</strong></td>
+<td><em>None</em></td>
+<td>Failover to this queue instead of marking as dead</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Message queues and properties are set using the <strong>queueId</strong>, normally <code>ClassName.methodName</code> - 1 event could have multiple queue&apos;s each with their own settings </p>
+<p><code>message.queue.size</code> and <code>message.queue.size.{queueId}</code> define the size of the in memory queue, attempts to append messages to a full queue will result in them being persisted instead. </p>
+<h2 id="Persistence">3. Persistence</h2>
+<p>Messaging persistence always occurs within the context of a database transaction. i.e. A message will not be triggered if the database transaction fails.<br>However if the message fails, the queue handler will attempt to persist to database - should that persistence fail, then the message will be lost unless journalling is enabled.</p>
+<h3 id="Journalling">3.1. Journalling</h3>
+<p>Messaging journalling uses a seperate persistence store, other than the DB i.e. it will survive a database persistence failure.<br>The default maessage journal is based on LevelDB - Before anything happens with a message it will be saved to LevelDB, only once the message is succesfully processed or persisted to db
+will it be removed from LevelDB.</p>
+<p>On startup leveldb is checked for any messages needing recovery and they are then immediatly persisted. </p>
+<h2 id="Timeouts">4. Timeouts</h2>
+<p>Message processing timeouts can be specified using <code>@Timeout</code> if the running time of processing the message exceeds this limit, then the thread is interruppted and then the message is marked as failed and persisted for retry. The thread</p>
+<h2 id="Retry&apos;s">5. Retry&apos;s</h2>
+<p>Persisted messages are periodically checked for retriability and then placed back on the queue - the backoff period is specifed using the <strong>retry.intervals</strong></p>
+<p>Once the max number of retries have occured the message is marked as dead and will not be retried.</p>
+<h2 id="Failover">6. Failover</h2>
+<p>If a failover queue is specifed than instead of marking a message as dead, it will be moved to a new queue with a new retry schedule.</p>
+<h2 id="Managing_Message_Queues">7. Managing Message Queues</h2>
+<p>To clear / restart message queues:  </p>
+<ul>
+<li>Navigate to <strong>Services-&gt;Messaging</strong>. Select the <strong>message queue</strong> and</li>
+<li>Click <strong>Reprocess Failed/Dead</strong> to reprocess messages.  </li>
+<li>Click <strong>Clear All</strong> to clear any messages out of the queue.  </li>
+</ul>
+<blockquote>
+<p>WARNING: this may produce unexpected results e.g. partial email delivery, failed conversions not being retried etc.</p>
+</blockquote>
+<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Messaging">Messaging</a></p><li><a href="#Common_Message_Queues">1. Common Message Queues</a></li><li><a href="#Properties">2. Properties</a></li><li><a href="#Persistence">3. Persistence</a></li><ul><li><a href="#Journalling">3.1. Journalling</a></li></ul><li><a href="#Timeouts">4. Timeouts</a></li><li><a href="#Retry" s'="">5. Retry&apos;s</a></li><li><a href="#Failover">6. Failover</a></li><li><a href="#Managing_Message_Queues">7. Managing Message Queues</a></li></ul></div><a href="#Common_Message_Queues" id="goTop"><i class="fa fa-arrow-up"></i></a>
                                 
                                 </section>
                             
@@ -1101,7 +1185,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Messaging","level":"1.6.5","depth":2,"next":{"title":"CPU Usage","level":"1.6.6","depth":2,"path":"troubleshooting/cpu-usage-text.md","ref":"troubleshooting/cpu-usage-text.md","articles":[]},"previous":{"title":"Troubleshooting Server","level":"1.6.4","depth":2,"path":"troubleshooting/troubleshooting-server.md","ref":"troubleshooting/troubleshooting-server.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/messaging.md","mtime":"2017-03-30T13:20:40.182Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-30T13:22:20.215Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Messaging","level":"1.6.5","depth":2,"next":{"title":"CPU Usage","level":"1.6.6","depth":2,"path":"troubleshooting/cpu-usage-text.md","ref":"troubleshooting/cpu-usage-text.md","articles":[]},"previous":{"title":"Troubleshooting Server","level":"1.6.4","depth":2,"path":"troubleshooting/troubleshooting-server.md","ref":"troubleshooting/troubleshooting-server.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/messaging.md","mtime":"2017-04-04T08:11:57.115Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-04T08:13:47.857Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
