@@ -42,6 +42,7 @@
 * Reference
   * [Best Practises](reference/best-practises.md)
   * [Cold Standby Failover Procedure](reference/cold-standby-failover-procedure-text.md) 
+  * [Document Export](reference/docexport.md)
   * [Encryption](reference/encryption-text.md)
   * [Linking](reference/linking-text.md)
   * [Logging](reference/logging-text.md)
