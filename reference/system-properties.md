@@ -34,7 +34,7 @@
 | date.format                              |                                       |                                          |
 | db.auto.warm                             |                                       |                                          |
 | db.backup.dir                            |                                       | default_file_store                       |
-| db.database                              |                                       | transnet_pt                              |
+| db.database                              |                                       |                                          |
 | db.debug                                 |                                       | false                                    |
 | db.host                                  |                                       |                                          |
 | db.pass                                  |                                       |                                          |
@@ -104,21 +104,21 @@
 | index.upstream                           |                                       |                                          |
 | jar.disable                              |                                       | false                                    |
 | key.store.password                       |                                       |                                          |
-| ldap.account.lookup.query                |                                       | (&(objectClass=user)(mail=*)(            |
+| ldap.account.lookup.query                |                                       | (&(objectClass=user)(mail=*))            |
 | ldap.context.name                        |                                       |                                          |
-| ldap.domain                              |                                       | inter.transnet.net                       |
-| ldap.host                                |                                       | 10.98.227.113                            |
-| ldap.pass                                |                                       | Yk.12345                                 |
+| ldap.domain                              |                                       |                                          |
+| ldap.host                                |                                       |                                          |
+| ldap.pass                                |                                       |                                          |
 | ldap.port                                |                                       | 389                                      |
 | ldap.skip.verification                   |                                       | false                                    |
 | ldap.ssl                                 |                                       | false                                    |
 | ldap.sync.groups                         |                                       | false                                    |
 | ldap.user.autoCreate                     |                                       | false                                    |
 | ldap.user.format                         |                                       |                                          |
-| ldap.user                                |                                       | 9994160                                  |
-| ldap.verify.user                         |                                       | 9994160                                  |
-| license                                  |                                       | *#Egis#1000#standard,portal=1000,scanner=3,workflow=true,clustering=true,capture=true,esign=true,api=true,all=true#ed97c0c6 |
-| list.index.search.max.results            |                                       |                                          |
+| ldap.user                                |                                       |                                          |
+| ldap.verify.user                         |                                       |                                          |
+| license                                  |                                       |                                          |
+| list.index.search.max.results            |                                       | 50                                       |
 | log.files.purge.age                      |                                       | 720                                      |
 | messaging.journal.disable                |                                       |                                          |
 | metadata.field.permissions               |                                       | true                                     |
@@ -126,7 +126,7 @@
 | node.creation.timeout                    |                                       |                                          |
 | opensearch.guest.user                    |                                       |                                          |
 | party.autocomplete.results               |                                       |                                          |
-| pbkdf2.iterations                        |                                       |                                          |
+| pbkdf2.iterations                        |                                       | 10000                                    |
 | pdf.export.font                          |                                       | Helvetica                                |
 | pdf.export.header.color                  |                                       | C3DAF9                                   |
 | pdf.export.margins                       |                                       | 15                                       |
@@ -152,11 +152,11 @@
 | security.level                           |                                       | Low                                      |
 | signature.api.key                        |                                       |                                          |
 | signature.audit.page.disable             |                                       | false                                    |
-| signature.authentication.disable         |                                       | true                                     |
+| signature.authentication.disable         |                                       | false                                    |
 | signature.certificate.format             |                                       | ${reason?Digitally Signed} by ${user<br>${datetime} |
 | signature.certificate.password           |                                       |                                          |
 | signature.certificate.path               |                                       |                                          |
-| signature.format                         |                                       | ${title?};EMP NO. ${login?}              |
+| signature.format                         |                                       | ${name}                                  |
 | signature.reason.font                    |                                       | Times New Roman; 14; 061738              |
 | signature.script.font                    | Force a specific signature font style | 1; 20; ff0000                            |
 | signature.text.font                      |                                       | Times New Roman; 12; #5c595e             |
@@ -169,14 +169,14 @@
 | sms.country.code                         |                                       | 27                                       |
 | sms.extra                                |                                       | &api_id=                                 |
 | sms.from                                 |                                       |                                          |
-| sms.pass                                 |                                       | ****                                     |
+| sms.pass                                 |                                       |                                          |
 | sms.url                                  |                                       | http://api.clickatell.com/http/sendmsg?user=${sms.user}&password=${sms.pass}${sms.extra}&to=${to}&text=${message} |
 | sms.user                                 |                                       |                                          |
 | smtp.debug                               |                                       | false                                    |
 | smtp.disable                             |                                       | false                                    |
 | smtp.from                                |                                       | noreply@egis-software.com                |
 | smtp.host                                |                                       |                                          |
-| smtp.pass                                |                                       | ****                                     |
+| smtp.pass                                |                                       |                                          |
 | smtp.port                                |                                       |                                          |
 | smtp.sentItemsThreading                  |                                       | false                                    |
 | smtp.sentItems                           |                                       | false                                    |

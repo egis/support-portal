@@ -47,7 +47,6 @@
   * [Linking](reference/linking-text.md)
   * [Logging](reference/logging-text.md)
   * [Jobs](reference/jobs-text.md)
-  * [System Nodes](reference/system-nodes-text.md)
   * [Document Properties](reference/document-properties-text.md)
   * [Encryption](reference/encryption-text.md)
   * [Events](reference/events.md)
