@@ -62,6 +62,7 @@ Properties
 | ErrorCorrection |  Correct errors in barcodes
 | ExtendedCode39 |  Read Code 39 barcodes in the extended symbol set
 | GammaCorrection |  Gamma correction value for color images
+| LicenseKey | Specify a new license key for Barcode engine
 | LineJump|  Frequency of line sampling in an image
 | MaxLength  |  Maximum string length of a barcode
 | MaxRectOverlap  |  Maximum number of threads
