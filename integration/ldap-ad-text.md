@@ -1,10 +1,15 @@
 # LDAP Configuration  
 
+
+### Active Directory
+
+
+* AD will return less results and attributes when using port 3268 vs 389
+* The default query will only return accounts with an email address configured
+
 ### OpenLDAP 
 
-Configure User format = uid=${user},o=Directory
-
-Note: Active directory will return less results and attributes when using port 3268 vs 389
+Configure User format = `uid=${user},o=Directory`
 
 ### Multiple LDAP Servers
 
@@ -51,4 +56,4 @@ ldapsearch -h 172.16.237.131 -D "administrator@corp.egis-software.com" -w passwo
 
 Use tcpdump or wireshark to capture ldap queries and results at the protocol level.  
 
-*   Adjust the LDAP query string in _Services -> Properties -> LDAP_ as appropriate
+*   Adjust the LDAP query string in `Services -> Properties -> LDAP` as appropriate
