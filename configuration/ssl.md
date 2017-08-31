@@ -8,6 +8,9 @@ To configure PaperTrail to use HTTPS:
 4. Set the HTTPS port (`http.ssl.port`) to 443 or 8443
 5. Check Force SSL (`http.ssl.force`) to always redirect from HTTP to HTTPS
 
+Install portecle using http://portecle.sourceforge.net/ found in the Resources section.
+
+Launch the portecle.jnlp
 
 ## Converting PKCS#7 to PKCS#12
 
