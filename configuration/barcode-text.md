@@ -10,7 +10,7 @@ Libraries need to be copied to `/usr/lib/java`, `/usr/lib/`,
 `C:\\Windows\\System32` or wherever the java.library.path is pointing.
 
 
-For a list of all versions go to [Bardecode](http://www.bardecode.com/en1/quick-download/), although a different license may need to be loaded via the License property.
+For a list of all versions go to [Bardecode](http://www.bardecode.com/en1/quick-download/), although a different license may need to be loaded via the License property. A license can be specified in the "Advanced" section of the extractFromBarcode rule by adding the line LicenseKey=<license here>
 
 ### Supported Barcodes
 
