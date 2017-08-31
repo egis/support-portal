@@ -1,5 +1,6 @@
 # Document Properties
 
+
 Document properties are available to use in:
 
 *   Node rule filters

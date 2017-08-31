@@ -1,4 +1,4 @@
-## LDAP Configuration  
+# LDAP Configuration  
 
 ### OpenLDAP 
 

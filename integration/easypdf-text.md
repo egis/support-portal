@@ -58,8 +58,9 @@ is set up correctly.
 If any conversion issue are being experienced, create a .vbs
 file which can be run to test conversions outside of PaperTrail. The
 paths in the properties are input and output files, and should be
-configured accordingly :
-```vbscript
+configured accordingly:
+
+```javascript
 Set oPrinter = CreateObject("easyPDF.Printer.7")
 Set oPrintJob = oPrinter.PrintJob
 oPrintJob.PrintOut "C:\\test.txt", "C:\\output.pdf"
@@ -67,16 +68,11 @@ oPrintJob.PrintOut "C:\\test.txt", "C:\\output.pdf"
  
 
 Another way to test the conversions is to navigate to
-*C:\\Users\\Public\\Documents\\BCL Technologies\\easyPDF SDK
-7\\Samples\\Visual C\#\\EasyPDFPrinterTest* and then running
-EasyPDFPrinterTest.exe. This will allow you to select an input document
+`C:\\Users\\Public\\Documents\\BCL Technologies\\easyPDF SDK
+7\\Samples\\Visual C\#\\EasyPDFPrinterTest` and then running
+`EasyPDFPrinterTest.exe`. This will allow you to select an input document
 to convert and specify the output path of the PDF.
 
  
 
 For any more information, the user manual can be accessed [here](http://www.pdfonline.com/easypdf/sdk/usermanual/)
-
- 
-
- 
-

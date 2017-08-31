@@ -1,4 +1,4 @@
-## Data Sources
+# Data Sources
 
 Data sources allow for data to be looked up in a centralized fashion. These data sources are always referenced by name so they can differ in production and dev environments - both in parameters and type.
 

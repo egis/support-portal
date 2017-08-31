@@ -1,4 +1,4 @@
-## Configuring Node Indexes / Fields
+# Configuring Node Indexes / Fields
 
 ### Index Types
 
