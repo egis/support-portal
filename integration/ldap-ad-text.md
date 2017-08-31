@@ -18,6 +18,7 @@ ldap.extra._**domain2-corp.local**_.host=
 ldap.extra.domain2-corp.local.user=  
 ldap.extra.domain2-corp.local.pass=  
 ```
+### TIP: Try Resetting account and login without Active Directory
 
 ## Synchronizing With LDAP / Active Directory
 
