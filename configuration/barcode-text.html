@@ -1176,7 +1176,7 @@
 v8.1.2</a><br> <a href="http://bardecode.com/barcode_linux.tar.gz" target="_blank">Linux SDK v8.1.2</a></p>
 <p>Libraries need to be copied to <code>/usr/lib/java</code>, <code>/usr/lib/</code>,
 <code>C:\\Windows\\System32</code> or wherever the java.library.path is pointing.</p>
-<p>For a list of all versions go to <a href="http://www.bardecode.com/en1/quick-download/" target="_blank">Bardecode</a>, although a different license may need to be loaded via the License property.</p>
+<p>For a list of all versions go to <a href="http://www.bardecode.com/en1/quick-download/" target="_blank">Bardecode</a>, although a different license may need to be loaded via the License property. A license can be specified in the &quot;Advanced&quot; section of the extractFromBarcode rule by adding the line LicenseKey=<license here=""></license></p>
 <h3 id="supported-barcodes"><a name="supported-barcodes" class="plugin-anchor" href="#supported-barcodes"><i class="fa fa-link" aria-hidden="true"></i></a>Supported Barcodes</h3>
 <ul>
 <li>Codabar also known as Code 2 of 7, Codeabar, Ames Code, NW-7 and Monarch (ReadCodabar)</li>
@@ -1284,6 +1284,10 @@ v8.1.2</a><br> <a href="http://bardecode.com/barcode_linux.tar.gz" target="_blan
 <tr>
 <td>GammaCorrection</td>
 <td>Gamma correction value for color images</td>
+</tr>
+<tr>
+<td>LicenseKey</td>
+<td>Specify a new license key for Barcode engine</td>
 </tr>
 <tr>
 <td>LineJump</td>
@@ -1538,7 +1542,7 @@ v8.1.2</a><br> <a href="http://bardecode.com/barcode_linux.tar.gz" target="_blan
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Barcode","level":"1.2.4","depth":2,"next":{"title":"Branding","level":"1.2.5","depth":2,"path":"configuration/branding-text.md","ref":"configuration/branding-text.md","articles":[]},"previous":{"title":"Backups","level":"1.2.3","depth":2,"path":"configuration/backups-text.md","ref":"configuration/backups-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/barcode-text.md","mtime":"2017-08-31T06:43:58.612Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Barcode","level":"1.2.4","depth":2,"next":{"title":"Branding","level":"1.2.5","depth":2,"path":"configuration/branding-text.md","ref":"configuration/branding-text.md","articles":[]},"previous":{"title":"Backups","level":"1.2.3","depth":2,"path":"configuration/backups-text.md","ref":"configuration/backups-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/barcode-text.md","mtime":"2017-08-31T11:57:17.812Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T11:59:01.536Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
