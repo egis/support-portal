@@ -1161,20 +1161,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="configuring-https-server-side-only"><a name="configuring-https-server-side-only" class="plugin-anchor" href="#configuring-https-server-side-only"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring HTTPS (Server Side Only)</h1>
+                                <h1 id="ssl"><a name="ssl" class="plugin-anchor" href="#ssl"><i class="fa fa-link" aria-hidden="true"></i></a>SSL</h1>
 <!-- toc --><div id="toc" class="toc">
 
 <ul>
+<li><a href="#configuring-https-server-side-only">Configuring HTTPS (Server Side Only)</a></li>
 <li><a href="#converting-pkcs7-to-pkcs12">Converting PKCS#7 to PKCS#12</a></li>
 <li><a href="#converting-pkcs12-to-jks">Converting PKCS#12 to JKS</a><ul>
 <li><a href="#import-root-and-intermediate-cas">Import Root and Intermediate CA&apos;s</a></li>
 <li><a href="#verifying">Verifying</a></li>
-<li><a href="#configuring-client-authentication-mutual-ssl">Configuring Client Authentication (Mutual SSL)</a></li>
 </ul>
 </li>
+<li><a href="#configuring-client-authentication-mutual-ssl">Configuring Client Authentication (Mutual SSL)</a></li>
 </ul>
 
 </div><!-- tocstop -->
+<h2 id="configuring-https-server-side-only"><a name="configuring-https-server-side-only" class="plugin-anchor" href="#configuring-https-server-side-only"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring HTTPS (Server Side Only)</h2>
 <p>To configure PaperTrail to use HTTPS:</p>
 <ol>
 <li>Create a Java key store (JKS) with a name of <code>keystore</code> and place it in the <code>conf</code> directory</li>
@@ -1183,11 +1185,15 @@
 <li>Set the HTTPS port (<code>http.ssl.port</code>) to 443 or 8443</li>
 <li>Check Force SSL (<code>http.ssl.force</code>) to always redirect from HTTP to HTTPS</li>
 </ol>
+<blockquote>
+<p>Tip: Try <a href="http://keystore-explorer.org/" target="_blank">KeyStore Explorer</a> or <a href="http://portecle.sourceforge.net/" target="_blank">portecle</a> for importing and converting certificates from a variety of formats</p>
+</blockquote>
 <h2 id="converting-pkcs7-to-pkcs12"><a name="converting-pkcs7-to-pkcs12" class="plugin-anchor" href="#converting-pkcs7-to-pkcs12"><i class="fa fa-link" aria-hidden="true"></i></a>Converting PKCS#7 to PKCS#12</h2>
 <p><code>openssl pkcs12 -export -in server.crt -inkey server.key   -out keystore.p12 -name www</code></p>
 <h2 id="converting-pkcs12-to-jks"><a name="converting-pkcs12-to-jks" class="plugin-anchor" href="#converting-pkcs12-to-jks"><i class="fa fa-link" aria-hidden="true"></i></a>Converting PKCS#12 to JKS</h2>
-<p><code>keytool -importkeystore -destkeystore keystore -srckeystore keystore.p12 -srcstoretype PKCS12</code>               </p>
+<p><code>keytool -importkeystore -destkeystore keystore -srckeystore keystore.p12 -srcstoretype PKCS12</code></p>
 <h3 id="import-root-and-intermediate-cas"><a name="import-root-and-intermediate-cas" class="plugin-anchor" href="#import-root-and-intermediate-cas"><i class="fa fa-link" aria-hidden="true"></i></a>Import Root and Intermediate CA&apos;s</h3>
+<p>In order for browsers to full validate a certificate all the intermediate and root certificates should be bundled in the JKS certificate chain.</p>
 <p><code>keytool -import -trustcacerts -alias root -file root.crt -keystore keystore</code></p>
 <h3 id="verifying"><a name="verifying" class="plugin-anchor" href="#verifying"><i class="fa fa-link" aria-hidden="true"></i></a>Verifying</h3>
 <p>To verify that the keystore is configured correctly:</p>
@@ -1201,7 +1207,7 @@ Keystore provider: SUN</p>
 </blockquote>
 <p>The last line has a syntax of <code>{CN} {Expiry} {Key Type}</code>  </p>
 <p><code>{CN}</code> should match the URL you would be accessing PaperTrail by<br><code>{Key Type}</code> must be PrivateKeyEntry  </p>
-<h1 id="configuring-client-authentication-mutual-ssl"><a name="configuring-client-authentication-mutual-ssl" class="plugin-anchor" href="#configuring-client-authentication-mutual-ssl"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring Client Authentication (Mutual SSL)</h1>
+<h2 id="configuring-client-authentication-mutual-ssl"><a name="configuring-client-authentication-mutual-ssl" class="plugin-anchor" href="#configuring-client-authentication-mutual-ssl"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring Client Authentication (Mutual SSL)</h2>
 <ol>
 <li>Configure server side SSL as above</li>
 <li>Create a new a JKS file called <code>truststore</code> containing the trusted CA&apos;s</li>
@@ -1252,7 +1258,7 @@ Keystore provider: SUN</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SSL","level":"1.2.11","depth":2,"next":{"title":"Single-Sign-On (SSO)","level":"1.2.12","depth":2,"path":"configuration/sso-text.md","ref":"configuration/sso-text.md","articles":[]},"previous":{"title":"Security","level":"1.2.10","depth":2,"path":"configuration/security.md","ref":"configuration/security.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/ssl.md","mtime":"2017-08-31T11:57:15.893Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T11:59:11.180Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SSL","level":"1.2.11","depth":2,"next":{"title":"Single-Sign-On (SSO)","level":"1.2.12","depth":2,"path":"configuration/sso-text.md","ref":"configuration/sso-text.md","articles":[]},"previous":{"title":"Security","level":"1.2.10","depth":2,"path":"configuration/security.md","ref":"configuration/security.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/ssl.md","mtime":"2017-08-31T11:58:37.080Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T12:00:20.939Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

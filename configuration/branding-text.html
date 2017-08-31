@@ -1162,6 +1162,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="branding-papertrail"><a name="branding-papertrail" class="plugin-anchor" href="#branding-papertrail"><i class="fa fa-link" aria-hidden="true"></i></a>Branding PaperTrail</h1>
+<h2 id="images"><a name="images" class="plugin-anchor" href="#images"><i class="fa fa-link" aria-hidden="true"></i></a>Images</h2>
 <ul>
 <li>Images are placed in the System/images node.</li>
 <li>Images must end in .png (if they are a .jpeg or .gif they can be
@@ -1179,6 +1180,25 @@ should be permanently checked out.</li>
 <p>The logo that sits above the honeycomb.<br>Add white space to the left of image to center it above the honeycomb.</p>
 <h2 id="egispng-75x25-"><a name="egispng-75x25-" class="plugin-anchor" href="#egispng-75x25-"><i class="fa fa-link" aria-hidden="true"></i></a>egis.png (75x25) </h2>
 <p>The egis logo on the bottom right of the screen.</p>
+<h2 id="email-signatures"><a name="email-signatures" class="plugin-anchor" href="#email-signatures"><i class="fa fa-link" aria-hidden="true"></i></a>Email Signatures</h2>
+<p>Copy the HTML signature contents into <code>System\templates\template.html</code>.</p>
+<p>Images should be attached to the document and referenced using:  <code>cid:@{image001.jpg}</code> where <strong>image001.jpg</strong> is the attachment name. e.g.:</p>
+<pre><code class="lang-html"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;141&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;72&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;cid:@{image001.jpg}&quot;</span><span class="p">&gt;</span>
+</code></pre>
+<p>The users details can be prepopulated into the template using <a href="../reference/standard-expression-text.html">standard expressions</a>, the following fields will be available:</p>
+<ul>
+<li>name</li>
+<li>email</li>
+<li>tel</li>
+<li>fax</li>
+<li>mobile</li>
+<li>login</li>
+<li>title</li>
+<li>division</li>
+</ul>
+<blockquote>
+<p> WARNING: always keep the html in a checked out position to prevent it from being overwritten during upgrades</p>
+</blockquote>
 
                                 
                                 </section>
@@ -1222,7 +1242,7 @@ should be permanently checked out.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Branding","level":"1.2.5","depth":2,"next":{"title":"Bulk Capture","level":"1.2.6","depth":2,"path":"configuration/bulk-capture-text.md","ref":"configuration/bulk-capture-text.md","articles":[]},"previous":{"title":"Barcode","level":"1.2.4","depth":2,"path":"configuration/barcode-text.md","ref":"configuration/barcode-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/branding-text.md","mtime":"2017-08-31T11:57:15.893Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T11:59:11.180Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Branding","level":"1.2.5","depth":2,"next":{"title":"Bulk Capture","level":"1.2.6","depth":2,"path":"configuration/bulk-capture-text.md","ref":"configuration/bulk-capture-text.md","articles":[]},"previous":{"title":"Barcode","level":"1.2.4","depth":2,"path":"configuration/barcode-text.md","ref":"configuration/barcode-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/branding-text.md","mtime":"2017-08-31T11:58:37.080Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T12:00:20.939Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
