@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1155,8 +1159,17 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="Troubleshooting_High_CPU_usage"><a name="troubleshooting-high-cpu-usage" class="plugin-anchor" href="#troubleshooting-high-cpu-usage"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting High CPU usage</h1>
-<h2 id="Before_doing_anything_else">1. Before doing anything else</h2>
+                                <h1 id="troubleshooting-high-cpu-usage"><a name="troubleshooting-high-cpu-usage" class="plugin-anchor" href="#troubleshooting-high-cpu-usage"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting High CPU usage</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#before-doing-anything-else">Before doing anything else</a></li>
+<li><a href="#common-causes-of-high-cpu-usage">Common Causes of high CPU usage</a></li>
+<li><a href="#analyzing-a-thread-dump">Analyzing a Thread Dump</a></li>
+</ul>
+
+</div><!-- tocstop -->
+<h2 id="before-doing-anything-else"><a name="before-doing-anything-else" class="plugin-anchor" href="#before-doing-anything-else"><i class="fa fa-link" aria-hidden="true"></i></a>Before doing anything else</h2>
 <p>Before restarting PaperTrail always try and get a snapshot:</p>
 <p><code>http://localhost:8080/snapshot</code>  </p>
 <p>and/or a thread dump  </p>
@@ -1164,12 +1177,12 @@
 <p>If the web interface is unresponsive, use the command line to retrieve a
 thread dump.</p>
 <p>On Linux: <code>/etc/init.d/papertrail heap</code><br>On Windows: In <java bin="" directory="">,  Run <code>jps</code> to get the PID of the service and then <code>jstack -dump:format=b,file=C:\heap.bin  &lt;PID&gt;</code></java></p>
-<h2 id="Common_Causes_of_high_CPU_usage">2. Common Causes of high CPU usage</h2>
+<h2 id="common-causes-of-high-cpu-usage"><a name="common-causes-of-high-cpu-usage" class="plugin-anchor" href="#common-causes-of-high-cpu-usage"><i class="fa fa-link" aria-hidden="true"></i></a>Common Causes of high CPU usage</h2>
 <p>If a single CPU core is at 100%, the culprit would normally be single thread that reoccurs in every single thread dump.</p>
 <p>If all CPU cores are at 100% or near 100%, the cause is either:</p>
 <p>a) memory exhaustion - very little free memory,  <code>jstat</code>  would return
 very high garbage collection times (GC)<br>b) an endless loop<br>c) too many worker threads and/or too few cores</p>
-<h2 id="Analyzing_a_Thread_Dump">3. Analyzing a Thread Dump</h2>
+<h2 id="analyzing-a-thread-dump"><a name="analyzing-a-thread-dump" class="plugin-anchor" href="#analyzing-a-thread-dump"><i class="fa fa-link" aria-hidden="true"></i></a>Analyzing a Thread Dump</h2>
 <p>Analyzing a thread dump involves looking through all the threads on the
 running system to identify a pattern.</p>
 <ul>
@@ -1179,7 +1192,7 @@ as these threads are sleeping waiting for something else to occur.</p>
 <li><p>Jetty threads in the <code>java.net.SocketInputStream.socketRead RUNNING</code>state can also be ignored as they are waiting for a client to make a TCP/IP connection</p>
 </li>
 </ul>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Troubleshooting_High_CPU_usage">Troubleshooting High CPU usage</a></p><li><a href="#Before_doing_anything_else">1. Before doing anything else</a></li><li><a href="#Common_Causes_of_high_CPU_usage">2. Common Causes of high CPU usage</a></li><li><a href="#Analyzing_a_Thread_Dump">3. Analyzing a Thread Dump</a></li></ul></div><a href="#Before_doing_anything_else" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1218,7 +1231,7 @@ as these threads are sleeping waiting for something else to occur.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CPU Usage","level":"1.7.1","depth":2,"next":{"title":"DB Tuning","level":"1.7.2","depth":2,"path":"troubleshooting/db-tuning-text.md","ref":"troubleshooting/db-tuning-text.md","articles":[]},"previous":{"title":"Troubleshooting","level":"1.7","depth":1,"ref":"","articles":[{"title":"CPU Usage","level":"1.7.1","depth":2,"path":"troubleshooting/cpu-usage-text.md","ref":"troubleshooting/cpu-usage-text.md","articles":[]},{"title":"DB Tuning","level":"1.7.2","depth":2,"path":"troubleshooting/db-tuning-text.md","ref":"troubleshooting/db-tuning-text.md","articles":[]},{"title":"Exceptions","level":"1.7.3","depth":2,"path":"troubleshooting/exceptions-text.md","ref":"troubleshooting/exceptions-text.md","articles":[]},{"title":"Dripstat Configuration","level":"1.7.4","depth":2,"path":"troubleshooting/dripstat-configuration-text.md","ref":"troubleshooting/dripstat-configuration-text.md","articles":[]},{"title":"Messaging","level":"1.7.5","depth":2,"path":"troubleshooting/messaging.md","ref":"troubleshooting/messaging.md","articles":[]},{"title":"Performance","level":"1.7.6","depth":2,"path":"troubleshooting/performance-text.md","ref":"troubleshooting/performance-text.md","articles":[]},{"title":"Troubleshooting Client","level":"1.7.7","depth":2,"path":"troubleshooting/troubleshooting-client-text.md","ref":"troubleshooting/troubleshooting-client-text.md","articles":[]},{"title":"Troubleshooting Server","level":"1.7.8","depth":2,"path":"troubleshooting/troubleshooting-server.md","ref":"troubleshooting/troubleshooting-server.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/cpu-usage-text.md","mtime":"2017-08-14T07:50:07.649Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"CPU Usage","level":"1.7.1","depth":2,"next":{"title":"DB Tuning","level":"1.7.2","depth":2,"path":"troubleshooting/db-tuning-text.md","ref":"troubleshooting/db-tuning-text.md","articles":[]},"previous":{"title":"Troubleshooting","level":"1.7","depth":1,"ref":"","articles":[{"title":"CPU Usage","level":"1.7.1","depth":2,"path":"troubleshooting/cpu-usage-text.md","ref":"troubleshooting/cpu-usage-text.md","articles":[]},{"title":"DB Tuning","level":"1.7.2","depth":2,"path":"troubleshooting/db-tuning-text.md","ref":"troubleshooting/db-tuning-text.md","articles":[]},{"title":"Exceptions","level":"1.7.3","depth":2,"path":"troubleshooting/exceptions-text.md","ref":"troubleshooting/exceptions-text.md","articles":[]},{"title":"Dripstat Configuration","level":"1.7.4","depth":2,"path":"troubleshooting/dripstat-configuration-text.md","ref":"troubleshooting/dripstat-configuration-text.md","articles":[]},{"title":"Messaging","level":"1.7.5","depth":2,"path":"troubleshooting/messaging.md","ref":"troubleshooting/messaging.md","articles":[]},{"title":"Performance","level":"1.7.6","depth":2,"path":"troubleshooting/performance-text.md","ref":"troubleshooting/performance-text.md","articles":[]},{"title":"Troubleshooting Client","level":"1.7.7","depth":2,"path":"troubleshooting/troubleshooting-client-text.md","ref":"troubleshooting/troubleshooting-client-text.md","articles":[]},{"title":"Troubleshooting Server","level":"1.7.8","depth":2,"path":"troubleshooting/troubleshooting-server.md","ref":"troubleshooting/troubleshooting-server.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/cpu-usage-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1229,6 +1242,10 @@ as these threads are sleeping waiting for something else to occur.</p>
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

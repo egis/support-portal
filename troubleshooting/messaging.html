@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,7 +1161,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="Messaging"><a name="messaging" class="plugin-anchor" href="#messaging"><i class="fa fa-link" aria-hidden="true"></i></a>Messaging</h1>
+                                <h1 id="messaging"><a name="messaging" class="plugin-anchor" href="#messaging"><i class="fa fa-link" aria-hidden="true"></i></a>Messaging</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#common-message-queues">Common Message Queues</a></li>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#persistence">Persistence</a><ul>
+<li><a href="#journalling">Journalling</a></li>
+</ul>
+</li>
+<li><a href="#timeouts">Timeouts</a></li>
+<li><a href="#retrys">Retry&apos;s</a></li>
+<li><a href="#failover">Failover</a></li>
+<li><a href="#managing-message-queues">Managing Message Queues</a></li>
+</ul>
+
+</div><!-- tocstop -->
 <p>PaperTrail implements a message bus for both sync and async message passing. Messaging provide multiple benefits:</p>
 <ul>
 <li>de-couples modules to reduce complexity</li>
@@ -1167,7 +1187,7 @@
 </ul>
 <p>See <a href="https://msdn.microsoft.com/en-us/library/ms978583.aspx" target="_blank">Message Bus</a>  and <a href="https://en.wikipedia.org/wiki/Message_queue" target="_blank">Message Queue</a> </p>
 <p><img src="http://i.imgur.com/x9IVpdW.png" alt="">  </p>
-<h2 id="Common_Message_Queues">1. Common Message Queues</h2>
+<h2 id="common-message-queues"><a name="common-message-queues" class="plugin-anchor" href="#common-message-queues"><i class="fa fa-link" aria-hidden="true"></i></a>Common Message Queues</h2>
 <table>
 <thead>
 <tr>
@@ -1206,7 +1226,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="Properties">2. Properties</h2>
+<h2 id="properties"><a name="properties" class="plugin-anchor" href="#properties"><i class="fa fa-link" aria-hidden="true"></i></a>Properties</h2>
 <table>
 <thead>
 <tr>
@@ -1270,20 +1290,20 @@
 </table>
 <p>Message queues and properties are set using the <strong>queueId</strong>, normally <code>ClassName.methodName</code> - 1 event could have multiple queue&apos;s each with their own settings </p>
 <p><code>message.queue.size</code> and <code>message.queue.size.{queueId}</code> define the size of the in memory queue, attempts to append messages to a full queue will result in them being persisted instead. </p>
-<h2 id="Persistence">3. Persistence</h2>
+<h2 id="persistence"><a name="persistence" class="plugin-anchor" href="#persistence"><i class="fa fa-link" aria-hidden="true"></i></a>Persistence</h2>
 <p>Messaging persistence always occurs within the context of a database transaction. i.e. A message will not be triggered if the database transaction fails.<br>However if the message fails, the queue handler will attempt to persist to database - should that persistence fail, then the message will be lost unless journalling is enabled.</p>
-<h3 id="Journalling">3.1. Journalling</h3>
+<h3 id="journalling"><a name="journalling" class="plugin-anchor" href="#journalling"><i class="fa fa-link" aria-hidden="true"></i></a>Journalling</h3>
 <p>Messaging journalling uses a seperate persistence store, other than the DB i.e. it will survive a database persistence failure.<br>The default maessage journal is based on LevelDB - Before anything happens with a message it will be saved to LevelDB, only once the message is succesfully processed or persisted to db
 will it be removed from LevelDB.</p>
 <p>On startup leveldb is checked for any messages needing recovery and they are then immediatly persisted. </p>
-<h2 id="Timeouts">4. Timeouts</h2>
+<h2 id="timeouts"><a name="timeouts" class="plugin-anchor" href="#timeouts"><i class="fa fa-link" aria-hidden="true"></i></a>Timeouts</h2>
 <p>Message processing timeouts can be specified using <code>@Timeout</code> if the running time of processing the message exceeds this limit, then the thread is interruppted and then the message is marked as failed and persisted for retry. The thread</p>
-<h2 id="Retry&apos;s">5. Retry&apos;s</h2>
+<h2 id="retrys"><a name="retrys" class="plugin-anchor" href="#retrys"><i class="fa fa-link" aria-hidden="true"></i></a>Retry&apos;s</h2>
 <p>Persisted messages are periodically checked for retriability and then placed back on the queue - the backoff period is specifed using the <strong>retry.intervals</strong></p>
 <p>Once the max number of retries have occured the message is marked as dead and will not be retried.</p>
-<h2 id="Failover">6. Failover</h2>
+<h2 id="failover"><a name="failover" class="plugin-anchor" href="#failover"><i class="fa fa-link" aria-hidden="true"></i></a>Failover</h2>
 <p>If a failover queue is specifed than instead of marking a message as dead, it will be moved to a new queue with a new retry schedule.</p>
-<h2 id="Managing_Message_Queues">7. Managing Message Queues</h2>
+<h2 id="managing-message-queues"><a name="managing-message-queues" class="plugin-anchor" href="#managing-message-queues"><i class="fa fa-link" aria-hidden="true"></i></a>Managing Message Queues</h2>
 <p>To clear / restart message queues:  </p>
 <ul>
 <li>Navigate to <strong>Services-&gt;Messaging</strong>. Select the <strong>message queue</strong> and</li>
@@ -1293,7 +1313,7 @@ will it be removed from LevelDB.</p>
 <blockquote>
 <p>WARNING: this may produce unexpected results e.g. partial email delivery, failed conversions not being retried etc.</p>
 </blockquote>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Messaging">Messaging</a></p><li><a href="#Common_Message_Queues">1. Common Message Queues</a></li><li><a href="#Properties">2. Properties</a></li><li><a href="#Persistence">3. Persistence</a></li><ul><li><a href="#Journalling">3.1. Journalling</a></li></ul><li><a href="#Timeouts">4. Timeouts</a></li><li><a href="#Retry" s'="">5. Retry&apos;s</a></li><li><a href="#Failover">6. Failover</a></li><li><a href="#Managing_Message_Queues">7. Managing Message Queues</a></li></ul></div><a href="#Common_Message_Queues" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1336,7 +1356,7 @@ will it be removed from LevelDB.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Messaging","level":"1.7.5","depth":2,"next":{"title":"Performance","level":"1.7.6","depth":2,"path":"troubleshooting/performance-text.md","ref":"troubleshooting/performance-text.md","articles":[]},"previous":{"title":"Dripstat Configuration","level":"1.7.4","depth":2,"path":"troubleshooting/dripstat-configuration-text.md","ref":"troubleshooting/dripstat-configuration-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/messaging.md","mtime":"2017-08-14T07:50:07.649Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Messaging","level":"1.7.5","depth":2,"next":{"title":"Performance","level":"1.7.6","depth":2,"path":"troubleshooting/performance-text.md","ref":"troubleshooting/performance-text.md","articles":[]},"previous":{"title":"Dripstat Configuration","level":"1.7.4","depth":2,"path":"troubleshooting/dripstat-configuration-text.md","ref":"troubleshooting/dripstat-configuration-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/messaging.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1347,6 +1367,10 @@ will it be removed from LevelDB.</p>
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

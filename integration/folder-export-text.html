@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,21 +1161,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="Document_Export"><a name="document-export" class="plugin-anchor" href="#document-export"><i class="fa fa-link" aria-hidden="true"></i></a>Document Export</h1>
-<h2 id="Command_Line_Process">1. Command Line Process</h2>
+                                <h1 id="document-export"><a name="document-export" class="plugin-anchor" href="#document-export"><i class="fa fa-link" aria-hidden="true"></i></a>Document Export</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#command-line-process">Command Line Process</a></li>
+<li><a href="#node-replication">Node Replication</a></li>
+<li><a href="#auto-export">Auto Export</a><ul>
+<li><a href="#folder">Folder</a></li>
+<li><a href="#email">Email</a></li>
+<li><a href="#papertrail-server">PaperTrail Server</a></li>
+</ul>
+</li>
+<li><a href="#export-format">Export Format</a></li>
+</ul>
+
+</div><!-- tocstop -->
+<h2 id="command-line-process"><a name="command-line-process" class="plugin-anchor" href="#command-line-process"><i class="fa fa-link" aria-hidden="true"></i></a>Command Line Process</h2>
 <p>Execute a command line process on a document. To do this, separate the command (script) and the file with: ||.   </p>
 <p>If the path is not specified in the PATH environment variable, then specify the path. 
 Examples:  </p>
-<pre><code class="lang-javascript">autoPrint.vbs||${file}
-C:\autoPrint.vbs||${file}
+<pre><code class="lang-javascript"><span class="nx">autoPrint</span><span class="p">.</span><span class="nx">vbs</span><span class="o">||</span><span class="nx">$</span><span class="p">{</span><span class="nx">file</span><span class="p">}</span>
+<span class="nx">C</span><span class="o">:</span><span class="err">\</span><span class="nx">autoPrint</span><span class="p">.</span><span class="nx">vbs</span><span class="o">||</span><span class="nx">$</span><span class="p">{</span><span class="nx">file</span><span class="p">}</span>
 </code></pre>
-<h2 id="Node_Replication">2. Node Replication</h2>
+<h2 id="node-replication"><a name="node-replication" class="plugin-anchor" href="#node-replication"><i class="fa fa-link" aria-hidden="true"></i></a>Node Replication</h2>
 <p>HTTP Path: The path to the PaperTrail server that will contain the replicated node.  </p>
 <p>By default, a server can replicate to any other server. To prevent this behavior, refer to Trusted Servers, page.  </p>
 <p>To see information about replication, to replicate documents again, and to clear replication queues, use the Rule.replicate message queue in <strong>Services&gt;Messages</strong>.  </p>
-<h2 id="Auto_Export">3. Auto Export</h2>
+<h2 id="auto-export"><a name="auto-export" class="plugin-anchor" href="#auto-export"><i class="fa fa-link" aria-hidden="true"></i></a>Auto Export</h2>
 <p>The autoExport rule can export documents via 3 different mechanisms:</p>
-<h3 id="Folder">3.1. Folder</h3>
+<h3 id="folder"><a name="folder" class="plugin-anchor" href="#folder"><i class="fa fa-link" aria-hidden="true"></i></a>Folder</h3>
 <p>Folder supports multiple folder types:</p>
 <table>
 <thead>
@@ -1203,7 +1222,7 @@ C:\autoPrint.vbs||${file}
 </tr>
 </tbody>
 </table>
-<h3 id="Email">3.2. Email</h3>
+<h3 id="email"><a name="email" class="plugin-anchor" href="#email"><i class="fa fa-link" aria-hidden="true"></i></a>Email</h3>
 <p>Uploads the document via HTTP post to the specified host. If the URL does not contain a path then the following default is used:  </p>
 <p><code>/public/file/${_httpNodePath}/${_httpFilename}</code></p>
 <ul>
@@ -1219,12 +1238,12 @@ C:\autoPrint.vbs||${file}
 <li>And to append all indexes:
 <code>/public/file/${_httpNodePath}/${_httpFilename}?${_httpIndexes}</code>  </li>
 </ul>
-<h3 id="PaperTrail_Server">3.3. PaperTrail Server</h3>
+<h3 id="papertrail-server"><a name="papertrail-server" class="plugin-anchor" href="#papertrail-server"><i class="fa fa-link" aria-hidden="true"></i></a>PaperTrail Server</h3>
 <ul>
 <li>HTTP Path: The URL of the PaperTrail server to which the documents will be exported. Example: <a href="http://headoffice:8080" target="_blank">http://headoffice:8080</a>  </li>
 <li>Include: We recommend Document Archive or Source.  </li>
 </ul>
-<h2 id="Export_Format">4. Export Format</h2>
+<h2 id="export-format"><a name="export-format" class="plugin-anchor" href="#export-format"><i class="fa fa-link" aria-hidden="true"></i></a>Export Format</h2>
 <ul>
 <li>Source - The original document  </li>
 <li>PDF - The PDF rendition or the original document  </li>
@@ -1233,7 +1252,7 @@ C:\autoPrint.vbs||${file}
 <li>XML - An XML file including all metadata  </li>
 <li>Scripted - Allows the use of script to create FileObject from the a DocumentModel</li>
 </ul>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Document_Export">Document Export</a></p><li><a href="#Command_Line_Process">1. Command Line Process</a></li><li><a href="#Node_Replication">2. Node Replication</a></li><li><a href="#Auto_Export">3. Auto Export</a></li><ul><li><a href="#Folder">3.1. Folder</a></li><li><a href="#Email">3.2. Email</a></li><li><a href="#PaperTrail_Server">3.3. PaperTrail Server</a></li></ul><li><a href="#Export_Format">4. Export Format</a></li></ul></div><a href="#Command_Line_Process" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1276,7 +1295,7 @@ C:\autoPrint.vbs||${file}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Folder Export","level":"1.5.5","depth":2,"next":{"title":"Folder Watch","level":"1.5.6","depth":2,"path":"integration/folder-watch-text.md","ref":"integration/folder-watch-text.md","articles":[]},"previous":{"title":"Email Watch","level":"1.5.4","depth":2,"path":"integration/email-watch-text.md","ref":"integration/email-watch-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/folder-export-text.md","mtime":"2017-08-14T07:50:07.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Folder Export","level":"1.5.5","depth":2,"next":{"title":"Folder Watch","level":"1.5.6","depth":2,"path":"integration/folder-watch-text.md","ref":"integration/folder-watch-text.md","articles":[]},"previous":{"title":"Email Watch","level":"1.5.4","depth":2,"path":"integration/email-watch-text.md","ref":"integration/email-watch-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/folder-export-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1287,6 +1306,10 @@ C:\autoPrint.vbs||${file}
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

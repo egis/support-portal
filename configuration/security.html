@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,11 +1161,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="Security_Mode">1. Security Mode</h2>
+                                <h2 id="security-mode"><a name="security-mode" class="plugin-anchor" href="#security-mode"><i class="fa fa-link" aria-hidden="true"></i></a>Security Mode</h2>
 <p>PaperTrail can be run in 4 distinct security modes under <strong>Properties -&gt; Security -&gt; Security Mode</strong></p>
-<h3 id="Low_(Default)">1.1. Low (Default)</h3>
+<h3 id="low-default"><a name="low-default" class="plugin-anchor" href="#low-default"><i class="fa fa-link" aria-hidden="true"></i></a>Low (Default)</h3>
 <p>Suitable for intra-net based deployments without confidential data </p>
-<h3 id="Medium">1.2. Medium</h3>
+<h3 id="medium"><a name="medium" class="plugin-anchor" href="#medium"><i class="fa fa-link" aria-hidden="true"></i></a>Medium</h3>
 <p>Access to the various API&apos;s used for replication and clustering is
 restricted based on Trusted Server entries, some of the endpoints
 restricted include:</p>
@@ -1172,7 +1176,7 @@ restricted include:</p>
 <li>store</li>
 <li>replicate</li>
 </ul>
-<h3 id="High">1.3. High</h3>
+<h3 id="high"><a name="high" class="plugin-anchor" href="#high"><i class="fa fa-link" aria-hidden="true"></i></a>High</h3>
 <p>Includes all the restrictions of Medium and:</p>
 <ul>
 <li>disables the /script/console endpoint (used by
@@ -1180,25 +1184,25 @@ restricted include:</p>
 <li>prevents updates to the following properties via the web UI, they
 need to be set via papertrail.properties file:</li>
 </ul>
-<pre><code class="lang-javascript">    ldap.host  
-    waffle.enable  
-    spnego.enable  
-    spnego.kdc  
-    smtp.debug  
-    email.spool  
-    smtp.host  
-    sms.url  
-    web.login.sms.otp  
-    index.store  
-    http.ssl  
-    disabled.audits  
-    disabled.entity.audits  
-    openoffice.path  
-    tiff2pdf.process  
-    pdf2swf.process  
-    security.level
+<pre><code class="lang-javascript">    <span class="nx">ldap</span><span class="p">.</span><span class="nx">host</span>  
+    <span class="nx">waffle</span><span class="p">.</span><span class="nx">enable</span>  
+    <span class="nx">spnego</span><span class="p">.</span><span class="nx">enable</span>  
+    <span class="nx">spnego</span><span class="p">.</span><span class="nx">kdc</span>  
+    <span class="nx">smtp</span><span class="p">.</span><span class="nx">debug</span>  
+    <span class="nx">email</span><span class="p">.</span><span class="nx">spool</span>  
+    <span class="nx">smtp</span><span class="p">.</span><span class="nx">host</span>  
+    <span class="nx">sms</span><span class="p">.</span><span class="nx">url</span>  
+    <span class="nx">web</span><span class="p">.</span><span class="nx">login</span><span class="p">.</span><span class="nx">sms</span><span class="p">.</span><span class="nx">otp</span>  
+    <span class="nx">index</span><span class="p">.</span><span class="nx">store</span>  
+    <span class="nx">http</span><span class="p">.</span><span class="nx">ssl</span>  
+    <span class="nx">disabled</span><span class="p">.</span><span class="nx">audits</span>  
+    <span class="nx">disabled</span><span class="p">.</span><span class="nx">entity</span><span class="p">.</span><span class="nx">audits</span>  
+    <span class="nx">openoffice</span><span class="p">.</span><span class="nx">path</span>  
+    <span class="nx">tiff2pdf</span><span class="p">.</span><span class="nx">process</span>  
+    <span class="nx">pdf2swf</span><span class="p">.</span><span class="nx">process</span>  
+    <span class="nx">security</span><span class="p">.</span><span class="nx">level</span>
 </code></pre>
-<h3 id="Very_High">1.4. Very High</h3>
+<h3 id="very-high"><a name="very-high" class="plugin-anchor" href="#very-high"><i class="fa fa-link" aria-hidden="true"></i></a>Very High</h3>
 <p> Includes all the restrictions of High and further restricts:</p>
 <ul>
 <li>Loading jar files via System/jars folder</li>
@@ -1209,18 +1213,18 @@ need to be set via papertrail.properties file:</li>
 <li>Custom options in Meta Model Fields</li>
 <li>PQL Expressions</li>
 </ul>
-<h2 id="Brute_Force_Login_protection">2. Brute Force Login protection</h2>
+<h2 id="brute-force-login-protection"><a name="brute-force-login-protection" class="plugin-anchor" href="#brute-force-login-protection"><i class="fa fa-link" aria-hidden="true"></i></a>Brute Force Login protection</h2>
 <p>There are 2 options under Properties -&gt; Authentication that can be enabled</p>
 <p><code>Captcha on password reset</code> - Force a captcha to be passed before allowing a password reset email to be sent  </p>
 <blockquote>
 <p>Tip: password resets can also be disabled by unchecking <code>enable self service password reset</code>
 <code>Captcha on login attempts</code> - Force a captcha to be passed before X number of failed login attempts</p>
 </blockquote>
-<h2 id="Brute_Force_Request_Protection">3. Brute Force Request Protection</h2>
+<h2 id="brute-force-request-protection"><a name="brute-force-request-protection" class="plugin-anchor" href="#brute-force-request-protection"><i class="fa fa-link" aria-hidden="true"></i></a>Brute Force Request Protection</h2>
 <p>Check <code>Enable brute force protection</code> under <code>Services -&gt; Security</code>  </p>
-<h2 id="Secure_Cookie_Handling">4. Secure Cookie Handling</h2>
+<h2 id="secure-cookie-handling"><a name="secure-cookie-handling" class="plugin-anchor" href="#secure-cookie-handling"><i class="fa fa-link" aria-hidden="true"></i></a>Secure Cookie Handling</h2>
 <p>Check the options under <code>Services -&gt; Security -&gt; Cookies</code></p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#Security_Mode">1. Security Mode</a></li><ul><li><a href="#Low_(Default)">1.1. Low (Default)</a></li><li><a href="#Medium">1.2. Medium</a></li><li><a href="#High">1.3. High</a></li><li><a href="#Very_High">1.4. Very High</a></li></ul><li><a href="#Brute_Force_Login_protection">2. Brute Force Login protection</a></li><li><a href="#Brute_Force_Request_Protection">3. Brute Force Request Protection</a></li><li><a href="#Secure_Cookie_Handling">4. Secure Cookie Handling</a></li></ul></div><a href="#Security_Mode" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1263,7 +1267,7 @@ need to be set via papertrail.properties file:</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Security","level":"1.2.10","depth":2,"next":{"title":"SSL","level":"1.2.11","depth":2,"path":"configuration/ssl.md","ref":"configuration/ssl.md","articles":[]},"previous":{"title":"Logging","level":"1.2.9","depth":2,"path":"configuration/logging-text.md","ref":"configuration/logging-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/security.md","mtime":"2017-08-14T07:50:07.637Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Security","level":"1.2.10","depth":2,"next":{"title":"SSL","level":"1.2.11","depth":2,"path":"configuration/ssl.md","ref":"configuration/ssl.md","articles":[]},"previous":{"title":"Logging","level":"1.2.9","depth":2,"path":"configuration/logging-text.md","ref":"configuration/logging-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/security.md","mtime":"2017-08-31T06:43:58.612Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1274,6 +1278,10 @@ need to be set via papertrail.properties file:</li>
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

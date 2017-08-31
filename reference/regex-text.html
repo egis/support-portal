@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,7 +1161,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="Regular_Expressions"><a name="regular-expressions" class="plugin-anchor" href="#regular-expressions"><i class="fa fa-link" aria-hidden="true"></i></a>Regular Expressions</h1>
+                                <h1 id="regular-expressions"><a name="regular-expressions" class="plugin-anchor" href="#regular-expressions"><i class="fa fa-link" aria-hidden="true"></i></a>Regular Expressions</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#examples-of-regular-expression">Examples of Regular Expression</a></li>
+<li><a href="#simple-email-validation">Simple email validation</a></li>
+<li><a href="#advanced-email-validation">Advanced Email Validation</a></li>
+<li><a href="#phone-number-style-1">Phone number, style 1</a></li>
+<li><a href="#phone-number-style-2">Phone number, style 2</a></li>
+<li><a href="#south-african-id">South African ID</a></li>
+</ul>
+
+</div><!-- tocstop -->
 <p>A regular expression is an expression (character string) that is used to match patterns in text.</p>
 <p>You can use a regular expression to do these things:  </p>
 <ol>
@@ -1168,29 +1184,29 @@
 <p>You can use all the regular expressions <a href="http://download.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html" target="_blank">here</a>. </p>
 <p>Additionally, you can use a named capturing group.</p>
 <p>For information about regular expressions, refer to <a href="http://regexlib.com" target="_blank">RegexLib</a>.</p>
-<h2 id="Examples_of_Regular_Expression">1. Examples of Regular Expression</h2>
-<h2 id="Simple_email_validation">2. Simple email validation</h2>
-<pre><code class="lang-javascript">[\w-]+@([\w-]+\.)+[\w-]+
+<h2 id="examples-of-regular-expression"><a name="examples-of-regular-expression" class="plugin-anchor" href="#examples-of-regular-expression"><i class="fa fa-link" aria-hidden="true"></i></a>Examples of Regular Expression</h2>
+<h2 id="simple-email-validation"><a name="simple-email-validation" class="plugin-anchor" href="#simple-email-validation"><i class="fa fa-link" aria-hidden="true"></i></a>Simple email validation</h2>
+<pre><code class="lang-javascript"><span class="p">[</span><span class="err">\</span><span class="nx">w</span><span class="o">-</span><span class="p">]</span><span class="o">+</span><span class="err">@</span><span class="p">([</span><span class="err">\</span><span class="nx">w</span><span class="o">-</span><span class="p">]</span><span class="o">+</span><span class="err">\</span><span class="p">.)</span><span class="o">+</span><span class="p">[</span><span class="err">\</span><span class="nx">w</span><span class="o">-</span><span class="p">]</span><span class="o">+</span>
 </code></pre>
 <p>Matches: test@example.com<br>Matches: test@example.c<br>Does not match: test@exa$mple.com  </p>
-<h2 id="Advanced_Email_Validation">3. Advanced Email Validation</h2>
-<pre><code class="lang-javascript">^[A-Za-z0<span class="hljs-number">-9.</span>_%+-]+@([A-Za-z0<span class="hljs-number">-9</span>-_]+\.)+[A-Za-z]{<span class="hljs-number">2</span>,<span class="hljs-number">6</span>}$
+<h2 id="advanced-email-validation"><a name="advanced-email-validation" class="plugin-anchor" href="#advanced-email-validation"><i class="fa fa-link" aria-hidden="true"></i></a>Advanced Email Validation</h2>
+<pre><code class="lang-javascript"><span class="o">^</span><span class="p">[</span><span class="nx">A</span><span class="o">-</span><span class="nx">Za</span><span class="o">-</span><span class="nx">z0</span><span class="o">-</span><span class="mf">9.</span><span class="nx">_</span><span class="o">%+-</span><span class="p">]</span><span class="o">+</span><span class="err">@</span><span class="p">([</span><span class="nx">A</span><span class="o">-</span><span class="nx">Za</span><span class="o">-</span><span class="nx">z0</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="nx">_</span><span class="p">]</span><span class="o">+</span><span class="err">\</span><span class="p">.)</span><span class="o">+</span><span class="p">[</span><span class="nx">A</span><span class="o">-</span><span class="nx">Za</span><span class="o">-</span><span class="nx">z</span><span class="p">]{</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">}</span><span class="nx">$</span>
 </code></pre>
 <p>Matches: test@example.com (and the e-mail address must be at the start of a line)<br>Does not match: test@example.c<br>Does not match: test@exa$mple.com  </p>
-<h2 id="Phone_number__style_1">4. Phone number, style 1</h2>
-<pre><code class="lang-javascript">[<span class="hljs-number">0</span>]\d{<span class="hljs-number">2</span>}-\d{<span class="hljs-number">7</span>}
+<h2 id="phone-number-style-1"><a name="phone-number-style-1" class="plugin-anchor" href="#phone-number-style-1"><i class="fa fa-link" aria-hidden="true"></i></a>Phone number, style 1</h2>
+<pre><code class="lang-javascript"><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">2</span><span class="p">}</span><span class="o">-</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">7</span><span class="p">}</span>
 </code></pre>
 <p>Matches: 011-8804411<br>Does not match: 011-880 4411  </p>
-<h2 id="Phone_number__style_2">5. Phone number, style 2</h2>
-<pre><code class="lang-javascript">^\([<span class="hljs-number">0</span>]\d{<span class="hljs-number">2</span>}\)\d{<span class="hljs-number">7</span>}
+<h2 id="phone-number-style-2"><a name="phone-number-style-2" class="plugin-anchor" href="#phone-number-style-2"><i class="fa fa-link" aria-hidden="true"></i></a>Phone number, style 2</h2>
+<pre><code class="lang-javascript"><span class="o">^</span><span class="err">\</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">2</span><span class="p">}</span><span class="err">\</span><span class="p">)</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">7</span><span class="p">}</span>
 </code></pre>
 <p>Matches: (011)8804411 (and the phone number must be at the start of a line)<br>Does not match: (011) 880 4411<br>Does not match: (0118)804411  </p>
-<h2 id="South_African_ID">6. South African ID</h2>
-<pre><code class="lang-javascript">(((\d{<span class="hljs-number">2</span>}((<span class="hljs-number">0</span>[<span class="hljs-number">13578</span>]|<span class="hljs-number">1</span>[<span class="hljs-number">02</span>])(<span class="hljs-number">0</span>[<span class="hljs-number">1</span><span class="hljs-number">-9</span>]|[<span class="hljs-number">12</span>]\d|<span class="hljs-number">3</span>[<span class="hljs-number">01</span>])|(<span class="hljs-number">0</span>[<span class="hljs-number">13456789</span>]|<span class="hljs-number">1</span>[<span class="hljs-number">012</span>])(<span class="hljs-number">0</span>[<span class="hljs-number">1</span><span class="hljs-number">-9</span>]|[<span class="hljs-number">12</span>]\d|<span class="hljs-number">30</span>)|<span class="hljs-number">02</span>(<span class="hljs-number">0</span>[<span class="hljs-number">1</span><span class="hljs-number">-9</span>]|<span class="hljs-number">1</span>\d|<span class="hljs-number">2</span>[<span class="hljs-number">0</span><span class="hljs-number">-8</span>])))|([<span class="hljs-number">02468</span>][<span class="hljs-number">048</span>]|[<span class="hljs-number">13579</span>][<span class="hljs-number">26</span>])<span class="hljs-number">0229</span>))(( |-)(\d{<span class="hljs-number">4</span>})( |-)(\d{<span class="hljs-number">3</span>})|(\d{<span class="hljs-number">7</span>}))
+<h2 id="south-african-id"><a name="south-african-id" class="plugin-anchor" href="#south-african-id"><i class="fa fa-link" aria-hidden="true"></i></a>South African ID</h2>
+<pre><code class="lang-javascript"><span class="p">(((</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">2</span><span class="p">}((</span><span class="mi">0</span><span class="p">[</span><span class="mi">13578</span><span class="p">]</span><span class="o">|</span><span class="mi">1</span><span class="p">[</span><span class="mi">02</span><span class="p">])(</span><span class="mi">0</span><span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">|</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="err">\</span><span class="nx">d</span><span class="o">|</span><span class="mi">3</span><span class="p">[</span><span class="mi">01</span><span class="p">])</span><span class="o">|</span><span class="p">(</span><span class="mi">0</span><span class="p">[</span><span class="mi">13456789</span><span class="p">]</span><span class="o">|</span><span class="mi">1</span><span class="p">[</span><span class="mi">012</span><span class="p">])(</span><span class="mi">0</span><span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">|</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="err">\</span><span class="nx">d</span><span class="o">|</span><span class="mi">30</span><span class="p">)</span><span class="o">|</span><span class="mi">02</span><span class="p">(</span><span class="mi">0</span><span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">|</span><span class="mi">1</span><span class="err">\</span><span class="nx">d</span><span class="o">|</span><span class="mi">2</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">8</span><span class="p">])))</span><span class="o">|</span><span class="p">([</span><span class="mi">02468</span><span class="p">][</span><span class="mi">048</span><span class="p">]</span><span class="o">|</span><span class="p">[</span><span class="mi">13579</span><span class="p">][</span><span class="mi">26</span><span class="p">])</span><span class="mi">0229</span><span class="p">))((</span> <span class="o">|-</span><span class="p">)(</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">4</span><span class="p">})(</span> <span class="o">|-</span><span class="p">)(</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">3</span><span class="p">})</span><span class="o">|</span><span class="p">(</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">7</span><span class="p">}))</span>
 </code></pre>
 <p>Matches: 8001015009087<br>Does not match: d001015009087  </p>
 <p>Refer <a href="http://en.wikipedia.org/wiki/National_identification_number#South_Africa" target="_blank">National Identification Number</a>.</p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Regular_Expressions">Regular Expressions</a></p><li><a href="#Examples_of_Regular_Expression">1. Examples of Regular Expression</a></li><li><a href="#Simple_email_validation">2. Simple email validation</a></li><li><a href="#Advanced_Email_Validation">3. Advanced Email Validation</a></li><li><a href="#Phone_number__style_1">4. Phone number, style 1</a></li><li><a href="#Phone_number__style_2">5. Phone number, style 2</a></li><li><a href="#South_African_ID">6. South African ID</a></li></ul></div><a href="#Examples_of_Regular_Expression" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1233,7 +1249,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Regex","level":"1.6.21","depth":2,"next":{"title":"Standard Expression","level":"1.6.22","depth":2,"path":"reference/standard-expression-text.md","ref":"reference/standard-expression-text.md","articles":[]},"previous":{"title":"PQL","level":"1.6.20","depth":2,"path":"reference/pql-text.md","ref":"reference/pql-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/regex-text.md","mtime":"2017-08-14T07:50:07.649Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Regex","level":"1.6.21","depth":2,"next":{"title":"Standard Expression","level":"1.6.22","depth":2,"path":"reference/standard-expression-text.md","ref":"reference/standard-expression-text.md","articles":[]},"previous":{"title":"PQL","level":"1.6.20","depth":2,"path":"reference/pql-text.md","ref":"reference/pql-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/regex-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1244,6 +1260,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

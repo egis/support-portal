@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,8 +1161,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="SSO"><a name="sso" class="plugin-anchor" href="#sso"><i class="fa fa-link" aria-hidden="true"></i></a>SSO</h1>
-<h2 id="SAML_Single_Sign_On">1. SAML Single Sign On</h2>
+                                <h1 id="sso"><a name="sso" class="plugin-anchor" href="#sso"><i class="fa fa-link" aria-hidden="true"></i></a>SSO</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#saml-single-sign-on">SAML Single Sign On</a></li>
+<li><a href="#windows-based-sso-ntlm">Windows Based SSO (NTLM)</a><ul>
+<li><a href="#windows-based-sso-ntlm-automatic-logon-settings">Windows Based SSO (NTLM): Automatic Logon settings</a></li>
+</ul>
+</li>
+<li><a href="#linux-based-sso-kerberos">Linux Based SSO (Kerberos)</a></li>
+</ul>
+
+</div><!-- tocstop -->
+<h2 id="saml-single-sign-on"><a name="saml-single-sign-on" class="plugin-anchor" href="#saml-single-sign-on"><i class="fa fa-link" aria-hidden="true"></i></a>SAML Single Sign On</h2>
 <p>SAML SSO lets a third-party service (an identify provider) authenticate users. A user is authenticated on an identity provider&#x2019;s website.   </p>
 <p>The identity provider redirects the user to the PaperTrail website and sends PaperTrail a SAML token. PaperTrail validates the SAML token and logs the user in. The user does not enter a username or a password.  </p>
 <p>From <strong>Services &#x2192;Properties &#x2192;SSO (SAML)</strong>, select these fields:  </p>
@@ -1169,45 +1185,45 @@
 <li><strong>Login Mapping:</strong> The element in the SAML token that maps to the login name in PaperTrail. Usually, the element is NameID.  </li>
 </ul>
 <p>To make all authentication use SAML, change the <strong>Services&#x2192;Properties&#x2192;Front End&#x2192;Main Page property</strong> to <em>/saml</em>.  </p>
-<h2 id="Windows_Based_SSO_(NTLM)">2. Windows Based SSO (NTLM)</h2>
+<h2 id="windows-based-sso-ntlm"><a name="windows-based-sso-ntlm" class="plugin-anchor" href="#windows-based-sso-ntlm"><i class="fa fa-link" aria-hidden="true"></i></a>Windows Based SSO (NTLM)</h2>
 <p>NTLM SSO allows for users to be logged in automatically if they are already logged onto their domain account on their PC.   </p>
 <p>Check <strong>Services &#x2192; Properties &#x2192; SSO</strong> (Windows Kerberos/NTLM)</p>
-<h3 id="Windows_Based_SSO_(NTLM):_Automatic_Logon_settings">2.1. Windows Based SSO (NTLM): Automatic Logon settings</h3>
+<h3 id="windows-based-sso-ntlm-automatic-logon-settings"><a name="windows-based-sso-ntlm-automatic-logon-settings" class="plugin-anchor" href="#windows-based-sso-ntlm-automatic-logon-settings"><i class="fa fa-link" aria-hidden="true"></i></a>Windows Based SSO (NTLM): Automatic Logon settings</h3>
 <p>If SSO is not functioning as expected (e.g. the browser displays a Windows Security authentication window prompting for credentials), check the settings in Internet Explorer around Automatic Logon:</p>
 <ul>
 <li>Ensure that the Custom-level Security Setting for User Authentication is set to <code>Automatic log-on only in Intranet zone</code></li>
 <li>Add the hostname and IP address of the PaperTrail server to the <code>Local intranet zone</code></li>
 </ul>
 <p><strong>Note:</strong> The Google Chrome browser uses the security settings around SSO from those defined in Internet Explorer.</p>
-<h2 id="Linux_Based_SSO_(Kerberos)">3. Linux Based SSO (Kerberos)</h2>
+<h2 id="linux-based-sso-kerberos"><a name="linux-based-sso-kerberos" class="plugin-anchor" href="#linux-based-sso-kerberos"><i class="fa fa-link" aria-hidden="true"></i></a>Linux Based SSO (Kerberos)</h2>
 <p>Sometimes PaperTrail is installed on Linux server but needs to login in users automatically via Active Directory &#x2013; This is only possible by using native Kerberos</p>
 <ul>
 <li>Add the server (e.g., papertrail-srv) to the <strong>AD Domain</strong> (e.g., ad.local)  </li>
 <li>Create a <strong>user account</strong> (e.g., papertrail-acc) on the AD Domain  </li>
 <li>Configure PaperTrail to <strong>run as the user account</strong> (e.g., papertrail-acc)  </li>
 <li><p>Create a <strong>SPN for each path</strong> that PaperTrail will be accessed by. </p>
-<pre><code class="lang-javascript">e.g., <span class="hljs-keyword">for</span> port <span class="hljs-number">80</span>:
-setspn.exe -A HTTP/papertrail-srv papertrail-acc
-setspn.exe -A HTTP/papertrail-srv.ad.local papertrail-acc
-e.g., <span class="hljs-keyword">for</span> port <span class="hljs-number">8080</span>:
-setspn.exe -A HTTP/papertrail-srv:<span class="hljs-number">8080</span> papertrail-acc
-setspn.exe -A HTTP/papertrail-srv.ad.local:<span class="hljs-number">8080</span> papertrail-acc
+<pre><code class="lang-javascript"><span class="nx">e</span><span class="p">.</span><span class="nx">g</span><span class="p">.,</span> <span class="k">for</span> <span class="nx">port</span> <span class="mi">80</span><span class="o">:</span>
+<span class="nx">setspn</span><span class="p">.</span><span class="nx">exe</span> <span class="o">-</span><span class="nx">A</span> <span class="nx">HTTP</span><span class="o">/</span><span class="nx">papertrail</span><span class="o">-</span><span class="nx">srv</span> <span class="nx">papertrail</span><span class="o">-</span><span class="nx">acc</span>
+<span class="nx">setspn</span><span class="p">.</span><span class="nx">exe</span> <span class="o">-</span><span class="nx">A</span> <span class="nx">HTTP</span><span class="o">/</span><span class="nx">papertrail</span><span class="o">-</span><span class="nx">srv</span><span class="p">.</span><span class="nx">ad</span><span class="p">.</span><span class="nx">local</span> <span class="nx">papertrail</span><span class="o">-</span><span class="nx">acc</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">g</span><span class="p">.,</span> <span class="k">for</span> <span class="nx">port</span> <span class="mi">8080</span><span class="o">:</span>
+<span class="nx">setspn</span><span class="p">.</span><span class="nx">exe</span> <span class="o">-</span><span class="nx">A</span> <span class="nx">HTTP</span><span class="o">/</span><span class="nx">papertrail</span><span class="o">-</span><span class="nx">srv</span><span class="o">:</span><span class="mi">8080</span> <span class="nx">papertrail</span><span class="o">-</span><span class="nx">acc</span>
+<span class="nx">setspn</span><span class="p">.</span><span class="nx">exe</span> <span class="o">-</span><span class="nx">A</span> <span class="nx">HTTP</span><span class="o">/</span><span class="nx">papertrail</span><span class="o">-</span><span class="nx">srv</span><span class="p">.</span><span class="nx">ad</span><span class="p">.</span><span class="nx">local</span><span class="o">:</span><span class="mi">8080</span> <span class="nx">papertrail</span><span class="o">-</span><span class="nx">acc</span>
 </code></pre>
 </li>
 <li><p>Enable SSO on PaperTrail by editing the <strong>Services &#x2192; Properties &#x2192; SSO (Kerberos)</strong> properties.</p>
-<pre><code class="lang-javascript">Enable: ticked
-Domain: ad.local
-KDC: kdc.ad.local (whichever server responds to <span class="hljs-string">&quot;ping ad.local&quot;</span> should be listed here)
-Username: papertrail-acc
-Principal: papertrail-acc
-Password: {password <span class="hljs-keyword">for</span> papertrail-acc}
+<pre><code class="lang-javascript"><span class="nx">Enable</span><span class="o">:</span> <span class="nx">ticked</span>
+<span class="nx">Domain</span><span class="o">:</span> <span class="nx">ad</span><span class="p">.</span><span class="nx">local</span>
+<span class="nx">KDC</span><span class="o">:</span> <span class="nx">kdc</span><span class="p">.</span><span class="nx">ad</span><span class="p">.</span><span class="nx">local</span> <span class="p">(</span><span class="nx">whichever</span> <span class="nx">server</span> <span class="nx">responds</span> <span class="nx">to</span> <span class="s2">&quot;ping ad.local&quot;</span> <span class="nx">should</span> <span class="nx">be</span> <span class="nx">listed</span> <span class="nx">here</span><span class="p">)</span>
+<span class="nx">Username</span><span class="o">:</span> <span class="nx">papertrail</span><span class="o">-</span><span class="nx">acc</span>
+<span class="nx">Principal</span><span class="o">:</span> <span class="nx">papertrail</span><span class="o">-</span><span class="nx">acc</span>
+<span class="nx">Password</span><span class="o">:</span> <span class="p">{</span><span class="nx">password</span> <span class="k">for</span> <span class="nx">papertrail</span><span class="o">-</span><span class="nx">acc</span><span class="p">}</span>
 </code></pre>
 </li>
 <li><p>Update the <strong>Front End &#x2192; Index Page</strong> to: <strong>/web/webapps/main.html</strong>.</p>
 </li>
 <li>Users need to be <strong>logged onto the domain</strong> (ad.local) and access <strong>PaperTrail via the FQDN</strong> (e.g., papertrail-srv.ad.local)</li>
 </ul>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#SSO">SSO</a></p><li><a href="#SAML_Single_Sign_On">1. SAML Single Sign On</a></li><li><a href="#Windows_Based_SSO_(NTLM)">2. Windows Based SSO (NTLM)</a></li><ul><li><a href="#Windows_Based_SSO_(NTLM):_Automatic_Logon_settings">2.1. Windows Based SSO (NTLM): Automatic Logon settings</a></li></ul><li><a href="#Linux_Based_SSO_(Kerberos)">3. Linux Based SSO (Kerberos)</a></li></ul></div><a href="#SAML_Single_Sign_On" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1250,7 +1266,7 @@ Password: {password <span class="hljs-keyword">for</span> papertrail-acc}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Single-Sign-On (SSO)","level":"1.2.12","depth":2,"next":{"title":"Template Extraction","level":"1.2.13","depth":2,"path":"configuration/template-extraction.md","ref":"configuration/template-extraction.md","articles":[]},"previous":{"title":"SSL","level":"1.2.11","depth":2,"path":"configuration/ssl.md","ref":"configuration/ssl.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/sso-text.md","mtime":"2017-08-14T07:50:07.637Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Single-Sign-On (SSO)","level":"1.2.12","depth":2,"next":{"title":"Template Extraction","level":"1.2.13","depth":2,"path":"configuration/template-extraction.md","ref":"configuration/template-extraction.md","articles":[]},"previous":{"title":"SSL","level":"1.2.11","depth":2,"path":"configuration/ssl.md","ref":"configuration/ssl.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/sso-text.md","mtime":"2017-08-31T06:43:58.612Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1261,6 +1277,10 @@ Password: {password <span class="hljs-keyword">for</span> papertrail-acc}
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

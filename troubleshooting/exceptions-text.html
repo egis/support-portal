@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,13 +1161,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="Exceptions"><a name="exceptions" class="plugin-anchor" href="#exceptions"><i class="fa fa-link" aria-hidden="true"></i></a>Exceptions</h1>
-<h2 id="System_cannot_find_the_file_specified">1. System cannot find the file specified</h2>
+                                <h1 id="exceptions"><a name="exceptions" class="plugin-anchor" href="#exceptions"><i class="fa fa-link" aria-hidden="true"></i></a>Exceptions</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#system-cannot-find-the-file-specified">System cannot find the file specified</a></li>
+<li><a href="#system-cannot-find-the-file-specified-1">System cannot find the file specified</a></li>
+<li><a href="#database-connection-pool-exhausted">Database connection Pool exhausted</a></li>
+<li><a href="#permission-denied">Permission denied</a></li>
+</ul>
+
+</div><!-- tocstop -->
+<h2 id="system-cannot-find-the-file-specified"><a name="system-cannot-find-the-file-specified" class="plugin-anchor" href="#system-cannot-find-the-file-specified"><i class="fa fa-link" aria-hidden="true"></i></a>System cannot find the file specified</h2>
 <p><code>java.io.IOException: Cannot run program &quot;pg\_dump&quot;: CreateProcess
 error=2</code><br>Reason : The system cannot find the file specified<br>Solution : Add the Postgresql/bin directory to the System PATH environment variable</p>
-<h2 id="System_cannot_find_the_file_specified">2. System cannot find the file specified</h2>
+<h2 id="system-cannot-find-the-file-specified"><a name="system-cannot-find-the-file-specified" class="plugin-anchor" href="#system-cannot-find-the-file-specified"><i class="fa fa-link" aria-hidden="true"></i></a>System cannot find the file specified</h2>
 <p><code>java.io.IOException: Cannot run program &quot;mysql\_dump&quot;</code><br>Reason : The system cannot find the file specified<br>Solution : Add the MySQL/bin directory to the System PATH environment variable</p>
-<h2 id="Database_connection_Pool_exhausted">3. Database connection Pool exhausted</h2>
+<h2 id="database-connection-pool-exhausted"><a name="database-connection-pool-exhausted" class="plugin-anchor" href="#database-connection-pool-exhausted"><i class="fa fa-link" aria-hidden="true"></i></a>Database connection Pool exhausted</h2>
 <p><code>JDBCExceptionReporter [:] Cannot get a connection, pool error Timeout
 waiting for idle object Database connection pool is exhausted,</code>  </p>
 <p>Solution :   </p>
@@ -1172,11 +1186,11 @@ waiting for idle object Database connection pool is exhausted,</code>  </p>
 beforehand  </li>
 <li>Check database lookup configurations  </li>
 </ul>
-<h2 id="Permission_denied">4. Permission denied</h2>
+<h2 id="permission-denied"><a name="permission-denied" class="plugin-anchor" href="#permission-denied"><i class="fa fa-link" aria-hidden="true"></i></a>Permission denied</h2>
 <p><code>failed &lt;SocketConnector@0.0.0.0&gt;:80:
 [java.net](http://java.net/).BindException: Permission denied</code></p>
 <p>Solution : To run PaperTrail on port 80 you need to be root, change http.port=8080</p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Exceptions">Exceptions</a></p><li><a href="#System_cannot_find_the_file_specified">1. System cannot find the file specified</a></li><li><a href="#System_cannot_find_the_file_specified">2. System cannot find the file specified</a></li><li><a href="#Database_connection_Pool_exhausted">3. Database connection Pool exhausted</a></li><li><a href="#Permission_denied">4. Permission denied</a></li></ul></div><a href="#System_cannot_find_the_file_specified" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1219,7 +1233,7 @@ beforehand  </li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Exceptions","level":"1.7.3","depth":2,"next":{"title":"Dripstat Configuration","level":"1.7.4","depth":2,"path":"troubleshooting/dripstat-configuration-text.md","ref":"troubleshooting/dripstat-configuration-text.md","articles":[]},"previous":{"title":"DB Tuning","level":"1.7.2","depth":2,"path":"troubleshooting/db-tuning-text.md","ref":"troubleshooting/db-tuning-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/exceptions-text.md","mtime":"2017-08-14T07:50:07.649Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Exceptions","level":"1.7.3","depth":2,"next":{"title":"Dripstat Configuration","level":"1.7.4","depth":2,"path":"troubleshooting/dripstat-configuration-text.md","ref":"troubleshooting/dripstat-configuration-text.md","articles":[]},"previous":{"title":"DB Tuning","level":"1.7.2","depth":2,"path":"troubleshooting/db-tuning-text.md","ref":"troubleshooting/db-tuning-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"troubleshooting/exceptions-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1230,6 +1244,10 @@ beforehand  </li>
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

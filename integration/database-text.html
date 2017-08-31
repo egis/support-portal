@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1155,7 +1159,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="Data_Sources">1. Data Sources</h2>
+                                <h2 id="data-sources"><a name="data-sources" class="plugin-anchor" href="#data-sources"><i class="fa fa-link" aria-hidden="true"></i></a>Data Sources</h2>
 <p>A DataSource is a generic abstraction over access and querying databases, it can be linked directly to List, and called via the front-end using <code>/data/{datasource name}/</code>. </p>
 <p>The type of datasource can also be switched (provided the name is retained) to allow different implementations during production / staging etc..</p>
 <ul>
@@ -1171,27 +1175,36 @@ to surround the name in order to concatenate the name.</li>
 <p>It is recommended to use system properties to specify the URL, Username and Password so that they can be externalized and reused across multiple rules. e.g. <code>${lob.db.url}</code></p>
 </blockquote>
 <p>Paramaters are passed via <code>${param1}</code> expressions e.g.</p>
-<pre><code class="lang-sql"> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Invoices <span class="hljs-keyword">WHERE</span> Invoice_No = <span class="hljs-string">&apos;${invoice_no}
-</span></code></pre>
+<pre><code class="lang-sql"> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Invoices</span> <span class="k">WHERE</span> <span class="n">Invoice_No</span> <span class="o">=</span> <span class="err">&apos;${</span><span class="n">invoice_no</span><span class="err">}</span>
+</code></pre>
 <p>Using <code>UPDATE</code>, <code>DELETE</code>, <code>EXEC</code> or <code>INSERT</code> SQL keywords will use <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html#executeUpdate(" target="_blank">PreparedStatement.executeUpdate()</a>) while all other Keywords will use <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/PreparedStatement.html#executeQuery(" target="_blank">PreparedStatement.executeQuery</a>)</p>
-<h2 id="Direct_Access">2. Direct Access</h2>
+<h2 id="direct-access"><a name="direct-access" class="plugin-anchor" href="#direct-access"><i class="fa fa-link" aria-hidden="true"></i></a>Direct Access</h2>
 <p>You can also use direct JDBC or the SQLUtils library to access external databases via a runScript rule - Ensure that you follow the pattern below</p>
-<pre><code class="lang-groovy"><span class="hljs-keyword">import</span> com.egis.datasource.JdbcDataSourceCache
-<span class="hljs-keyword">import</span> com.egis.kernel.Kernel
-<span class="hljs-keyword">import</span> com.egis.utils.SQLUtils
-<span class="hljs-keyword">import</span> javax.sql.DataSource
+<pre><code class="lang-groovy"><span class="kn">import</span> <span class="nn">com.egis.datasource.JdbcDataSourceCache</span>
+<span class="kn">import</span> <span class="nn">com.egis.kernel.Kernel</span>
+<span class="kn">import</span> <span class="nn">com.egis.utils.SQLUtils</span>
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span>
 
-String url = System.getProperty(<span class="hljs-string">&quot;lob.db.url&quot;</span>);
-String username = System.getProperty(<span class="hljs-string">&quot;lob.db.username&quot;</span>);
-String password  = System.getProperty(<span class="hljs-string">&quot;lob.db.password&quot;</span>);
-DataSource ds = Kernel.get(JdbcDataSourceCache.<span class="hljs-keyword">class</span>).get(url, username, password)
+<span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s2">&quot;lob.db.url&quot;</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">username</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s2">&quot;lob.db.username&quot;</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">password</span>  <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s2">&quot;lob.db.password&quot;</span><span class="o">);</span>
+<span class="n">DataSource</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">Kernel</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">JdbcDataSourceCache</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">)</span>
 
-SQLUtils.executeStatement(ds, <span class="hljs-string">&quot;EXEC sp.StoreProc(?,?,?)&quot;</span>, <span class="hljs-string">&quot;param1&quot;</span>, <span class="hljs-string">&quot;param2&quot;</span>, <span class="hljs-string">&quot;param3&quot;</span>)
+<span class="n">SQLUtils</span><span class="o">.</span><span class="na">executeStatement</span><span class="o">(</span><span class="n">ds</span><span class="o">,</span> <span class="s2">&quot;EXEC sp.StoreProc(?,?,?)&quot;</span><span class="o">,</span> <span class="s2">&quot;param1&quot;</span><span class="o">,</span> <span class="s2">&quot;param2&quot;</span><span class="o">,</span> <span class="s2">&quot;param3&quot;</span><span class="o">)</span>
 </code></pre>
 <blockquote>
 <p>Note that a <code>Connection</code> or <code>DataSource</code> is not created directly but delegated to <code>JdbcDataSourceCache</code> so that connection pooling can occur</p>
 </blockquote>
-<h1 id="Database_JDBC_Configs"><a name="database-jdbc-configs" class="plugin-anchor" href="#database-jdbc-configs"><i class="fa fa-link" aria-hidden="true"></i></a>Database JDBC Configs</h1>
+<h1 id="database-jdbc-configs"><a name="database-jdbc-configs" class="plugin-anchor" href="#database-jdbc-configs"><i class="fa fa-link" aria-hidden="true"></i></a>Database JDBC Configs</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#sql">SQL</a></li>
+<li><a href="#rules-for-sql-statements">Rules for SQL statements</a></li>
+<li><a href="#event">Event</a></li>
+</ul>
+
+</div><!-- tocstop -->
 <table>
 <thead>
 <tr>
@@ -1214,33 +1227,33 @@ SQLUtils.executeStatement(ds, <span class="hljs-string">&quot;EXEC sp.StoreProc(
 </tr>
 </tbody>
 </table>
-<h2 id="SQL">3. SQL</h2>
+<h2 id="sql"><a name="sql" class="plugin-anchor" href="#sql"><i class="fa fa-link" aria-hidden="true"></i></a>SQL</h2>
 <p>SELECT Statement : To Fetch records from an external database to PaperTrail records.  </p>
 <p>Format : </p>
-<pre><code class="lang-javascript">   **SELECT \&lt;COLUMNS\&gt; FROM \&lt;TABLENAME\&gt; WHERE
-   \&lt;DATABASE INDEX\&gt; = \${\&lt;PAPERTRAIL INDEX\&gt;}**
+<pre><code class="lang-javascript">   <span class="o">**</span><span class="nx">SELECT</span> <span class="err">\</span><span class="o">&lt;</span><span class="nx">COLUMNS</span><span class="err">\</span><span class="o">&gt;</span> <span class="nx">FROM</span> <span class="err">\</span><span class="o">&lt;</span><span class="nx">TABLENAME</span><span class="err">\</span><span class="o">&gt;</span> <span class="nx">WHERE</span>
+   <span class="err">\</span><span class="o">&lt;</span><span class="nx">DATABASE</span> <span class="nx">INDEX</span><span class="err">\</span><span class="o">&gt;</span> <span class="o">=</span> <span class="err">\</span><span class="nx">$</span><span class="p">{</span><span class="err">\</span><span class="o">&lt;</span><span class="nx">PAPERTRAIL</span> <span class="nx">INDEX</span><span class="err">\</span><span class="o">&gt;</span><span class="p">}</span><span class="o">**</span>
 </code></pre>
-<pre><code class="lang-javascript">   SELECT No_ AS Invoice_No, 
-     LEFT(CONVERT(date, &quot;Posting Date&quot;),10) 
-     AS Invoice_Date,&quot;Order No_&quot; 
-     AS Internal_Order, &quot;Sell-to Customer No_&quot; 
-     AS Customer_No,&quot;External Document No_&quot; 
-     AS Customer_Order_No, &quot;Shipment Method Code&quot; 
-     AS Delivery_Method 
-   FROM &quot;SAFINTRA JHB$Sales Invoice Header&quot; 
-   WHERE No_ = &apos;${invoice_no}
+<pre><code class="lang-javascript">   <span class="nx">SELECT</span> <span class="nx">No_</span> <span class="nx">AS</span> <span class="nx">Invoice_No</span><span class="p">,</span> 
+     <span class="nx">LEFT</span><span class="p">(</span><span class="nx">CONVERT</span><span class="p">(</span><span class="nx">date</span><span class="p">,</span> <span class="s2">&quot;Posting Date&quot;</span><span class="p">),</span><span class="mi">10</span><span class="p">)</span> 
+     <span class="nx">AS</span> <span class="nx">Invoice_Date</span><span class="p">,</span><span class="s2">&quot;Order No_&quot;</span> 
+     <span class="nx">AS</span> <span class="nx">Internal_Order</span><span class="p">,</span> <span class="s2">&quot;Sell-to Customer No_&quot;</span> 
+     <span class="nx">AS</span> <span class="nx">Customer_No</span><span class="p">,</span><span class="s2">&quot;External Document No_&quot;</span> 
+     <span class="nx">AS</span> <span class="nx">Customer_Order_No</span><span class="p">,</span> <span class="s2">&quot;Shipment Method Code&quot;</span> 
+     <span class="nx">AS</span> <span class="nx">Delivery_Method</span> 
+   <span class="nx">FROM</span> <span class="s2">&quot;SAFINTRA JHB$Sales Invoice Header&quot;</span> 
+   <span class="nx">WHERE</span> <span class="nx">No_</span> <span class="o">=</span> <span class="err">&apos;</span><span class="nx">$</span><span class="p">{</span><span class="nx">invoice_no</span><span class="p">}</span>
 </code></pre>
 <p>UPDATE Statement : To Update records from an external database to PaperTrail records.  </p>
 <p>Format :</p>
-<pre><code class="lang-javascript">**FORMAT**: **UPDATE \&lt;TABLE NAME\&gt; SET \&lt;DATABASE INDEX\&gt; =
-<span class="hljs-string">&apos;\&lt;VALUE\&gt;&apos;</span> WHERE \&lt;DATABASE INDEX\&gt; = \${\&lt;PAPERTRAIL
-INDEX\&gt;}**
+<pre><code class="lang-javascript"><span class="o">**</span><span class="nx">FORMAT</span><span class="o">**:</span> <span class="o">**</span><span class="nx">UPDATE</span> <span class="err">\</span><span class="o">&lt;</span><span class="nx">TABLE</span> <span class="nx">NAME</span><span class="err">\</span><span class="o">&gt;</span> <span class="nx">SET</span> <span class="err">\</span><span class="o">&lt;</span><span class="nx">DATABASE</span> <span class="nx">INDEX</span><span class="err">\</span><span class="o">&gt;</span> <span class="o">=</span>
+<span class="s1">&apos;\&lt;VALUE\&gt;&apos;</span> <span class="nx">WHERE</span> <span class="err">\</span><span class="o">&lt;</span><span class="nx">DATABASE</span> <span class="nx">INDEX</span><span class="err">\</span><span class="o">&gt;</span> <span class="o">=</span> <span class="err">\</span><span class="nx">$</span><span class="p">{</span><span class="err">\</span><span class="o">&lt;</span><span class="nx">PAPERTRAIL</span>
+<span class="nx">INDEX</span><span class="err">\</span><span class="o">&gt;</span><span class="p">}</span><span class="o">**</span>
 </code></pre>
-<pre><code class="lang-javascript">UPDATE test 
-SET Index1 = <span class="hljs-string">&apos;asdf&apos;</span> 
-WHERE Invoice_Number = ${Invoice_Number}
+<pre><code class="lang-javascript"><span class="nx">UPDATE</span> <span class="nx">test</span> 
+<span class="nx">SET</span> <span class="nx">Index1</span> <span class="o">=</span> <span class="s1">&apos;asdf&apos;</span> 
+<span class="nx">WHERE</span> <span class="nx">Invoice_Number</span> <span class="o">=</span> <span class="nx">$</span><span class="p">{</span><span class="nx">Invoice_Number</span><span class="p">}</span>
 </code></pre>
-<h2 id="Rules_for_SQL_statements">4. Rules for SQL statements</h2>
+<h2 id="rules-for-sql-statements"><a name="rules-for-sql-statements" class="plugin-anchor" href="#rules-for-sql-statements"><i class="fa fa-link" aria-hidden="true"></i></a>Rules for SQL statements</h2>
 <ul>
 <li>Column headers and index values must match index values in
 PaperTrail, otherwise give columns aliases by using the &#x201C;AS&#x201D;
@@ -1250,9 +1263,9 @@ function.</li>
 <li>If column names contain spaces, double quotes (&#x201C; &#x201C;) should be used
 to surround the name in order to concatenate the name.</li>
 </ul>
-<h2 id="Event">5. Event</h2>
+<h2 id="event"><a name="event" class="plugin-anchor" href="#event"><i class="fa fa-link" aria-hidden="true"></i></a>Event</h2>
 <p>When to run the SQL Lookup or Update.</p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Database_JDBC_Configs">Database JDBC Configs</a></p><li><a href="#Data_Sources">1. Data Sources</a></li><li><a href="#Direct_Access">2. Direct Access</a></li><li><a href="#SQL">3. SQL</a></li><li><a href="#Rules_for_SQL_statements">4. Rules for SQL statements</a></li><li><a href="#Event">5. Event</a></li></ul></div><a href="#Data_Sources" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1291,7 +1304,7 @@ to surround the name in order to concatenate the name.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Database","level":"1.5.1","depth":2,"next":{"title":"Data Sources","level":"1.5.2","depth":2,"path":"integration/data-sources-text.md","ref":"integration/data-sources-text.md","articles":[]},"previous":{"title":"Integration","level":"1.5","depth":1,"ref":"","articles":[{"title":"Database","level":"1.5.1","depth":2,"path":"integration/database-text.md","ref":"integration/database-text.md","articles":[]},{"title":"Data Sources","level":"1.5.2","depth":2,"path":"integration/data-sources-text.md","ref":"integration/data-sources-text.md","articles":[]},{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},{"title":"Email Watch","level":"1.5.4","depth":2,"path":"integration/email-watch-text.md","ref":"integration/email-watch-text.md","articles":[]},{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},{"title":"Folder Watch","level":"1.5.6","depth":2,"path":"integration/folder-watch-text.md","ref":"integration/folder-watch-text.md","articles":[]},{"title":"LDAP / Active Directory","level":"1.5.7","depth":2,"path":"integration/ldap-ad-text.md","ref":"integration/ldap-ad-text.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/database-text.md","mtime":"2017-08-14T07:50:07.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Database","level":"1.5.1","depth":2,"next":{"title":"Data Sources","level":"1.5.2","depth":2,"path":"integration/data-sources-text.md","ref":"integration/data-sources-text.md","articles":[]},"previous":{"title":"Integration","level":"1.5","depth":1,"ref":"","articles":[{"title":"Database","level":"1.5.1","depth":2,"path":"integration/database-text.md","ref":"integration/database-text.md","articles":[]},{"title":"Data Sources","level":"1.5.2","depth":2,"path":"integration/data-sources-text.md","ref":"integration/data-sources-text.md","articles":[]},{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},{"title":"Email Watch","level":"1.5.4","depth":2,"path":"integration/email-watch-text.md","ref":"integration/email-watch-text.md","articles":[]},{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},{"title":"Folder Watch","level":"1.5.6","depth":2,"path":"integration/folder-watch-text.md","ref":"integration/folder-watch-text.md","articles":[]},{"title":"LDAP / Active Directory","level":"1.5.7","depth":2,"path":"integration/ldap-ad-text.md","ref":"integration/ldap-ad-text.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/database-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1302,6 +1315,10 @@ to surround the name in order to concatenate the name.</li>
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,8 +1161,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="EasyPDF_deployment_and_configuration"><a name="easypdf-deployment-and-configuration" class="plugin-anchor" href="#easypdf-deployment-and-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>EasyPDF deployment and configuration</h1>
-<h2 id="Software_Requirements">1. Software Requirements</h2>
+                                <h1 id="easypdf-deployment-and-configuration"><a name="easypdf-deployment-and-configuration" class="plugin-anchor" href="#easypdf-deployment-and-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>EasyPDF deployment and configuration</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#software-requirements">Software Requirements</a></li>
+<li><a href="#local-installation">Local Installation</a></li>
+<li><a href="#remote-installation">Remote Installation</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+
+</div><!-- tocstop -->
+<h2 id="software-requirements"><a name="software-requirements" class="plugin-anchor" href="#software-requirements"><i class="fa fa-link" aria-hidden="true"></i></a>Software Requirements</h2>
 <p>The following software will have to be installed on the EasyPDF server :   </p>
 <ol>
 <li>Windows Server 2008 32/64 bit.  </li>
@@ -1172,7 +1186,7 @@ PDF by EasyPDF (i.e. AutoCAD).  </li>
 </ol>
 <p><strong>Note : UAC should be disabled on the machine before any software is
 installed.</strong></p>
-<h2 id="Local_Installation">2. Local Installation</h2>
+<h2 id="local-installation"><a name="local-installation" class="plugin-anchor" href="#local-installation"><i class="fa fa-link" aria-hidden="true"></i></a>Local Installation</h2>
 <p>(Both PaperTrail and EasyPDF running on same host) :</p>
 <ul>
 <li>Install EasyPDF application.</li>
@@ -1185,12 +1199,12 @@ permissions.</li>
 <li>Add the following line to the easypdf.properties file and restart
 PaperTrail thereafter :</li>
 </ul>
-<pre><code class="lang-javascript">easypdf.word.nativeOfficePDF=<span class="hljs-literal">true</span>
+<pre><code class="lang-javascript"><span class="nx">easypdf</span><span class="p">.</span><span class="nx">word</span><span class="p">.</span><span class="nx">nativeOfficePDF</span><span class="o">=</span><span class="kc">true</span>
 </code></pre>
 <ul>
 <li>Import test documents to confirm that all is set up correctly.</li>
 </ul>
-<h2 id="Remote_Installation">3. Remote Installation</h2>
+<h2 id="remote-installation"><a name="remote-installation" class="plugin-anchor" href="#remote-installation"><i class="fa fa-link" aria-hidden="true"></i></a>Remote Installation</h2>
 <p>(Both PaperTrail and EasyPDF running on separate hosts) :</p>
 <p><strong>EasyPDF server</strong></p>
 <p>Same as <a href="#local-installation">Local Installation</a></p>
@@ -1205,22 +1219,22 @@ conversion.remote.host=http://host1:8080
 <li>Import test documents on application server to confirm that all
 is set up correctly.</li>
 </ol>
-<h2 id="Troubleshooting">4. Troubleshooting</h2>
+<h2 id="troubleshooting"><a name="troubleshooting" class="plugin-anchor" href="#troubleshooting"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting</h2>
 <p>If any conversion issue are being experienced, create a .vbs
 file which can be run to test conversions outside of PaperTrail. The
 paths in the properties are input and output files, and should be
-configured accordingly :</p>
-<pre><code class="lang-vbscript"><span class="hljs-keyword">Set</span> oPrinter = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;easyPDF.Printer.7&quot;</span>)
-<span class="hljs-keyword">Set</span> oPrintJob = oPrinter.PrintJob
-oPrintJob.PrintOut <span class="hljs-string">&quot;C:\\test.txt&quot;</span>, <span class="hljs-string">&quot;C:\\output.pdf&quot;</span>
+configured accordingly:</p>
+<pre><code class="lang-javascript"><span class="nx">Set</span> <span class="nx">oPrinter</span> <span class="o">=</span> <span class="nx">CreateObject</span><span class="p">(</span><span class="s2">&quot;easyPDF.Printer.7&quot;</span><span class="p">)</span>
+<span class="nx">Set</span> <span class="nx">oPrintJob</span> <span class="o">=</span> <span class="nx">oPrinter</span><span class="p">.</span><span class="nx">PrintJob</span>
+<span class="nx">oPrintJob</span><span class="p">.</span><span class="nx">PrintOut</span> <span class="s2">&quot;C:\\test.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;C:\\output.pdf&quot;</span>
 </code></pre>
 <p>Another way to test the conversions is to navigate to
-<em>C:\Users\Public\Documents\BCL Technologies\easyPDF SDK
-7\Samples\Visual C#\EasyPDFPrinterTest</em> and then running
-EasyPDFPrinterTest.exe. This will allow you to select an input document
+<code>C:\\Users\\Public\\Documents\\BCL Technologies\\easyPDF SDK
+7\\Samples\\Visual C\#\\EasyPDFPrinterTest</code> and then running
+<code>EasyPDFPrinterTest.exe</code>. This will allow you to select an input document
 to convert and specify the output path of the PDF.</p>
 <p>For any more information, the user manual can be accessed <a href="http://www.pdfonline.com/easypdf/sdk/usermanual/" target="_blank">here</a></p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#EasyPDF_deployment_and_configuration">EasyPDF deployment and configuration</a></p><li><a href="#Software_Requirements">1. Software Requirements</a></li><li><a href="#Local_Installation">2. Local Installation</a></li><li><a href="#Remote_Installation">3. Remote Installation</a></li><li><a href="#Troubleshooting">4. Troubleshooting</a></li></ul></div><a href="#Software_Requirements" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1263,7 +1277,7 @@ to convert and specify the output path of the PDF.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Easy PDF","level":"1.5.3","depth":2,"next":{"title":"Email Watch","level":"1.5.4","depth":2,"path":"integration/email-watch-text.md","ref":"integration/email-watch-text.md","articles":[]},"previous":{"title":"Data Sources","level":"1.5.2","depth":2,"path":"integration/data-sources-text.md","ref":"integration/data-sources-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/easypdf-text.md","mtime":"2017-08-14T07:50:07.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Easy PDF","level":"1.5.3","depth":2,"next":{"title":"Email Watch","level":"1.5.4","depth":2,"path":"integration/email-watch-text.md","ref":"integration/email-watch-text.md","articles":[]},"previous":{"title":"Data Sources","level":"1.5.2","depth":2,"path":"integration/data-sources-text.md","ref":"integration/data-sources-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/easypdf-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1274,6 +1288,10 @@ to convert and specify the output path of the PDF.</p>
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

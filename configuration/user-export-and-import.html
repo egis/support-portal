@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,12 +1161,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="User_export_and_import_via_the_pt_CLI_command"><a name="user-export-and-import-via-the-pt-cli-command" class="plugin-anchor" href="#user-export-and-import-via-the-pt-cli-command"><i class="fa fa-link" aria-hidden="true"></i></a>User export and import via the pt CLI command</h1>
-<h3 id="Requirements">0.1. Requirements</h3>
+                                <h1 id="user-export-and-import-via-the-pt-cli-command"><a name="user-export-and-import-via-the-pt-cli-command" class="plugin-anchor" href="#user-export-and-import-via-the-pt-cli-command"><i class="fa fa-link" aria-hidden="true"></i></a>User export and import via the pt CLI command</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#export-current-user-database">Export current user database</a></li>
+<li><a href="#capture-new-user-information">Capture new user information</a></li>
+<li><a href="#import-new-user-database">Import new user database</a></li>
+</ul>
+
+</div><!-- tocstop -->
+<h3 id="requirements"><a name="requirements" class="plugin-anchor" href="#requirements"><i class="fa fa-link" aria-hidden="true"></i></a>Requirements</h3>
 <ul>
 <li>Ensure that the <code>pt</code> utility is installed on a Linux host. See guide <a href="../installation/cli-article.html">here</a></li>
 </ul>
-<h3 id="Export_current_user_database">0.2. Export current user database</h3>
+<h3 id="export-current-user-database"><a name="export-current-user-database" class="plugin-anchor" href="#export-current-user-database"><i class="fa fa-link" aria-hidden="true"></i></a>Export current user database</h3>
 <ul>
 <li>From the Linux host, execute<br>
 <code>pt --host 192.168.1.10:8080 --username admin --password &apos;mypassword&apos; export User &gt; users.yml</code></li>
@@ -1175,7 +1189,7 @@
 <code>properties: {otp: &apos;false&apos;}</code><br>
 <code>userType: FULL</code></li>
 </ul>
-<h3 id="Capture_new_user_information">0.3. Capture new user information</h3>
+<h3 id="capture-new-user-information"><a name="capture-new-user-information" class="plugin-anchor" href="#capture-new-user-information"><i class="fa fa-link" aria-hidden="true"></i></a>Capture new user information</h3>
 <ul>
 <li>Create a csv file with details of the new user accounts to be imported; example cell structure below (remember to convert this to csv):</li>
 </ul>
@@ -1234,14 +1248,14 @@
 <li>Perform a simple find-and-replace to substitute <code>-</code> with <code>--- !&lt;User&gt;</code> and your YAML file should now resemble the output from the earlier user database export</li>
 <li>Ensure that there are no duplicate login values and no illegal characters in any of the fields</li>
 </ul>
-<h3 id="Import_new_user_database">0.4. Import new user database</h3>
+<h3 id="import-new-user-database"><a name="import-new-user-database" class="plugin-anchor" href="#import-new-user-database"><i class="fa fa-link" aria-hidden="true"></i></a>Import new user database</h3>
 <ul>
 <li>Copy your YAML file over to the Linux host (using WinSCP as an option)</li>
 <li>On the Linux host, execute<br>
 <code>pt --host 192.168.1.10:8080 --username admin --password &apos;mypassword&apos; import newusers.yml</code></li>
 <li>If you encounter any error messages, check the server logs to identify the offending statement (put <code>com.egis.kernel.messaging</code> on DEBUG/TRACE if additional logging is required)</li>
 </ul>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#User_export_and_import_via_the_pt_CLI_command">User export and import via the pt CLI command</a></p><li><a href="#">none</a></li><ul><li><a href="#Requirements">0.1. Requirements</a></li><li><a href="#Export_current_user_database">0.2. Export current user database</a></li><li><a href="#Capture_new_user_information">0.3. Capture new user information</a></li><li><a href="#Import_new_user_database">0.4. Import new user database</a></li></ul></ul></div><a href="#" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1284,7 +1298,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"User Export and Import","level":"1.2.14","depth":2,"next":{"title":"User Management","level":"1.2.15","depth":2,"path":"configuration/user-management.md","ref":"configuration/user-management.md","articles":[]},"previous":{"title":"Template Extraction","level":"1.2.13","depth":2,"path":"configuration/template-extraction.md","ref":"configuration/template-extraction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/user-export-and-import.md","mtime":"2017-08-14T07:50:07.637Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"User Export and Import","level":"1.2.14","depth":2,"next":{"title":"User Management","level":"1.2.15","depth":2,"path":"configuration/user-management.md","ref":"configuration/user-management.md","articles":[]},"previous":{"title":"Template Extraction","level":"1.2.13","depth":2,"path":"configuration/template-extraction.md","ref":"configuration/template-extraction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/user-export-and-import.md","mtime":"2017-08-31T06:43:58.612Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1295,6 +1309,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

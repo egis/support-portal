@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,8 +1161,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="eSign"><a name="esign" class="plugin-anchor" href="#esign"><i class="fa fa-link" aria-hidden="true"></i></a>eSign</h1>
-<h3 id="Requirements_and_Preparation">0.1. Requirements and Preparation</h3>
+                                <h1 id="esign"><a name="esign" class="plugin-anchor" href="#esign"><i class="fa fa-link" aria-hidden="true"></i></a>eSign</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#requirements-and-preparation">Requirements and Preparation</a></li>
+<li><a href="#creating-a-design-and-a-template">Creating a Design and a Template</a></li>
+<li><a href="#signing-documents">Signing Documents</a></li>
+<li><a href="#notes">Notes</a></li>
+</ul>
+
+</div><!-- tocstop -->
+<h3 id="requirements-and-preparation"><a name="requirements-and-preparation" class="plugin-anchor" href="#requirements-and-preparation"><i class="fa fa-link" aria-hidden="true"></i></a>Requirements and Preparation</h3>
 <ul>
 <li>Ensure that the client is licensed for the eSign module</li>
 <li>Administration &gt; Properties &gt; Front End:<ul>
@@ -1171,7 +1185,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Creating_a_Design_and_a_Template">0.2. Creating a Design and a Template</h3>
+<h3 id="creating-a-design-and-a-template"><a name="creating-a-design-and-a-template" class="plugin-anchor" href="#creating-a-design-and-a-template"><i class="fa fa-link" aria-hidden="true"></i></a>Creating a Design and a Template</h3>
 <ul>
 <li>V2 Interface: Select <code>eSign</code>. Click <code>Upload for Signature</code> and select the source document</li>
 <li>Classic Interface: Select <code>Tools &gt; Upload for Signature</code></li>
@@ -1180,19 +1194,19 @@
 <li>When done, click the disk (Save) icon to save the design. This saves the form design under the <code>eSignature Upload Node</code> defined in the Requirements and Preparation stage.</li>
 <li>Then click the Settings cog and <code>Save as template</code>. Name the template and select the node that this template will reside in. This is the location where the created forms will save to</li>
 </ul>
-<h3 id="Signing_Documents">0.3. Signing Documents</h3>
+<h3 id="signing-documents"><a name="signing-documents" class="plugin-anchor" href="#signing-documents"><i class="fa fa-link" aria-hidden="true"></i></a>Signing Documents</h3>
 <ul>
 <li>V2 Interface: Navigate to <code>eSign</code> and select the form &gt; <code>New Request</code></li>
 <li>Classic Interface: <code>Tools &gt; New Form</code></li>
 <li>Signed documents will be created in the node specified under <code>Save as template</code></li>
 </ul>
-<h3 id="Notes">0.4. Notes</h3>
+<h3 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><i class="fa fa-link" aria-hidden="true"></i></a>Notes</h3>
 <ul>
 <li>To edit an existing design, V2 Interface: select the design by clicking <code>eSign</code> and selecting the design you wish to edit. Then <code>More &gt; Sign</code>. Save the design and the template</li>
 <li>To edit an existing design, Classic Interface: select the design from the <code>eSignature Upload Node</code>. Then <code>Document &gt; Sign</code>. Save the design and the template</li>
 <li>To auto-populate indexes based on values in the form, name the <code>Field ID</code> in the design stage to the same as the index you wish to populate.</li>
 </ul>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#eSign">eSign</a></p><li><a href="#">none</a></li><ul><li><a href="#Requirements_and_Preparation">0.1. Requirements and Preparation</a></li><li><a href="#Creating_a_Design_and_a_Template">0.2. Creating a Design and a Template</a></li><li><a href="#Signing_Documents">0.3. Signing Documents</a></li><li><a href="#Notes">0.4. Notes</a></li></ul></ul></div><a href="#" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1235,7 +1249,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"eSign","level":"1.2.7","depth":2,"next":{"title":"Indexes / Meta Models","level":"1.2.8","depth":2,"path":"configuration/indexes.md","ref":"configuration/indexes.md","articles":[]},"previous":{"title":"Bulk Capture","level":"1.2.6","depth":2,"path":"configuration/bulk-capture-text.md","ref":"configuration/bulk-capture-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/eSign.md","mtime":"2017-08-14T07:50:07.637Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"eSign","level":"1.2.7","depth":2,"next":{"title":"Indexes / Meta Models","level":"1.2.8","depth":2,"path":"configuration/indexes.md","ref":"configuration/indexes.md","articles":[]},"previous":{"title":"Bulk Capture","level":"1.2.6","depth":2,"path":"configuration/bulk-capture-text.md","ref":"configuration/bulk-capture-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/eSign.md","mtime":"2017-08-31T06:43:58.612Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1246,6 +1260,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

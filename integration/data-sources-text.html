@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,14 +1161,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="Data_Sources">1. Data Sources</h2>
+                                <h1 id="data-sources"><a name="data-sources" class="plugin-anchor" href="#data-sources"><i class="fa fa-link" aria-hidden="true"></i></a>Data Sources</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#jdbc">JDBC</a></li>
+<li><a href="#local-db">Local DB</a></li>
+<li><a href="#node-query">Node Query</a></li>
+</ul>
+
+</div><!-- tocstop -->
 <p>Data sources allow for data to be looked up in a centralized fashion. These data sources are always referenced by name so they can differ in production and dev environments - both in parameters and type.</p>
 <p>System properties can also be used for the URL, username and password
 fields:</p>
-<pre><code class="lang-javascript">${external.db.username} ${external.db.password} jdbc:mysql:<span class="hljs-comment">//${external.db.host}/`{.ini}</span>
+<pre><code class="lang-javascript"><span class="nx">$</span><span class="p">{</span><span class="nx">external</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span> <span class="nx">$</span><span class="p">{</span><span class="nx">external</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nx">password</span><span class="p">}</span> <span class="nx">jdbc</span><span class="o">:</span><span class="nx">mysql</span><span class="o">:</span><span class="c1">//${external.db.host}/`{.ini}</span>
 </code></pre>
 <p>The properties can then be added to a .properties file in the Papertrail/conf installation folder</p>
-<h2 id="JDBC">2. JDBC</h2>
+<h2 id="jdbc"><a name="jdbc" class="plugin-anchor" href="#jdbc"><i class="fa fa-link" aria-hidden="true"></i></a>JDBC</h2>
 <p>Connect to any remote database accessible via a JDBC URL examples of
 which are:</p>
 <p><code>jdbc:mysql://host:3306/{db}</code></p>
@@ -1178,16 +1191,16 @@ escaped to prevent SQL Injection):
 correctly render in lookup fields/lists.</p>
 <p>Although any parameter can be used, <strong>${filter}</strong> is reserved for user
 entered input.</p>
-<h2 id="Local_DB">3. Local DB</h2>
+<h2 id="local-db"><a name="local-db" class="plugin-anchor" href="#local-db"><i class="fa fa-link" aria-hidden="true"></i></a>Local DB</h2>
 <p>A subtype of JDBC which connects to same database as PaperTrail and can be used
 to query PaperTrail core tables, import and sync tables, or any other
 table added to this db.</p>
-<h2 id="Node_Query">4. Node Query</h2>
+<h2 id="node-query"><a name="node-query" class="plugin-anchor" href="#node-query"><i class="fa fa-link" aria-hidden="true"></i></a>Node Query</h2>
 <p>Returns the result of a PQL query - Commonly used for config nodes.</p>
-<h2 id="Scripted">5. Scripted</h2>
+<h2 id="scripted"><a name="scripted" class="plugin-anchor" href="#scripted"><i class="fa fa-link" aria-hidden="true"></i></a>Scripted</h2>
 <p> Allows groovy script to be executed to return any arbritrary list of
 data.</p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#Data_Sources">1. Data Sources</a></li><li><a href="#JDBC">2. JDBC</a></li><li><a href="#Local_DB">3. Local DB</a></li><li><a href="#Node_Query">4. Node Query</a></li><li><a href="#Scripted">5. Scripted</a></li></ul></div><a href="#Data_Sources" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1230,7 +1243,7 @@ data.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Data Sources","level":"1.5.2","depth":2,"next":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"previous":{"title":"Database","level":"1.5.1","depth":2,"path":"integration/database-text.md","ref":"integration/database-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/data-sources-text.md","mtime":"2017-08-14T07:50:07.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Data Sources","level":"1.5.2","depth":2,"next":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"previous":{"title":"Database","level":"1.5.1","depth":2,"path":"integration/database-text.md","ref":"integration/database-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/data-sources-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1241,6 +1254,10 @@ data.</p>
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

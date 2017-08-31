@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,8 +1161,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="Installation_and_Configuration"><a name="installation-and-configuration" class="plugin-anchor" href="#installation-and-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Installation and Configuration</h1>
-<h2 id="Installation">1. Installation</h2>
+                                <h1 id="installation-and-configuration"><a name="installation-and-configuration" class="plugin-anchor" href="#installation-and-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Installation and Configuration</h1>
+<h2 id="installation"><a name="installation" class="plugin-anchor" href="#installation"><i class="fa fa-link" aria-hidden="true"></i></a>Installation</h2>
 <p>To install PaperTrail you will first need to install the prerequisites:</p>
 <ul>
 <li>Java 8 SDK</li>
@@ -1178,7 +1182,7 @@
 </ol>
 <p>See <a href="Windows.html">Windows</a>, 
  <a href="ubuntu-linux-text.html">Linux</a>, <a href="macosx.html">MacOSX</a> </p>
-<h2 id="Upgrades">2. Upgrades</h2>
+<h2 id="upgrades"><a name="upgrades" class="plugin-anchor" href="#upgrades"><i class="fa fa-link" aria-hidden="true"></i></a>Upgrades</h2>
 <ol>
 <li>Run a full <a href="../configuration/backups-text.html">backup</a><br>Rename the <code>Papertrail</code> installation folder according to date of upgrade and current version, i.e. <code>Papertrail_2013-03-04_r864</code> as it allows for simplified rollbacks</li>
 <li>Run the installer<br>(If applicable also reconfigure the service under the correct user account)</li>
@@ -1186,9 +1190,9 @@
 <li>Start PaperTrail and Conduct a health check</li>
 <li>Turn off <a href="../reference/maintenance-text.html">maintenance mode</a></li>
 </ol>
-<h4 id="More_Links">2.0.1. More Links</h4>
+<h4 id="more-links"><a name="more-links" class="plugin-anchor" href="#more-links"><i class="fa fa-link" aria-hidden="true"></i></a>More Links</h4>
 <p><a href="service.html">Service options</a><br><a href="../configuration/backups-text.html">Backups</a><br><a href="../integration/ldap-ad-text.html">LDAP / Active Directory</a></p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Installation_and_Configuration">Installation and Configuration</a></p><li><a href="#Installation">1. Installation</a></li><li><a href="#Upgrades">2. Upgrades</a></li><ul><li><a href="#">none</a></li><ul><li><a href="#More_Links">2.0.1. More Links</a></li></ul></ul></ul></div><a href="#Installation" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1231,7 +1235,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Server Installation","level":"1.4.3","depth":2,"next":{"title":"Mac OS X","level":"1.4.4","depth":2,"path":"installation/macosx.md","ref":"installation/macosx.md","articles":[]},"previous":{"title":"Sizing","level":"1.4.2","depth":2,"path":"installation/sizing-text.md","ref":"installation/sizing-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/server-installation.md","mtime":"2017-08-14T07:50:07.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Server Installation","level":"1.4.3","depth":2,"next":{"title":"Mac OS X","level":"1.4.4","depth":2,"path":"installation/macosx.md","ref":"installation/macosx.md","articles":[]},"previous":{"title":"Sizing","level":"1.4.2","depth":2,"path":"installation/sizing-text.md","ref":"installation/sizing-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/server-installation.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1242,6 +1246,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,19 +1161,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="PaperTrail_Server_Requirements">1. PaperTrail Server Requirements</h2>
+                                <h2 id="papertrail-server-requirements"><a name="papertrail-server-requirements" class="plugin-anchor" href="#papertrail-server-requirements"><i class="fa fa-link" aria-hidden="true"></i></a>PaperTrail Server Requirements</h2>
 <ul>
 <li>2 - 4GB RAM</li>
 <li>2 Modern CPU Cores</li>
 <li>20GB + free disk space</li>
 </ul>
-<h3 id="Database">1.1. Database</h3>
+<h3 id="database"><a name="database" class="plugin-anchor" href="#database"><i class="fa fa-link" aria-hidden="true"></i></a>Database</h3>
 <ul>
 <li>The database should be kept entirely in RAM on fast disks (SSD, RAID 1
 with cache etc). A rough guideline is to use 1GB of RAM per 1 million docs.  </li>
 <li>A centralized database can be used, however it can introduce latency.  </li>
 </ul>
-<h3 id="Index_Directory">1.2. Index Directory</h3>
+<h3 id="index-directory"><a name="index-directory" class="plugin-anchor" href="#index-directory"><i class="fa fa-link" aria-hidden="true"></i></a>Index Directory</h3>
 <ul>
 <li>The index directory is where Lucene stores all indexes for searching. As
 a rule of thumb is it&apos;s around 1 - 2 GB per million docs, more if full
@@ -1178,7 +1182,7 @@ text searching is enabled.  </li>
 not need to backed up as it can be easily and quickly (with full text
 disabled) rebuilt.  </li>
 </ul>
-<h3 id="File_Repository">1.3. File Repository</h3>
+<h3 id="file-repository"><a name="file-repository" class="plugin-anchor" href="#file-repository"><i class="fa fa-link" aria-hidden="true"></i></a>File Repository</h3>
 <ul>
 <li>The file repository has lots of small file based IO where each file is stored
 by name as checksum. So once a file is written, it is never updated - only
@@ -1190,7 +1194,7 @@ Caringo CAStore reducing the need for backups.</li>
 <li>Replication can also be configured between 2 PaperTrail instances using
 file stores.</li>
 </ul>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#PaperTrail_Server_Requirements">1. PaperTrail Server Requirements</a></li><ul><li><a href="#Database">1.1. Database</a></li><li><a href="#Index_Directory">1.2. Index Directory</a></li><li><a href="#File_Repository">1.3. File Repository</a></li></ul></ul></div><a href="#PaperTrail_Server_Requirements" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1233,7 +1237,7 @@ file stores.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Sizing","level":"1.4.2","depth":2,"next":{"title":"Server Installation","level":"1.4.3","depth":2,"path":"installation/server-installation.md","ref":"installation/server-installation.md","articles":[]},"previous":{"title":"CLI","level":"1.4.1","depth":2,"path":"installation/cli-article.md","ref":"installation/cli-article.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/sizing-text.md","mtime":"2017-08-14T07:50:07.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Sizing","level":"1.4.2","depth":2,"next":{"title":"Server Installation","level":"1.4.3","depth":2,"path":"installation/server-installation.md","ref":"installation/server-installation.md","articles":[]},"previous":{"title":"CLI","level":"1.4.1","depth":2,"path":"installation/cli-article.md","ref":"installation/cli-article.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/sizing-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1244,6 +1248,10 @@ file stores.</li>
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

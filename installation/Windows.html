@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,18 +1161,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="Windows_Installations">1. Windows Installations</h2>
+                                <h2 id="windows-installations"><a name="windows-installations" class="plugin-anchor" href="#windows-installations"><i class="fa fa-link" aria-hidden="true"></i></a>Windows Installations</h2>
 <blockquote>
 <p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632" target="_blank">Visual C++</a></p>
 </blockquote>
-<h3 id="SQL_Server_Windows_Authentication">1.1. SQL Server Windows Authentication</h3>
+<h3 id="sql-server-windows-authentication"><a name="sql-server-windows-authentication" class="plugin-anchor" href="#sql-server-windows-authentication"><i class="fa fa-link" aria-hidden="true"></i></a>SQL Server Windows Authentication</h3>
 <ul>
 <li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
 <li>For remote installations, make sure that the Windows user that has been granted DB
 access is the same as the user that is being logged in to the application
 machine.</li>
 </ul>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#Windows_Installations">1. Windows Installations</a></li><ul><li><a href="#SQL_Server_Windows_Authentication">1.1. SQL Server Windows Authentication</a></li></ul></ul></div><a href="#Windows_Installations" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1211,7 +1215,7 @@ machine.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Windows","level":"1.4.6","depth":2,"next":{"title":"Service","level":"1.4.7","depth":2,"path":"installation/service.md","ref":"installation/service.md","articles":[]},"previous":{"title":"Ubuntu Linux","level":"1.4.5","depth":2,"path":"installation/ubuntu-linux-text.md","ref":"installation/ubuntu-linux-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/Windows.md","mtime":"2017-08-14T07:50:07.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Windows","level":"1.4.6","depth":2,"next":{"title":"Service","level":"1.4.7","depth":2,"path":"installation/service.md","ref":"installation/service.md","articles":[]},"previous":{"title":"Ubuntu Linux","level":"1.4.5","depth":2,"path":"installation/ubuntu-linux-text.md","ref":"installation/ubuntu-linux-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/Windows.md","mtime":"2017-08-31T06:43:58.620Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1222,6 +1226,10 @@ machine.</li>
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

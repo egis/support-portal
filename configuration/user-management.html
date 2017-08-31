@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,10 +1161,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="User_Management"><a name="user-management" class="plugin-anchor" href="#user-management"><i class="fa fa-link" aria-hidden="true"></i></a>User Management</h1>
+                                <h1 id="user-management"><a name="user-management" class="plugin-anchor" href="#user-management"><i class="fa fa-link" aria-hidden="true"></i></a>User Management</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#create-a-new-user">Create a New User</a></li>
+<li><a href="#reset-a-users-password">Reset a User&#x2019;s Password</a></li>
+<li><a href="#create-an-internal-contact-list">Create an Internal Contact List</a></li>
+<li><a href="#external-ldap-contact-list">External LDAP contact list</a></li>
+<li><a href="#create-a-group">Create a Group</a></li>
+<li><a href="#assigning-a-user-to-a-group">Assigning a user to a group</a></li>
+</ul>
+
+</div><!-- tocstop -->
 <p>In PaperTrail, a user is an individual who has <strong>permissions to log in to PaperTrail and perform various functions, such as reading and editing documents</strong>. </p>
 <p>A contact is an external user who <strong>does not have a PaperTrail login name and password, but who can be e-mailed documents and reports by other PaperTrail users</strong>.</p>
-<h2 id="Create_a_New_User">1. Create a New User</h2>
+<h2 id="create-a-new-user"><a name="create-a-new-user" class="plugin-anchor" href="#create-a-new-user"><i class="fa fa-link" aria-hidden="true"></i></a>Create a New User</h2>
 <ul>
 <li>Let&#x2019;s start by creating a new user called Sally Smith. Sally will have a username of sallysmith.  </li>
 <li>From within the <strong>Administration interface</strong>, select <strong>User Management</strong> and then User from the Navigation menu.  </li>
@@ -1169,39 +1185,39 @@
 <li>If you need to synchronize this user&#x2019;s account with their Active Directory account, click the <strong>Active Directory checkbox</strong>. The value supplied in the Login field must match the user&#x2019;s Active Directory login (excluding the domain name).  </li>
 <li>Click <strong>Add</strong> to generate the new user account.  </li>
 </ul>
-<h2 id="Reset_a_User&#x2019;s_Password">2. Reset a User&#x2019;s Password</h2>
+<h2 id="reset-a-users-password"><a name="reset-a-users-password" class="plugin-anchor" href="#reset-a-users-password"><i class="fa fa-link" aria-hidden="true"></i></a>Reset a User&#x2019;s Password</h2>
 <ul>
 <li>From within the <strong>Administration interface</strong>, select <strong>User Management</strong> and then <strong>User</strong> from the Navigation Menu.  </li>
 <li>Select the user whose password you need to reset, and click <strong>Reset Password</strong>. The password will be set to a blank password, which the user must then reset on their next login.  </li>
 </ul>
-<h2 id="Create_an_Internal_Contact_List">3. Create an Internal Contact List</h2>
+<h2 id="create-an-internal-contact-list"><a name="create-an-internal-contact-list" class="plugin-anchor" href="#create-an-internal-contact-list"><i class="fa fa-link" aria-hidden="true"></i></a>Create an Internal Contact List</h2>
 <p>The following steps should be followed to create a contact who can receive e-mail notifications from other users.  </p>
 <ul>
 <li>From within the <strong>Administration interface</strong>, select <strong>User Management</strong> and then  <strong>Contact</strong> from the Navigation Menu.  </li>
 <li>Specify a name for the user in the <strong>Name</strong> field. This is the only required field; all other fields are optional.   </li>
 <li>When done specifying information for this user, select the <strong>Add</strong> button.  </li>
 </ul>
-<h2 id="External_LDAP_contact_list">4. External LDAP contact list</h2>
+<h2 id="external-ldap-contact-list"><a name="external-ldap-contact-list" class="plugin-anchor" href="#external-ldap-contact-list"><i class="fa fa-link" aria-hidden="true"></i></a>External LDAP contact list</h2>
 <ul>
 <li>External LDAP contact lists can be queried in order to populate email addresses for <strong>Actions &#x2192; Email</strong>.  </li>
 <li>Configure <strong>Active Directory / LDAP settings</strong>.  </li>
 </ul>
-<h2 id="Create_a_Group">5. Create a Group</h2>
+<h2 id="create-a-group"><a name="create-a-group" class="plugin-anchor" href="#create-a-group"><i class="fa fa-link" aria-hidden="true"></i></a>Create a Group</h2>
 <ul>
 <li>From within the <strong>Administration interface</strong>, select <strong>User Management</strong> and then Group from the Navigation Menu.  </li>
 <li>Select <strong>Add</strong> on the Command Bar.  </li>
 <li>Specify a <strong>name</strong> for the new Group, such as Sales Team. This must be a <strong>unique name</strong>; it cannot be the name of another User, Group, Role, or Contact.  </li>
 <li>Select <strong>Add</strong> in the dialog box. The new group will be created.  </li>
 </ul>
-<h2 id="Assigning_a_user_to_a_group">6. Assigning a user to a group</h2>
+<h2 id="assigning-a-user-to-a-group"><a name="assigning-a-user-to-a-group" class="plugin-anchor" href="#assigning-a-user-to-a-group"><i class="fa fa-link" aria-hidden="true"></i></a>Assigning a user to a group</h2>
 <p>To grant the permissions assigned to this group to a user, we simply add the user to this group.</p>
 <ul>
 <li>From within the <strong>Administration interface</strong>, select <strong>User Management</strong> and then <strong>Group</strong> from the Navigation Menu.  </li>
 <li>Select the group you created in the previous step, and then select <strong>Users</strong> from the Command Bar.  </li>
 <li>In the <strong>Users dialog</strong>, begin to enter the name of the user you wish to add to the group. While typing, an autocomplete list of names will appear. Select the desired user to add, and then select the <strong>Add button</strong>.  </li>
-<li>Select the <strong>OK button</strong> on the <strong>Users dialog</strong>.  </li>
+<li>Select the <strong>OK button</strong> on the <strong>Users dialog</strong>.</li>
 </ul>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#User_Management">User Management</a></p><li><a href="#Create_a_New_User">1. Create a New User</a></li><li><a href="#Reset_a_User&#x2019;s_Password">2. Reset a User&#x2019;s Password</a></li><li><a href="#Create_an_Internal_Contact_List">3. Create an Internal Contact List</a></li><li><a href="#External_LDAP_contact_list">4. External LDAP contact list</a></li><li><a href="#Create_a_Group">5. Create a Group</a></li><li><a href="#Assigning_a_user_to_a_group">6. Assigning a user to a group</a></li></ul></div><a href="#Create_a_New_User" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1244,7 +1260,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"User Management","level":"1.2.15","depth":2,"next":{"title":"Queues","level":"1.2.16","depth":2,"path":"configuration/queues.md","ref":"configuration/queues.md","articles":[]},"previous":{"title":"User Export and Import","level":"1.2.14","depth":2,"path":"configuration/user-export-and-import.md","ref":"configuration/user-export-and-import.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/user-management.md","mtime":"2017-08-14T07:50:07.637Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"User Management","level":"1.2.15","depth":2,"next":{"title":"Queues","level":"1.2.16","depth":2,"path":"configuration/queues.md","ref":"configuration/queues.md","articles":[]},"previous":{"title":"User Export and Import","level":"1.2.14","depth":2,"path":"configuration/user-export-and-import.md","ref":"configuration/user-export-and-import.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/user-management.md","mtime":"2017-08-31T06:43:58.612Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1255,6 +1271,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

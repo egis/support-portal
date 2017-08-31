@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,8 +1161,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="Document_export__maintaining_the_node_structure"><a name="document-export-maintaining-the-node-structure" class="plugin-anchor" href="#document-export-maintaining-the-node-structure"><i class="fa fa-link" aria-hidden="true"></i></a>Document export, maintaining the node structure</h1>
-<h2 id="Document_export">1. Document export</h2>
+                                <h1 id="document-export-maintaining-the-node-structure"><a name="document-export-maintaining-the-node-structure" class="plugin-anchor" href="#document-export-maintaining-the-node-structure"><i class="fa fa-link" aria-hidden="true"></i></a>Document export, maintaining the node structure</h1>
+<h2 id="document-export"><a name="document-export" class="plugin-anchor" href="#document-export"><i class="fa fa-link" aria-hidden="true"></i></a>Document export</h2>
 <ul>
 <li>To export the document repository to a local path, maintaining the PaperTrail node structure as directories, add a Scheduled Rule from the Administration &gt; Services section:</li>
 <li>Set the Schedule to 0 (Use the <code>Run Now</code> command to run the rule as required)</li>
@@ -1167,13 +1171,13 @@
 <li>In the Filename field, use <code>${node}/${filename}</code></li>
 <li>Under Include, select <code>Source</code></li>
 </ul>
-<h2 id="Verify_the_exported_document_count">2. Verify the exported document count</h2>
+<h2 id="verify-the-exported-document-count"><a name="verify-the-exported-document-count" class="plugin-anchor" href="#verify-the-exported-document-count"><i class="fa fa-link" aria-hidden="true"></i></a>Verify the exported document count</h2>
 <ul>
 <li>Navigate to Administration &gt; Services &gt; Jobs</li>
 <li>Check the <code>Scheduled Rule: Export</code> job and note the number of documents processed under the Status field. Note: Documents of Type <code>Item (no file)</code> will naturally not export and will be counted under the failed status</li>
 <li>You can also check the results in the log file</li>
 </ul>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Document_export__maintaining_the_node_structure">Document export, maintaining the node structure</a></p><li><a href="#Document_export">1. Document export</a></li><li><a href="#Verify_the_exported_document_count">2. Verify the exported document count</a></li></ul></div><a href="#Document_export" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1216,7 +1220,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Document Export","level":"1.6.3","depth":2,"next":{"title":"Encryption","level":"1.6.4","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},"previous":{"title":"Cold Standby Failover Procedure","level":"1.6.2","depth":2,"path":"reference/cold-standby-failover-procedure-text.md","ref":"reference/cold-standby-failover-procedure-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/docexport.md","mtime":"2017-08-14T07:50:07.649Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Document Export","level":"1.6.3","depth":2,"next":{"title":"Encryption","level":"1.6.4","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},"previous":{"title":"Cold Standby Failover Procedure","level":"1.6.2","depth":2,"path":"reference/cold-standby-failover-procedure-text.md","ref":"reference/cold-standby-failover-procedure-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/docexport.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1227,6 +1231,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

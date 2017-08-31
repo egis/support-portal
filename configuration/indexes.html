@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,8 +1161,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="Configuring_Node_Indexes___Fields">1. Configuring Node Indexes / Fields</h2>
-<h3 id="Index_Types">1.1. Index Types</h3>
+                                <h1 id="configuring-node-indexes--fields"><a name="configuring-node-indexes--fields" class="plugin-anchor" href="#configuring-node-indexes--fields"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring Node Indexes / Fields</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#index-types">Index Types</a></li>
+<li><a href="#scripting---front-end">Scripting - Front End</a></li>
+<li><a href="#scripting---server-side">Scripting - Server Side</a></li>
+<li><a href="#properties">Properties</a></li>
+</ul>
+
+</div><!-- tocstop -->
+<h3 id="index-types"><a name="index-types" class="plugin-anchor" href="#index-types"><i class="fa fa-link" aria-hidden="true"></i></a>Index Types</h3>
 <table>
 <thead>
 <tr>
@@ -1234,33 +1248,33 @@
 </tr>
 </tbody>
 </table>
-<h3 id="Scripting_-_Front_End">1.2. Scripting - Front End</h3>
+<h3 id="scripting---front-end"><a name="scripting---front-end" class="plugin-anchor" href="#scripting---front-end"><i class="fa fa-link" aria-hidden="true"></i></a>Scripting - Front End</h3>
 <p>The <code>custom</code> property can be used to configure a field at runtime, it accepts valid javascript object </p>
 <p>e.g Create a <code>TEXT</code> field called ID Type and then add</p>
-<pre><code class="lang-javascript">{
-    type: <span class="hljs-string">&apos;formcombo&apos;</span>,
-    types: {
-        <span class="hljs-string">&quot;ID&quot;</span>: <span class="hljs-string">&quot;ID Meta Model&quot;</span>,
-        <span class="hljs-string">&quot;Passport&quot;</span>:<span class="hljs-string">&quot;Password Meta Model&quot;</span>,
-    },
-    value: <span class="hljs-string">&apos;Payslip&apos;</span>
-}
+<pre><code class="lang-javascript"><span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&apos;formcombo&apos;</span><span class="p">,</span>
+    <span class="nx">types</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ID&quot;</span><span class="o">:</span> <span class="s2">&quot;ID Meta Model&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Passport&quot;</span><span class="o">:</span><span class="s2">&quot;Password Meta Model&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">value</span><span class="o">:</span> <span class="s1">&apos;Payslip&apos;</span>
+<span class="p">}</span>
 </code></pre>
 <p>Then create a metamodel for each document type:</p>
-<pre><code class="lang-yaml"><span class="hljs-bullet">-</span>-- !&lt;MetaModel<span class="hljs-string">&gt;
-</span><span class="hljs-attr">name:</span> ID Meta Model
-<span class="hljs-attr">fields:</span>
-<span class="hljs-bullet">-</span> ID <span class="hljs-literal">No</span>
+<pre><code class="lang-yaml"><span class="nn">---</span> <span class="kt">!&lt;MetaModel&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ID Meta Model</span>
+<span class="l l-Scalar l-Scalar-Plain">fields</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ID No</span>
 
-<span class="hljs-bullet">-</span>-- !&lt;MetaModel<span class="hljs-string">&gt;
-</span><span class="hljs-attr">name:</span> Passport Meta Model
-<span class="hljs-attr">fields:</span>
-<span class="hljs-bullet">-</span> Passport <span class="hljs-literal">No</span>
-<span class="hljs-bullet">-</span> Country of Issue
-<span class="hljs-bullet">-</span> Expiry Date
+<span class="nn">---</span> <span class="kt">!&lt;MetaModel&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Passport Meta Model</span>
+<span class="l l-Scalar l-Scalar-Plain">fields</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Passport No</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Country of Issue</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Expiry Date</span>
 </code></pre>
 <p>When a user selects <strong>ID</strong> a <code>ID No</code> field will be shown which can include validation for length, etc. If they select <strong>Passport</strong> A <code>Passport No</code>, <code>Country of Issue</code> and <code>Expiry Date</code> fields will be shown</p>
-<h3 id="Scripting_-_Server_Side">1.3. Scripting - Server Side</h3>
+<h3 id="scripting---server-side"><a name="scripting---server-side" class="plugin-anchor" href="#scripting---server-side"><i class="fa fa-link" aria-hidden="true"></i></a>Scripting - Server Side</h3>
 <p><strong>Default Value</strong> is used when a document is created without an index value </p>
 <p>e.g. <code>${new Date():yyyy}</code> will automatically populate a year index with the current year.</p>
 <p>See <a href="../reference/standard-expression-text.html">Standard Expression</a></p>
@@ -1269,15 +1283,15 @@
 <p><strong>Filter</strong> are evaluated just before an index value is saved, it accepts any Groovy statement</p>
 <p>e.g.</p>
 <p>Remove whitespaces:</p>
-<pre><code class="lang-Java">value.replaceAll(<span class="hljs-string">&quot;\\w*&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)
+<pre><code class="lang-Java"><span class="n">value</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s">&quot;\\w*&quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">)</span>
 </code></pre>
 <p>Strip out all non digits:</p>
-<pre><code class="lang-java">value.replaceAll(<span class="hljs-string">&quot;\\D+&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)
+<pre><code class="lang-java"><span class="n">value</span><span class="o">.</span><span class="na">replaceAll</span><span class="o">(</span><span class="s">&quot;\\D+&quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">)</span>
 </code></pre>
 <p>Uppercase and trim:</p>
-<pre><code class="lang-java">value.toUpperCase().trim()
+<pre><code class="lang-java"><span class="n">value</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">().</span><span class="na">trim</span><span class="o">()</span>
 </code></pre>
-<h3 id="Properties">1.4. Properties</h3>
+<h3 id="properties"><a name="properties" class="plugin-anchor" href="#properties"><i class="fa fa-link" aria-hidden="true"></i></a>Properties</h3>
 <p><strong>Name</strong> - The name used in the database - Index names cannot be changed after they are created. </p>
 <p><strong>Case Sensitivity</strong> - All indexes with a common name need to be in the same case, PaperTrail will automatilly change the case if an indexing index in a different node has a different case.</p>
 <blockquote>
@@ -1288,7 +1302,7 @@
 <p>If a required index is added to a node which already has documents, the index will need to be populated before anything else can be done with those documents)</p>
 </blockquote>
 <p><strong>Read Only</strong> Indexes can oinly be set on import, thereafter they are non editable</p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#Configuring_Node_Indexes___Fields">1. Configuring Node Indexes / Fields</a></li><ul><li><a href="#Index_Types">1.1. Index Types</a></li><li><a href="#Scripting_-_Front_End">1.2. Scripting - Front End</a></li><li><a href="#Scripting_-_Server_Side">1.3. Scripting - Server Side</a></li><li><a href="#Properties">1.4. Properties</a></li></ul></ul></div><a href="#Configuring_Node_Indexes___Fields" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1331,7 +1345,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Indexes / Meta Models","level":"1.2.8","depth":2,"next":{"title":"Logging","level":"1.2.9","depth":2,"path":"configuration/logging-text.md","ref":"configuration/logging-text.md","articles":[]},"previous":{"title":"eSign","level":"1.2.7","depth":2,"path":"configuration/eSign.md","ref":"configuration/eSign.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/indexes.md","mtime":"2017-08-14T07:50:07.637Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Indexes / Meta Models","level":"1.2.8","depth":2,"next":{"title":"Logging","level":"1.2.9","depth":2,"path":"configuration/logging-text.md","ref":"configuration/logging-text.md","articles":[]},"previous":{"title":"eSign","level":"1.2.7","depth":2,"path":"configuration/eSign.md","ref":"configuration/eSign.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/indexes.md","mtime":"2017-08-31T06:43:58.612Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1342,6 +1356,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

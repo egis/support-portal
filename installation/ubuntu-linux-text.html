@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,13 +1161,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="Ubuntu_Linux"><a name="ubuntu-linux" class="plugin-anchor" href="#ubuntu-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Ubuntu Linux</h1>
-<h2 id="Java">1. Java</h2>
+                                <h1 id="ubuntu-linux"><a name="ubuntu-linux" class="plugin-anchor" href="#ubuntu-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Ubuntu Linux</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#java">Java</a></li>
+<li><a href="#postgresql">PostgreSQL</a><ul>
+<li><a href="#setup-postgresql-to-allow-remote-connections">Setup PostgreSQL to allow remote connections</a></li>
+</ul>
+</li>
+<li><a href="#conversion">Conversion</a></li>
+<li><a href="#papertrail-service">PaperTrail Service</a><ul>
+<li><a href="#troubleshooting-the-papertrail-service">Troubleshooting the PaperTrail Service</a></li>
+</ul>
+</li>
+</ul>
+
+</div><!-- tocstop -->
+<h2 id="java"><a name="java" class="plugin-anchor" href="#java"><i class="fa fa-link" aria-hidden="true"></i></a>Java</h2>
 <ul>
 <li><p>Install Oracle Java 8 SDK:</p>
 <pre><code class="lang-shell">add-apt-repository ppa:webupd8team/java --yes   
 apt-get update   
-echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+<span class="nb">echo</span> oracle-java8-installer shared/accepted-oracle-license-v1-1 <span class="k">select</span> <span class="nb">true</span> <span class="p">|</span> /usr/bin/debconf-set-selections
 apt-get install oracle-java8-installer update-java-alternatives -s java-8-oracle
 </code></pre>
 </li>
@@ -1175,7 +1195,7 @@ cp US_export_policy.jar /usr/lib/jvm/java-8-oracle/jre/lib/security/
 </code></pre>
 </li>
 </ul>
-<h2 id="PostgreSQL">2. PostgreSQL</h2>
+<h2 id="postgresql"><a name="postgresql" class="plugin-anchor" href="#postgresql"><i class="fa fa-link" aria-hidden="true"></i></a>PostgreSQL</h2>
 <ul>
 <li>Install PostGres </li>
 </ul>
@@ -1185,18 +1205,18 @@ cp US_export_policy.jar /usr/lib/jvm/java-8-oracle/jre/lib/security/
 <ul>
 <li>Create database and postgres Papertrail user:</li>
 </ul>
-<pre><code class="lang-shell">PSQL_VERSION=9.3 sudo -u postgres psql -c 
-&quot;CREATE ROLE papertrail PASSWORD &apos;papertrail&apos; SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;&quot;   
-sudo -u postgres psql -c &apos;create database papertrail with owner papertrail;&apos;  
-echo host  papertrail papertrail  127.0.0.1/32 md5 &gt;&gt; /etc/postgresql/$PSQL_VERSION/main/pg_hba.conf /etc/init.d/postgresql restart
+<pre><code class="lang-shell"><span class="nv">PSQL_VERSION</span><span class="o">=</span><span class="m">9</span>.3 sudo -u postgres psql -c 
+<span class="s2">&quot;CREATE ROLE papertrail PASSWORD &apos;papertrail&apos; SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;&quot;</span>   
+sudo -u postgres psql -c <span class="s1">&apos;create database papertrail with owner papertrail;&apos;</span>  
+<span class="nb">echo</span> host  papertrail papertrail  <span class="m">127</span>.0.0.1/32 md5 &gt;&gt; /etc/postgresql/<span class="nv">$PSQL_VERSION</span>/main/pg_hba.conf /etc/init.d/postgresql restart
 </code></pre>
-<h3 id="Setup_PostgreSQL_to_allow_remote_connections">2.1. Setup PostgreSQL to allow remote connections</h3>
+<h3 id="setup-postgresql-to-allow-remote-connections"><a name="setup-postgresql-to-allow-remote-connections" class="plugin-anchor" href="#setup-postgresql-to-allow-remote-connections"><i class="fa fa-link" aria-hidden="true"></i></a>Setup PostgreSQL to allow remote connections</h3>
 <p>This is useful if you wish to install PaperTrail on a Windows server for example, but wish to keep the PostgreSQL DB on a Linux environment. Following the below will allow the Windows host to communicate with the Linux DB host and also allow you to use the pgAdmin GUI and tools against the Linux DB.</p>
 <p>1) On the Linux machine hosting the PostGres DB, navigate to <code>/etc/postgresql/[version]/main/</code></p>
 <p>2) Modify file <code>pg_hba.conf</code> to add entries under IPv4 local connections for each host; e.g<br><code>host    all             all             127.0.0.1/32            md5</code><br><code>host    all             all             192.168.192.10/32       md5</code></p>
 <p>3) Modify file <code>postgresql.conf</code> and unhash the listen_addresses, changing it to<br><code>enable listen_addresses = &apos;*&apos;</code></p>
 <p>4) Restart the postgresql service<br><code>service postgresql restart</code></p>
-<h2 id="Conversion">3. Conversion</h2>
+<h2 id="conversion"><a name="conversion" class="plugin-anchor" href="#conversion"><i class="fa fa-link" aria-hidden="true"></i></a>Conversion</h2>
 <p>Install the following dependencies:</p>
 <ul>
 <li>libreoffice</li>
@@ -1209,23 +1229,23 @@ echo host  papertrail papertrail  127.0.0.1/32 md5 &gt;&gt; /etc/postgresql/$PSQ
 <p>swftools is not a standard package - To install it, use</p>
 <pre><code class="lang-shell">sudo apt-get -y install libjpeg62 libgif4 sudo apt-get -y install libart-2.0-2 wget -P /tmp/http://archive.canonical.com/ubuntu/pool/partner/s/swftools/swftools_0.9.0-0ubuntu2_amd64.deb chmod a+x /tmp/swftools_0.9.0-0ubuntu2_amd64.deb sudo dpkg -i /tmp/swftools_0.9.0-0ubuntu2_amd64.deb
 </code></pre>
-<h2 id="PaperTrail_Service">4. PaperTrail Service</h2>
+<h2 id="papertrail-service"><a name="papertrail-service" class="plugin-anchor" href="#papertrail-service"><i class="fa fa-link" aria-hidden="true"></i></a>PaperTrail Service</h2>
 <p>1) Install PaperTrail
 <code>sh Papertrail_&lt;version&gt;.sh -q</code></p>
 <p>2) Update the db settings in the <code>/opt/Papertrail/conf/papertrail/properties</code></p>
-<pre><code class="lang-javascript">db.database=papertrail
-db.host=localhost
-db.pass=papertrail
-db.user=papertrail
-db.type=postgresql
+<pre><code class="lang-javascript"><span class="nx">db</span><span class="p">.</span><span class="nx">database</span><span class="o">=</span><span class="nx">papertrail</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">host</span><span class="o">=</span><span class="nx">localhost</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">pass</span><span class="o">=</span><span class="nx">papertrail</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">user</span><span class="o">=</span><span class="nx">papertrail</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="nx">postgresql</span>
 </code></pre>
 <p>3) Start papertrail
 <code>/etc/init.d/papertrail start</code></p>
-<h3 id="Troubleshooting_the_PaperTrail_Service">4.1. Troubleshooting the PaperTrail Service</h3>
+<h3 id="troubleshooting-the-papertrail-service"><a name="troubleshooting-the-papertrail-service" class="plugin-anchor" href="#troubleshooting-the-papertrail-service"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting the PaperTrail Service</h3>
 <p>Occasionally, the PaperTrail service may fail to stop. While <code>service papertrail status</code> may show that the service is inactive, the java process could still be running. In this scenario, you&apos;ll see that the PaperTrail web front-end is still available. Executing <code>ps -aux</code> will show the java process still running.</p>
 <p>1) To end the java process: <code>killall java</code>
 2) Verify that the PaperTrail web front-end is down. If this is still up, try <code>killall -KILL java</code> to end a stubborn java process.<br><strong>Note:</strong><br><code>killall java</code> - will do a controlled shutdown<br><code>killall -KILL java</code> - just terminates the process, which can cause PaperTrail to lose messages</p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Ubuntu_Linux">Ubuntu Linux</a></p><li><a href="#Java">1. Java</a></li><li><a href="#PostgreSQL">2. PostgreSQL</a></li><ul><li><a href="#Setup_PostgreSQL_to_allow_remote_connections">2.1. Setup PostgreSQL to allow remote connections</a></li></ul><li><a href="#Conversion">3. Conversion</a></li><li><a href="#PaperTrail_Service">4. PaperTrail Service</a></li><ul><li><a href="#Troubleshooting_the_PaperTrail_Service">4.1. Troubleshooting the PaperTrail Service</a></li></ul></ul></div><a href="#Java" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1268,7 +1288,7 @@ db.type=postgresql
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ubuntu Linux","level":"1.4.5","depth":2,"next":{"title":"Windows","level":"1.4.6","depth":2,"path":"installation/Windows.md","ref":"installation/Windows.md","articles":[]},"previous":{"title":"Mac OS X","level":"1.4.4","depth":2,"path":"installation/macosx.md","ref":"installation/macosx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/ubuntu-linux-text.md","mtime":"2017-08-14T07:50:07.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Ubuntu Linux","level":"1.4.5","depth":2,"next":{"title":"Windows","level":"1.4.6","depth":2,"path":"installation/Windows.md","ref":"installation/Windows.md","articles":[]},"previous":{"title":"Mac OS X","level":"1.4.4","depth":2,"path":"installation/macosx.md","ref":"installation/macosx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/ubuntu-linux-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1279,6 +1299,10 @@ db.type=postgresql
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

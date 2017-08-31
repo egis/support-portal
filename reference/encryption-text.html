@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,8 +1161,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="Encryption"><a name="encryption" class="plugin-anchor" href="#encryption"><i class="fa fa-link" aria-hidden="true"></i></a>Encryption</h1>
-<h2 id="Encrypting_files_at_rest_(AES)">1. Encrypting files at rest (AES)</h2>
+                                <h1 id="encryption"><a name="encryption" class="plugin-anchor" href="#encryption"><i class="fa fa-link" aria-hidden="true"></i></a>Encryption</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#encrypting-files-at-rest-aes">Encrypting files at rest (AES)</a></li>
+<li><a href="#encrypting-files-in-transit-ssl">Encrypting files in transit (SSL)</a></li>
+<li><a href="#encrypting-outbound-email-smime">Encrypting Outbound Email (SMIME)</a></li>
+<li><a href="#decrypting-inbound-email-smime">Decrypting Inbound Email (SMIME)</a></li>
+</ul>
+
+</div><!-- tocstop -->
+<h2 id="encrypting-files-at-rest-aes"><a name="encrypting-files-at-rest-aes" class="plugin-anchor" href="#encrypting-files-at-rest-aes"><i class="fa fa-link" aria-hidden="true"></i></a>Encrypting files at rest (AES)</h2>
 <ul>
 <li>Add the following to the <strong>papertrail.properties</strong> file before starting PaperTrail for the first time<br><code>storage.encrypt=true</code></li>
 </ul>
@@ -1170,7 +1184,7 @@
 <li>Enter the <strong>unique key name</strong> for this store.  </li>
 <li>The <strong>encryption key will be automatically generated</strong> on restart and stored obfuscated in the database.  </li>
 </ul>
-<h2 id="Encrypting_files_in_transit_(SSL)">2. Encrypting files in transit (SSL)</h2>
+<h2 id="encrypting-files-in-transit-ssl"><a name="encrypting-files-in-transit-ssl" class="plugin-anchor" href="#encrypting-files-in-transit-ssl"><i class="fa fa-link" aria-hidden="true"></i></a>Encrypting files in transit (SSL)</h2>
 <ul>
 <li>Create a <strong>Java keystore (JKS)</strong> </li>
 </ul>
@@ -1186,19 +1200,19 @@
 <li>Click <strong>Save</strong>.  </li>
 <li>Restart <strong>PaperTrail</strong>.  </li>
 </ul>
-<h2 id="Encrypting_Outbound_Email_(SMIME)">3. Encrypting Outbound Email (SMIME)</h2>
+<h2 id="encrypting-outbound-email-smime"><a name="encrypting-outbound-email-smime" class="plugin-anchor" href="#encrypting-outbound-email-smime"><i class="fa fa-link" aria-hidden="true"></i></a>Encrypting Outbound Email (SMIME)</h2>
 <p>In <code>papertrail.properties</code> add the following property:
 e.g.</p>
 <pre><code>email.smime.out.&lt;email address&gt;=&lt;path to X509 public certificate&gt;
 </code></pre><p>e.g.</p>
 <pre><code>email.sime.out.confidential@example.com=C:\public.cert
 </code></pre><p>To test: Email anything from PaperTrail to that email and it should automatically be encrypted.</p>
-<h2 id="Decrypting_Inbound_Email_(SMIME)">4. Decrypting Inbound Email (SMIME)</h2>
+<h2 id="decrypting-inbound-email-smime"><a name="decrypting-inbound-email-smime" class="plugin-anchor" href="#decrypting-inbound-email-smime"><i class="fa fa-link" aria-hidden="true"></i></a>Decrypting Inbound Email (SMIME)</h2>
 <p>Under <code>Services -&gt; Properties -&gt; Imports</code> configure.</p>
 <p><strong>Email Decryption Cert Path</strong>: A path to a JCEKS Key Store  (Note: JCEKS not JKS) that contains one or more keys to decrypt incoming email. The file should have an <code>jceks</code> extension. Each entry in the keystore should have the same password as the keystore it self.  </p>
 <p><strong>Email Decryption Password</strong>: The password to the keystore.  </p>
 <p>To test try and view any encrypted mail in preview - The body and attachments should be available - if it does not work then a smime.p7m attachment will only be visible.</p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Encryption">Encryption</a></p><li><a href="#Encrypting_files_at_rest_(AES)">1. Encrypting files at rest (AES)</a></li><li><a href="#Encrypting_files_in_transit_(SSL)">2. Encrypting files in transit (SSL)</a></li><li><a href="#Encrypting_Outbound_Email_(SMIME)">3. Encrypting Outbound Email (SMIME)</a></li><li><a href="#Decrypting_Inbound_Email_(SMIME)">4. Decrypting Inbound Email (SMIME)</a></li></ul></div><a href="#Encrypting_files_at_rest_(AES)" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1241,7 +1255,7 @@ e.g.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Encryption","level":"1.6.4","depth":2,"next":{"title":"Linking","level":"1.6.5","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},"previous":{"title":"Document Export","level":"1.6.3","depth":2,"path":"reference/docexport.md","ref":"reference/docexport.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/encryption-text.md","mtime":"2017-08-14T07:50:07.649Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Encryption","level":"1.6.4","depth":2,"next":{"title":"Linking","level":"1.6.5","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},"previous":{"title":"Document Export","level":"1.6.3","depth":2,"path":"reference/docexport.md","ref":"reference/docexport.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/encryption-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1252,6 +1266,10 @@ e.g.</p>
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

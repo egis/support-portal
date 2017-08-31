@@ -4,7 +4,8 @@ machine:
 
 dependencies:
   override:
-    - npm install gh-pages
+    - pip install pygments
+    - npm install gh-pages gitbook-plugin-etoc gitbook-plugin-pygments
     - npm install -g gitbook-cli
 
 test:

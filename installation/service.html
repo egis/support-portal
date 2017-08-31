@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,7 +1161,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="Configuring_service_settings">0.1. Configuring service settings</h3>
+                                <h3 id="configuring-service-settings"><a name="configuring-service-settings" class="plugin-anchor" href="#configuring-service-settings"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring service settings</h3>
 <table>
 <thead>
 <tr>
@@ -1176,7 +1180,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="Configuration_Options">0.2. Configuration Options</h3>
+<h3 id="configuration-options"><a name="configuration-options" class="plugin-anchor" href="#configuration-options"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration Options</h3>
 <table>
 <thead>
 <tr>
@@ -1203,13 +1207,13 @@
 </tr>
 </tbody>
 </table>
-<h3 id="System_Properties">0.3. System Properties</h3>
+<h3 id="system-properties"><a name="system-properties" class="plugin-anchor" href="#system-properties"><i class="fa fa-link" aria-hidden="true"></i></a>System Properties</h3>
 <p>System properties can be set via different sources, in the following resolution order:<br>1) Runtime<br>2) Database<br>3) File (in <code>conf/papertrail.properties</code>)<br>4) Startup Argument</p>
-<h2 id="Runtime">1. Runtime</h2>
+<h2 id="runtime"><a name="runtime" class="plugin-anchor" href="#runtime"><i class="fa fa-link" aria-hidden="true"></i></a>Runtime</h2>
 <p>System properties can be viewed and changed <em>on the fly</em> in a running environment by executing the following runtime commands from the PaperTrail Console:<br><code>System.getProperty(&apos;systemProperty&apos;)</code> to view a property&apos;s value<br><code>System.setProperty(&apos;systemProperty&apos;, &apos;value&apos;)</code> to set a property&apos;s value<br>e.g. <code>System.setProperty(&apos;sampleproperty&apos;, &apos;true&apos;)</code></p>
-<h2 id="Database">2. Database</h2>
+<h2 id="database"><a name="database" class="plugin-anchor" href="#database"><i class="fa fa-link" aria-hidden="true"></i></a>Database</h2>
 <p>Example below given for a PostgreSQL DB:<br><code>update system_property set value = &apos;SampleLicenseText&apos; where name =&apos;license&apos;</code></p>
-<h2 id="File_or_Startup_Argument">3. File or Startup Argument</h2>
+<h2 id="file-or-startup-argument"><a name="file-or-startup-argument" class="plugin-anchor" href="#file-or-startup-argument"><i class="fa fa-link" aria-hidden="true"></i></a>File or Startup Argument</h2>
 <p>System properties can either be set as startup configuration option using <code>-DsystemProperty=value</code>, or in the <code>conf/papertrail.properties</code> file:</p>
 <table>
 <thead>
@@ -1265,7 +1269,7 @@
 </tr>
 </tbody>
 </table>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#">none</a></li><ul><li><a href="#Configuring_service_settings">0.1. Configuring service settings</a></li><li><a href="#Configuration_Options">0.2. Configuration Options</a></li><li><a href="#System_Properties">0.3. System Properties</a></li></ul><li><a href="#Runtime">1. Runtime</a></li><li><a href="#Database">2. Database</a></li><li><a href="#File_or_Startup_Argument">3. File or Startup Argument</a></li></ul></div><a href="#" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1308,7 +1312,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Service","level":"1.4.7","depth":2,"next":{"title":"Solution","level":"1.4.8","depth":2,"path":"installation/solution.md","ref":"installation/solution.md","articles":[]},"previous":{"title":"Windows","level":"1.4.6","depth":2,"path":"installation/Windows.md","ref":"installation/Windows.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/service.md","mtime":"2017-08-14T07:50:07.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Service","level":"1.4.7","depth":2,"next":{"title":"Solution","level":"1.4.8","depth":2,"path":"installation/solution.md","ref":"installation/solution.md","articles":[]},"previous":{"title":"Windows","level":"1.4.6","depth":2,"path":"installation/Windows.md","ref":"installation/Windows.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/service.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1319,6 +1323,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,14 +1161,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="High_Availability"><a name="high-availability" class="plugin-anchor" href="#high-availability"><i class="fa fa-link" aria-hidden="true"></i></a>High Availability</h1>
+                                <h1 id="high-availability"><a name="high-availability" class="plugin-anchor" href="#high-availability"><i class="fa fa-link" aria-hidden="true"></i></a>High Availability</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#master-node">Master Node</a></li>
+<li><a href="#file-replication">File Replication</a></li>
+<li><a href="#index-replication">Index Replication</a><ul>
+<li><a href="#replication">Replication</a></li>
+<li><a href="#clustering">Clustering</a></li>
+</ul>
+</li>
+<li><a href="#shared-db-vs-replication-db">Shared DB vs Replication DB</a><ul>
+<li><a href="#cold-standby">Cold Standby</a></li>
+<li><a href="#warm-standby">Warm Standby</a></li>
+</ul>
+</li>
+</ul>
+
+</div><!-- tocstop -->
 <p>PaperTrail support 4 distinct modes of HA operation:</p>
 <ol>
 <li>Replication</li>
 <li>Clustering</li>
 <li>Cold/Warm Standby</li>
 </ol>
-<h3 id="Master_Node">0.1. Master Node</h3>
+<h3 id="master-node"><a name="master-node" class="plugin-anchor" href="#master-node"><i class="fa fa-link" aria-hidden="true"></i></a>Master Node</h3>
 <p>Whether using replication or clustering, which node is configured as master will matter is it is responsible for running a number of background jobs including:</p>
 <ul>
 <li>workflow and allocation timeouts</li>
@@ -1175,7 +1197,7 @@
 </ul>
 <p>Should the master fail, a new master needs to be configured.</p>
 <p><strong>Email</strong> and <strong>Folder</strong> watches are configured per server/node so that load can be manually balanced, should a node fail, then the watches that were configured for it will need to be manually moved.</p>
-<h3 id="File_Replication">0.2. File Replication</h3>
+<h3 id="file-replication"><a name="file-replication" class="plugin-anchor" href="#file-replication"><i class="fa fa-link" aria-hidden="true"></i></a>File Replication</h3>
 <p> PaperTrail has a builtin file replication engine that supports both <strong>master-master</strong> and <strong>master-slave</strong> it is configued by specifying:</p>
 <pre><code> file.replication.upstream=http://slave:8080
 </code></pre><p> In the background this configures 2 File/Blob stores:</p>
@@ -1194,41 +1216,41 @@
 <blockquote>
 <p>PaperTrail needs low latency access to the primary sync file store so if you are using Amazon S3 ensure that PaperTrail is hosted in the same AWS region as the  S3 bucket.</p>
 </blockquote>
-<h3 id="Index_Replication">0.3. Index Replication</h3>
+<h3 id="index-replication"><a name="index-replication" class="plugin-anchor" href="#index-replication"><i class="fa fa-link" aria-hidden="true"></i></a>Index Replication</h3>
 <p>Specifing a slave server for <code>index.upstream</code> will only work for 2 node clusters, for 2+ nodes switch to messaging based replication using:</p>
 <pre><code>index.upstream=topic
 </code></pre><p>It is recommended in both scenarios to setup a scheduled <code>index_repair</code> task.</p>
-<h2 id="Replication">1. Replication</h2>
+<h2 id="replication"><a name="replication" class="plugin-anchor" href="#replication"><i class="fa fa-link" aria-hidden="true"></i></a>Replication</h2>
 <p><img src="../images/ha-replication.png" alt="replication"></p>
 <p>To convert a standalone installation to a replicated installation, follow these steps:  </p>
 <ul>
 <li>Stop PaperTrail and create a <strong>database backup</strong>.  </li>
 <li>Configure the following properties in <strong>papertrail.properties</strong> on the master</li>
 </ul>
-<pre><code class="lang-javascript">index.upstream=http://slave:8080
-replication.upstream=http://slave:8080  
-file.replication.upstream=http://host:8080  
-replication.master=true  
-replication.increment=2  
-replication.offset=1  
-db.identity.override=true # for sql server replication only
+<pre><code class="lang-javascript"><span class="nx">index</span><span class="p">.</span><span class="nx">upstream</span><span class="o">=</span><span class="nx">http</span><span class="o">:</span><span class="c1">//slave:8080</span>
+<span class="nx">replication</span><span class="p">.</span><span class="nx">upstream</span><span class="o">=</span><span class="nx">http</span><span class="o">:</span><span class="c1">//slave:8080  </span>
+<span class="nx">file</span><span class="p">.</span><span class="nx">replication</span><span class="p">.</span><span class="nx">upstream</span><span class="o">=</span><span class="nx">http</span><span class="o">:</span><span class="c1">//host:8080  </span>
+<span class="nx">replication</span><span class="p">.</span><span class="nx">master</span><span class="o">=</span><span class="kc">true</span>  
+<span class="nx">replication</span><span class="p">.</span><span class="nx">increment</span><span class="o">=</span><span class="mi">2</span>  
+<span class="nx">replication</span><span class="p">.</span><span class="nx">offset</span><span class="o">=</span><span class="mi">1</span>  
+<span class="nx">db</span><span class="p">.</span><span class="nx">identity</span><span class="p">.</span><span class="nx">override</span><span class="o">=</span><span class="kc">true</span> <span class="err">#</span> <span class="k">for</span> <span class="nx">sql</span> <span class="nx">server</span> <span class="nx">replication</span> <span class="nx">only</span>
 </code></pre>
 <ul>
 <li>Configure these properties on the slave:  </li>
 </ul>
-<pre><code class="lang-javascript">index.upstream=http://master:8080  
-replication.upstream=http://master:8080
-file.replication.upstream=http://master:8080  
-replication.master=false  
-replication.increment=2  
-replication.offset=2  
-db.identity.override=true # for sql server replication only
+<pre><code class="lang-javascript"><span class="nx">index</span><span class="p">.</span><span class="nx">upstream</span><span class="o">=</span><span class="nx">http</span><span class="o">:</span><span class="c1">//master:8080  </span>
+<span class="nx">replication</span><span class="p">.</span><span class="nx">upstream</span><span class="o">=</span><span class="nx">http</span><span class="o">:</span><span class="c1">//master:8080</span>
+<span class="nx">file</span><span class="p">.</span><span class="nx">replication</span><span class="p">.</span><span class="nx">upstream</span><span class="o">=</span><span class="nx">http</span><span class="o">:</span><span class="c1">//master:8080  </span>
+<span class="nx">replication</span><span class="p">.</span><span class="nx">master</span><span class="o">=</span><span class="kc">false</span>  
+<span class="nx">replication</span><span class="p">.</span><span class="nx">increment</span><span class="o">=</span><span class="mi">2</span>  
+<span class="nx">replication</span><span class="p">.</span><span class="nx">offset</span><span class="o">=</span><span class="mi">2</span>  
+<span class="nx">db</span><span class="p">.</span><span class="nx">identity</span><span class="p">.</span><span class="nx">override</span><span class="o">=</span><span class="kc">true</span> <span class="err">#</span> <span class="k">for</span> <span class="nx">sql</span> <span class="nx">server</span> <span class="nx">replication</span> <span class="nx">only</span>
 </code></pre>
 <ul>
 <li>Start up the master</li>
 <li>Wait a few minutes and start up the slave</li>
 </ul>
-<h2 id="Clustering">2. Clustering</h2>
+<h2 id="clustering"><a name="clustering" class="plugin-anchor" href="#clustering"><i class="fa fa-link" aria-hidden="true"></i></a>Clustering</h2>
 <p><img src="../images/ha-clustering.png" alt="replication"></p>
 <blockquote>
 <p>Note: Clustering requires a low latency (&lt;1ms), reliable (preferably dual path redundant network) network connection to function correctly.  Replication can be used in WAN environments.</p>
@@ -1241,14 +1263,14 @@ file.replication.upstream=http://slave:8080
 </code></pre></li>
 <li>Restart PaperTrail.</li>
 </ol>
-<h3 id="Shared_DB_vs_Replication_DB">2.1. Shared DB vs Replication DB</h3>
-<h2 id="Cold_Standby">3. Cold Standby</h2>
+<h3 id="shared-db-vs-replication-db"><a name="shared-db-vs-replication-db" class="plugin-anchor" href="#shared-db-vs-replication-db"><i class="fa fa-link" aria-hidden="true"></i></a>Shared DB vs Replication DB</h3>
+<h2 id="cold-standby"><a name="cold-standby" class="plugin-anchor" href="#cold-standby"><i class="fa fa-link" aria-hidden="true"></i></a>Cold Standby</h2>
 <p><img src="../images/ha-cold.png" alt="replication"></p>
 <p>Indexes are not replicated and PaperTrail is only started in file store replication receive mode. Failover requires re-configuration of PaperTrail for full operation + rebuilding indexes.</p>
-<h2 id="Warm_Standby">4. Warm Standby</h2>
+<h2 id="warm-standby"><a name="warm-standby" class="plugin-anchor" href="#warm-standby"><i class="fa fa-link" aria-hidden="true"></i></a>Warm Standby</h2>
 <p><img src="../images/ha-standby.png" alt="replication"></p>
-<p>Everything is replicated in near realtime, and PaperTrail is started in read only mode. Failover requires restarting PaperTrail in read/write mode. </p>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#High_Availability">High Availability</a></p><li><a href="#">none</a></li><ul><li><a href="#Master_Node">0.1. Master Node</a></li><li><a href="#File_Replication">0.2. File Replication</a></li><li><a href="#Index_Replication">0.3. Index Replication</a></li></ul><li><a href="#Replication">1. Replication</a></li><li><a href="#Clustering">2. Clustering</a></li><ul><li><a href="#Shared_DB_vs_Replication_DB">2.1. Shared DB vs Replication DB</a></li></ul><li><a href="#Cold_Standby">3. Cold Standby</a></li><li><a href="#Warm_Standby">4. Warm Standby</a></li></ul></div><a href="#" id="goTop"><i class="fa fa-arrow-up"></i></a>
+<p>Everything is replicated in near realtime, and PaperTrail is started in read only mode. Failover requires restarting PaperTrail in read/write mode.</p>
+
                                 
                                 </section>
                             
@@ -1291,7 +1313,7 @@ file.replication.upstream=http://slave:8080
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"High Availability","level":"1.6.12","depth":2,"next":{"title":"Jobs","level":"1.6.13","depth":2,"path":"reference/jobs-text.md","ref":"reference/jobs-text.md","articles":[]},"previous":{"title":"Health","level":"1.6.11","depth":2,"path":"reference/health-text.md","ref":"reference/health-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/high-availability-text.md","mtime":"2017-08-14T07:50:07.649Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"High Availability","level":"1.6.12","depth":2,"next":{"title":"Jobs","level":"1.6.13","depth":2,"path":"reference/jobs-text.md","ref":"reference/jobs-text.md","articles":[]},"previous":{"title":"Health","level":"1.6.11","depth":2,"path":"reference/health-text.md","ref":"reference/health-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/high-availability-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1302,6 +1324,10 @@ file.replication.upstream=http://slave:8080
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

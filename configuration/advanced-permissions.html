@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,7 +1161,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="Advanced_Permissions"><a name="advanced-permissions" class="plugin-anchor" href="#advanced-permissions"><i class="fa fa-link" aria-hidden="true"></i></a>Advanced Permissions</h1>
+                                <h1 id="advanced-permissions"><a name="advanced-permissions" class="plugin-anchor" href="#advanced-permissions"><i class="fa fa-link" aria-hidden="true"></i></a>Advanced Permissions</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#permissions-context">Permissions Context</a><ul>
+<li><a href="#permission-assignment">Permission Assignment</a></li>
+</ul>
+</li>
+<li><a href="#role-creation">Role Creation</a></li>
+<li><a href="#document-visibility-level">Document visibility level</a></li>
+<li><a href="#global-permissions">Global Permissions</a></li>
+<li><a href="#administrator-permissions">Administrator Permissions</a></li>
+<li><a href="#denying-permissions-to-user">Denying Permissions to User</a></li>
+<li><a href="#creators-permissions">Creator&apos;s permissions</a></li>
+<li><a href="#owners-permissions">Owner&apos;s permissions</a></li>
+<li><a href="#users--collaborators--permissions">User&apos;s / Collaborator&apos;s  permissions</a></li>
+<li><a href="#restrict-specific-node-access">Restrict Specific Node access</a></li>
+<li><a href="#applying-index-level-permissions">Applying Index Level Permissions</a></li>
+<li><a href="#site-wide-administrator">Site-Wide Administrator</a></li>
+<li><a href="#license-type">License Type</a></li>
+</ul>
+
+</div><!-- tocstop -->
 <p>Once you&#x2019;ve added a user, you need to specify what features that user can access. PaperTrail offers an extensible permissions system that makes it easy both to assign basic permissions to a large number of users.</p>
 <p>PaperTrail simplifies assigning permissions to users through two constructs: groups and roles. A group is a collection of users, while a role is a collection of permissions.</p>
 <blockquote>
@@ -1169,7 +1195,7 @@
 <li><strong>Deny</strong>: Forbids the specified entity from performing the defined action.  </li>
 <li><strong>Important</strong>: overrides a Deny permissions.  </li>
 </ul>
-<h2 id="Permissions_Context">1. Permissions Context</h2>
+<h2 id="permissions-context"><a name="permissions-context" class="plugin-anchor" href="#permissions-context"><i class="fa fa-link" aria-hidden="true"></i></a>Permissions Context</h2>
 <p>Here is an overview of the different contexts in which permissions apply</p>
 <table>
 <thead>
@@ -1206,8 +1232,8 @@
 </tbody>
 </table>
 <p>Note: In order to a see a folder in the node tree, <code>Permission=SEE Context=ALL</code> permissions are required as only the All context applies to nodes</p>
-<h1 id="Permission_Assignment"><a name="permission-assignment" class="plugin-anchor" href="#permission-assignment"><i class="fa fa-link" aria-hidden="true"></i></a>Permission Assignment</h1>
-<h2 id="Role_Creation">2. Role Creation</h2>
+<h1 id="permission-assignment"><a name="permission-assignment" class="plugin-anchor" href="#permission-assignment"><i class="fa fa-link" aria-hidden="true"></i></a>Permission Assignment</h1>
+<h2 id="role-creation"><a name="role-creation" class="plugin-anchor" href="#role-creation"><i class="fa fa-link" aria-hidden="true"></i></a>Role Creation</h2>
 <p>A set of permissions can be assigned to a role, and that role is assigned to one or more users.  </p>
 <p>Roles should be used when permissions need to be doled out to individuals not based on their membership in a particular group or team, but based on their responsibilities within a company. </p>
 <ol>
@@ -1217,7 +1243,7 @@
 <li>Select the <strong>permissions</strong> to assign to this role from the available listbox, and then select the right arrow to add these permissions to the selected listbox.  </li>
 <li>Select <strong>Add</strong> to add the new <strong>role</strong> to the system.  </li>
 </ol>
-<h2 id="Document_visibility_level">3. Document visibility level</h2>
+<h2 id="document-visibility-level"><a name="document-visibility-level" class="plugin-anchor" href="#document-visibility-level"><i class="fa fa-link" aria-hidden="true"></i></a>Document visibility level</h2>
 <p>To create a new document visibility level :  </p>
 <ol>
 <li>Under <strong>General &#x2192; Visibility</strong>  </li>
@@ -1225,7 +1251,7 @@
 <li><strong>Level</strong>: Enter a unique numeric value e.g. 4.  </li>
 <li><strong>Description</strong>: Enter a <strong>description</strong> for the visibility level e.g. Very High.  </li>
 </ol>
-<h2 id="Global_Permissions">4. Global Permissions</h2>
+<h2 id="global-permissions"><a name="global-permissions" class="plugin-anchor" href="#global-permissions"><i class="fa fa-link" aria-hidden="true"></i></a>Global Permissions</h2>
 <p>To apply Global Permissions, follow the below steps :  </p>
 <ol>
 <li>Under <strong>User Management -&gt; Global Permissions</strong> &#x2013; Add any permissions required.</li>
@@ -1233,31 +1259,31 @@
 <li>Global Administrators are defined as users with Admin on the Global Level.</li>
 <li>Administrators are anyone with an Admin permission.</li>
 </ol>
-<h2 id="Administrator_Permissions">5. Administrator Permissions</h2>
+<h2 id="administrator-permissions"><a name="administrator-permissions" class="plugin-anchor" href="#administrator-permissions"><i class="fa fa-link" aria-hidden="true"></i></a>Administrator Permissions</h2>
 <p>To apply Administrator Permissions, follow the below steps :  </p>
 <ol>
 <li>Global Administrators are defined as users with Admin on the Global Level.  </li>
 <li>Administrators are anyone with an Admin permission.  </li>
 </ol>
-<h2 id="Denying_Permissions_to_User">6. Denying Permissions to User</h2>
+<h2 id="denying-permissions-to-user"><a name="denying-permissions-to-user" class="plugin-anchor" href="#denying-permissions-to-user"><i class="fa fa-link" aria-hidden="true"></i></a>Denying Permissions to User</h2>
 <p>Denying users out of a group permissions on a node :  </p>
 <ol>
 <li>Give the <strong>group permissions</strong> on the node with <code>Type = Permit</code>.  </li>
 <li>Deny the <strong>user permissions</strong> by using <code>Type = Deny</code>.  </li>
 </ol>
-<h2 id="Creator&apos;s_permissions">7. Creator&apos;s permissions</h2>
+<h2 id="creators-permissions"><a name="creators-permissions" class="plugin-anchor" href="#creators-permissions"><i class="fa fa-link" aria-hidden="true"></i></a>Creator&apos;s permissions</h2>
 <ol>
 <li>Apply <strong>permissions</strong> in the <strong>CREATOR</strong> context</li>
 </ol>
-<h2 id="Owner&apos;s_permissions">8. Owner&apos;s permissions</h2>
+<h2 id="owners-permissions"><a name="owners-permissions" class="plugin-anchor" href="#owners-permissions"><i class="fa fa-link" aria-hidden="true"></i></a>Owner&apos;s permissions</h2>
 <ol>
 <li>Apply <strong>permissions</strong> in the <strong>OWNER</strong>  context</li>
 </ol>
-<h2 id="User&apos;s___Collaborator&apos;s__permissions">9. User&apos;s / Collaborator&apos;s  permissions</h2>
+<h2 id="users--collaborators--permissions"><a name="users--collaborators--permissions" class="plugin-anchor" href="#users--collaborators--permissions"><i class="fa fa-link" aria-hidden="true"></i></a>User&apos;s / Collaborator&apos;s  permissions</h2>
 <ol>
 <li>Apply <strong>permissions</strong> in the <strong>USER</strong>  context </li>
 </ol>
-<h2 id="Restrict_Specific_Node_access">10. Restrict Specific Node access</h2>
+<h2 id="restrict-specific-node-access"><a name="restrict-specific-node-access" class="plugin-anchor" href="#restrict-specific-node-access"><i class="fa fa-link" aria-hidden="true"></i></a>Restrict Specific Node access</h2>
 <p>To deny administrators access to specific node, follow the below steps :  </p>
 <ol>
 <li>Give a user (e.g. HR Manager) <strong>IMPORTANT Permission Admin</strong> on the node <blockquote>
@@ -1269,7 +1295,7 @@
 <li>Apply any other <strong>DENY permission</strong> required e.g. (Deny Role All to Everyone)  </li>
 <li>Apply <strong>IMPORTANT permissions</strong> to give  access e.g. (IMPORTANT READ to HR Group)  </li>
 </ol>
-<h2 id="Applying_Index_Level_Permissions">11. Applying Index Level Permissions</h2>
+<h2 id="applying-index-level-permissions"><a name="applying-index-level-permissions" class="plugin-anchor" href="#applying-index-level-permissions"><i class="fa fa-link" aria-hidden="true"></i></a>Applying Index Level Permissions</h2>
 <p>Permissions in PaperTrail are highly granular, and can even be applied to individual indexes.</p>
 <ol>
 <li>Within the <strong>Nodes interface</strong>, select a node.   </li>
@@ -1282,7 +1308,7 @@
 <li>Select the <strong>Add button</strong> to add the <strong>specified permission</strong> to the index.  </li>
 <li>Repeat this process to add as many permissions to this index as needed. When you are done adding permissions, select the <strong>Close</strong> button.  </li>
 </ol>
-<h2 id="Site-Wide_Administrator">12. Site-Wide Administrator</h2>
+<h2 id="site-wide-administrator"><a name="site-wide-administrator" class="plugin-anchor" href="#site-wide-administrator"><i class="fa fa-link" aria-hidden="true"></i></a>Site-Wide Administrator</h2>
 <blockquote>
 <p>WARNING: This permission grant gives a user &#x201C;superuser&#x201D; access to your PaperTrail installation; it should only be granted rarely, and only to trusted individuals within your organization. Before granting site-wide administrator permissions, consider granting a more limited set of permissions for a specific purpose, such as 
 List Admin or Node Admin.</p>
@@ -1295,12 +1321,12 @@ List Admin or Node Admin.</p>
 <li>From the <strong>Role drop-down</strong>, select All.  </li>
 <li>Leaving all other fields as is, select the <strong>Add button</strong>. The specified user will now have access to all administrative features of the site.  </li>
 </ol>
-<h2 id="License_Type">13. License Type</h2>
+<h2 id="license-type"><a name="license-type" class="plugin-anchor" href="#license-type"><i class="fa fa-link" aria-hidden="true"></i></a>License Type</h2>
 <p>To change the license,</p>
 <ol>
-<li>Update <strong>Services -&gt; Properties -&gt; General -&gt;License Code</strong>. </li>
+<li>Update <strong>Services -&gt; Properties -&gt; General -&gt;License Code</strong>.</li>
 </ol>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Permission_Assignment">Permission Assignment</a></p><li><a href="#Permissions_Context">1. Permissions Context</a></li><li><a href="#Role_Creation">2. Role Creation</a></li><li><a href="#Document_visibility_level">3. Document visibility level</a></li><li><a href="#Global_Permissions">4. Global Permissions</a></li><li><a href="#Administrator_Permissions">5. Administrator Permissions</a></li><li><a href="#Denying_Permissions_to_User">6. Denying Permissions to User</a></li><li><a href="#Creator" s_permissions'="">7. Creator&apos;s permissions</a></li><li><a href="#Owner" s_permissions'="">8. Owner&apos;s permissions</a></li><li><a href="#User" s___collaborator's__permissions'="">9. User&apos;s / Collaborator&apos;s  permissions</a></li><li><a href="#Restrict_Specific_Node_access">10. Restrict Specific Node access</a></li><li><a href="#Applying_Index_Level_Permissions">11. Applying Index Level Permissions</a></li><li><a href="#Site-Wide_Administrator">12. Site-Wide Administrator</a></li><li><a href="#License_Type">13. License Type</a></li></ul></div><a href="#Permissions_Context" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1343,7 +1369,7 @@ List Admin or Node Admin.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Advanced Permissions","level":"1.2.2","depth":2,"next":{"title":"Backups","level":"1.2.3","depth":2,"path":"configuration/backups-text.md","ref":"configuration/backups-text.md","articles":[]},"previous":{"title":"Advanced Login","level":"1.2.1","depth":2,"path":"configuration/advanced-login.md","ref":"configuration/advanced-login.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/advanced-permissions.md","mtime":"2017-08-14T07:50:07.637Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Advanced Permissions","level":"1.2.2","depth":2,"next":{"title":"Backups","level":"1.2.3","depth":2,"path":"configuration/backups-text.md","ref":"configuration/backups-text.md","articles":[]},"previous":{"title":"Advanced Login","level":"1.2.1","depth":2,"path":"configuration/advanced-login.md","ref":"configuration/advanced-login.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/advanced-permissions.md","mtime":"2017-08-31T06:43:58.612Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1354,6 +1380,10 @@ List Admin or Node Admin.</p>
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

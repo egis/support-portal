@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1155,9 +1159,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="Papertrail_Linux_CLI_command:_pt"><a name="papertrail-linux-cli-command-pt" class="plugin-anchor" href="#papertrail-linux-cli-command-pt"><i class="fa fa-link" aria-hidden="true"></i></a>Papertrail Linux CLI command: pt</h1>
+                                <h1 id="papertrail-linux-cli-command-pt"><a name="papertrail-linux-cli-command-pt" class="plugin-anchor" href="#papertrail-linux-cli-command-pt"><i class="fa fa-link" aria-hidden="true"></i></a>Papertrail Linux CLI command: pt</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#requirements">Requirements:</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+
+</div><!-- tocstop -->
 <p>A command line interface to perform functions not found in the administrative GUI is available. It can also be used as part of a scripting process, e.g. bulk export/upload etc. This utility can be installed on Linux via pip (package management system to install Python software packages).</p>
-<h3 id="Requirements:">0.1. Requirements:</h3>
+<h3 id="requirements"><a name="requirements" class="plugin-anchor" href="#requirements"><i class="fa fa-link" aria-hidden="true"></i></a>Requirements:</h3>
 <p>It is not necessary for this program to be installed on the Papertrail server that you intend on connecting to. However, the following packages need to be installed on the Linux host where you intend on using the <code>pt</code> CLI command:</p>
 <ul>
 <li>Python</li>
@@ -1165,11 +1179,11 @@
 <li>Git</li>
 </ul>
 <p>The installation of these packages may vary depending on the flavour of Linux running (e.g. <em>yum</em>, <em>rpm</em>, <em>apt-get</em>)</p>
-<h3 id="Installation">0.2. Installation</h3>
+<h3 id="installation"><a name="installation" class="plugin-anchor" href="#installation"><i class="fa fa-link" aria-hidden="true"></i></a>Installation</h3>
 <ul>
 <li><code>sudo pip install papertrail-cli</code></li>
 </ul>
-<h3 id="Usage">0.3. Usage</h3>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <ul>
 <li>Once installed, executing <code>pt --help</code> will bring up the available options and commands. Use <code>pt {command} --help</code> for more details on the specific command itself; e.g. <code>pt import --help</code></li>
 <li>To connect to a Papertrail host server:<br>
@@ -1179,12 +1193,12 @@
 <li>Another example:<br>
  <code>pt --host 192.168.1.10:8080 -- username admin --password &apos;mypassword&apos; import newusers.yml</code></li>
 </ul>
-<h3 id="Reference">0.4. Reference</h3>
+<h3 id="reference"><a name="reference" class="plugin-anchor" href="#reference"><i class="fa fa-link" aria-hidden="true"></i></a>Reference</h3>
 <ul>
 <li>The above 2 examples export and import users respectively based on the YAML format. See more <a href="../configuration/yaml-config.html">here</a></li>
 <li>Further details specific to the user import and export process can be found <a href="../configuration/user-export-and-import.html">here</a></li>
 </ul>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#Papertrail_Linux_CLI_command:_pt">Papertrail Linux CLI command: pt</a></p><li><a href="#">none</a></li><ul><li><a href="#Requirements:">0.1. Requirements:</a></li><li><a href="#Installation">0.2. Installation</a></li><li><a href="#Usage">0.3. Usage</a></li><li><a href="#Reference">0.4. Reference</a></li></ul></ul></div><a href="#" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1223,7 +1237,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CLI","level":"1.4.1","depth":2,"next":{"title":"Sizing","level":"1.4.2","depth":2,"path":"installation/sizing-text.md","ref":"installation/sizing-text.md","articles":[]},"previous":{"title":"Server Installation","level":"1.4","depth":1,"ref":"","articles":[{"title":"CLI","level":"1.4.1","depth":2,"path":"installation/cli-article.md","ref":"installation/cli-article.md","articles":[]},{"title":"Sizing","level":"1.4.2","depth":2,"path":"installation/sizing-text.md","ref":"installation/sizing-text.md","articles":[]},{"title":"Server Installation","level":"1.4.3","depth":2,"path":"installation/server-installation.md","ref":"installation/server-installation.md","articles":[]},{"title":"Mac OS X","level":"1.4.4","depth":2,"path":"installation/macosx.md","ref":"installation/macosx.md","articles":[]},{"title":"Ubuntu Linux","level":"1.4.5","depth":2,"path":"installation/ubuntu-linux-text.md","ref":"installation/ubuntu-linux-text.md","articles":[]},{"title":"Windows","level":"1.4.6","depth":2,"path":"installation/Windows.md","ref":"installation/Windows.md","articles":[]},{"title":"Service","level":"1.4.7","depth":2,"path":"installation/service.md","ref":"installation/service.md","articles":[]},{"title":"Solution","level":"1.4.8","depth":2,"path":"installation/solution.md","ref":"installation/solution.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/cli-article.md","mtime":"2017-08-14T07:50:07.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"CLI","level":"1.4.1","depth":2,"next":{"title":"Sizing","level":"1.4.2","depth":2,"path":"installation/sizing-text.md","ref":"installation/sizing-text.md","articles":[]},"previous":{"title":"Server Installation","level":"1.4","depth":1,"ref":"","articles":[{"title":"CLI","level":"1.4.1","depth":2,"path":"installation/cli-article.md","ref":"installation/cli-article.md","articles":[]},{"title":"Sizing","level":"1.4.2","depth":2,"path":"installation/sizing-text.md","ref":"installation/sizing-text.md","articles":[]},{"title":"Server Installation","level":"1.4.3","depth":2,"path":"installation/server-installation.md","ref":"installation/server-installation.md","articles":[]},{"title":"Mac OS X","level":"1.4.4","depth":2,"path":"installation/macosx.md","ref":"installation/macosx.md","articles":[]},{"title":"Ubuntu Linux","level":"1.4.5","depth":2,"path":"installation/ubuntu-linux-text.md","ref":"installation/ubuntu-linux-text.md","articles":[]},{"title":"Windows","level":"1.4.6","depth":2,"path":"installation/Windows.md","ref":"installation/Windows.md","articles":[]},{"title":"Service","level":"1.4.7","depth":2,"path":"installation/service.md","ref":"installation/service.md","articles":[]},{"title":"Solution","level":"1.4.8","depth":2,"path":"installation/solution.md","ref":"installation/solution.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/cli-article.md","mtime":"2017-08-31T06:43:58.620Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1234,6 +1248,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         

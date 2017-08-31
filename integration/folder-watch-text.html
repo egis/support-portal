@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
                 
             
@@ -25,7 +29,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-navigator/plugin.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pygments/website.css">
                 
             
                 
@@ -1157,23 +1161,37 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="Normal">1. Normal</h2>
+                                <h1 id="folder-watch"><a name="folder-watch" class="plugin-anchor" href="#folder-watch"><i class="fa fa-link" aria-hidden="true"></i></a>Folder Watch</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#normal">Normal</a></li>
+<li><a href="#csv">CSV</a></li>
+<li><a href="#import-and-sync">Import and Sync</a></li>
+<li><a href="#structured">Structured</a></li>
+<li><a href="#update">Update</a></li>
+<li><a href="#attach-to-form">Attach To Form</a></li>
+<li><a href="#document-archive">Document Archive</a></li>
+</ul>
+
+</div><!-- tocstop -->
+<h2 id="normal"><a name="normal" class="plugin-anchor" href="#normal"><i class="fa fa-link" aria-hidden="true"></i></a>Normal</h2>
 <p>Any file dropped into the Watched Folder will be imported into the specified node. </p>
-<h2 id="CSV">2. CSV</h2>
+<h2 id="csv"><a name="csv" class="plugin-anchor" href="#csv"><i class="fa fa-link" aria-hidden="true"></i></a>CSV</h2>
 <p>PaperTrail will scan the watched folder for any CSV file. The CSV will then be processed and matching files will be imported with their indexes.  </p>
-<pre><code class="lang-javascript">Filename : Sample.csv   
-    filename,index1,index2  
-    Sample1.txt,value1,value2  
-    Sample2.txt,value3,value4
+<pre><code class="lang-javascript"><span class="nx">Filename</span> <span class="o">:</span> <span class="nx">Sample</span><span class="p">.</span><span class="nx">csv</span>   
+    <span class="nx">filename</span><span class="p">,</span><span class="nx">index1</span><span class="p">,</span><span class="nx">index2</span>  
+    <span class="nx">Sample1</span><span class="p">.</span><span class="nx">txt</span><span class="p">,</span><span class="nx">value1</span><span class="p">,</span><span class="nx">value2</span>  
+    <span class="nx">Sample2</span><span class="p">.</span><span class="nx">txt</span><span class="p">,</span><span class="nx">value3</span><span class="p">,</span><span class="nx">value4</span>
 </code></pre>
-<pre><code class="lang-javascript">Filename : Sample1.txt
-Just some content <span class="hljs-keyword">in</span> Sample <span class="hljs-number">1</span>
+<pre><code class="lang-javascript"><span class="nx">Filename</span> <span class="o">:</span> <span class="nx">Sample1</span><span class="p">.</span><span class="nx">txt</span>
+<span class="nx">Just</span> <span class="nx">some</span> <span class="nx">content</span> <span class="k">in</span> <span class="nx">Sample</span> <span class="mi">1</span>
 </code></pre>
-<pre><code class="lang-javascript">Filename : Sample2.txt
-Just some content <span class="hljs-keyword">in</span> Sample <span class="hljs-number">2</span>
+<pre><code class="lang-javascript"><span class="nx">Filename</span> <span class="o">:</span> <span class="nx">Sample2</span><span class="p">.</span><span class="nx">txt</span>
+<span class="nx">Just</span> <span class="nx">some</span> <span class="nx">content</span> <span class="k">in</span> <span class="nx">Sample</span> <span class="mi">2</span>
 </code></pre>
 <p>In this example <code>Sample1.txt</code> and <code>Sample2.txt</code> would get imported with the index values (value1,value1) and (value3,value4) respectively </p>
-<h2 id="Import_and_Sync">3. Import and Sync</h2>
+<h2 id="import-and-sync"><a name="import-and-sync" class="plugin-anchor" href="#import-and-sync"><i class="fa fa-link" aria-hidden="true"></i></a>Import and Sync</h2>
 <p>Import and sync works by creating a temporary staging table to contain meta data coming from external systems - This meta data is dropped off in a XML or CSV file. A mapping file is used to map and reformat the data in these files, the mapping file takes the format of a CSV file imported into PaperTrail with the following columns:  </p>
 <table>
 <thead>
@@ -1205,50 +1223,50 @@ Just some content <span class="hljs-keyword">in</span> Sample <span class="hljs-
 </tr>
 </tbody>
 </table>
-<pre><code class="lang-javascript">Filename : Mapping.csv   
-       name,index,expression,format  
-    index <span class="hljs-number">1</span>,filename,,  
-    index <span class="hljs-number">2</span>,index2,,  
-    index <span class="hljs-number">3</span>,index3,${value}-smith,  
-    date <span class="hljs-number">3</span>,date3,,dd/MM/yyyy
+<pre><code class="lang-javascript"><span class="nx">Filename</span> <span class="o">:</span> <span class="nx">Mapping</span><span class="p">.</span><span class="nx">csv</span>   
+       <span class="nx">name</span><span class="p">,</span><span class="nx">index</span><span class="p">,</span><span class="nx">expression</span><span class="p">,</span><span class="nx">format</span>  
+    <span class="nx">index</span> <span class="mi">1</span><span class="p">,</span><span class="nx">filename</span><span class="p">,,</span>  
+    <span class="nx">index</span> <span class="mi">2</span><span class="p">,</span><span class="nx">index2</span><span class="p">,,</span>  
+    <span class="nx">index</span> <span class="mi">3</span><span class="p">,</span><span class="nx">index3</span><span class="p">,</span><span class="nx">$</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span><span class="o">-</span><span class="nx">smith</span><span class="p">,</span>  
+    <span class="nx">date</span> <span class="mi">3</span><span class="p">,</span><span class="nx">date3</span><span class="p">,,</span><span class="nx">dd</span><span class="o">/</span><span class="nx">MM</span><span class="o">/</span><span class="nx">yyyy</span>
 </code></pre>
-<pre><code class="lang-javascript">Filename : Data.csv
-    index <span class="hljs-number">1</span>,index <span class="hljs-number">2</span>,date <span class="hljs-number">3</span>,index <span class="hljs-number">3</span>  
-    file1,oncreate,<span class="hljs-number">01</span>/<span class="hljs-number">01</span>/<span class="hljs-number">2015</span>,john
+<pre><code class="lang-javascript"><span class="nx">Filename</span> <span class="o">:</span> <span class="nx">Data</span><span class="p">.</span><span class="nx">csv</span>
+    <span class="nx">index</span> <span class="mi">1</span><span class="p">,</span><span class="nx">index</span> <span class="mi">2</span><span class="p">,</span><span class="nx">date</span> <span class="mi">3</span><span class="p">,</span><span class="nx">index</span> <span class="mi">3</span>  
+    <span class="nx">file1</span><span class="p">,</span><span class="nx">oncreate</span><span class="p">,</span><span class="mi">01</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">2015</span><span class="p">,</span><span class="nx">john</span>
 </code></pre>
-<pre><code class="lang-javascript">Filename : XML Mapping.csv
+<pre><code class="lang-javascript"><span class="nx">Filename</span> <span class="o">:</span> <span class="nx">XML</span> <span class="nx">Mapping</span><span class="p">.</span><span class="nx">csv</span>
 
-    xpath,index,format,expression  
-    /Data/index1/@value,filename,  
-    <span class="hljs-regexp">/Data/i</span>ndex2/text(),index2,  
-    <span class="hljs-regexp">/Data/i</span>ndex3/text(),index3,,${value}-smith  
-    /Data/date3/text(),date3,MM/dd/yyyy
+    <span class="nx">xpath</span><span class="p">,</span><span class="nx">index</span><span class="p">,</span><span class="nx">format</span><span class="p">,</span><span class="nx">expression</span>  
+    <span class="o">/</span><span class="nx">Data</span><span class="o">/</span><span class="nx">index1</span><span class="o">/</span><span class="err">@</span><span class="nx">value</span><span class="p">,</span><span class="nx">filename</span><span class="p">,</span>  
+    <span class="err">/Data/index2/text(),index2,  </span>
+    <span class="err">/Data/index3/text(),index3,,${value}-smith  </span>
+    <span class="err">/Data/date3/text(),date3,MM/dd/yyyy</span>
 </code></pre>
-<pre><code class="lang-javascript">Filename : Data.xml
- &lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span>?&gt;
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Data</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">index1</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;file1&quot;</span>/&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">index2</span>&gt;</span>onupdate<span class="hljs-tag">&lt;/<span class="hljs-name">index2</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">index3</span>&gt;</span>john<span class="hljs-tag">&lt;/<span class="hljs-name">index3</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">date3</span>&gt;</span>01/01/2015<span class="hljs-tag">&lt;/<span class="hljs-name">date3</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">Data</span>&gt;</span>
-</span></code></pre>
-<h2 id="Structured">4. Structured</h2>
+<pre><code class="lang-javascript"><span class="nx">Filename</span> <span class="o">:</span> <span class="nx">Data</span><span class="p">.</span><span class="nx">xml</span>
+ <span class="o">&lt;?</span><span class="nx">xml</span> <span class="nx">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="o">?&gt;</span>
+    <span class="o">&lt;</span><span class="nx">Data</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">index1</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;file1&quot;</span><span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="nx">index2</span><span class="o">&gt;</span><span class="nx">onupdate</span><span class="o">&lt;</span><span class="err">/index2&gt;</span>
+        <span class="o">&lt;</span><span class="nx">index3</span><span class="o">&gt;</span><span class="nx">john</span><span class="o">&lt;</span><span class="err">/index3&gt;</span>
+        <span class="o">&lt;</span><span class="nx">date3</span><span class="o">&gt;</span><span class="mi">01</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">2015</span><span class="o">&lt;</span><span class="err">/date3&gt;</span>
+    <span class="o">&lt;</span><span class="err">/Data&gt;</span>
+</code></pre>
+<h2 id="structured"><a name="structured" class="plugin-anchor" href="#structured"><i class="fa fa-link" aria-hidden="true"></i></a>Structured</h2>
 <ul>
 <li>Structured imports import raw textual data and overlay it onto a PDF Template.   </li>
 <li>A Datamap file is used to map blocks of text to fields in the PDF.   </li>
 <li>The raw data can optionally be processed through an executable (.exe) or a groovy script to format it, so that the datamap can extract the content correctly. </li>
 </ul>
-<h2 id="Update">5. Update</h2>
+<h2 id="update"><a name="update" class="plugin-anchor" href="#update"><i class="fa fa-link" aria-hidden="true"></i></a>Update</h2>
 <p>Deprecated in favour of Import and Sync CSV or XML</p>
-<h2 id="Attach_To_Form">6. Attach To Form</h2>
+<h2 id="attach-to-form"><a name="attach-to-form" class="plugin-anchor" href="#attach-to-form"><i class="fa fa-link" aria-hidden="true"></i></a>Attach To Form</h2>
 <p>This will spawn the specified form and attach the document dropped in the watched folder to the form. </p>
-<h2 id="Document_Archive">7. Document Archive</h2>
+<h2 id="document-archive"><a name="document-archive" class="plugin-anchor" href="#document-archive"><i class="fa fa-link" aria-hidden="true"></i></a>Document Archive</h2>
 <ul>
 <li>This will import a complete document with all versions, indexes, notes, etc.  </li>
 <li>Document Archives are created using Bulk Export or an Auto Export rule.</li>
 </ul>
-<div id="anchors-navbar"><i class="fa fa-anchor"></i><ul><p><a href="#"></a></p><li><a href="#Normal">1. Normal</a></li><li><a href="#CSV">2. CSV</a></li><li><a href="#Import_and_Sync">3. Import and Sync</a></li><li><a href="#Structured">4. Structured</a></li><li><a href="#Update">5. Update</a></li><li><a href="#Attach_To_Form">6. Attach To Form</a></li><li><a href="#Document_Archive">7. Document Archive</a></li></ul></div><a href="#Normal" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
                                 
                                 </section>
                             
@@ -1291,7 +1309,7 @@ Just some content <span class="hljs-keyword">in</span> Sample <span class="hljs-
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Folder Watch","level":"1.5.6","depth":2,"next":{"title":"LDAP / Active Directory","level":"1.5.7","depth":2,"path":"integration/ldap-ad-text.md","ref":"integration/ldap-ad-text.md","articles":[]},"previous":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","anchors","expandable-chapters","navigator"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"navigator":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/folder-watch-text.md","mtime":"2017-08-14T07:50:07.645Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-14T07:51:58.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Folder Watch","level":"1.5.6","depth":2,"next":{"title":"LDAP / Active Directory","level":"1.5.7","depth":2,"path":"integration/ldap-ad-text.md","ref":"integration/ldap-ad-text.md","articles":[]},"previous":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/folder-watch-text.md","mtime":"2017-08-31T06:43:58.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T06:45:41.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1302,6 +1320,10 @@ Just some content <span class="hljs-keyword">in</span> Sample <span class="hljs-
     
         
         <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
         
     
         
