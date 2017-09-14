@@ -17,7 +17,7 @@
 | checkin           | version,currentVersion,comment           |             |       |
 | checkout          | lockOwner                                |             |       |
 | create            |                                          |             |       |
-| copy              |                                          |             |       |
+| copy              | clone                                    |             |       |
 | delete            | bulk, source_docid                       |             |       |
 | delete_attachment | filename                                 |             |       |
 | diarize           | user,date,comment                        |             |       |
