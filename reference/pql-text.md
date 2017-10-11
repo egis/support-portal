@@ -271,9 +271,8 @@ SELECT sAMAccountName,name,email FROM @LDAP
 
 ## @ds
 
-Queries [data sources](../integration/data-sources-text)
+Queries [data sources](../integration/data-sources-text.md)
 
 ```sql
 SELECT * FROM @ds/{data source name} WHERE param = '123'
 ```
-
