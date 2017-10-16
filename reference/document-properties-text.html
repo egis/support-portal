@@ -1162,6 +1162,17 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="document-properties"><a name="document-properties" class="plugin-anchor" href="#document-properties"><i class="fa fa-link" aria-hidden="true"></i></a>Document Properties</h1>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#writable-properties">Writable Properties</a></li>
+<li><a href="#session-properties">Session Properties</a><ul>
+<li><a href="#special-properties">Special properties</a></li>
+</ul>
+</li>
+</ul>
+
+</div><!-- tocstop -->
 <p>Document properties are available to use in:</p>
 <ul>
 <li>Node rule filters</li>
@@ -1171,31 +1182,26 @@
 <table>
 <thead>
 <tr>
-<th>Document Property</th>
-<th>Groovy Description</th>
-<th>Description  </th>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>docId</td>
 <td>String</td>
-<td>The document unique identifier. Formatted as a PaperTrail document ID.</td>
+<td>The document unique identifier. Formatted as a PaperTrail document ID. e.g. <code>10034</code></td>
 </tr>
 <tr>
 <td>createdDate</td>
-<td>Date</td>
-<td>The date that the document was created.</td>
-</tr>
-<tr>
-<td>filename</td>
-<td>String</td>
-<td>The filename of the document including the extension.</td>
+<td>DateTime</td>
+<td>The date and time that the document was created.</td>
 </tr>
 <tr>
 <td>lastModified</td>
-<td>Date</td>
-<td>The date that the document was last modified. Can be empty.</td>
+<td>DateTime</td>
+<td>The date and time that the document was last modified. Can be empty.</td>
 </tr>
 <tr>
 <td>createdBy</td>
@@ -1203,74 +1209,124 @@
 <td>The name of the user who created the document.</td>
 </tr>
 <tr>
-<td>dispatchedBy</td>
+<td>owner</td>
 <td>String</td>
-<td>For asynchronous rules, the user whose action triggered the event. Refer also to sessionUser.</td>
+<td>The current owner e.g. <code>John</code></td>
+</tr>
+<tr>
+<td>users</td>
+<td>CSV of names</td>
+<td>A list of currently allocated users e.g. <code>john, jane</code></td>
+</tr>
+<tr>
+<td>pastUsers</td>
+<td>CSV of names</td>
+<td>A list of users who were previously allocated the document e.g. <code>tom</code></td>
+</tr>
+<tr>
+<td>filename</td>
+<td>String</td>
+<td>The filename of the document including the extension. e.g. <code>test.pdf</code></td>
 </tr>
 <tr>
 <td>ext</td>
 <td>String</td>
-<td>A document extension suffix supported by PaperTrail. Does not contain the leading dot.</td>
-</tr>
-<tr>
-<td>ip</td>
-<td>String</td>
-<td>The IP address of the user who performed the action that triggered the event.</td>
+<td>A document extension suffix supported by PaperTrail. Does not contain the leading dot. e.g. <code>pdf</code></td>
 </tr>
 <tr>
 <td>name</td>
 <td>String</td>
-<td>The filename of the document excluding the extension.</td>
+<td>The filename of the document excluding the extension e.g. <code>test</code></td>
 </tr>
 <tr>
-<td>size</td>
-<td>Long</td>
-<td>The size in bytes. Use this for a numeric comparison, for example: size &gt; 100000.</td>
-</tr>
-<tr>
-<td>sessionUser</td>
+<td>node</td>
 <td>String</td>
-<td>For synchronous rules, the current user. For asynchronous rules, System. Refer also to dispatchedBy.</td>
+<td>The full path of the containing node e.g. <code>Division/Cabinet/Folder</code></td>
 </tr>
 <tr>
 <td>status</td>
 <td>String</td>
-<td>The status of the document. Possible values are Filed, Current, Diarized, and Out.</td>
+<td>The status of the document.e.g.  <code>Filed</code>, <code>Current</code>, <code>Diarized</code>, and <code>Out</code></td>
+</tr>
+<tr>
+<td>size</td>
+<td>Long</td>
+<td>The size in bytes. Use this for a numeric comparison, for example: <code>size &gt; 100000</code></td>
 </tr>
 <tr>
 <td>sizeFormatted</td>
 <td>String</td>
-<td>Formatted as bytes. For example, 1 KB, 5 MB, 1 GB&#xFFFC;instead of an integer such as 14328490234..</td>
+<td>e.g.  <code>1 KB</code>, <code>5 MB</code>, <code>1 GB</code></td>
 </tr>
 <tr>
 <td>visibility</td>
 <td>String</td>
-<td>Sets who is permitted to see the document. Valid values are Public, Private and Confidential..</td>
+<td>.e.g. <code>Public</code>, <code>Private</code> and <code>Confidential</code></td>
+</tr>
+<tr>
+<td>editLink</td>
+<td>URL</td>
+<td>A link to either view the document or in the case of forms edit oonline</td>
+</tr>
+<tr>
+<td>permLink</td>
+<td>URL</td>
+<td>A link to view the document</td>
 </tr>
 <tr>
 <td>title</td>
 <td>String</td>
-<td>Title.</td>
+<td></td>
 </tr>
 <tr>
 <td>subject</td>
 <td>String</td>
-<td>Subject.</td>
+<td></td>
 </tr>
 <tr>
 <td>version</td>
 <td>String</td>
-<td>A document version number, for example, 2.1. Can be empty.</td>
+<td>A document version number, e.g.  <code>2.1</code>. Can be empty.</td>
 </tr>
 <tr>
-<td>???</td>
+<td>_full_text</td>
 <td>String</td>
-<td>An index that is added under Node Management &gt; Node &gt; Index.</td>
+<td><strong>Slow</strong>: The full text contents of a document</td>
+</tr>
+<tr>
+<td>_page_count</td>
+<td>Integer</td>
+<td><strong>Slow</strong>: Returns the number of pages in a PDF document or an empty string</td>
+</tr>
+<tr>
+<td>_httpIndexes</td>
+<td>String</td>
+<td>An HTTP URL encoded string of all indexes</td>
+</tr>
+<tr>
+<td>_httpNodePath</td>
+<td></td>
+<td>An HTTP URL encoded string of just the <em>node</em> path</td>
+</tr>
+<tr>
+<td>_httpFilename</td>
+<td></td>
+<td>An HTTP URL encoded string of <em>filename</em></td>
+</tr>
+<tr>
+<td>_model</td>
+<td>DocumentModel</td>
+<td><strong>Advanced:</strong> Returns the live object suitable for complex operations, cannot be printed directly</td>
+</tr>
+<tr>
+<td>{custom index}</td>
+<td>String</td>
+<td>Any custom index that is added under Node Management &gt; Node &gt; Index.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="writable-properties"><a name="writable-properties" class="plugin-anchor" href="#writable-properties"><i class="fa fa-link" aria-hidden="true"></i></a>Writable Properties</h2>
-<p>Some document properties are also editable, but most are read only.</p>
+<h3 id="writable-properties"><a name="writable-properties" class="plugin-anchor" href="#writable-properties"><i class="fa fa-link" aria-hidden="true"></i></a>Writable Properties</h3>
+<p>Some document properties are also editable:</p>
 <ul>
 <li>filename</li>
 <li>visibility</li>
@@ -1290,43 +1346,80 @@
 <li>.TXT files</li>
 <li>.XML indexes</li>
 </ul>
+<h3 id="session-properties"><a name="session-properties" class="plugin-anchor" href="#session-properties"><i class="fa fa-link" aria-hidden="true"></i></a>Session Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Document Property</th>
+<th>Groovy Description</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dispatchedBy</td>
+<td>String</td>
+<td>For asynchronous rules, the user whose action triggered the event. Refer also to sessionUser.</td>
+</tr>
+<tr>
+<td>sessionUser</td>
+<td>String</td>
+<td>For synchronous rules, the current user. For asynchronous rules, System. Refer also to dispatchedBy.</td>
+</tr>
+<tr>
+<td>ip</td>
+<td>String</td>
+<td>The IP address of the user who performed the action that triggered the event.</td>
+</tr>
+<tr>
+<td>now</td>
+<td>String</td>
+<td>ISO formatted timestamp</td>
+</tr>
+<tr>
+<td>baseUrl</td>
+<td>URL</td>
+<td>The base URL that the server is accessible from e.g. <code>http://host:8080</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="special-properties"><a name="special-properties" class="plugin-anchor" href="#special-properties"><i class="fa fa-link" aria-hidden="true"></i></a>Special properties</h2>
 <p>Due to the large number of places, indexes/properties can be updated. It being the single most common point of integration between systems, there are a few special properties that trigger actions. They are prefixed with <code>_</code> and not to be confused with normal properties that relate to metadata only.  </p>
 <table>
 <thead>
 <tr>
 <th>Document Property</th>
-<th>Groovy Description  </th>
+<th>Groovy Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>_audit</td>
-<td>Creates a new audit history event on the document  </td>
+<td>Creates a new audit history event on the document</td>
 </tr>
 <tr>
 <td>_status</td>
-<td>_status=Filed will remove all current users of a document _status=Archive will archive the document  </td>
+<td>_status=Filed will remove all current users of a document _status=Archive will archive the document</td>
 </tr>
 <tr>
 <td>_event</td>
-<td>Dispatches a new Document event  </td>
+<td>Dispatches a new Document event</td>
 </tr>
 <tr>
 <td>user</td>
-<td>Allocates an user to the document  </td>
+<td>Allocates an user to the document</td>
 </tr>
 <tr>
 <td>owner</td>
-<td>Assigns ownership to the user  </td>
+<td>Assigns ownership to the user</td>
 </tr>
 <tr>
 <td>node</td>
-<td>Moves the document to the specified node  </td>
+<td>Moves the document to the specified node</td>
 </tr>
 <tr>
 <td>visibility</td>
-<td>Changes the visibility of the document  </td>
+<td>Changes the visibility of the document</td>
 </tr>
 </tbody>
 </table>
@@ -1373,7 +1466,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Document Properties","level":"1.6.8","depth":2,"next":{"title":"Encryption","level":"1.6.9","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},"previous":{"title":"Jobs","level":"1.6.7","depth":2,"path":"reference/jobs-text.md","ref":"reference/jobs-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/document-properties-text.md","mtime":"2017-10-12T09:05:24.951Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T09:07:15.406Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Document Properties","level":"1.6.8","depth":2,"next":{"title":"Encryption","level":"1.6.9","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},"previous":{"title":"Jobs","level":"1.6.7","depth":2,"path":"reference/jobs-text.md","ref":"reference/jobs-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/document-properties-text.md","mtime":"2017-10-16T08:35:53.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-16T08:37:46.031Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
