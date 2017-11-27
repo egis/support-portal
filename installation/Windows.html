@@ -1161,16 +1161,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="windows-installations"><a name="windows-installations" class="plugin-anchor" href="#windows-installations"><i class="fa fa-link" aria-hidden="true"></i></a>Windows Installations</h2>
+                                <h2 id="windows-installations-with-ms-sql-ad-account"><a name="windows-installations-with-ms-sql-ad-account" class="plugin-anchor" href="#windows-installations-with-ms-sql-ad-account"><i class="fa fa-link" aria-hidden="true"></i></a>Windows Installations with MS SQL AD account</h2>
 <blockquote>
 <p>On some versions of Windows 2012 you may need to install <a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=14632" target="_blank">Visual C++</a></p>
 </blockquote>
-<h3 id="sql-server-windows-authentication"><a name="sql-server-windows-authentication" class="plugin-anchor" href="#sql-server-windows-authentication"><i class="fa fa-link" aria-hidden="true"></i></a>SQL Server Windows Authentication</h3>
+<h3 id="using-windows-ad-account-for-sql-authentication"><a name="using-windows-ad-account-for-sql-authentication" class="plugin-anchor" href="#using-windows-ad-account-for-sql-authentication"><i class="fa fa-link" aria-hidden="true"></i></a>Using Windows AD account for SQL Authentication</h3>
 <ul>
-<li>Copy <em>ntmlauth.dll</em> file to C:\Windows </li>
-<li>For remote installations, make sure that the Windows user that has been granted DB
-access is the same as the user that is being logged in to the application
-machine.</li>
+<li>Copy ntlmauth.dll to c:\Program Files\Papertrail\bin\sqlserver\x64 directory</li>
+<li>Make sure the Windows account has access to the SQL DB.</li>
+<li>Change Windows Service &gt; Log On &gt; Log on as: {specify the domain account details} </li>
+<li>Ensure that account has been granted &quot;Logon as service&quot; rights.</li>
+<li>Update papertrail.properties file by removing &apos;db.user&apos; and &apos;db.pass&apos; config, add:
+db.type=mssql
+db.url.config=;integratedSecurity=true</li>
 </ul>
 
                                 
@@ -1215,7 +1218,7 @@ machine.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Windows","level":"1.4.6","depth":2,"next":{"title":"Service","level":"1.4.7","depth":2,"path":"installation/service.md","ref":"installation/service.md","articles":[]},"previous":{"title":"Ubuntu Linux","level":"1.4.5","depth":2,"path":"installation/ubuntu-linux-text.md","ref":"installation/ubuntu-linux-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/Windows.md","mtime":"2017-10-16T08:35:53.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-16T08:37:46.031Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Windows","level":"1.4.6","depth":2,"next":{"title":"Service","level":"1.4.7","depth":2,"path":"installation/service.md","ref":"installation/service.md","articles":[]},"previous":{"title":"Ubuntu Linux","level":"1.4.5","depth":2,"path":"installation/ubuntu-linux-text.md","ref":"installation/ubuntu-linux-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"installation/Windows.md","mtime":"2017-11-27T19:05:29.641Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-27T19:07:11.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
