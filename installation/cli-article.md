@@ -16,11 +16,11 @@ The installation of these packages may vary depending on the flavour of Linux ru
 ### Usage
  * Once installed, executing `pt --help` will bring up the available options and commands. Use `pt {command} --help` for more details on the specific command itself; e.g. `pt import --help`
  * To connect to a Papertrail host server:<br>
-    `pt --host 192.168.1.10:8080 -- username admin --password 'mypassword'` (which will not execute an actual command)
+    `pt --host 192.168.1.10:8080 --username admin --password 'mypassword'` (which will not execute an actual command; enclose password in single quotes if it contains special characters)
  * Add onto the above for the specific function you wish to achieve, e.g.<br>
-    `pt --host 192.168.1.10:8080 -- username admin --password 'mypassword' export User > users.yml`
+    `pt --host 192.168.1.10:8080 --username admin --password 'mypassword' export User > users.yml`
  * Another example:<br>
-    `pt --host 192.168.1.10:8080 -- username admin --password 'mypassword' import newusers.yml`
+    `pt --host 192.168.1.10:8080 --username admin --password 'mypassword' import newusers.yml`
 
 ### Reference
  * The above 2 examples export and import users respectively based on the YAML format. See more [here](../configuration/yaml-config.md)
