@@ -2,10 +2,10 @@
 
 ### Requirements and Preparation
 * Ensure that the client is licensed for the eSign module
-* Administration > Properties > Front End:
+* Administration > Services > Properties > Front End:
   * Ensure that `pdf_sign`, `upload_for_signature` are not listed under Disabled Actions
   * If anything is changed here, a restart of the PaperTrail service is required
-* Administration > Properties > eSignature:
+* Administration > Services > Properties > eSign:
   * Set the `eSignature Upload Node` (ensure that users that will be designing templates have sufficient permissions here)
 
 ### Creating a Design and a Template
