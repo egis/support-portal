@@ -52,7 +52,7 @@ Custom Groovy code can also be used e.g. to
 ## Method Reference 
 
 [String](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/String.html)  
-[Date](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/util/Date.html) and [SimpleDateFormat](http://download.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html.)  
+[Date](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/util/Date.html) and [SimpleDateFormat](http://download.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html)  
 [Number](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk/java/lang/Number.html)  
 
 See [Groovy JDK](http://docs.groovy-lang.org/docs/latest/html/groovy-jdk)
