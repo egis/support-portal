@@ -13,16 +13,36 @@ Configure User format = `uid=${user},o=Directory`
 
 ### Multiple LDAP Servers
 
+Configure the first domain in the PaperTrail admin section (Services > Properties > LDAP)<br>
+Specify the:<br>
+Account Lookup Query: `(&(objectClass=user)(mail=*)(|(displayName=${value}*)(sAMAccountName=${value}*)))`<br>
+Domain: `domain01.com`<br>
+Host:<br>
+Port:<br>
+User:<br>
+Password:<br>
+Verify User:<br>
+Check the Skip Verification box<br>
+
+In the papertrail.properties file, add the following for each domain (including the domain specified in the admin section)
+
 Configured by addition a set of properties per domain:
 
 ```javascript
-ldap.extra.**_domain1-corp.local_**.host=  
-ldap.extra.domain1-corp.local.user=  
-ldap.extra.domain1-corp.local.pass=  
-ldap.extra._**domain2-corp.local**_.host=  
-ldap.extra.domain2-corp.local.user=  
-ldap.extra.domain2-corp.local.pass=  
+ldap.extra.domain01.com.host=
+ldap.extra.domain01.com.port=
+ldap.extra.domain01.com.username=
+ldap.extra.domain01.com.password=
+
+ldap.extra.domain02.com.host=
+ldap.extra.domain02.com.port=
+ldap.extra.domain02.com.username=
+ldap.extra.domain02.com.password=
 ```
+
+Restart the PaperTrail service for the changes to take affect.
+
+When adding Active Directory users, select `domain01.com` / `domain02.com` from the Domain drop-down list.
 
 ## Synchronizing With LDAP / Active Directory
 
