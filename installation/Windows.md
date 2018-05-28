@@ -11,3 +11,8 @@
 * Update papertrail.properties file by removing 'db.user' and 'db.pass' config, add:
   db.type=mssql
   db.url.config=;integratedSecurity=true
+
+## Windows Installations - character encoding issues
+Windows encoding sometimes replaces characters (in outgoing emails, notes, etc) with odd characters, e.g. `aEU`<br>
+This only affects PaperTrail instances running on Windows hosts. To resolve, add the below to the service.vmoptions / service_x64.vmoptions file and restart the PaperTrail service:<br>
+`-Dfile.encoding=UTF-8`
