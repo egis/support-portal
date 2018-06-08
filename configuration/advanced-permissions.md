@@ -133,3 +133,9 @@ To change the license,
 
 1.  Update **Services -> Properties -> General ->License Code**. 
 
+## V2 Portal - not able to see root level nodes
+
+With the V2 Portal interface, user cannot see the child node(s) that they have access to, unless See permission is granted on the top level node as well. See JIRA PPT-11403.
+To resolve this, add `ui.full.tree.query=true` to the properties file (V8.8.8 b1354 onwards)
+
+
