@@ -1,0 +1,10 @@
+{
+    "plugins": ["edit-link", "etoc", "anchors", "expandable-chapters", "pygments"],
+    "pluginsConfig": {
+    "edit-link": {
+                "base": "https://github.com/egis/support-portal/blob/master/",
+                "label": "Edit This Page"
+            }
+
+    }
+}    

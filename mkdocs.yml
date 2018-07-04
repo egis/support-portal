@@ -1,9 +1,0 @@
-site_name: Support Portal
-pages:
-
-
-extra_javascript:
-  - extra.js
-extra_css:
-  - iconmoon.css
-copyright: Copyright &copy; 2016 Egis Software
