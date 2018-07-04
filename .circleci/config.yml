@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    working_directory: /project
+    docker:
+      - image: egis/build-slave
+    steps:
+      - run:
+          name: Install Python Dependencies
+          command: |
+            pip install -e git+https://github.com/MadLittleMods/markdown-icons.git || echo ok
+            pip install mkdocs
+      - checkout
+      - restore_cache:
+          key: cache-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: cache-{{ checksum "package.json" }}
+          paths:
+           - node_modules
+      - run: mkdocs build
+      - deploy:
+          command: |
+            git config --global user.email circleci@circleci
+            git config --global user.name CircleCI
+            echo support.papertrail.co.za > site/CNAME
+
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./node_modules/gh-pages/bin/gh-pages -d site
+            fi
