@@ -7,14 +7,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nickalie/support-portal.git"
+    "url": "git+https://github.com/egis/support-portal.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nickalie/support-portal/issues"
+    "url": "https://github.com/egis/support-portal/issues"
   },
-  "homepage": "https://github.com/nickalie/support-portal#readme",
+  "homepage": "https://github.com/egis/support-portal#readme",
   "dependencies": {
     "gh-pages": "^1.2.0",
     "gitbook-plugin-etoc": "^1.2.2",
