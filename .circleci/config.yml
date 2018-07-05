@@ -6,10 +6,10 @@ jobs:
       - image: egis/build-slave
     steps:
       - run:
-          name: Install Python Dependencies
+          name: Install Global Dependencies
           command: |
-            pip install -e git+https://github.com/MadLittleMods/markdown-icons.git || echo ok
-            pip install mkdocs
+            pip install pygments
+            npm install -g gitbook-cli
       - checkout
       - restore_cache:
           key: cache-{{ checksum "package.json" }}
@@ -18,12 +18,16 @@ jobs:
           key: cache-{{ checksum "package.json" }}
           paths:
            - node_modules
-      - run: mkdocs build
+      - run: 
+          name: Build
+          command: |
+            gitbook install
+            gitbook build
       - deploy:
           command: |
             git config --global user.email circleci@circleci
             git config --global user.name CircleCI
-            echo support.papertrail.co.za > site/CNAME
+            echo support.papertrail.co.za > _book/CNAME
 
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               ./node_modules/gh-pages/bin/gh-pages -d site
