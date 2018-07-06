@@ -1181,6 +1181,7 @@
 <li><a href="#applying-index-level-permissions">Applying Index Level Permissions</a></li>
 <li><a href="#site-wide-administrator">Site-Wide Administrator</a></li>
 <li><a href="#license-type">License Type</a></li>
+<li><a href="#v2-portal---not-able-to-see-root-level-nodes">V2 Portal - not able to see root level nodes</a></li>
 </ul>
 
 </div><!-- tocstop -->
@@ -1324,8 +1325,11 @@ List Admin or Node Admin.</p>
 <h2 id="license-type"><a name="license-type" class="plugin-anchor" href="#license-type"><i class="fa fa-link" aria-hidden="true"></i></a>License Type</h2>
 <p>To change the license,</p>
 <ol>
-<li>Update <strong>Services -&gt; Properties -&gt; General -&gt;License Code</strong>.</li>
+<li>Update <strong>Services -&gt; Properties -&gt; General -&gt;License Code</strong>. </li>
 </ol>
+<h2 id="v2-portal---not-able-to-see-root-level-nodes"><a name="v2-portal---not-able-to-see-root-level-nodes" class="plugin-anchor" href="#v2-portal---not-able-to-see-root-level-nodes"><i class="fa fa-link" aria-hidden="true"></i></a>V2 Portal - not able to see root level nodes</h2>
+<p>With the V2 Portal interface, user cannot see the child node(s) that they have access to, unless See permission is granted on the top level node as well. See JIRA PPT-11403.
+To resolve this, add <code>ui.full.tree.query=true</code> to the properties file (V8.8.8 b1354 onwards)</p>
 
                                 
                                 </section>
@@ -1369,7 +1373,7 @@ List Admin or Node Admin.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Advanced Permissions","level":"1.2.2","depth":2,"next":{"title":"Backups","level":"1.2.3","depth":2,"path":"configuration/backups-text.md","ref":"configuration/backups-text.md","articles":[]},"previous":{"title":"Advanced Login","level":"1.2.1","depth":2,"path":"configuration/advanced-login.md","ref":"configuration/advanced-login.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/advanced-permissions.md","mtime":"2018-03-02T07:12:05.122Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-02T07:14:19.331Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Advanced Permissions","level":"1.2.2","depth":2,"next":{"title":"Backups","level":"1.2.3","depth":2,"path":"configuration/backups-text.md","ref":"configuration/backups-text.md","articles":[]},"previous":{"title":"Advanced Login","level":"1.2.1","depth":2,"path":"configuration/advanced-login.md","ref":"configuration/advanced-login.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/advanced-permissions.md","mtime":"2018-07-06T06:56:55.173Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-06T06:57:42.261Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
