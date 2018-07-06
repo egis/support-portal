@@ -20,7 +20,7 @@ To backup in PostgreSQL
 ```java
 cd "C:\Program Files"
 cd PostgreSQL\9.2\bin
-pg_dump –U postgres –h localhost {postgresdb} > ”C:\{location}\{location}{backupname}.sql”
+pg_dump -U postgres -h localhost {postgresdb} > "C:\{location}\{location}{backupname}.sql"
 psql -U postgres -h localhost {pt8} > C:\{location}\{location}{backupname}.restore.sql
 ```
 

@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+    working_directory: /project
+    docker:
+      - image: egis/build-slave
+    steps:
+      - run:
+          name: Install Global Dependencies
+          command: |
+            pip install pygments
+            npm install -g gitbook-cli
+      - checkout
+      - restore_cache:
+          key: cache-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: cache-{{ checksum "package.json" }}
+          paths:
+           - node_modules
+      - run: 
+          name: Build
+          command: |
+            gitbook install
+            gitbook build
+      - deploy:
+          command: |
+            git config --global user.email circleci@circleci
+            git config --global user.name CircleCI
+            echo support.papertrail.co.za > _book/CNAME
+
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              npm run deploy
+            fi

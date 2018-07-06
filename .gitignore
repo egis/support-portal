@@ -1,3 +1,7 @@
 site/
 .idea
 *.iml
+.history
+node_modules
+Dockerfile
+.dockerignore
