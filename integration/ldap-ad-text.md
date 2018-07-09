@@ -4,7 +4,7 @@
 ### Active Directory
 
 
-* AD will return less results and attributes when using port 3268 vs 389
+* AD will return more results and attributes when using port 3268 vs 389
 * The default query will only return accounts with an email address configured
 
 ### OpenLDAP 
@@ -29,11 +29,13 @@ In the papertrail.properties file, add the following for each domain (including 
 Configured by addition a set of properties per domain:
 
 ```javascript
+ldap.extra.domain01.com.domain=domain01
 ldap.extra.domain01.com.host=
 ldap.extra.domain01.com.port=
 ldap.extra.domain01.com.username=
 ldap.extra.domain01.com.password=
 
+ldap.extra.domain02.com.domain=domain02
 ldap.extra.domain02.com.host=
 ldap.extra.domain02.com.port=
 ldap.extra.domain02.com.username=
