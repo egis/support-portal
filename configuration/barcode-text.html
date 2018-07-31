@@ -1174,10 +1174,120 @@
 </div><!-- tocstop -->
 <p>1) Setup an extractFromBarcode rule on the appropriate node<br>2) Install the Softek SDK. You can download the latest version from:<br><a href="http://softeksoftware.co.uk/download/barcode_sdk/windows/softek_barcode_sdk_8_1_2.zip" target="_blank">Windows SDK
 v8.1.2</a><br> <a href="http://bardecode.com/barcode_linux.tar.gz" target="_blank">Linux SDK v8.1.2</a></p>
-<p>Libraries need to be copied to <code>/usr/lib/java</code>, <code>/usr/lib/</code>,
-<code>C:\\Windows\\System32</code> or wherever the java.library.path is pointing.</p>
-<p>For a list of all versions go to <a href="http://www.bardecode.com/en1/quick-download/" target="_blank">Bardecode</a>, although a different license may need to be loaded via the License property. A license can be specified in the &quot;Advanced&quot; section of the extractFromBarcode rule by adding the line LicenseKey=<license here=""></license></p>
-<h3 id="supported-barcodes"><a name="supported-barcodes" class="plugin-anchor" href="#supported-barcodes"><i class="fa fa-link" aria-hidden="true"></i></a>Supported Barcodes</h3>
+<p>For a list of all versions go to <a href="http://www.bardecode.com/en1/quick-download/" target="_blank">Bardecode</a>, although a different license may need to be loaded via the License property. A license can be specified in the &quot;Advanced&quot; section of the extractFromBarcode rule by adding the line LicenseKey=<license here=""> </license></p>
+<p>Libraries need to be copied to <code>/usr/lib/</code> on Linux installations and <code>C:\\Windows\\System32</code> for Windows (this is dependant on where the java.library.path is pointing to). Below is a list of the libraries which need to be copied:</p>
+<ul>
+<li>Barcode.class</li>
+<li>Barcode.java</li>
+<li>bardecode.a</li>
+<li>libbardecode.so</li>
+<li>libbardecode_jni.so</li>
+</ul>
+<p>An XML file in the following format can be created to configure specific properties:</p>
+<pre><code>&lt;xml version=&apos;1.0&apos; encoding=&apos;iso-8859-1&apos;&gt;
+        &lt;SoftekBarcode&gt;
+                &lt;Properties&gt;
+                        &lt;AllowDuplicateValues&gt;1&lt;/AllowDuplicateValues&gt;
+                        &lt;BarcodesAtTopOfPage&gt;0&lt;/BarcodesAtTopOfPage&gt;
+                        &lt;BitmapResolution&gt;200&lt;/BitmapResolution&gt;
+                        &lt;CodabarMaxVariance&gt;20&lt;/CodabarMaxVariance&gt;
+                        &lt;Code128Lenient&gt;0&lt;/Code128Lenient&gt;
+                        &lt;Code25Checksum&gt;0&lt;/Code25Checksum&gt;
+                        &lt;Code25MinOccurrenceLength&gt;5&lt;/Code25MinOccurrenceLength&gt;
+                        &lt;Code39Checksum&gt;0&lt;/Code39Checksum&gt;
+                        &lt;Code39MaxRatioPcnt&gt;0&lt;/Code39MaxRatioPcnt&gt;
+                        &lt;Code39NeedStartStop&gt;1&lt;/Code39NeedStartStop&gt;
+                        &lt;ColorChunks&gt;1&lt;/ColorChunks&gt;
+                        &lt;ColorProcessingLevel&gt;2&lt;/ColorProcessingLevel&gt;
+                        &lt;ColorThreshold&gt;0&lt;/ColorThreshold&gt;
+                        &lt;ConvertUPCEToEAN13&gt;1&lt;/ConvertUPCEToEAN13&gt;
+                        &lt;DataMatrixAutoUTF8&gt;1&lt;/DataMatrixAutoUTF8&gt;
+                        &lt;DataMatrixFinderGapTolerance&gt;6&lt;/DataMatrixFinderGapTolerance&gt;
+                        &lt;Despeckle&gt;0&lt;/Despeckle&gt;
+                        &lt;Encoding&gt;3&lt;/Encoding&gt;
+                        &lt;ErrorCorrection&gt;0&lt;/ErrorCorrection&gt;
+                        &lt;ExtendedCode39&gt;1&lt;/ExtendedCode39&gt;
+                        &lt;FastScanLineJump&gt;25&lt;/FastScanLineJump&gt;
+                        &lt;FixedLengthCode25&gt;0&lt;/FixedLengthCode25&gt;
+                        &lt;GammaCorrection&gt;100&lt;/GammaCorrection&gt;
+                        &lt;LineJump&gt;1&lt;/LineJump&gt;
+                        &lt;MaxBarcodesPerPage&gt;0&lt;/MaxBarcodesPerPage&gt;
+                        &lt;MaxLength&gt;999&lt;/MaxLength&gt;
+                        &lt;MaxThreads&gt;0&lt;/MaxThreads&gt;
+                        &lt;MedianFilter&gt;0&lt;/MedianFilter&gt;
+                        &lt;MedianFilterLevel&gt;1&lt;/MedianFilterLevel&gt;
+                        &lt;MedianFilterBias&gt;5&lt;/MedianFilterBias&gt;
+                        &lt;MinSeparation&gt;180&lt;/MinSeparation&gt;
+                        &lt;MinLength&gt;4&lt;/MinLength&gt;
+                        &lt;MinOccurrence&gt;2&lt;/MinOccurrence&gt;
+                        &lt;MinResyncs&gt;3&lt;/MinResyncs&gt;
+                        &lt;MinSpaceBarWidth&gt;0&lt;/MinSpaceBarWidth&gt;
+                        &lt;MinThresholdDiff&gt;30&lt;/MinThresholdDiff&gt;
+                        &lt;MultipleRead&gt;1&lt;/MultipleRead&gt;
+                        &lt;NoiseReduction&gt;0&lt;/NoiseReduction&gt;
+                        &lt;PageNo&gt;1&lt;/PageNo&gt;
+                        &lt;PatchCodeMinOccurrence&gt;30&lt;/PatchCodeMinOccurrence&gt;
+                        &lt;Pattern&gt;&lt;/Pattern&gt;
+                        &lt;Pdf417AutoUTF8&gt;1&lt;/Pdf417AutoUTF8&gt;
+                        &lt;Pdf417Debug&gt;0&lt;/Pdf417Debug&gt;
+                        &lt;Pdf417ChannelMode&gt;0&lt;/Pdf417ChannelMode&gt;
+                        &lt;PDF417MacroEscapeBackslash&gt;1&lt;/PDF417MacroEscapeBackslash&gt;
+                        &lt;PdfBpp&gt;8&lt;/PdfBpp&gt;
+                        &lt;PdfDpi&gt;300&lt;/PdfDpi&gt;
+                        &lt;PdfImageExtractOptions&gt;0&lt;/PdfImageExtractOptions&gt;
+                        &lt;PdfImageOnly&gt;1&lt;/PdfImageOnly&gt;
+                        &lt;PdfImageRasterOptions&gt;0&lt;/PdfImageRasterOptions&gt;
+                        &lt;PdfMaxMem&gt;32&lt;/PdfMaxMem&gt;
+                        &lt;Photometric&gt;0&lt;/Photometric&gt;
+                        &lt;PrefOccurrence&gt;5&lt;/PrefOccurrence&gt;
+                        &lt;QRCodeAutoUTF8&gt;1&lt;/QRCodeAutoUTF8&gt;
+                        &lt;QRCodeBWAutoMedianFilter&gt;1&lt;/QRCodeBWAutoMedianFilter&gt;
+                        &lt;QRCodeFinderTolerance&gt;0&lt;/QRCodeFinderTolerance&gt;
+                        &lt;QuietZoneSize&gt;0&lt;/QuietZoneSize&gt;
+                        &lt;QuotedPrintableCharSet&gt;0&lt;/QuotedPrintableCharSet&gt;
+                        &lt;QRCodeReadInverted&gt;1&lt;/QRCodeReadInverted&gt;
+                        &lt;ReadCodabar&gt;1&lt;/ReadCodabar&gt;
+                        &lt;ReadCode128&gt;1&lt;/ReadCode128&gt;
+                        &lt;ReadCode25ni&gt;1&lt;/ReadCode25ni&gt;
+                        &lt;ReadCode25&gt;1&lt;/ReadCode25&gt;
+                        &lt;ReadCode39&gt;1&lt;/ReadCode39&gt;
+                        &lt;ReadCode93&gt;1&lt;/ReadCode93&gt;
+                        &lt;ReadDatabar&gt;1&lt;/ReadDatabar&gt;
+                        &lt;ReadDataMatrix&gt;0&lt;/ReadDataMatrix&gt;
+                        &lt;ReadEAN8&gt;1&lt;/ReadEAN8&gt;
+                        &lt;ReadEAN13&gt;1&lt;/ReadEAN13&gt;
+                        &lt;ReadMicroPDF417&gt;1&lt;/ReadMicroPDF417&gt;
+                        &lt;ReadNumeric&gt;1&lt;/ReadNumeric&gt;
+                        &lt;ReadPatchCodes&gt;1&lt;/ReadPatchCodes&gt;
+                        &lt;ReadPDF417&gt;1&lt;/ReadPDF417&gt;
+                        &lt;ReadQRCode&gt;1&lt;/ReadQRCode&gt;
+                        &lt;ReadShortCode128&gt;1&lt;/ReadShortCode128&gt;
+                        &lt;ReadUPCA&gt;1&lt;/ReadUPCA&gt;
+                        &lt;ReadUPCE&gt;1&lt;/ReadUPCE&gt;
+                        &lt;ReportUnreadBarcodes&gt;0&lt;/ReportUnreadBarcodes&gt;
+                        &lt;RotateBy45IfNoBarcode&gt;0&lt;/RotateBy45IfNoBarcode&gt;
+                        &lt;SkewedLinear&gt;1&lt;/SkewedLinear&gt;
+                        &lt;ResyncChars&gt;2&lt;/ResyncChars&gt;
+                        &lt;ResyncRows&gt;10&lt;/ResyncRows&gt;
+                        &lt;ScanDirection&gt;15&lt;/ScanDirection&gt;
+                        &lt;ShortCode128MinLength&gt;2&lt;/ShortCode128MinLength&gt;
+                        &lt;SkewLineJump&gt;9&lt;/SkewLineJump&gt;
+                        &lt;SkewTolerance&gt;0&lt;/SkewTolerance&gt;
+                        &lt;ShowCheckDigit&gt;0&lt;/ShowCheckDigit&gt;
+                        &lt;ShowCodabarStartStop&gt;1&lt;/ShowCodabarStartStop&gt;
+                        &lt;SkewSpeed&gt;3&lt;/SkewSpeed&gt;
+                        &lt;TwoDTimeOutPcnt&gt;80&lt;/TwoDTimeOutPcnt&gt;
+                        &lt;TimeOut&gt;30000&lt;/TimeOut&gt;
+                        &lt;UseFastScan&gt;1&lt;/UseFastScan&gt;
+                        &lt;UseOldCode128Algorithm&gt;0&lt;/UseOldCode128Algorithm&gt;
+                        &lt;UseRunCache&gt;1&lt;/UseRunCache&gt;
+                        &lt;UseScaledFaxCoords&gt;1&lt;/UseScaledFaxCoords&gt;
+                        &lt;UseOverSampling&gt;0&lt;/UseOverSampling&gt;
+                        &lt;WeightLongerBarcodes&gt;1&lt;/WeightLongerBarcodes&gt;
+                &lt;/Properties&gt;
+        &lt;/SoftekBarcode&gt;
+&lt;/xml&gt;
+</code></pre><h3 id="supported-barcodes"><a name="supported-barcodes" class="plugin-anchor" href="#supported-barcodes"><i class="fa fa-link" aria-hidden="true"></i></a>Supported Barcodes</h3>
 <ul>
 <li>Codabar also known as Code 2 of 7, Codeabar, Ames Code, NW-7 and Monarch (ReadCodabar)</li>
 <li>Code 128 Symbol Sets A, B and C (ReadCode128)</li>
@@ -1542,7 +1652,7 @@ v8.1.2</a><br> <a href="http://bardecode.com/barcode_linux.tar.gz" target="_blan
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Barcode","level":"1.2.4","depth":2,"next":{"title":"Branding","level":"1.2.5","depth":2,"path":"configuration/branding-text.md","ref":"configuration/branding-text.md","articles":[]},"previous":{"title":"Backups","level":"1.2.3","depth":2,"path":"configuration/backups-text.md","ref":"configuration/backups-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/barcode-text.md","mtime":"2018-07-31T10:42:05.861Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-31T10:42:54.689Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Barcode","level":"1.2.4","depth":2,"next":{"title":"Branding","level":"1.2.5","depth":2,"path":"configuration/branding-text.md","ref":"configuration/branding-text.md","articles":[]},"previous":{"title":"Backups","level":"1.2.3","depth":2,"path":"configuration/backups-text.md","ref":"configuration/backups-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/barcode-text.md","mtime":"2018-07-31T11:07:09.218Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-31T11:07:56.099Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
