@@ -6,14 +6,14 @@
 v8.1.2](http://softeksoftware.co.uk/download/barcode_sdk/windows/softek_barcode_sdk_8_1_2.zip)  
  [Linux SDK v8.3.1](http://bardecode.com/barcode_linux.tar.gz)
  
-For a list of all versions go to [Bardecode](http://www.bardecode.com/en1/quick-download/), although a different license may need to be loaded via the License property. A license can be specified in the "Advanced" section of the extractFromBarcode rule by adding the line `LicenseKey=<license here>`<br>
+For a list of all versions go to [Bardecode](http://www.bardecode.com/en1/quick-download/), although a different license may need to be loaded via the License property. A license and XML file can be specified in the "Advanced" section of the extractFromBarcode rule by adding the lines<br>
+`LicenseKey=<license here>`<br>
 `xml=/opt/PT_ID_NO.xml`
  
- Linux: Copy the barcode_linux.tar.gz file to the destination host
-Run the following commands:<br>
+Linux: Copy the barcode_linux.tar.gz file to the destination host and run the following commands:<br>
 `gzip -d barcode_linux.tar.gz`<br>
 `tar -xf barcode_linux.tar`<br>
-In the resultant bardecoder_8_3_1 directory, `sudo ./configure.sh`
+In the resultant *bardecoder_8_3_1* directory, `sudo ./configure.sh`
 
 Libraries need to be copied to `/usr/lib/` on Linux installations and `C:\\Windows\\System32` for Windows (this is dependant on where the java.library.path is pointing to). Below is a list of the libraries which need to be copied:
 
