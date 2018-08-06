@@ -4,17 +4,24 @@
 2) Install the Softek SDK. You can download the latest version from:  
 [Windows SDK
 v8.1.2](http://softeksoftware.co.uk/download/barcode_sdk/windows/softek_barcode_sdk_8_1_2.zip)  
- [Linux SDK v8.1.2](http://bardecode.com/barcode_linux.tar.gz)
+ [Linux SDK v8.3.1](http://bardecode.com/barcode_linux.tar.gz)
  
-For a list of all versions go to [Bardecode](http://www.bardecode.com/en1/quick-download/), although a different license may need to be loaded via the License property. A license can be specified in the "Advanced" section of the extractFromBarcode rule by adding the line LicenseKey=<license here> 
+For a list of all versions go to [Bardecode](http://www.bardecode.com/en1/quick-download/), although a different license may need to be loaded via the License property. A license can be specified in the "Advanced" section of the extractFromBarcode rule by adding the line `LicenseKey=<license here>`<br>
+`xml=/opt/PT_ID_NO.xml`
+ 
+ Linux: Copy the barcode_linux.tar.gz file to the destination host
+Run the following commands:<br>
+`gzip -d barcode_linux.tar.gz`<br>
+`tar -xf barcode_linux.tar`<br>
+In the resultant bardecoder_8_3_1 directory, `sudo ./configure.sh`
 
 Libraries need to be copied to `/usr/lib/` on Linux installations and `C:\\Windows\\System32` for Windows (this is dependant on where the java.library.path is pointing to). Below is a list of the libraries which need to be copied:
 
-*  Barcode.class
-*  Barcode.java
-*  bardecode.a
-*  libbardecode.so
-*  libbardecode_jni.so
+*  java/Softek/Barcode.class
+*  java/Softek/Barcode.java
+*  lib/bardecode.a
+*  lib/libbardecode.so
+*  lib/libbardecode_jni.so
 
 An XML file in the following format can be created to configure specific properties:
 ```
