@@ -12,9 +12,9 @@
 
 Sub licenses are not added directly. 
 Each full license provides the ability to create 2 or more sub type users. 
-e.g. 1 full user license allows 5 share users to be created.
+e.g. 1 full user license allows 4 share users to be created.
 
-**Share (5)** - Cannot login, can only access PaperTrail from email links Sent via Share, Share Node and eSign actions.
+**Share (4)** - Cannot login, can only access PaperTrail from email links Sent via Share, Share Node and eSign actions.
 
 **View (2)** - View only functions, no import capabilities.
 
