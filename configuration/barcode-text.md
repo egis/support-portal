@@ -23,6 +23,18 @@ Libraries need to be copied to `/usr/lib/` on Linux installations and `C:\\Windo
 *  lib/libbardecode.so
 *  lib/libbardecode_jni.so
 
+Once the above has been completed, an extractFromBarcode node rule can be configured in PaperTrail.
+* Barcode Index: The text index to save the barcode value in `barcode_value`
+* Failed / Passed Index: Boolean indexes (optional) to flag if the extract failed / passed `barcode_failed` / `barcode_read`
+* Advanced: Enter the xml path (see below for format of the xml file) and license here<br>
+`xml=/opt/Papertrail/barcode.xml`<br>
+`LicenseKey=mylicensekey`
+
+The next node rule will be extractFromIndex, targeting your Barcode Index `barcode_value`
+* Filter: `indexes.containsKey('barcode_value') && barcode_value!= '' && barcode_value!= null`
+* Use the regex to extract the `barcode_value` into separate indexes
+* Important: Once added, navigate to the `/web/portal` interface and select the node where you have the rule set. Click the drop-down menu at the node name > Rules. Edit the extractFromIndex rule and set the event to `Document.update_index`
+
 An XML file in the following format can be created to configure specific properties:
 ```
 <xml version='1.0' encoding='iso-8859-1'>
