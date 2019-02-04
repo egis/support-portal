@@ -1189,6 +1189,20 @@ In the resultant <em>bardecoder_8_3_1</em> directory, <code>sudo ./configure.sh<
 <li>lib/libbardecode.so</li>
 <li>lib/libbardecode_jni.so</li>
 </ul>
+<p>Once the above has been completed, an extractFromBarcode node rule can be configured in PaperTrail.</p>
+<ul>
+<li>Barcode Index: The text index to save the barcode value in <code>barcode_value</code></li>
+<li>Failed / Passed Index: Boolean indexes (optional) to flag if the extract failed / passed <code>barcode_failed</code> / <code>barcode_read</code></li>
+<li>Advanced: Enter the xml path (see below for format of the xml file) and license here<br>
+<code>xml=/opt/Papertrail/barcode.xml</code><br>
+<code>LicenseKey=mylicensekey</code></li>
+</ul>
+<p>The next node rule will be extractFromIndex, targeting your Barcode Index <code>barcode_value</code></p>
+<ul>
+<li>Filter: <code>indexes.containsKey(&apos;barcode_value&apos;) &amp;&amp; barcode_value!= &apos;&apos; &amp;&amp; barcode_value!= null</code></li>
+<li>Use the regex to extract the <code>barcode_value</code> into separate indexes</li>
+<li>Important: Once added, navigate to the <code>/web/portal</code> interface and select the node where you have the rule set. Click the drop-down menu at the node name &gt; Rules. Edit the extractFromIndex rule and set the event to <code>Document.update_index</code></li>
+</ul>
 <p>An XML file in the following format can be created to configure specific properties:</p>
 <pre><code>&lt;xml version=&apos;1.0&apos; encoding=&apos;iso-8859-1&apos;&gt;
         &lt;SoftekBarcode&gt;
@@ -1658,7 +1672,7 @@ In the resultant <em>bardecoder_8_3_1</em> directory, <code>sudo ./configure.sh<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Barcode","level":"1.2.4","depth":2,"next":{"title":"Branding","level":"1.2.5","depth":2,"path":"configuration/branding-text.md","ref":"configuration/branding-text.md","articles":[]},"previous":{"title":"Backups","level":"1.2.3","depth":2,"path":"configuration/backups-text.md","ref":"configuration/backups-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/barcode-text.md","mtime":"2019-01-22T08:25:08.703Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-22T08:25:40.431Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Barcode","level":"1.2.4","depth":2,"next":{"title":"Branding","level":"1.2.5","depth":2,"path":"configuration/branding-text.md","ref":"configuration/branding-text.md","articles":[]},"previous":{"title":"Backups","level":"1.2.3","depth":2,"path":"configuration/backups-text.md","ref":"configuration/backups-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/barcode-text.md","mtime":"2019-02-04T14:11:28.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-04T14:12:03.030Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
