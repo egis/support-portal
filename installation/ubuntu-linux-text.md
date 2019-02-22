@@ -84,6 +84,7 @@ db.host=localhost
 db.pass=papertrail
 db.user=papertrail
 db.type=postgresql
+db.instanceName=myinstance (optional)
 ```
 
 3) Start papertrail
