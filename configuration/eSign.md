@@ -25,3 +25,12 @@
 * To edit an existing design, V2 Interface: select the design by clicking `eSign` and selecting the design you wish to edit. Then `More > Sign`. Save the design and the template
 * To edit an existing design, Classic Interface: select the design from the `eSignature Upload Node`. Then `Document > Sign`. Save the design and the template
 * To auto-populate indexes based on values in the form, name the `Field ID` in the design stage to the same as the index you wish to populate.
+
+### Configuring a remote eSign server
+* On the production server: Admin > Services > Properties > eSign
+  * Signature Upload Node: `signature uploads`
+  * Signature Upload Http: `https://esignportal.papertrail.co.za/signature/upload/myAPIKey001` (non-tenant environments). Create a random strong API key
+  * Signature Upload Http: `https://esignportal.papertrail.co.za/signature/upload/mytenant:mytenantAPIKey001` (tenant environments). Get the `mytenant` and `mytenantAPIKey001` from the eSign Portal > Admin > User Management > Tenant
+* On the eSign Portal:  Admin > Services > Properties > eSign
+  * Signature Upload Node: `signature uploads`
+  * Signature Api Key: `myAPIKey001` (non-tenant environments); leave blank for tenant environments
