@@ -52,6 +52,6 @@ Possible error when restoring / importing a MySQL DB:<br>
 Possible error when attempting to add indexes in PaperTrail (or alter table in the DB directly on document_summary_index):<br>
 `Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Row size too large. The maximum row size for the used table type, not counting BLOBs, is 8126. This includes storage overhead, check the manual. You have to change some columns to TEXT or BLOBs`
 
-In the my.ini file (Windows - C:\ProgramData\MySQL\MySQL Server 5.7\my.ini) or the my.cnf file (Linux - /etc/mysql/my.cnf), make the following changes in the `[mysqld]` section<br>
+In the my.ini file (Windows - C:\ProgramData\MySQL\MySQL Server 5.7\my.ini) or the my.cnf file (Linux - /etc/mysql/my.cnf), make the following changes in the `[mysqld]` section, and then restart the MySQL service<br>
 Increase `innodb_log_file_size=500M`<br>
 Add `innodb_strict_mode=0`
