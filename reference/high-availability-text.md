@@ -89,6 +89,12 @@ db.identity.override=true # for sql server replication only
 *  Start up the master
 *  Wait a few minutes and start up the slave
 
+When setup, the Messages table (Services > Messages) will show:
+
+`store.write.replication` relates to the document on disk replication (master and slave maintain diferent numbers based on where the document was imported).
+
+`IndexReplicator.replicate` relates to the index replication (master and slave maintain diferent numbers based on where the index was updated).
+
 ## Clustering
 
 ![replication](../images/ha-clustering.png)
