@@ -19,7 +19,7 @@ which are:
 
 `jdbc:mysql://host:3306/{db}`
 
-`jdbc:sqlserver://host:1443;databaseName={db}`
+`jdbc:sqlserver://host:1433;databaseName={db}`
 
 `jdbc:postgresql://host:5432/{db}`
 
