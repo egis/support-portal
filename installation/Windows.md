@@ -4,13 +4,26 @@
 
 ### Using Windows AD account for SQL Authentication
 
-* Copy ntlmauth.dll to c:\Program Files\Papertrail\bin\sqlserver\x64 directory
+* Copy ntlmauth.dll (from releases) to:
+```
+C:\Program Files\Papertrail\bin\sqlserver\x64 directory
+```
+* Copy sqljdbc_auth.dll (from Papertrail\bin\sqlserver\x64) to the below Java directories:
+```
+C:\Program Files\Java\jre1.8.0_181\bin
+C:\Program Files\Java\jre1.8.0_181\lib
+C:\Program Files\Java\jdk1.8.0_181\bin
+C:\Program Files\Java\jdk1.8.0_181\lib
+```
+
 * Make sure the Windows account has access to the SQL DB.
 * Change Windows Service > Log On > Log on as: {specify the domain account details} 
 * Ensure that account has been granted "Logon as service" rights.
-* Update papertrail.properties file by removing 'db.user' and 'db.pass' config, add:
-  db.type=mssql
-  db.url.config=;integratedSecurity=true
+* Update papertrail.properties file by removing `db.user` and `db.pass` config, add:
+ ```
+ db.type=mssql
+ db.url.config=;integratedSecurity=true
+```
 
 ## Windows Installations - character encoding issues
 Windows encoding sometimes replaces characters (in outgoing emails, notes, etc) with odd characters, e.g. `aEU`<br>
