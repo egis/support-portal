@@ -24,7 +24,7 @@ cp US_export_policy.jar /usr/lib/jvm/java-8-oracle/jre/lib/security/
 *  Install PostGres 
 
 ```shell
-apt-get install postgresql-9.3
+apt-get install postgresql-9.5
 ```
 
 (If postgres is not available, follow the instructions at http://wiki.postgresql.org/wiki/Apt to install the repository and then re-try.)
@@ -32,8 +32,7 @@ apt-get install postgresql-9.3
 *  Create database and postgres Papertrail user:
 
 ```shell
-PSQL_VERSION=9.3 sudo -u postgres psql -c 
-"CREATE ROLE papertrail PASSWORD 'papertrail' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;"   
+sudo -u postgres psql -c "CREATE ROLE papertrail PASSWORD 'papertrail' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;"   
 sudo -u postgres psql -c 'create database papertrail with owner papertrail;'  
 echo host  papertrail papertrail  127.0.0.1/32 md5 >> /etc/postgresql/$PSQL_VERSION/main/pg_hba.conf /etc/init.d/postgresql restart
 ```
