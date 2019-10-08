@@ -25,6 +25,21 @@ C:\Program Files\Java\jdk1.8.0_181\lib
  db.url.config=;integratedSecurity=true
 ```
 
+On a fresh installation of PaperTrail, you may need to manually seed the DB as the Configuration Wizard may not pass the AD credentials correctly in the JDBC string. To do this, run the below SQL scripts from the `Papertrail\deploy\scripts\sql\seed` directory in the correct order against the database.
+```
+01 mssql-create.sql
+02 mssql-seed.sql
+03 common-seed.sql
+```
+
+Then ensure that the papertrail.properties file has the ` db.url.config=;integratedSecurity=true` parameter set.
+Also ensure that the below parameters are removed (to prevent entering the Configuration Wizard screen):
+```
+startup.roles=web,messaging,core
+web.login.page=/web/webapps/wizard.html
+```
+
+
 ## Windows Installations - character encoding issues
 Windows encoding sometimes replaces characters (in outgoing emails, notes, etc) with odd characters, e.g. `aEU`<br>
 This only affects PaperTrail instances running on Windows hosts. To resolve, add the below to the service.vmoptions / service_x64.vmoptions file and restart the PaperTrail service:<br>
