@@ -39,6 +39,7 @@ startup.roles=web,messaging,core
 web.login.page=/web/webapps/wizard.html
 ```
 
+Also important is to ensure that the domain account used for NTLM authentication is granted Full Control NTFS Permissions over the `Program Files\Papertrail` directory and the `Data` directory (Repository and Indexing)
 
 ## Windows Installations - character encoding issues
 Windows encoding sometimes replaces characters (in outgoing emails, notes, etc) with odd characters, e.g. `aEU`<br>
