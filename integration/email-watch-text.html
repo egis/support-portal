@@ -1171,6 +1171,7 @@
 <li><a href="#map-email-fields-to-document-indexes">Map email fields to document indexes</a></li>
 <li><a href="#exclude-signature-images-and-other-attachments-from-being-imported">Exclude signature images and other attachments from being imported.</a></li>
 <li><a href="#troubleshooting-email-imports">Troubleshooting email imports:</a></li>
+<li><a href="#polling-mail-servers-with-a-self-signed-certificate">Polling mail servers with a self-signed certificate</a></li>
 </ul>
 
 </div><!-- tocstop -->
@@ -1222,6 +1223,24 @@ e.g. <em>.gif;</em>.jpeg;*.png</li>
 <li>Ensure that standard email clients can connect over the POP and IMAP Protocols.</li>
 <li>Check <strong>Services -&gt; Properties -&gt; Imports -&gt; Debug POP/IMAP</strong> to record the conversion with the POP/IMAP server to if it returns any error messages.</li>
 </ol>
+<h2 id="polling-mail-servers-with-a-self-signed-certificate"><a name="polling-mail-servers-with-a-self-signed-certificate" class="plugin-anchor" href="#polling-mail-servers-with-a-self-signed-certificate"><i class="fa fa-link" aria-hidden="true"></i></a>Polling mail servers with a self-signed certificate</h2>
+<p>Should you not be able to connect to a mailbox, with the below error in the logfile, the issue is due to a certificate not in the Java cacerts file:<br>
+<code>PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target</code></p>
+<ol>
+<li>Obtain a copy of the CER file for the mailserver and save on disk to the PaperTrail server (mailserver.cer in this example)</li>
+<li>Run CMD prompt as administrator / Linux shell as root</li>
+<li>Navigate to the Java bin directory:</li>
+<li>Windows: <code>C:\Program Files\Java\jre1.8.0_221\bin</code></li>
+<li>Linux: <code>/usr/lib/jvm/java-8-oracle/jre/bin</code></li>
+<li>Import the certificate to the Java Security cacerts file</li>
+<li>Windows: <code>keytool -importcert -trustcacerts -file &quot;C:\Downloads\mailserver.cer&quot; -keystore &quot;C:\Program Files\Java\jre1.8.0_221\lib\security\cacerts&quot; -alias &quot;mailserver&quot;</code></li>
+<li>Linux: <code>keytool -importcert -trustcacerts -file /root/mailserver.cer -keystore /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts -alias mailserver</code></li>
+<li>Set the password to <code>changeit</code> and trust the certificate</li>
+<li>Restart PaperTrail</li>
+<li>If there is still an issue, try adding this line to run.sh / service_x64.vmoptions and restart PaperTrail<br></li>
+<li>Windows <code>-Djavax.net.ssl.trustStore=C:\Program Files\Java\jre1.8.0_221\lib\security\cacerts</code></li>
+<li>Linux <code>-Djavax.net.ssl.trustStore=/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts</code></li>
+</ol>
 
                                 
                                 </section>
@@ -1265,7 +1284,7 @@ e.g. <em>.gif;</em>.jpeg;*.png</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Email Watch","level":"1.5.4","depth":2,"next":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/email-watch-text.md","mtime":"2019-10-09T07:53:16.846Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-09T07:53:49.722Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Email Watch","level":"1.5.4","depth":2,"next":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/email-watch-text.md","mtime":"2019-10-10T13:03:04.819Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-10T13:03:47.319Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
