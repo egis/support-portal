@@ -56,14 +56,14 @@ Should you not be able to connect to a mailbox, with the below error in the logf
 
 1. Obtain a copy of the CER file for the mailserver and save on disk to the PaperTrail server (mailserver.cer in this example)
 2. Run CMD prompt as administrator / Linux shell as root
-3. Navigate to the Java bin directory:
-* Windows: `C:\Program Files\Java\jre1.8.0_221\bin`
-* Linux: `/usr/lib/jvm/java-8-oracle/jre/bin`
-4. Import the certificate to the Java Security cacerts file
-* Windows: `keytool -importcert -trustcacerts -file "C:\Downloads\mailserver.cer" -keystore "C:\Program Files\Java\jre1.8.0_221\lib\security\cacerts" -alias "mailserver"`
-* Linux: `keytool -importcert -trustcacerts -file /root/mailserver.cer -keystore /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts -alias mailserver`
+3. Navigate to the Java bin directory:<br>
+** Windows: `C:\Program Files\Java\jre1.8.0_221\bin`<br>
+** Linux: `/usr/lib/jvm/java-8-oracle/jre/bin`<br>
+4. Import the certificate to the Java Security cacerts file<br>
+** Windows: `keytool -importcert -trustcacerts -file "C:\Downloads\mailserver.cer" -keystore "C:\Program Files\Java\jre1.8.0_221\lib\security\cacerts" -alias "mailserver"`<br>
+** Linux: `keytool -importcert -trustcacerts -file /root/mailserver.cer -keystore /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts -alias mailserver`<br>
 5. Set the password to `changeit` and trust the certificate
 6. Restart PaperTrail
 7. If there is still an issue, try adding this line to run.sh / service_x64.vmoptions and restart PaperTrail<br>
-* Windows `-Djavax.net.ssl.trustStore=C:\Program Files\Java\jre1.8.0_221\lib\security\cacerts`
-* Linux `-Djavax.net.ssl.trustStore=/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts`
+** Windows `-Djavax.net.ssl.trustStore=C:\Program Files\Java\jre1.8.0_221\lib\security\cacerts`<br>
+** Linux `-Djavax.net.ssl.trustStore=/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts`<br>
