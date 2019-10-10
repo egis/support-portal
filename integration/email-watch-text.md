@@ -49,3 +49,21 @@ Update the original email when a reply is received (threading)
 
 1.  Ensure that standard email clients can connect over the POP and IMAP Protocols.
 2.  Check **Services -> Properties -> Imports -> Debug POP/IMAP** to record the conversion with the POP/IMAP server to if it returns any error messages.
+
+## Polling mail servers with a self-signed certificate
+Should you not be able to connect to a mailbox, with the below error in the logfile, the issue is due to a certificate not in the Java cacerts file:<br>
+`PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target`
+
+1. Obtain a copy of the CER file for the mailserver and save on disk to the PaperTrail server (mailserver.cer in this example)
+2. Run CMD prompt as administrator / Linux shell as root
+3. Navigate to the Java bin directory:
+* Windows: `C:\Program Files\Java\jre1.8.0_221\bin`
+* Linux: `/usr/lib/jvm/java-8-oracle/jre/bin`
+4. Import the certificate to the Java Security cacerts file
+* Windows: `keytool -importcert -trustcacerts -file "C:\Downloads\mailserver.cer" -keystore "C:\Program Files\Java\jre1.8.0_221\lib\security\cacerts" -alias "mailserver"`
+* Linux: `keytool -importcert -trustcacerts -file /root/mailserver.cer -keystore /usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts -alias mailserver`
+5. Set the password to `changeit` and trust the certificate
+6. Restart PaperTrail
+7. If there is still an issue, try adding this line to run.sh / service_x64.vmoptions and restart PaperTrail<br>
+* Windows `-Djavax.net.ssl.trustStore=C:\Program Files\Java\jre1.8.0_221\lib\security\cacerts`
+* Linux `-Djavax.net.ssl.trustStore=/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts`
