@@ -46,6 +46,13 @@ Database command  and store the result in the file repository. 
 
 Note: Backups can only be made of local database
 
+By default, daily backups are kept on a rotation of 14 days, monthly backups for 3 months. To change these defaults, add the below to the properties file and restart PT
+```
+db.backup.daily.rotation=14
+db.backup.monthly.rotation=3
+```
+
+
  Configuring cloud backups
 --------------------------
 
