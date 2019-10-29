@@ -34,3 +34,7 @@
 * On the eSign Portal:  Admin > Services > Properties > eSign
   * Signature Upload Node: `signature uploads`
   * Signature Api Key: `myAPIKey001` (non-tenant environments); leave blank for tenant environments
+
+> You may require an O/S level host file entry on the eSign Portal server to point the production server's PaperTrail hostname (Properties > Front End > Server Hostname) to a public IP address.
+
+`e.g. 8.8.8.8 client-pt01`
