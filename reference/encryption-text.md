@@ -24,6 +24,10 @@ OR
 *  Restart PaperTrail
 *  Rebuild indexes
 
+* You can _try_ and decrypt the encrypted file in the repository with the below command (salt issue):<br>
+`openssl enc -aes-128-ecb -md md5 -in ./bdf520afa6100a7d5c0950da0ff6835038197d5e -out ./bdf520afa6100a7d5c0950da0ff6835038197d5e.pdf -pass file:./keys.jks`
+
+
 ## Encrypting files in transit (SSL)
 
 *  Create a __Java keystore (JKS)__ 
