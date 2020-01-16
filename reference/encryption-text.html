@@ -1178,11 +1178,25 @@
 </ul>
 <p>OR</p>
 <ul>
-<li>Add a new file store under <strong>Services -&gt; File Store</strong>.  </li>
+<li>In the conf directory on disk, add the java keystore as keys.jks</li>
+<li><p>In the conf directory on disk, create keys.properties with the entry <code>keystore.password=mypassword</code></p>
+</li>
+<li><p>The original filestore should be converted to read-only and the new encrypted filestore moved to Order and ID 1</p>
+</li>
+<li>To do this, first edit the original filestore and point it to a new desired encrypted repo location (Services &gt; File Store):</li>
 <li>Select Software under the <strong>Encrypt</strong> option.  </li>
 <li>Enter a <strong>Key size</strong> e.g. 128, 196, 256.  </li>
 <li>Enter the <strong>unique key name</strong> for this store.  </li>
-<li>The <strong>encryption key will be automatically generated</strong> on restart and stored obfuscated in the database.  </li>
+<li><p>The <strong>encryption key will be automatically generated</strong> on restart and stored obfuscated in the database.  </p>
+</li>
+<li><p>Then re-add the original filestore location as read-only without the encryption. You will need to select Async here.</p>
+</li>
+<li><p>Thereafter modify the file_store_properties table in the DB to remove the Async:
+<code>update file_store_property set value = &apos;false&apos; where property = &apos;async&apos; and filestoreid = 2;</code></p>
+</li>
+<li><p>Restart PaperTrail</p>
+</li>
+<li>Rebuild indexes</li>
 </ul>
 <h2 id="encrypting-files-in-transit-ssl"><a name="encrypting-files-in-transit-ssl" class="plugin-anchor" href="#encrypting-files-in-transit-ssl"><i class="fa fa-link" aria-hidden="true"></i></a>Encrypting files in transit (SSL)</h2>
 <ul>
@@ -1255,7 +1269,7 @@ e.g.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Encryption","level":"1.6.4","depth":2,"next":{"title":"Linking","level":"1.6.5","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},"previous":{"title":"Document Export","level":"1.6.3","depth":2,"path":"reference/docexport.md","ref":"reference/docexport.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/encryption-text.md","mtime":"2019-10-29T11:19:51.885Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T11:20:28.901Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Encryption","level":"1.6.4","depth":2,"next":{"title":"Linking","level":"1.6.5","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},"previous":{"title":"Document Export","level":"1.6.3","depth":2,"path":"reference/docexport.md","ref":"reference/docexport.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/encryption-text.md","mtime":"2020-01-16T12:14:53.592Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-16T12:15:36.293Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
