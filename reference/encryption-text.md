@@ -9,8 +9,8 @@ OR
 
 *  In the conf directory on disk, add the java keystore as keys.jks
 *  In the conf directory on disk, create keys.properties with the entries:<br>
-`keystore.password=mypassword<br>
-keystore.backup=true`
+`keystore.password=mypassword`<br>
+`keystore.backup=true`
 
 *  The original filestore should be converted to read-only and the new encrypted filestore moved to Order and ID 1
 *  To do this, first edit the original filestore and point it to a new desired encrypted repo location (Services > File Store):
