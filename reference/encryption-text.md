@@ -7,11 +7,22 @@
 
 OR
 
-*  Add a new file store under __Services -> File Store__.  
+*  In the conf directory on disk, add the java keystore as keys.jks
+*  In the conf directory on disk, create keys.properties with the entry `keystore.password=mypassword`
+
+*  The original filestore should be converted to read-only and the new encrypted filestore moved to Order and ID 1
+*  To do this, first edit the original filestore and point it to a new desired encrypted repo location (Services > File Store):
 *  Select Software under the __Encrypt__ option.  
 *  Enter a __Key size__ e.g. 128, 196, 256.  
 *  Enter the __unique key name__ for this store.  
 *  The __encryption key will be automatically generated__ on restart and stored obfuscated in the database.  
+
+*  Then re-add the original filestore location as read-only without the encryption. You will need to select Async here.
+*  Thereafter modify the file_store_properties table in the DB to remove the Async:
+`update file_store_property set value = 'false' where property = 'async' and filestoreid = 2;`
+
+*  Restart PaperTrail
+*  Rebuild indexes
 
 ## Encrypting files in transit (SSL)
 
