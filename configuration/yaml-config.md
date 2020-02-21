@@ -34,7 +34,8 @@ Where {Entity} is one of:
 *  QueueConfig
 *  MetaModel
 *  Form  
-*  Template  
+*  Template
+*  Contact  
 *  All entities will export something - but the output may or may not import back in.  
 
 Using [httpie](https://github.com/jkbrzt/httpie):  
