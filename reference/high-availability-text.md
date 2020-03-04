@@ -95,6 +95,10 @@ When setup, the Messages table (Services > Messages) will show:
 
 `IndexReplicator.replicate` relates to the index replication (master and slave maintain diferent numbers based on where the index was updated).
 
+**Note:** Should the Master fail, the Slave needs to be reconfigured with `replication.master=true` to allow it to run as the Master Node and execute the background jobs as described above. The `index.upstream`, `replication.upstream`, `file.replication.upstream` should be hashed out. `replication.increment` and `replication.offset` should be left in place.<br>
+Once the Master server is back online, then the Slave DB and Repository will need to be replicated back to the Master server (with PaperTrail offline on both to get them both in the same static state). Then the replication properties can be added back with only one `replication.master` set to true.<br>
+Vice-versa should the Slave fail.
+
 ## Clustering
 
 ![replication](../images/ha-clustering.png)
