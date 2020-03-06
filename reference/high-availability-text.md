@@ -66,24 +66,24 @@ To convert a standalone installation to a replicated installation, follow these 
 
 ```javascript
 index.upstream=http://slave:8080
-replication.upstream=http://slave:8080  
-file.replication.upstream=http://host:8080  
-replication.master=true  
-replication.increment=2  
-replication.offset=1  
-db.identity.override=true # for sql server replication only  
+replication.upstream=http://slave:8080
+file.replication.upstream=http://slave:8080
+replication.master=true
+replication.increment=2
+replication.offset=1
+db.identity.override=true # for sql server replication only (maybe?)
 ```
 
 *  Configure these properties on the slave:  
 
 ```javascript
-index.upstream=http://master:8080  
+index.upstream=http://master:8080
 replication.upstream=http://master:8080
-file.replication.upstream=http://master:8080  
-replication.master=false  
-replication.increment=2  
-replication.offset=2  
-db.identity.override=true # for sql server replication only  
+file.replication.upstream=http://master:8080
+replication.master=false
+replication.increment=2
+replication.offset=2
+db.identity.override=true # for sql server replication only (maybe?)
 ```
 
 *  Start up the master
