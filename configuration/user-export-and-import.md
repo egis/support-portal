@@ -17,6 +17,7 @@
 
 ### Capture new user information
 * Create a csv file with details of the new user accounts to be imported; example cell structure below (remember to convert this to csv):
+* It's a good idea to replace any legitimate `-` characters with something unique, e.g. `1234567890`
 
 | active | email                | login | name       | properties     | userType |
 | ------ | -------------------- | ----- | ---------- | -------------- | -------- |
@@ -45,6 +46,7 @@
 * Remove the first line `---`
 * Perform a simple find-and-replace to substitute `-` with `--- !<User>` and your YAML file should now resemble the output from the earlier user database export
 * Ensure that there are no duplicate login values and no illegal characters in any of the fields
+* Replace the string `1234567890` with `-`
 
 ### Import new user database
 * Copy your YAML file over to the Linux host (using WinSCP as an option)
