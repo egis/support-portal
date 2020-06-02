@@ -50,6 +50,7 @@ Filename : Mapping.csv
 	date 3,date3,,dd/MM/yyyy
 ```
 
+
 ```javascript
 Filename : Data.csv
 	index 1,index 2,date 3,index 3  
@@ -65,6 +66,10 @@ Filename : XML Mapping.csv
 	/Data/index3/text(),index3,,${value}-smith  
 	/Data/date3/text(),date3,MM/dd/yyyy
 ```
+
+Any changes on the mapping file will have to be followed by a restart of PaperTrail, and a reprocess of data files.
+To make testing easier, you can drop data files. Once processed view the data in the 'sync_${import name}' table eg. SELECT * FROM sync_seesvee
+
 
 ```javascript
 Filename : Data.xml
