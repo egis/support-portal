@@ -18,6 +18,8 @@ fsync = on   # setting it to off can boost performance at the risk of full db 
 synchronous_commit = on  # can be safely set to off full_page_writes = on
 ```
 
+Also visit https://pgtune.leopard.in.ua/ for PGTune recommended values based on specific hardware inputs
+
 ### Recommended MySQL Settings
 
 ```
