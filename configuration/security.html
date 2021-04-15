@@ -1224,6 +1224,31 @@ need to be set via papertrail.properties file:</li>
 <p>Check <code>Enable brute force protection</code> under <code>Services -&gt; Security</code>  </p>
 <h2 id="secure-cookie-handling"><a name="secure-cookie-handling" class="plugin-anchor" href="#secure-cookie-handling"><i class="fa fa-link" aria-hidden="true"></i></a>Secure Cookie Handling</h2>
 <p>Check the options under <code>Services -&gt; Security -&gt; Cookies</code></p>
+<h2 id="api-monitoring"><a name="api-monitoring" class="plugin-anchor" href="#api-monitoring"><i class="fa fa-link" aria-hidden="true"></i></a>API Monitoring:</h2>
+<ul>
+<li>Monitoring MUST be enabled for this to work</li>
+</ul>
+<p>API monitoring Events:</p>
+<pre><code>api-write
+api-read
+api-misuse
+</code></pre><h6 id="api-write"><a name="api-write" class="plugin-anchor" href="#api-write"><i class="fa fa-link" aria-hidden="true"></i></a>api-write</h6>
+<p> Will increment on each of the following:</p>
+<pre><code>1. upload
+2. update
+3. update metadata
+4. delete
+5. node create
+</code></pre><h6 id="api-read"><a name="api-read" class="plugin-anchor" href="#api-read"><i class="fa fa-link" aria-hidden="true"></i></a>api-read</h6>
+<p>Will increment on each of the following</p>
+<pre><code>1. read/open document
+</code></pre><h6 id="api-misuse"><a name="api-misuse" class="plugin-anchor" href="#api-misuse"><i class="fa fa-link" aria-hidden="true"></i></a>api-misuse</h6>
+<p>Will increment and log when API module is not enabled and some default resource is used.</p>
+<p><code>WARN  LicenseFilter [:Administrator:0:0:0:0:0:0:0:1] Possible API misuse detected: /document/details/94</code></p>
+<p>The above warns of possible misuse as well as the resource path.</p>
+<h3 id="notifications"><a name="notifications" class="plugin-anchor" href="#notifications"><i class="fa fa-link" aria-hidden="true"></i></a>Notifications:</h3>
+<p>Under <code>Admin &gt; Services &gt; Monitoring</code></p>
+<p>Notifications can be set up that will email support when an event reaches a threshold in a certain period. For example: email support when <code>api-misuse</code> event reaches 10 events in 5 days.</p>
 
                                 
                                 </section>
@@ -1267,7 +1292,7 @@ need to be set via papertrail.properties file:</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Security","level":"1.2.10","depth":2,"next":{"title":"SSL","level":"1.2.11","depth":2,"path":"configuration/ssl.md","ref":"configuration/ssl.md","articles":[]},"previous":{"title":"Logging","level":"1.2.9","depth":2,"path":"configuration/logging-text.md","ref":"configuration/logging-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/security.md","mtime":"2020-06-30T16:33:30.430Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-30T16:34:14.508Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Security","level":"1.2.10","depth":2,"next":{"title":"SSL","level":"1.2.11","depth":2,"path":"configuration/ssl.md","ref":"configuration/ssl.md","articles":[]},"previous":{"title":"Logging","level":"1.2.9","depth":2,"path":"configuration/logging-text.md","ref":"configuration/logging-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/security.md","mtime":"2021-04-15T07:25:18.507Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-15T07:26:03.033Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
