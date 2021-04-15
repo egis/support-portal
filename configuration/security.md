@@ -83,3 +83,45 @@ Check `Enable brute force protection` under `Services -> Security`
 ## Secure Cookie Handling
 
 Check the options under `Services -> Security -> Cookies`
+
+## API Monitoring:
+
+- Monitoring MUST be enabled for this to work
+
+API monitoring Events:
+
+```
+api-write
+api-read
+api-misuse
+```
+
+###### api-write
+ 
+ Will increment on each of the following:
+ 
+	1. upload
+	2. update
+	3. update metadata
+	4. delete
+	5. node create
+
+###### api-read
+
+Will increment on each of the following
+
+	1. read/open document
+
+###### api-misuse
+
+Will increment and log when API module is not enabled and some default resource is used.
+
+`WARN  LicenseFilter [:Administrator:0:0:0:0:0:0:0:1] Possible API misuse detected: /document/details/94`
+
+The above warns of possible misuse as well as the resource path.
+
+### Notifications:
+
+Under `Admin > Services > Monitoring`
+
+Notifications can be set up that will email support when an event reaches a threshold in a certain period. For example: email support when `api-misuse` event reaches 10 events in 5 days.
