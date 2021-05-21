@@ -69,7 +69,7 @@ Should you not be able to connect to a mailbox, with the below error in the logf
  - Linux `-Djavax.net.ssl.trustStore=/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts`<br>
 
 ## Issues polling mail servers with TLS
-Should you not be able to connect to a mailbox, with the below error in the logfile, the issue is due to a Java update which disables legacy TLS protocols"<br>
+Should you not be able to connect to a mailbox, with the below error in the logfile, the issue is due to a Java update which disables legacy TLS protocols:<br>
 `Failed to connect to: mailbox@outlook.office365.com:993 javax.mail.MessagingException: No appropriate protocol (protocol is disabled or cipher suites are inappropriate); nested exception is: javax.net.ssl.SSLHandshakeException: No appropriate protocol (protocol is disabled or cipher suites are inappropriate)`
 
 It appears that a release of Java around April 2021 disables TLSv1 and TLSv1.1.
