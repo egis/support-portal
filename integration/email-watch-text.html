@@ -1172,6 +1172,7 @@
 <li><a href="#exclude-signature-images-and-other-attachments-from-being-imported">Exclude signature images and other attachments from being imported.</a></li>
 <li><a href="#troubleshooting-email-imports">Troubleshooting email imports:</a></li>
 <li><a href="#polling-mail-servers-with-a-self-signed-certificate">Polling mail servers with a self-signed certificate</a></li>
+<li><a href="#issues-polling-mail-servers-with-tls">Issues polling mail servers with TLS</a></li>
 </ul>
 
 </div><!-- tocstop -->
@@ -1247,6 +1248,14 @@ e.g. <em>.gif;</em>.jpeg;*.png</li>
 </ul>
 </li>
 </ol>
+<h2 id="issues-polling-mail-servers-with-tls"><a name="issues-polling-mail-servers-with-tls" class="plugin-anchor" href="#issues-polling-mail-servers-with-tls"><i class="fa fa-link" aria-hidden="true"></i></a>Issues polling mail servers with TLS</h2>
+<p>Should you not be able to connect to a mailbox, with the below error in the logfile, the issue is due to a Java update which disables legacy TLS protocols&quot;<br>
+<code>Failed to connect to: mailbox@outlook.office365.com:993 javax.mail.MessagingException: No appropriate protocol (protocol is disabled or cipher suites are inappropriate); nested exception is: javax.net.ssl.SSLHandshakeException: No appropriate protocol (protocol is disabled or cipher suites are inappropriate)</code></p>
+<p>It appears that a release of Java around April 2021 disables TLSv1 and TLSv1.1.
+The below lines in the java.security file (\Java\jre1.8.0_291\lib\security) should be commented out and PaperTrail restarted:<br>
+<code>#jdk.tls.disabledAlgorithms=SSLv3, TLSv1, TLSv1.1, RC4, DES, MD5withRSA, \</code><br>
+<code>#    DH keySize &lt; 1024, EC keySize &lt; 224, 3DES_EDE_CBC, anon, NULL, \</code><br>
+<code>#    include jdk.disabled.namedCurves</code></p>
 
                                 
                                 </section>
@@ -1290,7 +1299,7 @@ e.g. <em>.gif;</em>.jpeg;*.png</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Email Watch","level":"1.5.4","depth":2,"next":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/email-watch-text.md","mtime":"2021-04-15T07:25:18.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-15T07:26:03.033Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Email Watch","level":"1.5.4","depth":2,"next":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/email-watch-text.md","mtime":"2021-05-21T07:41:31.804Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-21T07:42:15.763Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
