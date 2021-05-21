@@ -67,3 +67,13 @@ Should you not be able to connect to a mailbox, with the below error in the logf
 7. If there is still an issue, try adding this line to run.sh / service_x64.vmoptions and restart PaperTrail<br>
  - Windows `-Djavax.net.ssl.trustStore=C:\Program Files\Java\jre1.8.0_221\lib\security\cacerts`<br>
  - Linux `-Djavax.net.ssl.trustStore=/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts`<br>
+
+## Issues polling mail servers with TLS
+Should you not be able to connect to a mailbox, with the below error in the logfile, the issue is due to a Java update which disables legacy TLS protocols"<br>
+`Failed to connect to: mailbox@outlook.office365.com:993 javax.mail.MessagingException: No appropriate protocol (protocol is disabled or cipher suites are inappropriate); nested exception is: javax.net.ssl.SSLHandshakeException: No appropriate protocol (protocol is disabled or cipher suites are inappropriate)`
+
+It appears that a release of Java around April 2021 disables TLSv1 and TLSv1.1.
+The below lines in the java.security file (\Java\jre1.8.0_291\lib\security) should be commented out and PaperTrail restarted:<br>
+`#jdk.tls.disabledAlgorithms=SSLv3, TLSv1, TLSv1.1, RC4, DES, MD5withRSA, \`<br>
+`#    DH keySize < 1024, EC keySize < 224, 3DES_EDE_CBC, anon, NULL, \`<br>
+`#    include jdk.disabled.namedCurves`
