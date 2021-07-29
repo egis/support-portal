@@ -14,6 +14,7 @@ C:\Program Files\Java\jre1.8.0_181\bin
 C:\Program Files\Java\jre1.8.0_181\lib
 C:\Program Files\Java\jdk1.8.0_181\bin
 C:\Program Files\Java\jdk1.8.0_181\lib
+C:\Windows\System32
 ```
 
 * Make sure the Windows account has access to the SQL DB.
