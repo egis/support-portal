@@ -19,6 +19,9 @@ One time passwords are a global. If a user does not have a mobile phone, then th
 *  Make sure that SMS Notifications are configured.  
 *  From __Services > Properties > One Time Password__, select __Require OTP SMS__.
 
+To setup NULL OTP provide (accepts any value as valid), add the below property and restart PaperTrail
+`authentication.otp.provider=com.egis.security.NullOtpProvider`
+
 ## Automatic User Creation
 
 Users can be automatically created by checking **Properties** --> **LDAP** --> **Auto Create Users**, this requires that LDAP be configured and working. Users who try and login with a valid LDAP login and password will be created automatically. 
