@@ -77,3 +77,15 @@ The below lines in the java.security file (\Java\jre1.8.0_291\lib\security) shou
 `#jdk.tls.disabledAlgorithms=SSLv3, TLSv1, TLSv1.1, RC4, DES, MD5withRSA, \`<br>
 `#    DH keySize < 1024, EC keySize < 224, 3DES_EDE_CBC, anon, NULL, \`<br>
 `#    include jdk.disabled.namedCurves`
+
+## Issues with *Remote host closed connection during handshake*
+Should you not be able to connect to a mailbox, with the below error in the logfile, the issue is due to an outdated mail.jar file in the PaperTrail libs directory<br>
+`Failed to connect to: mailbox@mail.com@mailserver:993 javax.mail.MessagingException: Remote host closed connection during handshake;`
+
+The offending mail.jar is v1.4.4, with the updated jar being v1.6.2
+
+1. Remove `mail.jar` from the libs directory
+2. Obtain v1.6.2 of `javax.mail.jar`, rename to `mail.jar` and place in the libs directory (https://javaee.github.io/javamail/#Download_JavaMail_Release)
+3. Restart PaperTrail
+
+See also PPT-11861
