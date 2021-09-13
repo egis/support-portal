@@ -1173,6 +1173,7 @@
 <li><a href="#troubleshooting-email-imports">Troubleshooting email imports:</a></li>
 <li><a href="#polling-mail-servers-with-a-self-signed-certificate">Polling mail servers with a self-signed certificate</a></li>
 <li><a href="#issues-polling-mail-servers-with-tls">Issues polling mail servers with TLS</a></li>
+<li><a href="#issues-with-remote-host-closed-connection-during-handshake">Issues with <em>Remote host closed connection during handshake</em></a></li>
 </ul>
 
 </div><!-- tocstop -->
@@ -1256,6 +1257,16 @@ The below lines in the java.security file (\Java\jre1.8.0_291\lib\security) shou
 <code>#jdk.tls.disabledAlgorithms=SSLv3, TLSv1, TLSv1.1, RC4, DES, MD5withRSA, \</code><br>
 <code>#    DH keySize &lt; 1024, EC keySize &lt; 224, 3DES_EDE_CBC, anon, NULL, \</code><br>
 <code>#    include jdk.disabled.namedCurves</code></p>
+<h2 id="issues-with-remote-host-closed-connection-during-handshake"><a name="issues-with-remote-host-closed-connection-during-handshake" class="plugin-anchor" href="#issues-with-remote-host-closed-connection-during-handshake"><i class="fa fa-link" aria-hidden="true"></i></a>Issues with <em>Remote host closed connection during handshake</em></h2>
+<p>Should you not be able to connect to a mailbox, with the below error in the logfile, the issue is due to an outdated mail.jar file in the PaperTrail libs directory<br>
+<code>Failed to connect to: mailbox@mail.com@mailserver:993 javax.mail.MessagingException: Remote host closed connection during handshake;</code></p>
+<p>The offending mail.jar is v1.4.4, with the updated jar being v1.6.2</p>
+<ol>
+<li>Remove <code>mail.jar</code> from the libs directory</li>
+<li>Obtain v1.6.2 of <code>javax.mail.jar</code>, rename to <code>mail.jar</code> and place in the libs directory (<a href="https://javaee.github.io/javamail/#Download_JavaMail_Release" target="_blank">https://javaee.github.io/javamail/#Download_JavaMail_Release</a>)</li>
+<li>Restart PaperTrail</li>
+</ol>
+<p>See also PPT-11861</p>
 
                                 
                                 </section>
@@ -1299,7 +1310,7 @@ The below lines in the java.security file (\Java\jre1.8.0_291\lib\security) shou
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Email Watch","level":"1.5.4","depth":2,"next":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/email-watch-text.md","mtime":"2021-08-20T07:00:25.097Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-20T07:01:12.264Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Email Watch","level":"1.5.4","depth":2,"next":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/email-watch-text.md","mtime":"2021-09-13T15:39:15.290Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-13T15:40:01.327Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
