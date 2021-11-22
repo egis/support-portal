@@ -89,3 +89,13 @@ The offending mail.jar is v1.4.4, with the updated jar being v1.6.2
 3. Restart PaperTrail
 
 See also PPT-11861
+
+## Polling email servers via a Proxy
+Should PaperTrail be forced to use a proxy server for outside connectivity, PaperTrail 889 b2479 onward is required with the below settings:<br>
+`mail.ewsstore.proxy.host=myproxyhost` (proxy host - required)<br>
+`mail.ewsstore.proxy.port=80` (proxy port - required)<br>
+If the proxy requires authentication, the following settings are required:<br>
+`mail.ewsstore.proxy.user=myuser`<br>
+`mail.ewsstore.proxy.password=mypassword`<br>
+
+Note that these proxy settings are specific to email imports and differ from the general proxy settings needed to reach, for example, SMS gateways
