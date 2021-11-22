@@ -1174,6 +1174,7 @@
 <li><a href="#polling-mail-servers-with-a-self-signed-certificate">Polling mail servers with a self-signed certificate</a></li>
 <li><a href="#issues-polling-mail-servers-with-tls">Issues polling mail servers with TLS</a></li>
 <li><a href="#issues-with-remote-host-closed-connection-during-handshake">Issues with <em>Remote host closed connection during handshake</em></a></li>
+<li><a href="#polling-email-servers-via-a-proxy">Polling email servers via a Proxy</a></li>
 </ul>
 
 </div><!-- tocstop -->
@@ -1267,6 +1268,14 @@ The below lines in the java.security file (\Java\jre1.8.0_291\lib\security) shou
 <li>Restart PaperTrail</li>
 </ol>
 <p>See also PPT-11861</p>
+<h2 id="polling-email-servers-via-a-proxy"><a name="polling-email-servers-via-a-proxy" class="plugin-anchor" href="#polling-email-servers-via-a-proxy"><i class="fa fa-link" aria-hidden="true"></i></a>Polling email servers via a Proxy</h2>
+<p>Should PaperTrail be forced to use a proxy server for outside connectivity, PaperTrail 889 b2479 onward is required with the below settings:<br>
+<code>mail.ewsstore.proxy.host=myproxyhost</code> (proxy host - required)<br>
+<code>mail.ewsstore.proxy.port=80</code> (proxy port - required)<br>
+If the proxy requires authentication, the following settings are required:<br>
+<code>mail.ewsstore.proxy.user=myuser</code><br>
+<code>mail.ewsstore.proxy.password=mypassword</code><br></p>
+<p>Note that these proxy settings are specific to email imports and differ from the general proxy settings needed to reach, for example, SMS gateways</p>
 
                                 
                                 </section>
@@ -1310,7 +1319,7 @@ The below lines in the java.security file (\Java\jre1.8.0_291\lib\security) shou
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Email Watch","level":"1.5.4","depth":2,"next":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/email-watch-text.md","mtime":"2021-09-13T15:39:15.290Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-13T15:40:01.327Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Email Watch","level":"1.5.4","depth":2,"next":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/email-watch-text.md","mtime":"2021-11-22T08:42:44.630Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-22T08:43:32.252Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
