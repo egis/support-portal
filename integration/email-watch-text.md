@@ -45,6 +45,21 @@ OR
 
 Update the original email when a reply is received (threading)
 
+## Import emails from Office365 OAuth
+
+To set up:<br>
+URL = https://login.microsoftonline.com/<br>
+Add username<br>
+Add password<br>
+Add the tenantId in Advanced<br>
+Add the clientId in Advanced<br>
+Add the resource in Advanced<br>
+
+e.g. in Advanced:<br>
+`tenantId=12345`<br>
+`clientId=abcde`<br>
+`resource=EWS.AccessAsUser.All`
+
 ## Troubleshooting email imports:
 
 1.  Ensure that standard email clients can connect over the POP and IMAP Protocols.
