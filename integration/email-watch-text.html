@@ -988,6 +988,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6.25" data-path="../reference/azure-setup.html">
+            
+                <a href="../reference/azure-setup.html">
+            
+                    
+                    Azure Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1170,7 +1183,11 @@
 <li><a href="#import-emails-from-one-email-account-with-multiple-aliases">Import emails from one email account with multiple aliases</a></li>
 <li><a href="#map-email-fields-to-document-indexes">Map email fields to document indexes</a></li>
 <li><a href="#exclude-signature-images-and-other-attachments-from-being-imported">Exclude signature images and other attachments from being imported.</a></li>
-<li><a href="#import-emails-from-office365-oauth">Import emails from Office365 OAuth</a></li>
+<li><a href="#import-emails-from-office365-oauth---delegated-access">Import emails from Office365 OAuth - Delegated Access</a></li>
+<li><a href="#import-emails-from-office365-oauth---application-access">Import emails from Office365 OAuth - Application Access</a><ul>
+<li><a href="#to-set-up">To set up:</a></li>
+</ul>
+</li>
 <li><a href="#troubleshooting-email-imports">Troubleshooting email imports:</a></li>
 <li><a href="#polling-mail-servers-with-a-self-signed-certificate">Polling mail servers with a self-signed certificate</a></li>
 <li><a href="#issues-polling-mail-servers-with-tls">Issues polling mail servers with TLS</a></li>
@@ -1222,7 +1239,7 @@ e.g. <em>.gif;</em>.jpeg;*.png</li>
 <em>.pdf;</em>.doc*</li>
 </ol>
 <p>Update the original email when a reply is received (threading)</p>
-<h2 id="import-emails-from-office365-oauth"><a name="import-emails-from-office365-oauth" class="plugin-anchor" href="#import-emails-from-office365-oauth"><i class="fa fa-link" aria-hidden="true"></i></a>Import emails from Office365 OAuth</h2>
+<h2 id="import-emails-from-office365-oauth---delegated-access"><a name="import-emails-from-office365-oauth---delegated-access" class="plugin-anchor" href="#import-emails-from-office365-oauth---delegated-access"><i class="fa fa-link" aria-hidden="true"></i></a>Import emails from Office365 OAuth - Delegated Access</h2>
 <p>To set up:<br>
 URL = <a href="https://login.microsoftonline.com/" target="_blank">https://login.microsoftonline.com/</a><br>
 Add username<br>
@@ -1230,10 +1247,20 @@ Add password<br>
 Add the tenantId in Advanced<br>
 Add the clientId in Advanced<br>
 Add the resource in Advanced<br></p>
-<p>e.g. in Advanced:<br>
-<code>tenantId=12345</code><br>
-<code>clientId=abcde</code><br>
-<code>resource=EWS.AccessAsUser.All</code></p>
+<p>e.g. in Advanced:<br></p>
+<pre><code class="lang-properties"><span class="na">tenantId</span><span class="o">=</span><span class="s">12345</span>
+<span class="na">clientId</span><span class="o">=</span><span class="s">abcde</span>
+<span class="na">resource</span><span class="o">=</span><span class="s">EWS.AccessAsUser.All</span>
+</code></pre>
+<h2 id="import-emails-from-office365-oauth---application-access"><a name="import-emails-from-office365-oauth---application-access" class="plugin-anchor" href="#import-emails-from-office365-oauth---application-access"><i class="fa fa-link" aria-hidden="true"></i></a>Import emails from Office365 OAuth - Application Access</h2>
+<h3 id="to-set-up"><a name="to-set-up" class="plugin-anchor" href="#to-set-up"><i class="fa fa-link" aria-hidden="true"></i></a>To set up:</h3>
+<p>URL = <code>https://login.microsoftonline.com/</code><br>Add User Email as <code>username</code><br>Add Client Secret as <code>password</code><br>Add the <code>tenantId</code> in Advanced<br>Add the <code>clientId</code> in Advanced<br>Add the <code>resource</code> in Advanced<br>Add the <code>secret=true</code> in Advance</p>
+<p>e.g. in Advanced:<br></p>
+<pre><code class="lang-properties"><span class="na">tenantId</span><span class="o">=</span><span class="s">12345</span>
+<span class="na">clientId</span><span class="o">=</span><span class="s">abcde</span>
+<span class="na">resource</span><span class="o">=</span><span class="s">https://outlook.office.com/.default</span>
+<span class="na">secret</span><span class="o">=</span><span class="s">true</span>
+</code></pre>
 <h2 id="troubleshooting-email-imports"><a name="troubleshooting-email-imports" class="plugin-anchor" href="#troubleshooting-email-imports"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting email imports:</h2>
 <ol>
 <li>Ensure that standard email clients can connect over the POP and IMAP Protocols.</li>
@@ -1332,7 +1359,7 @@ If the proxy requires authentication, the following settings are required:<br>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Email Watch","level":"1.5.4","depth":2,"next":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/email-watch-text.md","mtime":"2022-07-11T18:13:26.456Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-11T18:14:09.148Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Email Watch","level":"1.5.4","depth":2,"next":{"title":"Folder Export","level":"1.5.5","depth":2,"path":"integration/folder-export-text.md","ref":"integration/folder-export-text.md","articles":[]},"previous":{"title":"Easy PDF","level":"1.5.3","depth":2,"path":"integration/easypdf-text.md","ref":"integration/easypdf-text.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"integration/email-watch-text.md","mtime":"2023-03-29T07:25:30.942Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-29T07:26:12.479Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
