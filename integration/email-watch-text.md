@@ -45,7 +45,7 @@ OR
 
 Update the original email when a reply is received (threading)
 
-## Import emails from Office365 OAuth
+## Import emails from Office365 OAuth - Delegated Access
 
 To set up:<br>
 URL = https://login.microsoftonline.com/<br>
@@ -56,9 +56,31 @@ Add the clientId in Advanced<br>
 Add the resource in Advanced<br>
 
 e.g. in Advanced:<br>
-`tenantId=12345`<br>
-`clientId=abcde`<br>
-`resource=EWS.AccessAsUser.All`
+```properties
+tenantId=12345
+clientId=abcde
+resource=EWS.AccessAsUser.All
+```
+
+
+## Import emails from Office365 OAuth - Application Access
+
+### To set up:
+URL = `https://login.microsoftonline.com/`  
+Add User Email as `username`  
+Add Client Secret as `password`  
+Add the `tenantId` in Advanced  
+Add the `clientId` in Advanced  
+Add the `resource` in Advanced  
+Add the `secret=true` in Advance
+
+e.g. in Advanced:<br>
+```properties
+tenantId=12345
+clientId=abcde
+resource=https://outlook.office.com/.default
+secret=true
+```
 
 ## Troubleshooting email imports:
 
