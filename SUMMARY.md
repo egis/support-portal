@@ -40,6 +40,8 @@
   * [Folder Watch](integration/folder-watch-text.md)
   * [LDAP / Active Directory](integration/ldap-ad-text.md)
 * Reference
+  * [Azure Setup - Delegated Access](reference/azure-setup.md)
+  * [Azure Setup - Application Access](reference/azure-setup-application.md)
   * [Best Practises](reference/best-practises.md)
   * [Cold Standby Failover Procedure](reference/cold-standby-failover-procedure-text.md) 
   * [Document Export](reference/docexport.md)
@@ -64,8 +66,7 @@
   * [Standard Expression](reference/standard-expression-text.md)
   * [System Nodes](reference/system-nodes-text.md)
   * [System Properties](reference/system-properties.md)
-  * [Azure Setup](reference/azure-setup.md)
-* Troubleshooting
+  * Troubleshooting
   * [CPU Usage](troubleshooting/cpu-usage-text.md)
   * [DB Tuning](troubleshooting/db-tuning-text.md)
   * [Exceptions](troubleshooting/exceptions-text.md)
