@@ -96,56 +96,6 @@ It should show `Granted For ****` under the status column for the above rows
 |--------------|------------------------------------|--------------------------|-------------|--------------------------------------|
 | Impersonate  | Both (Users/Groups + Applications) | ApplicationImpersonation | Impersonate | True                                 |
 
-
-
-# Application Access
-
-## Expose an API:
-
-### Add the following scopes:
-
-| Scope Name | Who Can Consent? | Admin consent display name | Admin consent description | User consent display name | User consent description | State   |
-|------------|------------------|----------------------------|---------------------------|---------------------------|--------------------------|---------|
-| Mail.send  | Admins and users | Send Mail                  | Send Mail                 | Send Mail                 | Send Mail                | Enabled |
-| PTScope    | Admins and users | Read                       | Read                      |                           |                          | Enabled |
-
-
-### Add a client application
-* Select both added scopes
-* Add your client id for the application
-* Submit 
-
-## Manifest
-
-### Add the below object to the `requiredResourceAccess` array
-
-```json
-{
-  "resourceAppId": "00000002-0000-0ff1-ce00-000000000000",
-  "resourceAccess": [
-    {
-      "id": "dc890d15-9560-4a4c-9b7f-a736ec74ec40", 
-      "type": "Role"
-    } 
-  ]
-}
-```
-
-## App Roles
-
-### Add a new Role
-
-| Display Name | Allowed Member Types               | Value                    | Description | Do you want to enable this app role? |
-|--------------|------------------------------------|--------------------------|-------------|--------------------------------------|
-| Impersonate  | Both (Users/Groups + Applications) | ApplicationImpersonation | Impersonate | True                                 |
-
-
-## API permissions
-
-Click the `Grant admin consent for *****`
-
-It should show `Granted For ****` under the status column for the row `full_access_as_app`
-
 # References
 
 [Azure Portal](https://portal.azure.com/#home)
