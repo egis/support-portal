@@ -1210,23 +1210,6 @@
 </li>
 <li><a href="#app-roles">App Roles</a><ul>
 <li><a href="#add-a-new-role">Add a new Role</a></li>
-<li><a href="#application-access">Application Access</a></li>
-</ul>
-</li>
-<li><a href="#expose-an-api-1">Expose an API:</a><ul>
-<li><a href="#add-the-following-scopes-1">Add the following scopes:</a></li>
-<li><a href="#add-a-client-application">Add a client application</a></li>
-</ul>
-</li>
-<li><a href="#manifest-1">Manifest</a><ul>
-<li><a href="#add-the-below-object-to-the-requiredresourceaccess-array-1">Add the below object to the <code>requiredResourceAccess</code> array</a></li>
-</ul>
-</li>
-<li><a href="#app-roles-1">App Roles</a><ul>
-<li><a href="#add-a-new-role-1">Add a new Role</a></li>
-</ul>
-</li>
-<li><a href="#api-permissions">API permissions</a><ul>
 <li><a href="#references">References</a></li>
 </ul>
 </li>
@@ -1344,85 +1327,6 @@ urn:ietf:wg:oauth:2.0:oob
 </tr>
 </tbody>
 </table>
-<h1 id="application-access"><a name="application-access" class="plugin-anchor" href="#application-access"><i class="fa fa-link" aria-hidden="true"></i></a>Application Access</h1>
-<h2 id="expose-an-api"><a name="expose-an-api" class="plugin-anchor" href="#expose-an-api"><i class="fa fa-link" aria-hidden="true"></i></a>Expose an API:</h2>
-<h3 id="add-the-following-scopes"><a name="add-the-following-scopes" class="plugin-anchor" href="#add-the-following-scopes"><i class="fa fa-link" aria-hidden="true"></i></a>Add the following scopes:</h3>
-<table>
-<thead>
-<tr>
-<th>Scope Name</th>
-<th>Who Can Consent?</th>
-<th>Admin consent display name</th>
-<th>Admin consent description</th>
-<th>User consent display name</th>
-<th>User consent description</th>
-<th>State</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mail.send</td>
-<td>Admins and users</td>
-<td>Send Mail</td>
-<td>Send Mail</td>
-<td>Send Mail</td>
-<td>Send Mail</td>
-<td>Enabled</td>
-</tr>
-<tr>
-<td>PTScope</td>
-<td>Admins and users</td>
-<td>Read</td>
-<td>Read</td>
-<td></td>
-<td></td>
-<td>Enabled</td>
-</tr>
-</tbody>
-</table>
-<h3 id="add-a-client-application"><a name="add-a-client-application" class="plugin-anchor" href="#add-a-client-application"><i class="fa fa-link" aria-hidden="true"></i></a>Add a client application</h3>
-<ul>
-<li>Select both added scopes</li>
-<li>Add your client id for the application</li>
-<li>Submit </li>
-</ul>
-<h2 id="manifest"><a name="manifest" class="plugin-anchor" href="#manifest"><i class="fa fa-link" aria-hidden="true"></i></a>Manifest</h2>
-<h3 id="add-the-below-object-to-the-requiredresourceaccess-array"><a name="add-the-below-object-to-the-requiredresourceaccess-array" class="plugin-anchor" href="#add-the-below-object-to-the-requiredresourceaccess-array"><i class="fa fa-link" aria-hidden="true"></i></a>Add the below object to the <code>requiredResourceAccess</code> array</h3>
-<pre><code class="lang-json"><span class="p">{</span>
-  <span class="nt">&quot;resourceAppId&quot;</span><span class="p">:</span> <span class="s2">&quot;00000002-0000-0ff1-ce00-000000000000&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;resourceAccess&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;dc890d15-9560-4a4c-9b7f-a736ec74ec40&quot;</span><span class="p">,</span> 
-      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Role&quot;</span>
-    <span class="p">}</span> 
-  <span class="p">]</span>
-<span class="p">}</span>
-</code></pre>
-<h2 id="app-roles"><a name="app-roles" class="plugin-anchor" href="#app-roles"><i class="fa fa-link" aria-hidden="true"></i></a>App Roles</h2>
-<h3 id="add-a-new-role"><a name="add-a-new-role" class="plugin-anchor" href="#add-a-new-role"><i class="fa fa-link" aria-hidden="true"></i></a>Add a new Role</h3>
-<table>
-<thead>
-<tr>
-<th>Display Name</th>
-<th>Allowed Member Types</th>
-<th>Value</th>
-<th>Description</th>
-<th>Do you want to enable this app role?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Impersonate</td>
-<td>Both (Users/Groups + Applications)</td>
-<td>ApplicationImpersonation</td>
-<td>Impersonate</td>
-<td>True</td>
-</tr>
-</tbody>
-</table>
-<h2 id="api-permissions"><a name="api-permissions" class="plugin-anchor" href="#api-permissions"><i class="fa fa-link" aria-hidden="true"></i></a>API permissions</h2>
-<p>Click the <code>Grant admin consent for *****</code></p>
-<p>It should show <code>Granted For ****</code> under the status column for the row <code>full_access_as_app</code></p>
 <h1 id="references"><a name="references" class="plugin-anchor" href="#references"><i class="fa fa-link" aria-hidden="true"></i></a>References</h1>
 <p><a href="https://portal.azure.com/#home" target="_blank">Azure Portal</a></p>
 
@@ -1464,7 +1368,7 @@ urn:ietf:wg:oauth:2.0:oob
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Azure Setup - Delegated Access","level":"1.6.1","depth":2,"next":{"title":"Azure Setup - Application Access","level":"1.6.2","depth":2,"path":"reference/azure-setup-application.md","ref":"reference/azure-setup-application.md","articles":[]},"previous":{"title":"Reference","level":"1.6","depth":1,"ref":"","articles":[{"title":"Azure Setup - Delegated Access","level":"1.6.1","depth":2,"path":"reference/azure-setup.md","ref":"reference/azure-setup.md","articles":[]},{"title":"Azure Setup - Application Access","level":"1.6.2","depth":2,"path":"reference/azure-setup-application.md","ref":"reference/azure-setup-application.md","articles":[]},{"title":"Best Practises","level":"1.6.3","depth":2,"path":"reference/best-practises.md","ref":"reference/best-practises.md","articles":[]},{"title":"Cold Standby Failover Procedure","level":"1.6.4","depth":2,"path":"reference/cold-standby-failover-procedure-text.md","ref":"reference/cold-standby-failover-procedure-text.md","articles":[]},{"title":"Document Export","level":"1.6.5","depth":2,"path":"reference/docexport.md","ref":"reference/docexport.md","articles":[]},{"title":"Encryption","level":"1.6.6","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},{"title":"Linking","level":"1.6.7","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},{"title":"Logging","level":"1.6.8","depth":2,"path":"reference/logging-text.md","ref":"reference/logging-text.md","articles":[]},{"title":"Jobs","level":"1.6.9","depth":2,"path":"reference/jobs-text.md","ref":"reference/jobs-text.md","articles":[]},{"title":"Document Properties","level":"1.6.10","depth":2,"path":"reference/document-properties-text.md","ref":"reference/document-properties-text.md","articles":[]},{"title":"Encryption","level":"1.6.11","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},{"title":"Events","level":"1.6.12","depth":2,"path":"reference/events.md","ref":"reference/events.md","articles":[]},{"title":"Health","level":"1.6.13","depth":2,"path":"reference/health-text.md","ref":"reference/health-text.md","articles":[]},{"title":"High Availability","level":"1.6.14","depth":2,"path":"reference/high-availability-text.md","ref":"reference/high-availability-text.md","articles":[]},{"title":"Jobs","level":"1.6.15","depth":2,"path":"reference/jobs-text.md","ref":"reference/jobs-text.md","articles":[]},{"title":"Linking","level":"1.6.16","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},{"title":"Logging","level":"1.6.17","depth":2,"path":"reference/logging-text.md","ref":"reference/logging-text.md","articles":[]},{"title":"Licensing","level":"1.6.18","depth":2,"path":"reference/licensing-text.md","ref":"reference/licensing-text.md","articles":[]},{"title":"Linking Syntax","level":"1.6.19","depth":2,"path":"reference/linking-syntax-text.md","ref":"reference/linking-syntax-text.md","articles":[]},{"title":"Maintenance","level":"1.6.20","depth":2,"path":"reference/maintenance-text.md","ref":"reference/maintenance-text.md","articles":[]},{"title":"Permissions","level":"1.6.21","depth":2,"path":"reference/permissions.md","ref":"reference/permissions.md","articles":[]},{"title":"PQL","level":"1.6.22","depth":2,"path":"reference/pql-text.md","ref":"reference/pql-text.md","articles":[]},{"title":"Regex","level":"1.6.23","depth":2,"path":"reference/regex-text.md","ref":"reference/regex-text.md","articles":[]},{"title":"Standard Expression","level":"1.6.24","depth":2,"path":"reference/standard-expression-text.md","ref":"reference/standard-expression-text.md","articles":[]},{"title":"System Nodes","level":"1.6.25","depth":2,"path":"reference/system-nodes-text.md","ref":"reference/system-nodes-text.md","articles":[]},{"title":"System Properties","level":"1.6.26","depth":2,"path":"reference/system-properties.md","ref":"reference/system-properties.md","articles":[]},{"title":"Troubleshooting","level":"1.6.27","depth":2,"ref":"","articles":[]},{"title":"CPU Usage","level":"1.6.28","depth":2,"path":"troubleshooting/cpu-usage-text.md","ref":"troubleshooting/cpu-usage-text.md","articles":[]},{"title":"DB Tuning","level":"1.6.29","depth":2,"path":"troubleshooting/db-tuning-text.md","ref":"troubleshooting/db-tuning-text.md","articles":[]},{"title":"Exceptions","level":"1.6.30","depth":2,"path":"troubleshooting/exceptions-text.md","ref":"troubleshooting/exceptions-text.md","articles":[]},{"title":"Dripstat Configuration","level":"1.6.31","depth":2,"path":"troubleshooting/dripstat-configuration-text.md","ref":"troubleshooting/dripstat-configuration-text.md","articles":[]},{"title":"Messaging","level":"1.6.32","depth":2,"path":"troubleshooting/messaging.md","ref":"troubleshooting/messaging.md","articles":[]},{"title":"Performance","level":"1.6.33","depth":2,"path":"troubleshooting/performance-text.md","ref":"troubleshooting/performance-text.md","articles":[]},{"title":"Troubleshooting Client","level":"1.6.34","depth":2,"path":"troubleshooting/troubleshooting-client-text.md","ref":"troubleshooting/troubleshooting-client-text.md","articles":[]},{"title":"Troubleshooting Server","level":"1.6.35","depth":2,"path":"troubleshooting/troubleshooting-server.md","ref":"troubleshooting/troubleshooting-server.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/azure-setup.md","mtime":"2023-04-26T09:53:10.405Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-04-26T09:53:50.396Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Azure Setup - Delegated Access","level":"1.6.1","depth":2,"next":{"title":"Azure Setup - Application Access","level":"1.6.2","depth":2,"path":"reference/azure-setup-application.md","ref":"reference/azure-setup-application.md","articles":[]},"previous":{"title":"Reference","level":"1.6","depth":1,"ref":"","articles":[{"title":"Azure Setup - Delegated Access","level":"1.6.1","depth":2,"path":"reference/azure-setup.md","ref":"reference/azure-setup.md","articles":[]},{"title":"Azure Setup - Application Access","level":"1.6.2","depth":2,"path":"reference/azure-setup-application.md","ref":"reference/azure-setup-application.md","articles":[]},{"title":"Best Practises","level":"1.6.3","depth":2,"path":"reference/best-practises.md","ref":"reference/best-practises.md","articles":[]},{"title":"Cold Standby Failover Procedure","level":"1.6.4","depth":2,"path":"reference/cold-standby-failover-procedure-text.md","ref":"reference/cold-standby-failover-procedure-text.md","articles":[]},{"title":"Document Export","level":"1.6.5","depth":2,"path":"reference/docexport.md","ref":"reference/docexport.md","articles":[]},{"title":"Encryption","level":"1.6.6","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},{"title":"Linking","level":"1.6.7","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},{"title":"Logging","level":"1.6.8","depth":2,"path":"reference/logging-text.md","ref":"reference/logging-text.md","articles":[]},{"title":"Jobs","level":"1.6.9","depth":2,"path":"reference/jobs-text.md","ref":"reference/jobs-text.md","articles":[]},{"title":"Document Properties","level":"1.6.10","depth":2,"path":"reference/document-properties-text.md","ref":"reference/document-properties-text.md","articles":[]},{"title":"Encryption","level":"1.6.11","depth":2,"path":"reference/encryption-text.md","ref":"reference/encryption-text.md","articles":[]},{"title":"Events","level":"1.6.12","depth":2,"path":"reference/events.md","ref":"reference/events.md","articles":[]},{"title":"Health","level":"1.6.13","depth":2,"path":"reference/health-text.md","ref":"reference/health-text.md","articles":[]},{"title":"High Availability","level":"1.6.14","depth":2,"path":"reference/high-availability-text.md","ref":"reference/high-availability-text.md","articles":[]},{"title":"Jobs","level":"1.6.15","depth":2,"path":"reference/jobs-text.md","ref":"reference/jobs-text.md","articles":[]},{"title":"Linking","level":"1.6.16","depth":2,"path":"reference/linking-text.md","ref":"reference/linking-text.md","articles":[]},{"title":"Logging","level":"1.6.17","depth":2,"path":"reference/logging-text.md","ref":"reference/logging-text.md","articles":[]},{"title":"Licensing","level":"1.6.18","depth":2,"path":"reference/licensing-text.md","ref":"reference/licensing-text.md","articles":[]},{"title":"Linking Syntax","level":"1.6.19","depth":2,"path":"reference/linking-syntax-text.md","ref":"reference/linking-syntax-text.md","articles":[]},{"title":"Maintenance","level":"1.6.20","depth":2,"path":"reference/maintenance-text.md","ref":"reference/maintenance-text.md","articles":[]},{"title":"Permissions","level":"1.6.21","depth":2,"path":"reference/permissions.md","ref":"reference/permissions.md","articles":[]},{"title":"PQL","level":"1.6.22","depth":2,"path":"reference/pql-text.md","ref":"reference/pql-text.md","articles":[]},{"title":"Regex","level":"1.6.23","depth":2,"path":"reference/regex-text.md","ref":"reference/regex-text.md","articles":[]},{"title":"Standard Expression","level":"1.6.24","depth":2,"path":"reference/standard-expression-text.md","ref":"reference/standard-expression-text.md","articles":[]},{"title":"System Nodes","level":"1.6.25","depth":2,"path":"reference/system-nodes-text.md","ref":"reference/system-nodes-text.md","articles":[]},{"title":"System Properties","level":"1.6.26","depth":2,"path":"reference/system-properties.md","ref":"reference/system-properties.md","articles":[]},{"title":"Troubleshooting","level":"1.6.27","depth":2,"ref":"","articles":[]},{"title":"CPU Usage","level":"1.6.28","depth":2,"path":"troubleshooting/cpu-usage-text.md","ref":"troubleshooting/cpu-usage-text.md","articles":[]},{"title":"DB Tuning","level":"1.6.29","depth":2,"path":"troubleshooting/db-tuning-text.md","ref":"troubleshooting/db-tuning-text.md","articles":[]},{"title":"Exceptions","level":"1.6.30","depth":2,"path":"troubleshooting/exceptions-text.md","ref":"troubleshooting/exceptions-text.md","articles":[]},{"title":"Dripstat Configuration","level":"1.6.31","depth":2,"path":"troubleshooting/dripstat-configuration-text.md","ref":"troubleshooting/dripstat-configuration-text.md","articles":[]},{"title":"Messaging","level":"1.6.32","depth":2,"path":"troubleshooting/messaging.md","ref":"troubleshooting/messaging.md","articles":[]},{"title":"Performance","level":"1.6.33","depth":2,"path":"troubleshooting/performance-text.md","ref":"troubleshooting/performance-text.md","articles":[]},{"title":"Troubleshooting Client","level":"1.6.34","depth":2,"path":"troubleshooting/troubleshooting-client-text.md","ref":"troubleshooting/troubleshooting-client-text.md","articles":[]},{"title":"Troubleshooting Server","level":"1.6.35","depth":2,"path":"troubleshooting/troubleshooting-server.md","ref":"troubleshooting/troubleshooting-server.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reference/azure-setup.md","mtime":"2023-04-26T09:53:36.189Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-04-26T09:54:15.919Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
