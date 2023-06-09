@@ -53,7 +53,7 @@ email.smime.out.<email address>=<path to X509 public certificate>
 ```
 e.g.
 ```
-email.smime.out.confidential@example.com=C:\public.cert
+email.smime.out.confidential@example.com=C:\\MyDirectory\\public.cert
 ```
 
 To test: Email anything from PaperTrail to that email and it should automatically be encrypted.
