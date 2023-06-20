@@ -36,6 +36,26 @@ Folder supports multiple folder types:
 | smb://server1/path    | 	SMB/CIFS format supported on both Linux and Windows - Integrated Authentication is not supported
 | ftp://server1/path     | 	FTP server supported on both Windows + Linux
 
+### Setup of a CIFS Share (Access Windows Share from Linux Server)
+
+**Install the cifs-utils utility**<br>
+`sudo apt-get install cifs-utils`
+
+**Setting up the mount point manually once-off (will revert after server restart)**<br>
+```sudo mount.cifs [source on Windows] [mount point on Linux] -o credentials=[path to credentials file]```<br>
+e.g.<br>
+```sudo mount.cifs //10.0.1.4/share/ /mnt/papertrailexport/ -o credentials=/etc/smb_credentials.txt```
+
+**Credentials file** - `/etc/smb_credentials.txt`<br>
+```
+username=support
+password=MyPlaintextPassword
+domain=egis-software.com
+```
+
+**To automount the remote Windows share on Linux server startup**<br>
+edit the `/etc/fstab` file, adding the below entry<br>
+`//10.0.1.4/share/ /mnt/papertrailexport/ cifs credentials=/etc/smb_credentials.txt 0 0`
 
 ### Email
 
