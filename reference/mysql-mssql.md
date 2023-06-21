@@ -31,8 +31,8 @@ Refer to the link below for the full article. Support article is a summary<br>
 * Enter the MS-SQL server details and credentials
 
 **6. MySQL Metadata Explorer > Schema Mapping > Modify**
-* Change the target schema e.g. `[ms-sql-db].ptmysql`   ->   `[ms-sql-db].dbo`<br>
-![SSMA](../images/ssma-01.png)
+* Change the target schema e.g. `[ms-sql-db].ptmysql`   ->   `[ms-sql-db].dbo`<br><br>
+![SSMA](../images/ssma-01.png)<br><br>
 
 **7. Ribbon > Convert Schema**
 * After the conversion finishes, compare and review the converted objects to the original objects to identify potential problems and address them based on the recommendations
