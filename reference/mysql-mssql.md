@@ -4,8 +4,8 @@
 
 * Currently, MySQL 5.6 and 5.7 are supported
 * SQL Server Migration Assistant for MySQL (SSMA for MySQL)
-* SSMA as well as it's dependenecies can be downloaded from releases - SQL Server Migration Assistant node. Install the files in the numbered order
-* Connectivity to both the MySQL and MS-SQL DBs from the host that the SSMA is installed on (may require openning of remote access hosts in the relevant SQL configuration files)
+* SSMA as well as it's dependencies can be downloaded from releases - SQL Server Migration Assistant node. Install the files in the numbered order
+* Connectivity to both the MySQL and MS-SQL DBs from the host that the SSMA is installed on (may require opening of remote access hosts in the relevant SQL configuration files)
 
 ## Reference
 Refer to the link below for the full article. Support article is a summary<br>
