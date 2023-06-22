@@ -63,7 +63,7 @@
   * [Standard Expression](reference/standard-expression-text.md)
   * [System Nodes](reference/system-nodes-text.md)
   * [System Properties](reference/system-properties.md)
-  * Troubleshooting
+* Troubleshooting
   * [CPU Usage](troubleshooting/cpu-usage-text.md)
   * [DB Tuning](troubleshooting/db-tuning-text.md)
   * [Exceptions](troubleshooting/exceptions-text.md)
