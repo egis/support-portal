@@ -13,6 +13,7 @@
   * [SSL](configuration/ssl.md)
   * [Single-Sign-On (SSO)](configuration/sso-text.md)
   * [Template Extraction](configuration/template-extraction.md)  
+  * [TemplateLess Extraction](configuration/templateless-extraction.md)
   * [User Export and Import](configuration/user-export-and-import.md)
   * [User Management](configuration/user-management.md)
   * [Queues](configuration/queues.md)
