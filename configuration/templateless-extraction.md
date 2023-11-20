@@ -62,7 +62,7 @@ aws.textract.region.url=https://textract.us-east-1.amazonaws.com
 
 ```
 
-##### IMPORTANT NOTE:
+### IMPORTANT NOTE:
 
 Dynamic property `aws.secret.*` can be any secret for a user
 
