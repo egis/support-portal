@@ -19,7 +19,7 @@ Following the guide: [Template Extraction](configuration/template-extraction.md)
 
 External Extraction
 * Uses remote extraction instead
-Synchronous: 
+Asynchronous: 
 * Off: Will post and receive feedback immediately
   * Event: document.external_extraction - indicates the extraction is done
 * On: Will post and await response when it is done 
