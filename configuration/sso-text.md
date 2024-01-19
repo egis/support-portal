@@ -14,7 +14,7 @@ From __Services →Properties →SSO (SAML)__, select these fields:
 *  __Login Mapping:__ The element in the SAML token that maps to the login name in PaperTrail. Usually, the element is NameID.  
 *  __Login Prefix:__ If the identity provider NameID is digits only, add users in PaperTrail with a prefix specified here in their login. eg. Idp = `1234` and PaperTrail User Login = `u1234`  
 
-To make all authentication use SAML, change the **Services→Properties→Front End→Main Page property** to */saml*.  
+To make all authentication use SAML, change the **Services→Properties→Front End→Login Page property** to */saml*.  
 
 ## Windows Based SSO (NTLM)
 
