@@ -1215,10 +1215,16 @@
 <p>Following the guide: <a href="configuration/template-extraction.md">Template Extraction</a> </p>
 <h4 id="create-a-rule-on-the-node"><a name="create-a-rule-on-the-node" class="plugin-anchor" href="#create-a-rule-on-the-node"><i class="fa fa-link" aria-hidden="true"></i></a>Create a rule on the node</h4>
 <p><img src="../images/tmp-ext.png" alt="Template Rule">   </p>
-<p>External Extraction</p>
+<p>External Extraction:</p>
 <ul>
-<li>Uses remote extraction instead
-Asynchronous: </li>
+<li>Uses remote extraction instead</li>
+</ul>
+<p>Ocr:</p>
+<ul>
+<li>If ticked, extraction will include an ocr&apos;d version of the pdf</li>
+</ul>
+<p>Asynchronous: </p>
+<ul>
 <li>Off: Will post and receive feedback immediately<ul>
 <li>Event: document.external_extraction - indicates the extraction is done</li>
 </ul>
@@ -1227,14 +1233,30 @@ Asynchronous: </li>
 <li>Events:<ul>
 <li>document.extraction_requested - indicates request has been sent</li>
 <li>document.extraction_received - indicates request has been received</li>
-<li>document.failed_analyzed_expenses - failed to extract
-Normalize Property:</li>
-<li>a name of a property with key map values, eg: <code>test.normalize.keys=SUB_TOTAL=sub_total</code></li>
+<li>document.failed_analyzed_expenses - failed to extract</li>
+<li>document.external_extraction - for sync extraction process complete</li>
+<li>document.document_ocr_success - indicates ocr has been dropped</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
+<p>Normalize Property:</p>
+<ul>
+<li>mapping file of value sets, example:</li>
+<li>Create in node: <code>System/data maps</code></li>
+</ul>
+<pre><code class="lang-csv">field,index,format,expression,replacement
+INVOICE_NUMBER,invoice_number,text,
+INVOICE_DATE,invoice_date,date,dd/MM/yyyy
+INVOICE_TOTAL,total_incl,double,&quot;0,0.00&quot;
+ADDRESS,home_address,text,,&quot; &quot;
+ADDRESS_BLOCK,address,text,
+RECEIVER_NAME,recipient,text,
+CITY,city_or_town,text,,
+VENDOR_VAT_NUMBER,vat_number,text,,
+INVOICE_RECEIPT_DATE,invoice_date,date,dd/MM/yyyy,
+</code></pre>
 <h2 id="server-side-configuration"><a name="server-side-configuration" class="plugin-anchor" href="#server-side-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Server Side Configuration</h2>
 <h3 id="required-properties"><a name="required-properties" class="plugin-anchor" href="#required-properties"><i class="fa fa-link" aria-hidden="true"></i></a>Required Properties:</h3>
 <pre><code class="lang-properties"><span class="na">aws.textract.access.key</span><span class="o">=</span><span class="s">[AccessKey]</span>
@@ -1310,7 +1332,7 @@ create a property called <code>aws.secret.api_egis_dev=anotherCoolSecret</code><
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"TemplateLess Extraction","level":"1.2.14","depth":2,"next":{"title":"User Export and Import","level":"1.2.15","depth":2,"path":"configuration/user-export-and-import.md","ref":"configuration/user-export-and-import.md","articles":[]},"previous":{"title":"Template Extraction","level":"1.2.13","depth":2,"path":"configuration/template-extraction.md","ref":"configuration/template-extraction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/templateless-extraction.md","mtime":"2024-01-19T12:36:58.457Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-01-19T12:37:43.784Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"TemplateLess Extraction","level":"1.2.14","depth":2,"next":{"title":"User Export and Import","level":"1.2.15","depth":2,"path":"configuration/user-export-and-import.md","ref":"configuration/user-export-and-import.md","articles":[]},"previous":{"title":"Template Extraction","level":"1.2.13","depth":2,"path":"configuration/template-extraction.md","ref":"configuration/template-extraction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["edit-link","etoc","anchors","expandable-chapters","pygments"],"pluginsConfig":{"etoc":{"mindepth":3,"maxdepth":4,"header":1,"h2lb":3,"notoc":false},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"pygments":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/egis/support-portal/blob/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/templateless-extraction.md","mtime":"2024-02-02T07:48:35.328Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-02-02T07:49:08.325Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
