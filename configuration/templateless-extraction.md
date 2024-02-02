@@ -17,8 +17,12 @@ Following the guide: [Template Extraction](configuration/template-extraction.md)
 
 ![Template Rule](../images/tmp-ext.png)   
 
-External Extraction
+External Extraction:
 * Uses remote extraction instead
+
+Ocr:
+* If ticked, extraction will include an ocr'd version of the pdf
+
 Asynchronous: 
 * Off: Will post and receive feedback immediately
   * Event: document.external_extraction - indicates the extraction is done
@@ -27,8 +31,25 @@ Asynchronous:
     * document.extraction_requested - indicates request has been sent
     * document.extraction_received - indicates request has been received
     * document.failed_analyzed_expenses - failed to extract
+    * document.external_extraction - for sync extraction process complete
+    * document.document_ocr_success - indicates ocr has been dropped
+
 Normalize Property:
-    * a name of a property with key map values, eg: `test.normalize.keys=SUB_TOTAL=sub_total`
+  * mapping file of value sets, example:
+  * Create in node: `System/data maps`
+
+```csv
+field,index,format,expression,replacement
+INVOICE_NUMBER,invoice_number,text,
+INVOICE_DATE,invoice_date,date,dd/MM/yyyy
+INVOICE_TOTAL,total_incl,double,"0,0.00"
+ADDRESS,home_address,text,," "
+ADDRESS_BLOCK,address,text,
+RECEIVER_NAME,recipient,text,
+CITY,city_or_town,text,,
+VENDOR_VAT_NUMBER,vat_number,text,,
+INVOICE_RECEIPT_DATE,invoice_date,date,dd/MM/yyyy,
+```
 
 ## Server Side Configuration
 
