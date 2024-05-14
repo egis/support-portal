@@ -26,6 +26,8 @@ Libraries need to be copied to `/usr/lib/` on Linux installations. Below is a li
 **Windows:** Install the EXE file, e.g. `C:\Softek812`<br>
 Set the System Path environment variable to include the bin directory, e.g. `C:\Softek812\bin`
 
+**Once the Softek Barcode Reader software has been installed, restart PaperTrail then setup the extractFromBarcode node rule**
+
 Once the above has been completed, an extractFromBarcode node rule can be configured in PaperTrail.
 * Barcode Index: The text index to save the barcode value in `barcode_value`
 * Failed / Passed Index: Boolean indexes (optional) to flag if the extract failed / passed `barcode_failed` / `barcode_read`
