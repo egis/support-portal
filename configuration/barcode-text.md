@@ -29,6 +29,7 @@ Set the System Path environment variable to include the bin directory, e.g. `C:\
 **Once the Softek Barcode Reader software has been installed, restart PaperTrail then setup the extractFromBarcode node rule**
 
 Once the above has been completed, an extractFromBarcode node rule can be configured in PaperTrail.
+* Filter: `filename.toLowerCase().endsWith('.pdf')`
 * Barcode Index: The text index to save the barcode value in `barcode_value`
 * Failed / Passed Index: Boolean indexes (optional) to flag if the extract failed / passed `barcode_failed` / `barcode_read`
 * Advanced: Enter the xml path (see below for format of the xml file) and license here<br>
