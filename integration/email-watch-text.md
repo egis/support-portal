@@ -105,6 +105,16 @@ Should you not be able to connect to a mailbox, with the below error in the logf
  - Windows `-Djavax.net.ssl.trustStore=C:\Program Files\Java\jre1.8.0_221\lib\security\cacerts`<br>
  - Linux `-Djavax.net.ssl.trustStore=/usr/lib/jvm/java-8-oracle/jre/lib/security/cacerts`<br>
 
+### How to obtain the self-signed certificate file
+1. OpenSSL command is available on Linux or Install OpenSSL for Windows (releases under the OpenSSL node)
+2. On Linux systems, openssl should be available to run in the CLI
+3. Windows only: Open CMD prompt as Administrator, Navigate to C:\Program Files\OpenSSL-Win64\bin<br>
+`echo | openssl s_client -connect mymailserver.com:port 2>&1 > mailserver.cer`
+4. Replace `mymailserver.com:port` with the relevant details, e.g. `mail.server.co.za:993`
+5. Edit mailserver.cer and add BEGIN CERTIFICATE AND END CERTIFICATE lines around the certificate as below<br>
+`-----BEGIN CERTIFICATE-----`<br>
+`-----END CERTIFICATE-----`
+
 ## Issues polling mail servers with TLS
 Should you not be able to connect to a mailbox, with the below error in the logfile, the issue is due to a Java update which disables legacy TLS protocols:<br>
 `Failed to connect to: mailbox@outlook.office365.com:993 javax.mail.MessagingException: No appropriate protocol (protocol is disabled or cipher suites are inappropriate); nested exception is: javax.net.ssl.SSLHandshakeException: No appropriate protocol (protocol is disabled or cipher suites are inappropriate)`
