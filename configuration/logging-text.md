@@ -72,7 +72,7 @@ appender("STORAGE", RollingFileAppender) {
     append = true
     rollingPolicy(TimeBasedRollingPolicy) {
         maxHistory = 14
-        FileNamePattern = "logs/storahe-%d{yyyy-MM-dd}.log"
+        FileNamePattern = "logs/storage-%d{yyyy-MM-dd}.log"
     }
     encoder(PatternLayoutEncoder) {
         pattern = "%d{HH:mm:ss.SSS} %level %logger{0} [%X{user}%X{doc}:%X{ip}] %msg%n"
