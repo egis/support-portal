@@ -37,6 +37,7 @@
   * [Data Sources](integration/data-sources-text.md)
   * [Easy PDF](integration/easypdf-text.md)
   * [Email Watch](integration/email-watch-text.md)
+  * [Email Watch - Microsoft Graph](integration/email-watch-graph.md)
   * [Folder Export](integration/folder-export-text.md)
   * [Folder Watch](integration/folder-watch-text.md)
   * [LDAP / Active Directory](integration/ldap-ad-text.md)
